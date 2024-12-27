@@ -220,8 +220,8 @@ export default ${componentName};`;
 
   const handleRemoveAllFiles = () => {
     setStrokeFiles([]);
-    setDuotoneFiles([]);
     setStrokeSvgs([]);
+    setDuotoneFiles([]);
     setDuotoneSvgs([]);
     setIconNames([]);
   };
