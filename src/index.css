@@ -1,0 +1,24 @@
+@layer base;
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+@variant hover (&:hover);
+
+@layer theme {
+}
+@layer base {
+  body {
+    @apply bg-slate-200 dark:bg-slate-800;
+  }
+
+  .perfect-scrollbar {
+    @apply !overflow-y-auto !overflow-x-hidden 
+    [&::-webkit-scrollbar]:!w-2
+    [&::-webkit-scrollbar-thumb]:!rounded-full
+    [&::-webkit-scrollbar-track]:!my-4
+    [&::-webkit-scrollbar-track]:!bg-transparent
+    [&::-webkit-scrollbar-track]:!rounded-full
+    [&::-webkit-scrollbar-thumb]:!bg-slate-800
+    dark:[&::-webkit-scrollbar-thumb]:!bg-red-500;
+  }
+}
