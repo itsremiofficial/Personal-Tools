@@ -1,29 +1,26 @@
-// components/ui/button.tsx
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex relative items-center justify-center text-sm tracking-wide focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer transition-colors duration-300 active:translate-y-[1px]",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
-        outline:
-          "border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground",
+          "bg-icu-900 hover:bg-icu-1100 text-icu-100 hover:text-icu-200 dark:bg-icu-1000 dark:hover:bg-icu-1100 dark:text-icu-400 dark:hover:text-icu-200",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-transparent border dark:border-icu-500 dark:hover:bg-icu-700/70 dark:hover:border-icu-700/50 dark:text-icu-400 dark:hover:text-icu-100 text-icu-900 border-icu-900 hover:bg-icu-900 hover:text-icu-100",
+        neutral:
+          "text-icu-700 hover:text-icu-800 dark:text-icu-500 dark:hover:text-icu-400 bg-icu-300 dark:bg-icu-900/70 hover:bg-icu-400/80 dark:hover:bg-icu-1000/50",
+        danger:
+          " bg-red-200 hover:bg-red-300/80 text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300 dark:bg-red-700/20 dark:hover:bg-red-700/30",
       },
       size: {
-        default: "h-9 px-4 py-2",
-        sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-10 rounded-md px-8",
-        icon: "h-9 w-9",
+        default: "px-6 py-3 rounded-xl",
+        sm: "rounded-md px-3 text-xs",
+        lg: "rounded-2xl px-8 py-4",
+        icon: "p-3 rounded-2xl !aspect-square",
       },
     },
     defaultVariants: {
