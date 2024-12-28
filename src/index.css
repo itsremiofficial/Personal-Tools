@@ -6,6 +6,8 @@
 
 @theme inline {
   --font-display: "Satoshi", "sans-serif";
+  --color-accent: oklch(64.2% 0.17 282);
+  --color-accent-alt: oklch(40.5% 0.18 279);
   --color-icu-100: oklch(97.6% 0.01 262);
   --color-icu-200: oklch(94.5% 0.01 262);
   --color-icu-300: oklch(90.1% 0.02 262);
@@ -17,6 +19,8 @@
   --color-icu-900: oklch(26.6% 0.02 260);
   --color-icu-1000: oklch(16.4% 0.02 264);
   --color-icu-1100: oklch(8.5% 0.01 262);
+
+  --ease-fluid: cubic-bezier(0.7, 0, 0.2, 1);
 }
 @layer base {
   body {
@@ -40,5 +44,26 @@
     [&::-webkit-scrollbar-thumb:hover]:!bg-icu-400
     dark:[&::-webkit-scrollbar-thumb]:!bg-icu-100/10
     dark:[&::-webkit-scrollbar-thumb:hover]:!bg-icu-100/20;
+  }
+
+  .form-radiobtn {
+    /* button */
+    @apply relative flex items-center justify-center font-medium;
+    @apply rounded-xl border-none cursor-pointer outline-none;
+    @apply px-5 py-3;
+    @apply active:translate-y-[1px] transition-colors duration-300;
+    @apply peer-checked:cursor-default peer-checked:pointer-events-none;
+
+    /* radio colors */
+    @apply bg-gray-200 hover:bg-gray-300;
+    @apply text-icu-800 hover:text-icu-900;
+    @apply dark:text-icu-200 dark:hover:text-icu-100;
+    @apply dark:bg-icu-800/70 dark:hover:bg-icu-700/50;
+
+    /* radio checked colors */
+    @apply peer-checked:bg-gray-200/50 peer-checked:hover:bg-gray-200/50;
+    @apply peer-checked:text-icu-600 peer-checked:hover:text-icu-600;
+    @apply peer-checked:dark:bg-icu-900/90 peer-checked:dark:hover:bg-icu-900/90;
+    @apply peer-checked:dark:text-icu-700/70 peer-checked:dark:hover:text-icu-700/70;
   }
 }

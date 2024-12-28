@@ -3,12 +3,12 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(
-  "inline-flex relative items-center justify-center text-sm tracking-wide focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer transition-colors duration-300 active:translate-y-[1px]",
+  "inline-flex relative items-center justify-center text-sm tracking-wide focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer !transition-colors !duration-400 active:translate-y-[1px]",
   {
     variants: {
       variant: {
         default:
-          "bg-icu-900 hover:bg-icu-1100 text-icu-100 hover:text-icu-200 dark:bg-icu-1000 dark:hover:bg-icu-1100 dark:text-icu-400 dark:hover:text-icu-200",
+          "bg-accent hover:bg-accent-alt text-icu-100 hover:text-white dark:bg-icu-1000 dark:hover:bg-icu-1100 dark:text-icu-400 dark:hover:text-icu-200",
         secondary:
           "bg-transparent border dark:border-icu-500 dark:hover:bg-icu-700/70 dark:hover:border-icu-700/50 dark:text-icu-400 dark:hover:text-icu-100 text-icu-900 border-icu-900 hover:bg-icu-900 hover:text-icu-100",
         neutral:
@@ -19,7 +19,7 @@ const buttonVariants = cva(
       size: {
         default: "px-6 py-3 rounded-xl",
         sm: "rounded-md px-3 text-xs",
-        lg: "rounded-2xl px-8 py-4",
+        lg: "rounded-2xl px-10 py-5",
         icon: "p-3 rounded-2xl !aspect-square",
       },
     },

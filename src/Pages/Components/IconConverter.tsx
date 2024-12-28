@@ -1,67 +1,69 @@
 "use client";
 import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Input } from "./ui/input";
 import {
   AiBeautifyIcon,
   Cancel01Icon,
   CloudUploadIcon,
   Delete03Icon,
   Download02Icon,
-  Download04Icon,
 } from "hugeicons-react";
-import { Button } from "./ui/button";
 import { saveAs } from "file-saver";
-import { cn } from "../lib/utils";
 import JSZip from "jszip";
-
+import { cn } from "../../lib/utils";
+import { Input } from "../../components/ui/Input";
+import { Button } from "../../components/ui/Button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../../components/ui/card";
 const IconConverter = () => {
   const [iconNames, setIconNames] = useState<string[]>([]);
   const [strokeSvgs, setStrokeSvgs] = useState<string[]>([]);
   const [duotoneSvgs, setDuotoneSvgs] = useState<string[]>([]);
   const [outputs, setOutputs] = useState<string[]>([]);
-  const [_copied, setCopied] = useState(false);
   const [strokeFiles, setStrokeFiles] = useState<File[]>([]);
   const [duotoneFiles, setDuotoneFiles] = useState<File[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [logs, setLogs] = useState<string[]>([]);
 
-  const handleFileUpload = (
-    type: "stroke" | "duotone",
-    files: FileList | null
-  ) => {
-    if (!files) return;
-    const fileContents: string[] = [];
+  const handleFileUpload = useCallback(
+    (type: "stroke" | "duotone", files: FileList | null) => {
+      if (!files) return;
+      const fileContents: string[] = [];
 
-    Array.from(files).forEach((file, index) => {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        fileContents.push(e.target?.result as string);
-        if (index === files.length - 1) {
-          if (type === "stroke")
-            setStrokeSvgs((prev) => [...prev, ...fileContents]);
-          else setDuotoneSvgs((prev) => [...prev, ...fileContents]);
-        }
-      };
-      reader.onerror = () => {
-        setError(`Failed to read file: ${file.name}`);
-        setLogs((prev) => [...prev, `Failed to read file: ${file.name}`]);
-      };
-      reader.readAsText(file);
-    });
+      Array.from(files).forEach((file, index) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          fileContents.push(e.target?.result as string);
+          if (index === files.length - 1) {
+            if (type === "stroke")
+              setStrokeSvgs((prev) => [...prev, ...fileContents]);
+            else setDuotoneSvgs((prev) => [...prev, ...fileContents]);
+          }
+        };
+        reader.onerror = () => {
+          setError(`Failed to read file: ${file.name}`);
+          setLogs((prev) => [...prev, `Failed to read file: ${file.name}`]);
+        };
+        reader.readAsText(file);
+      });
 
-    const names = Array.from(files).map((file) =>
-      file.name
-        .replace(/-/g, " ")
-        .replace(/\s+/g, " ")
-        .replace(/\.[^/.]+$/, "")
-        .split(" ")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join("")
-    );
-    setIconNames((prev) => [...prev, ...names]);
-  };
+      const names = Array.from(files).map((file) =>
+        file.name
+          .replace(/-/g, " ")
+          .replace(/\s+/g, " ")
+          .replace(/\.[^/.]+$/, "")
+          .split(" ")
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join("")
+      );
+      setIconNames((prev) => [...prev, ...names]);
+    },
+    []
+  );
 
   const onDrop = useCallback(
     (acceptedFiles: File[], type: "stroke" | "duotone") => {
@@ -72,7 +74,7 @@ const IconConverter = () => {
         setDuotoneFiles((prev) => [...prev, ...acceptedFiles]);
       }
     },
-    []
+    [handleFileUpload]
   );
 
   const {
@@ -105,6 +107,36 @@ const IconConverter = () => {
     },
   });
 
+  const replaceAttributes = (data: string, isTwoTone = false) => {
+    let updatedData = data
+      .replace(/<path[^>]*>/g, (match) => {
+        return match
+          .replace(/stroke=["'][#a-zA-Z0-9]+["']/g, 'stroke="currentColor"')
+          .replace(/fill=["'][#a-zA-Z0-9]+["']/g, 'fill="currentColor"');
+      })
+      .replace(
+        /opacity=["'](.*?)["']/g,
+        () => `opacity={duotone ? '0.5' : '1'}`
+      )
+      .replace(/stroke-width=["'](.*?)["']/g, "strokeWidth={width}")
+      .replace(/fill-rule/g, "fillRule")
+      .replace(/clip-rule/g, "clipRule")
+      .replace(/stroke-linecap/g, "strokeLinecap")
+      .replace(/stroke-linejoin/g, "strokeLinejoin")
+      .replace(/stroke-miterlimit/g, "strokeMiterlimit")
+      .replace(/stop-color/g, "stopColor")
+      .replace(/stop-opacity/g, "stopOpacity")
+      .replace(/stroke-dasharray/g, "strokeDasharray")
+      .replace(/stroke-dashoffset/g, "strokeDashoffset");
+
+    updatedData = updatedData.replace(
+      /<svg/g,
+      '<svg fill="none" stroke="none" className={className}'
+    );
+
+    return updatedData;
+  };
+
   const generateComponents = useCallback(() => {
     setLogs([]);
     try {
@@ -117,44 +149,28 @@ const IconConverter = () => {
           name.charAt(0).toUpperCase() + name.slice(1)
         }`;
 
+        const strokeSvg = replaceAttributes(strokeSvgs[index], true);
+        const duotoneSvg = replaceAttributes(duotoneSvgs[index]);
+
         const output = `import { FC } from 'react';
 
 interface ${componentName}Props {
-    className?: string;
-    fill?: boolean;
-    duotone?: boolean;
-    width?: string | number;
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
 }
 
 const ${componentName}: FC<${componentName}Props> = ({ className, fill = false, duotone = true, width = '1.5' }) => {
-    return (
-        <>
-            {!fill ? (
-                ${strokeSvgs[index]
-                  .replace(/stroke="#\[A-Za-z0-9]+"/g, 'stroke="currentColor"')
-                  .replace(/fill="#\[A-Za-z0-9]+"/g, 'fill="currentColor"')
-                  .replace(/stroke-width="[0-9.]+"/g, "strokeWidth={width}")
-                  .replace(
-                    /opacity="[0-9.]+"/g,
-                    "opacity={duotone ? '0.5':'1'}"
-                  )
-                  .replace(/stroke-linecap/g, "strokeLinecap")
-                  .replace(/stroke-linejoin/g, "strokeLinejoin")
-                  .replace(/class=/g, "className=")
-                  .replace(/<svg/g, "<svg className={className}")} 
-            ) : (
-                ${duotoneSvgs[index]
-                  .replace(/stroke="#\[A-Za-z0-9]+"/g, 'stroke="currentColor"')
-                  .replace(/fill="#\[A-Za-z0-9]+"/g, 'fill="currentColor"')
-                  .replace(/class=/g, "className=")
-                  .replace(/<svg/g, "<svg className={className}")
-                  .replace(
-                    /opacity="[0-9.]+"/g,
-                    "opacity={duotone ? '0.5':'1'}"
-                  )}
-            )}
-        </>
-    );
+  return (
+    <>
+      {!fill ? (
+        ${strokeSvg}
+      ) : (
+        ${duotoneSvg}
+      )}
+    </>
+  );
 };
 
 export default ${componentName};`;
@@ -189,16 +205,6 @@ export default ${componentName};`;
       setLogs((prev) => [...prev, "Failed to generate components."]);
     }
   }, [iconNames, strokeSvgs, duotoneSvgs]);
-
-  const handleCopy = useCallback(async () => {
-    try {
-      await navigator.clipboard.writeText(outputs.join("\n\n"));
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (error) {
-      setError("Failed to copy code to clipboard.");
-    }
-  }, [outputs]);
 
   const handleDownload = (output: string, fileName: string) => {
     try {
@@ -239,33 +245,44 @@ export default ${componentName};`;
     setStrokeFiles([]);
     setStrokeSvgs([]);
     setIconNames([]);
+    setOutputs([]);
+    setLogs([]);
   };
+
   const handleRemoveAllDuotoneFiles = () => {
     setDuotoneFiles([]);
     setDuotoneSvgs([]);
     setIconNames([]);
+    setOutputs([]);
+    setLogs([]);
   };
 
   return (
-    <div className="p-4 relative flex justify-center gap-6 mx-auto">
-      <Card className="shadow-lg bg-icu-100 w-full max-w-4xl">
+    <div className="relative flex !flex-col justify-center gap-6 !grow ">
+      <Card
+        className={cn(
+          "p-6 grow border rounded-3xl max-h-screen overflow-y-auto flex flex-col gap-4",
+          "border-icu-300 bg-icu-100",
+          "dark:border-icu-800/70 dark:bg-icu-1000/40"
+        )}
+      >
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="text-xl font-semibold text-icu-800 dark:text-icu-100">
+          <CardTitle className="text-xl font-medium text-icu-800 dark:text-icu-600">
             Icon Component Generator
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="space-y-6 scroll-container relative">
+          <div className="space-y-6 scroll-container relative flex-wrap flex gap-10 flex-col lg:flex-row">
             {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
-            <div>
+            <div className="grow">
               <div
                 {...getStrokeRootProps()}
                 className={cn(
-                  "border-2 border-dashed p-6 pb-10 rounded-3xl cursor-pointer transition-colors duration-300",
+                  "border-2 border-dashed p-6 pb-10 rounded-3xl cursor-pointer transition-colors duration-300 group/input",
                   "border-icu-300/70 hover:border-icu-400/70",
-                  "dark:border-icu-700/40 dark:hover:border-icu-700/50",
+                  "dark:border-icu-800/40 dark:hover:border-icu-800/50",
                   "hover:bg-icu-300/40",
-                  "dark:hover:bg-icu-700/40"
+                  "dark:hover:bg-icu-800/30"
                 )}
               >
                 <Input
@@ -276,18 +293,22 @@ export default ${componentName};`;
                 <label
                   htmlFor="duotoneFiles"
                   className={cn(
-                    "px-3 py-1 rounded-lg text-sm font-medium",
-                    "bg-icu-400 dark:bg-icu-900/30",
-                    "text-icu-800 dark:!text-icu-400"
+                    "px-3 py-1 rounded-full text-sm border tracking-widest",
+                    "border-icu-600 group-hover/input:border-icu-900",
+                    "dark:border-icu-800/30 group-hover/input:dark:border-icu-800",
+                    "text-icu-800 group-hover/input:!text-icu-900",
+                    "dark:!text-icu-600 group-hover/input:dark:!text-icu-400",
+                    "transition-colors duration-300"
                   )}
                 >
                   Line SVGs
                 </label>
                 <p
                   className={cn(
-                    "size-full flex gap-2 flex-col items-center justify-center text-center transition-colors duration-300",
-                    "text-icu-600 hover:text-icu-700",
-                    "dark:text-icu-600 dark:hover:text-icu-500"
+                    "size-full flex gap-2 flex-col items-center justify-center text-center",
+                    "text-icu-700 group-hover/input:text-icu-900",
+                    "dark:text-icu-700 dark:group-hover/input:text-icu-500",
+                    "transition-colors duration-300"
                   )}
                 >
                   <CloudUploadIcon className="size-14" />
@@ -329,8 +350,8 @@ export default ${componentName};`;
                   </div>
                   <Button
                     className="h-fit py-4 gap-2 whitespace-nowrap"
-                    variant={"danger"}
-                    onClick={() => handleRemoveAllStrokeFiles()}
+                    variant="danger"
+                    onClick={handleRemoveAllStrokeFiles}
                   >
                     Clear All
                     <Delete03Icon className="size-5" />
@@ -339,37 +360,41 @@ export default ${componentName};`;
               )}
             </div>
 
-            <div>
+            <div className="grow">
               <div
                 {...getDuotoneRootProps()}
                 className={cn(
-                  "border-2 border-dashed p-6 pb-10 rounded-3xl cursor-pointer transition-colors duration-300",
+                  "border-2 border-dashed p-6 pb-10 rounded-3xl cursor-pointer transition-colors duration-300 group/input",
                   "border-icu-300/70 hover:border-icu-400/70",
-                  "dark:border-icu-700/40 dark:hover:border-icu-700/50",
+                  "dark:border-icu-800/40 dark:hover:border-icu-800/50",
                   "hover:bg-icu-300/40",
-                  "dark:hover:bg-icu-700/40"
+                  "dark:hover:bg-icu-800/30"
                 )}
               >
                 <Input
                   {...getDuotoneInputProps()}
-                  id="duotoneFiles"
+                  id="strokeFiles"
                   className="hidden"
                 />
                 <label
                   htmlFor="duotoneFiles"
                   className={cn(
-                    "px-3 py-1 rounded-lg text-sm font-medium",
-                    "bg-icu-400 dark:bg-icu-900/30",
-                    "text-icu-800 dark:!text-icu-400"
+                    "px-3 py-1 rounded-full text-sm border tracking-widest",
+                    "border-icu-600 group-hover/input:border-icu-900",
+                    "dark:border-icu-800/30 group-hover/input:dark:border-icu-800",
+                    "text-icu-800 group-hover/input:!text-icu-900",
+                    "dark:!text-icu-600 group-hover/input:dark:!text-icu-400",
+                    "transition-colors duration-300"
                   )}
                 >
                   Bulk SVGs
                 </label>
                 <p
                   className={cn(
-                    "size-full flex gap-2 flex-col items-center justify-center text-center transition-colors duration-300",
-                    "text-icu-600 hover:text-icu-700",
-                    "dark:text-icu-600 dark:hover:text-icu-500"
+                    "size-full flex gap-2 flex-col items-center justify-center text-center",
+                    "text-icu-700 group-hover/input:text-icu-900",
+                    "dark:text-icu-700 dark:group-hover/input:text-icu-500",
+                    "transition-colors duration-300"
                   )}
                 >
                   <CloudUploadIcon className="size-14" />
@@ -412,8 +437,8 @@ export default ${componentName};`;
                   </div>
                   <Button
                     className="h-fit py-4 gap-2 whitespace-nowrap"
-                    variant={"danger"}
-                    onClick={() => handleRemoveAllDuotoneFiles()}
+                    variant="danger"
+                    onClick={handleRemoveAllDuotoneFiles}
                   >
                     Clear All
                     <Delete03Icon className="size-5" />
@@ -421,75 +446,89 @@ export default ${componentName};`;
                 </div>
               )}
             </div>
+          </div>
 
-            <Button
-              onClick={generateComponents}
-              disabled={strokeFiles.length === 0 || duotoneFiles.length === 0}
-              className="w-full sm:w-auto"
-            >
-              Generate <AiBeautifyIcon className="size-5 ml-1" />
-            </Button>
+          <Button
+            onClick={generateComponents}
+            disabled={strokeFiles.length === 0 || duotoneFiles.length === 0}
+            size={"lg"}
+          >
+            Generate <AiBeautifyIcon className="size-5 ml-1" />
+          </Button>
 
-            {outputs.length > 0 && (
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <label className="block text-xl font-semibold  text-icu-800 dark:text-icu-100">
-                    Generated Components
-                  </label>
-                  <Button
-                    onClick={handleDownloadAll}
-                    className="w-full sm:w-auto gap-2"
-                    variant={"neutral"}
-                  >
-                    Download All <Download02Icon className="size-5 !stroke-2" />
-                  </Button>
-                </div>
-                <div className="flex gap-4 mt-4">
+          {outputs.length > 0 && (
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <label className="block text-xl font-medium  text-icu-800 dark:text-icu-600">
+                  Generated Components
+                </label>
+                <Button
+                  onClick={handleDownloadAll}
+                  className="w-full sm:w-auto gap-2"
+                  variant={"neutral"}
+                >
+                  Download All <Download02Icon className="size-5 !stroke-2" />
+                </Button>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="grow flex gap-4 mt-4 overflow-auto perfect-scrollbar rounded-2xl bg-icu-300/30 dark:bg-icu-900/40 p-3">
                   {outputs.map((output, index) => (
-                    <Card
-                      key={`${iconNames[index]}-${index}`}
-                      className="bg-icu-200 dark:bg-icu-900/40"
+                    <Button
+                      className={cn(
+                        "h-fit py-4 gap-2 whitespace-nowrap",
+                        "!bg-icu-300/70 dark:!bg-icu-800",
+                        "hover:!bg-icu-400/70 dark:hover:!bg-icu-700/50",
+                        "!text-icu-900 dark:!text-icu-400"
+                      )}
+                      variant={"danger"}
+                      onClick={() => handleDownload(output, iconNames[index])}
                     >
-                      <CardHeader className="flex-row gap-4 py-3 px-2 items-center justify-between">
-                        <CardTitle className="pl-3 pr-3 text-icu-900 dark:text-icu-500">
-                          {iconNames[index]}.tsx
-                        </CardTitle>
-                        <Button
-                          size="icon"
-                          variant={"neutral"}
-                          onClick={() =>
-                            handleDownload(output, iconNames[index])
-                          }
-                        >
-                          <Download02Icon />
-                        </Button>
-                      </CardHeader>
-                    </Card>
+                      {iconNames[index]}.tsx
+                      <Download02Icon className="size-5" />
+                    </Button>
                   ))}
                 </div>
+
+                <Button
+                  className="h-fit py-4 gap-2 whitespace-nowrap"
+                  variant={"danger"}
+                  onClick={() => setOutputs([])}
+                >
+                  Clear All
+                  <Delete03Icon className="size-5" />
+                </Button>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </CardContent>
       </Card>
 
-      {logs.length > 0 && (
-        <div className="">
-          <div className="flex flex-col gap-4 min-w-64">
+      {/* LOGS SECTION */}
+      <div
+        className={`opacity-0 scale-0 transition-all duration-700 ease-fluid ${
+          logs.length > 0 && "opacity-100 scale-100"
+        }`}
+      >
+        <div className="flex flex-col gap-2 min-w-64">
+          <div
+            className={cn(
+              "p-6 border rounded-2xl max-h-screen overflow-y-auto flex flex-col gap-6",
+              "border-icu-300 bg-icu-100",
+              "dark:border-icu-800/70 dark:bg-icu-1000/40"
+            )}
+          >
             <label
               className={cn(
-                "w-full py-2 px-4 rounded-xl text-center shadow-md",
-                "text-icu-800 bg-icu-100",
-                "dark:text-icu-100 dark:bg-icu-800"
+                "rounded-full uppercase text-sm tracking-widest font-bold text-center w-max leading-none",
+                "text-icu-700 border-icu-400",
+                "dark:text-icu-600 dark:border-icu-800"
               )}
             >
               Logs
             </label>
             <div
               className={cn(
-                "py-4 px-2 rounded-2xl h-64 overflow-y-auto flex flex-col gap-1 shadow-lg",
-                "bg-icu-100",
-                "dark:bg-icu-800"
+                "overflow-y-auto perfect-scrollbar flex flex-col gap-2"
               )}
             >
               {logs.map((log, index) => {
@@ -523,7 +562,7 @@ export default ${componentName};`;
             </div>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };
