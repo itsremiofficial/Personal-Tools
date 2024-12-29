@@ -1,5 +1,6 @@
 import { lazy } from "react";
-import ColorPalette from "../Pages/ColorPalette";
+const ErrorPage = lazy(() => import("../Pages/ErrorPage"));
+const ColorPalette = lazy(() => import("../Pages/ColorPalette"));
 const IconConverter = lazy(() => import("../Pages/IconConverter"));
 
 const routes = [
@@ -14,11 +15,11 @@ const routes = [
     element: <ColorPalette />,
     layout: "dash",
   },
-  // {
-  //   path: "*",
-  //   element: <ERROR404 />,
-  //   layout: "dash",
-  // },
+  {
+    path: "*",
+    element: <ErrorPage />,
+    layout: "dash",
+  },
 ];
 
 export { routes };
