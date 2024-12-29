@@ -1,4 +1,4 @@
-import{y as Rt,g as ne,r as nt,R as Ne,c as Ct,j as et,a as ft,B as At}from"./index-DaHl23-H.js";/**
+import{y as Rt,g as ne,r as nt,R as Ne,c as Ct,j as et,a as ft,B as At}from"./index-BBRWpMpZ.js";/**
  * @license hugeicons-react v0.2.0
  *
  * See the LICENSE file in the root directory of this source tree.
