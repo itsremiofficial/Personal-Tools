@@ -14,7 +14,7 @@ const buttonVariants = cva(
         neutral:
           "text-icu-700 hover:text-icu-800 dark:text-icu-500 dark:hover:text-icu-400 bg-icu-300 dark:bg-icu-900/70 hover:bg-icu-400/80 dark:hover:bg-icu-1000/50",
         danger:
-          " bg-red-200 hover:bg-red-300/80 text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300 dark:bg-red-700/20 dark:hover:bg-red-700/30",
+          " bg-rose-200 hover:bg-rose-300/80 text-rose-500 hover:text-rose-600 dark:text-rose-400 dark:hover:text-rose-300 dark:bg-rose-700/20 dark:hover:bg-rose-700/30",
       },
       size: {
         default: "px-6 py-3 rounded-xl",

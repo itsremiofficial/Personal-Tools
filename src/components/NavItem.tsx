@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { cn } from "../lib/utils";
 import Smooth from "./Common/Smooth";
-import { IconProps } from "../types/types";
+import { IconProps } from "../types";
 
 interface NavItemProps {
   path: string;

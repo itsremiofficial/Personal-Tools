@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IconProps } from "../../types/types";
+import { IconProps } from "../../types";
 
 const IconMoon: FC<IconProps> = ({
   className,
