@@ -1,51 +1,36 @@
-import { useCallback, useEffect, useState } from "react";
-import { useLocation, Link } from "react-router-dom";
+import React, { useMemo } from "react";
+import { useLocation } from "react-router-dom";
 import Logo from "../components/Logo";
 import { cn } from "../lib/utils";
-import { ArrowRight01Icon, Moon02Icon, Sun01Icon } from "hugeicons-react";
+import { ArrowRight01Icon } from "hugeicons-react";
 import IconPalette from "../components/Icon/Palette";
-import { IconProps } from "../types/types";
-import IconLayers from "../components/Icon/IconLayers";
-import IconMoon from "../components/Icon/IconMoon";
-import IconSun from "../components/Icon/IconSun";
+import { IconLayers, IconMoon, IconSun } from "../components/Icon";
+import { useTheme } from "../hooks/useTheme";
+import { useSidebar } from "../hooks/useSidebar";
+import { NavItem } from "../components/NavItem";
 
 const Sidebar = () => {
-  const [isDark, setDark] = useState(() => {
-    const savedMode = localStorage.getItem("isDark");
-    return savedMode ? JSON.parse(savedMode) : true;
-  });
-
-  useEffect(() => {
-    localStorage.setItem("isDark", JSON.stringify(isDark));
-    document.documentElement.classList.toggle("dark", isDark);
-  }, [isDark]);
-
-  const toggleDark = useCallback(() => {
-    setDark((prevMode: boolean) => !prevMode);
-  }, []);
-
-  const [isOpen, setIsOpen] = useState(true);
-
-  const toggleSidebar = () => {
-    setIsOpen((prev) => !prev);
-  };
-
+  const { isDark, setDark } = useTheme();
+  const { isOpen, isDelayedClosed, toggleSidebar } = useSidebar();
   const location = useLocation();
 
-  const navItems = [
-    { path: "/", label: "Icon Generator", icon: IconLayers },
-    {
-      path: "/color-palette-generator",
-      label: "Color Generator",
-      icon: IconPalette,
-    },
-  ];
+  const navItems = useMemo(
+    () => [
+      { path: "/", label: "Icon Generator", icon: IconLayers },
+      {
+        path: "/color-palette-generator",
+        label: "Color Generator",
+        icon: IconPalette,
+      },
+    ],
+    []
+  );
 
   return (
     <div
       className={cn(
         "group/sidebar sidebar relative z-[999]",
-        !isOpen && "sidebar_opened"
+        !isOpen && isDelayedClosed && "sidebar_opened"
       )}
     >
       <nav
@@ -82,78 +67,38 @@ const Sidebar = () => {
               )}
             />
           </div>
+
           <div className="grow flex flex-col items-center justify-between">
             <div
               className={cn("flex flex-col items-center gap-6 w-full relative")}
             >
-              <div>
-                <Logo
-                  className={cn(
-                    "!transition-[width] duration-700 h-fit",
-                    "text-icu-700 w-14 py-7",
-                    isOpen && "w-full py-10.5"
-                  )}
-                  fill={isOpen}
-                />
-              </div>
+              <Logo
+                className={cn(
+                  "!transition-[width] duration-700 h-fit",
+                  "text-icu-700 w-14 py-7",
+                  isOpen && "w-32"
+                )}
+                fill
+              />
+
               <ul
                 className={cn(
-                  "flex flex-col items-center justify-center mt-4 perfect-scrollbar px-4 w-full gap-3"
+                  "relative flex flex-col items-center justify-center mt-4 perfect-scrollbar px-4 w-full gap-3"
                 )}
               >
-                {navItems.map((item) => {
-                  const isActive = location.pathname === item.path;
-                  const IconComponent = item.icon as React.FC<IconProps>;
-                  return (
-                    <Link
-                      to={item.path}
-                      key={item.path}
-                      className={cn(
-                        "p-4 w-full overflow-hidden rounded-2xl tracking-wide font-semibold flex items-center gap-3",
-                        "transition-colors duration-300 group/link",
-                        "text-icu-800 hover:text-icu-900",
-                        "bg-icu-200 hover:bg-icu-400/60",
-                        "dark:text-icu-700 dark:hover:text-icu-100",
-                        "dark:bg-icu-800/40 dark:hover:bg-icu-800",
-                        !isOpen && "!items-center",
-                        isActive &&
-                          "bg-icu-400/60 text-icu-900 dark:bg-icu-800 dark:text-icu-300"
-                      )}
-                    >
-                      <IconComponent
-                        fill={isActive}
-                        className="size-6 !aspect-square"
-                      />
-                      <span
-                        className={cn(
-                          "hidden opacity-0 transition-opacity duration-1000 ease-fluid whitespace-nowrap",
-                          isOpen && "opacity-100 inline-flex"
-                        )}
-                      >
-                        {item.label}
-                      </span>
-
-                      <div
-                        className={cn(
-                          "absolute left-full z-[100] opacity-0 translate-x-5 p-2 group-hover/link:translate-x-0 group-hover/link:opacity-100 transition-all duration-300 ease-fluid"
-                        )}
-                      >
-                        <span
-                          className={cn(
-                            "whitespace-nowrap p-2 rounded-xl",
-                            "dark:bg-icu-1000 dark:text-icu-600/80"
-                          )}
-                        >
-                          {item.label}
-                        </span>
-                      </div>
-                    </Link>
-                  );
-                })}
+                {navItems.map((item) => (
+                  <NavItem
+                    key={item.path}
+                    {...item}
+                    isActive={location.pathname === item.path}
+                    isOpen={isOpen}
+                    isDelayedClosed={isDelayedClosed}
+                  />
+                ))}
               </ul>
             </div>
 
-            {/* BOTTOM SECTION */}
+            {/* Theme Toggle Section */}
             <div className="w-full p-2">
               <div className="w-full flex flex-col items-center dark:border-icu-600/25 border border-icu-200 rounded-2xl p-2 pt-4">
                 <span
@@ -164,10 +109,8 @@ const Sidebar = () => {
                 >
                   Theme Toggle
                 </span>
-                <div
-                  className={`flex flex-wrap w-full gap-2
-                  transition-transform duration-700`}
-                >
+                <div className="flex flex-wrap w-full gap-2 transition-transform duration-700">
+                  {/* Dark Mode Toggle */}
                   <span className="grow">
                     <input
                       className="peer hidden"
@@ -181,13 +124,13 @@ const Sidebar = () => {
                     <label
                       htmlFor="dark-mode"
                       className={cn(
-                        `form-radiobtn px-3 py-3 gap-1`,
-                        isOpen && `px-5 gap-1`
+                        "form-radiobtn px-3 py-3 gap-1",
+                        isOpen && "px-5 gap-1"
                       )}
                     >
                       <IconMoon
                         fill={isDark}
-                        className={`!h-fit transform-[width] duration-500 ease-fluid  ${
+                        className={`!h-fit transform-[width] duration-500 ease-fluid ${
                           isOpen ? "w-5" : "w-6"
                         }`}
                       />
@@ -201,6 +144,8 @@ const Sidebar = () => {
                       </span>
                     </label>
                   </span>
+
+                  {/* Light Mode Toggle */}
                   <span className="grow">
                     <input
                       className="peer hidden"
@@ -214,13 +159,13 @@ const Sidebar = () => {
                     <label
                       htmlFor="light-mode"
                       className={cn(
-                        `form-radiobtn px-3 py-3 gap-1`,
-                        isOpen && `px-5 gap-1`
+                        "form-radiobtn px-3 py-3 gap-1",
+                        isOpen && "px-5 gap-1"
                       )}
                     >
                       <IconSun
                         fill={!isDark}
-                        className={`!h-fit transform-[width] duration-500 ease-fluid  ${
+                        className={`!h-fit transform-[width] duration-500 ease-fluid ${
                           isOpen ? "w-5" : "w-6"
                         }`}
                       />
@@ -244,4 +189,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default React.memo(Sidebar);

@@ -4,3 +4,8 @@ export interface IconProps {
   duotone?: boolean;
   width?: string | number;
 }
+
+export interface SmoothProps {
+  className?: string; 
+  children?: React.ReactNode;
+}

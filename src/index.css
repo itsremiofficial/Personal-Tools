@@ -33,7 +33,7 @@
     @apply transition-[width] duration-700 ease-fluid;
   }
   .sidebar.sidebar_opened + .main-content {
-    width: calc(100% - 130px);
+    width: calc(100% - 110px);
   }
   ::-webkit-scrollbar-track {
     @apply bg-transparent rounded-full;
@@ -69,7 +69,17 @@
     @apply peer-checked:dark:bg-icu-900/90 peer-checked:dark:hover:bg-icu-900/90;
     @apply peer-checked:dark:text-icu-700/70 peer-checked:dark:hover:text-icu-700/70;
   }
-
+  .masked {
+    /* --smooth-corners: 10, 3; */
+    mask-image: paint(smooth-corners);
+    -webkit-mask-image: paint(smooth-corners);
+  }
+  .navlink {
+    --smooth-corners: 10, 3;
+  }
+  .sidebar.sidebar_opened .navlink {
+    --smooth-corners: 3;
+  }
   .mockup-code {
     position: relative;
     overflow: hidden;

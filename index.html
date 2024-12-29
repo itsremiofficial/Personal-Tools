@@ -9,5 +9,9 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if (CSS && "paintWorklet" in CSS)
+        CSS.paintWorklet.addModule("/src/lib/smoothCorners.js");
+    </script>
   </body>
 </html>

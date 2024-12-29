@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useMemo } from "react";
 import { ColorVariantButton } from "./ColorVariantButton";
 import { ColorFormatSelector } from "./ColorFormatSelector";
 import { ColorVariant, ColorVariantsProps, ColorFormat } from "../types/color";
@@ -17,7 +17,6 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
   const [colorName, setColorName] = useState<string>(initColorName);
   const [variableName, setVariableName] = useState<string>("color");
   const [copiedColors, setCopiedColors] = useState<Set<string>>(new Set());
-  // const [isPickerVisible, setPickerVisible] = useState<boolean>(false);
   const [colorFormat, setColorFormat] = useState<ColorFormat>("hex");
 
   const [debouncedBaseColor, setDebouncedBaseColor] =
@@ -49,7 +48,10 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
     };
   }, [debouncedColorName]);
 
-  const colorVariants = generateColorVariants(baseColor, colorName);
+  const colorVariants = useMemo(
+    () => generateColorVariants(baseColor, colorName),
+    [baseColor, colorName]
+  );
 
   const getColorValue = useCallback(
     (variant: ColorVariant) => {
@@ -149,8 +151,8 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
         </div>
 
         {colorVariants.length > 8 && (
-          <ul className="w-full mb-2">
-            <label htmlFor="Given Color" className="pb-2">
+          <ul className="flex flex-col gap-2 py-2">
+            <label htmlFor="Given Color" className="dark:text-icu-500 ">
               Given Color
             </label>
             <li key="9">
@@ -164,12 +166,12 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
           </ul>
         )}
 
-        <div>
-          <label htmlFor="Color Variants" className="pb-2 w-full">
+        <div className="flex flex-col gap-2 py-2">
+          <label htmlFor="Color Variants" className="dark:text-icu-500">
             Color Variants
           </label>
-          <div className="flex gap-4 w-full">
-            <ul className="w-full space-y-2">
+          <div className="flex gap-4">
+            <ul className="grow space-y-2">
               {colorVariants.slice(0, 7).map((variant, index) => (
                 <li key={index}>
                   <ColorVariantButton
@@ -182,7 +184,7 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
               ))}
             </ul>
 
-            <ul className="w-full space-y-2">
+            <ul className="grow space-y-2">
               {colorVariants.slice(8, 15).map((variant, index) => (
                 <li key={index + 10}>
                   <ColorVariantButton
