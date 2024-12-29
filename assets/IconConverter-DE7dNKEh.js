@@ -1,4 +1,4 @@
-import{y as Rt,g as ne,r as nt,R as Ne,a as Ct,j as et,c as ft}from"./index-CfUO08K6.js";import{B as At}from"./button-BJ2mmf35.js";/**
+import{y as Rt,g as ne,r as nt,R as Ne,a as Ct,j as et,c as ft}from"./index-yO5Cs0zE.js";import{B as At}from"./button-Bil88n69.js";/**
  * @license hugeicons-react v0.2.0
  *
  * See the LICENSE file in the root directory of this source tree.
