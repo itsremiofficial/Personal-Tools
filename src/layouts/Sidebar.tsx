@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import Logo from "../components/Logo";
 import { cn } from "../lib/utils";
@@ -25,6 +25,13 @@ const Sidebar = () => {
     ],
     []
   );
+
+  const getIsActive = useCallback((path: string) => {
+    if (path === '/') {
+      return location.pathname === path || location.hash === '#/';
+    }
+    return location.pathname === path || location.hash === `#${path}`;
+  }, [location]);
 
   return (
     <div
@@ -90,7 +97,7 @@ const Sidebar = () => {
                   <NavItem
                     key={item.path}
                     {...item}
-                    isActive={location.pathname === item.path}
+                    isActive={getIsActive(item.path)}
                     isOpen={isOpen}
                     isDelayedClosed={isDelayedClosed}
                   />

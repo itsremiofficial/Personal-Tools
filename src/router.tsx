@@ -1,8 +1,8 @@
 import { createHashRouter } from "react-router-dom";
-import App from "../App";
-import MainLayout from "../layouts/MainLayout";
-import IconConverter from "../Pages/IconConverter";
-import ColorPalette from "../Pages/ColorPalette";
+import App from "./App";
+import MainLayout from "./layouts/MainLayout";
+import IconConverter from "./Pages/IconConverter";
+import ColorPalette from "./Pages/ColorPalette";
 
 const router = createHashRouter([
   {
