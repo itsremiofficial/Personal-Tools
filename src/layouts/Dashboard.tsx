@@ -8,16 +8,12 @@ const Dashboard = ({ children }: PropsWithChildren) => {
       {/* BEGIN MAIN CONTAINER */}
       <div className="relative">
         {/* PRELOADER */}
-        <div
-          className={`min-w-screen w-full dark:text-white min-h-screen flex `}
-        >
-          <Sidebar />
-          <div className="grow flex flex-col min-h-screen">
-            {/* BEGIN CONTENT AREA */}
-            <Suspense>{children}</Suspense>
-            {/* END CONTENT AREA */}
-            <Portals />
-          </div>
+        <Sidebar />
+        <div className="main-content flex flex-col min-h-screen ml-auto">
+          {/* BEGIN CONTENT AREA */}
+          <Suspense>{children}</Suspense>
+          {/* END CONTENT AREA */}
+          <Portals />
         </div>
       </div>
     </App>

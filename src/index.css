@@ -6,8 +6,9 @@
 
 @theme inline {
   --font-display: "Satoshi", "sans-serif";
-  --color-accent: oklch(64.2% 0.17 282);
-  --color-accent-alt: oklch(40.5% 0.18 279);
+  --color-accent: oklch(62.73% 0.25 262.4);
+  --color-accent-alt: oklch(55.88% 0.3 265.7);
+
   --color-icu-100: oklch(97.6% 0.01 262);
   --color-icu-200: oklch(94.5% 0.01 262);
   --color-icu-300: oklch(90.1% 0.02 262);
@@ -27,30 +28,32 @@
     @apply bg-icu-200 dark:bg-icu-900 font-display;
   }
 
-  .perfect-scrollbar {
-    @apply !overflow-y-auto !overflow-x-auto 
-    [&::-webkit-scrollbar]:!w-2
-    [&::-webkit-scrollbar]:!h-2
-    [&::-webkit-scrollbar-thumb]:!my-4
-    [&::-webkit-scrollbar-thumb]:!mx-4
-    [&::-webkit-scrollbar-thumb]:!cursor-grab
-    [&::-webkit-scrollbar-thumb]:!rounded-full
-    [&::-webkit-scrollbar-track]:!my-4
-    [&::-webkit-scrollbar-track]:!bg-transparent
-    [&::-webkit-scrollbar-track]:!rounded-full
-    [&::-webkit-scrollbar-thumb]:!transition-colors
-    [&::-webkit-scrollbar-thumb]:!duration-300
-    [&::-webkit-scrollbar-thumb]:!bg-icu-300
-    [&::-webkit-scrollbar-thumb:hover]:!bg-icu-400
-    dark:[&::-webkit-scrollbar-thumb]:!bg-icu-100/10
-    dark:[&::-webkit-scrollbar-thumb:hover]:!bg-icu-100/20;
+  .main-content {
+    width: calc(100% - 280px);
+    @apply transition-[width] duration-700 ease-fluid;
+  }
+  .sidebar.sidebar_opened + .main-content {
+    width: calc(100% - 130px);
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent rounded-full;
+  }
+
+  ::-webkit-scrollbar {
+    @apply bg-transparent w-1.5 h-1.5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-icu-400 cursor-grab;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-icu-800;
   }
 
   .form-radiobtn {
     /* button */
     @apply relative flex items-center justify-center font-medium;
     @apply rounded-xl border-none cursor-pointer outline-none;
-    @apply px-5 py-3;
     @apply active:translate-y-[1px] transition-colors duration-300;
     @apply peer-checked:cursor-default peer-checked:pointer-events-none;
 
@@ -65,5 +68,41 @@
     @apply peer-checked:text-icu-600 peer-checked:hover:text-icu-600;
     @apply peer-checked:dark:bg-icu-900/90 peer-checked:dark:hover:bg-icu-900/90;
     @apply peer-checked:dark:text-icu-700/70 peer-checked:dark:hover:text-icu-700/70;
+  }
+
+  .mockup-code {
+    position: relative;
+    overflow: hidden;
+    overflow-x: auto;
+    min-width: 18rem;
+    border-radius: 1rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    @apply bg-icu-200 text-icu-800;
+    @apply dark:bg-icu-900 dark:text-icu-700/70;
+  }
+  .mockup-code pre span {
+    content: attr(data-prefix);
+    display: inline-flex;
+    text-align: left;
+    @apply size-5 rounded-full relative;
+  }
+
+  .mockup-code pre {
+    padding-bottom: 0.75rem;
+    @apply flex items-center;
+  }
+  .mockup-code pre:before {
+    content: "";
+    margin-right: 2ch;
+  }
+
+  .mockup-code code {
+    line-height: 1.7;
+    padding-left: 1rem;
+  }
+
+  .custom-picker .rcp-fields-floor {
+    display: flex;
   }
 }

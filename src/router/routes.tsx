@@ -1,12 +1,12 @@
 import { lazy } from "react";
 import ColorPalette from "../Pages/ColorPalette";
-const ReactIconGenerator = lazy(() => import("../Pages/ReactIconGeneretor"));
+const IconConverter = lazy(() => import("../Pages/IconConverter"));
 
 const routes = [
   // dashboard
   {
     path: "/",
-    element: <ReactIconGenerator />,
+    element: <IconConverter />,
     layout: "dash",
   },
   {

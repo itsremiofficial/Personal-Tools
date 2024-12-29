@@ -6,6 +6,8 @@ import { ArrowRight01Icon, Moon02Icon, Sun01Icon } from "hugeicons-react";
 import IconPalette from "../components/Icon/Palette";
 import { IconProps } from "../types/types";
 import IconLayers from "../components/Icon/IconLayers";
+import IconMoon from "../components/Icon/IconMoon";
+import IconSun from "../components/Icon/IconSun";
 
 const Sidebar = () => {
   const [isDark, setDark] = useState(() => {
@@ -40,11 +42,16 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="group/sidebar">
+    <div
+      className={cn(
+        "group/sidebar sidebar relative z-[999]",
+        !isOpen && "sidebar_opened"
+      )}
+    >
       <nav
         className={cn(
-          "p-2 min-h-screen h-full transition-all duration-700",
-          isOpen ? "w-[280px]" : "w-[130px]"
+          "fixed p-2 min-h-screen h-full transition-all duration-700 ease-fluid",
+          isOpen ? "w-[280px]" : "w-[110px]"
         )}
       >
         <div
@@ -70,19 +77,21 @@ const Sidebar = () => {
             <ArrowRight01Icon
               className={cn(
                 "transition-transform duration-700 ease-fluid",
-                "size-6 rotate-0 stroke-2",
+                "size-5 rotate-0 stroke-2",
                 isOpen && "rotate-180"
               )}
             />
           </div>
           <div className="grow flex flex-col items-center justify-between">
-            <div className={cn("flex flex-col items-center gap-6 w-full")}>
-              <div className={cn("py-10")}>
+            <div
+              className={cn("flex flex-col items-center gap-6 w-full relative")}
+            >
+              <div>
                 <Logo
                   className={cn(
                     "!transition-[width] duration-700 h-fit",
-                    "text-icu-700 w-14",
-                    isOpen && "w-full"
+                    "text-icu-700 w-14 py-7",
+                    isOpen && "w-full py-10.5"
                   )}
                   fill={isOpen}
                 />
@@ -100,18 +109,44 @@ const Sidebar = () => {
                       to={item.path}
                       key={item.path}
                       className={cn(
-                        "px-4 py-5 w-full relative overflow-hidden rounded-2xl tracking-wide font-semibold flex items-center gap-3",
-                        "transition-colors duration-300",
+                        "p-4 w-full overflow-hidden rounded-2xl tracking-wide font-semibold flex items-center gap-3",
+                        "transition-colors duration-300 group/link",
                         "text-icu-800 hover:text-icu-900",
-                        "bg-icu-200 hover:bg-icu-400",
+                        "bg-icu-200 hover:bg-icu-400/60",
                         "dark:text-icu-700 dark:hover:text-icu-100",
                         "dark:bg-icu-800/40 dark:hover:bg-icu-800",
+                        !isOpen && "!items-center",
                         isActive &&
-                          "bg-icu-400 text-icu-900 dark:bg-icu-800 dark:text-icu-300"
+                          "bg-icu-400/60 text-icu-900 dark:bg-icu-800 dark:text-icu-300"
                       )}
                     >
-                      <IconComponent fill={isActive} />
-                      {item.label}
+                      <IconComponent
+                        fill={isActive}
+                        className="size-6 !aspect-square"
+                      />
+                      <span
+                        className={cn(
+                          "hidden opacity-0 transition-opacity duration-1000 ease-fluid whitespace-nowrap",
+                          isOpen && "opacity-100 inline-flex"
+                        )}
+                      >
+                        {item.label}
+                      </span>
+
+                      <div
+                        className={cn(
+                          "absolute left-full z-[100] opacity-0 translate-x-5 p-2 group-hover/link:translate-x-0 group-hover/link:opacity-100 transition-all duration-300 ease-fluid"
+                        )}
+                      >
+                        <span
+                          className={cn(
+                            "whitespace-nowrap p-2 rounded-xl",
+                            "dark:bg-icu-1000 dark:text-icu-600/80"
+                          )}
+                        >
+                          {item.label}
+                        </span>
+                      </div>
                     </Link>
                   );
                 })}
@@ -123,8 +158,8 @@ const Sidebar = () => {
               <div className="w-full flex flex-col items-center dark:border-icu-600/25 border border-icu-200 rounded-2xl p-2 pt-4">
                 <span
                   className={cn(
-                    "uppercase text-xs mb-2 dark:text-icu-600 text-center",
-                    isOpen && "self-start"
+                    "uppercase text-xs mb-2 font-medium dark:text-icu-600 text-center",
+                    isOpen && "self-start ml-2"
                   )}
                 >
                   Theme Toggle
@@ -145,11 +180,15 @@ const Sidebar = () => {
                     />
                     <label
                       htmlFor="dark-mode"
-                      className={`form-radiobtn gap-1`}
+                      className={cn(
+                        `form-radiobtn px-3 py-3 gap-1`,
+                        isOpen && `px-5 gap-1`
+                      )}
                     >
-                      <Moon02Icon
-                        className={`!w-6 !h-fit transform-[width] duration-500 ease-fluid  ${
-                          isOpen ? "!w-5" : " "
+                      <IconMoon
+                        fill={isDark}
+                        className={`!h-fit transform-[width] duration-500 ease-fluid  ${
+                          isOpen ? "w-5" : "w-6"
                         }`}
                       />
                       <span
@@ -174,11 +213,15 @@ const Sidebar = () => {
                     />
                     <label
                       htmlFor="light-mode"
-                      className={`form-radiobtn gap-1`}
+                      className={cn(
+                        `form-radiobtn px-3 py-3 gap-1`,
+                        isOpen && `px-5 gap-1`
+                      )}
                     >
-                      <Sun01Icon
-                        className={`!w-6 !h-fit transform-[width] duration-500 ease-fluid  ${
-                          isOpen ? "!w-5" : " "
+                      <IconSun
+                        fill={!isDark}
+                        className={`!h-fit transform-[width] duration-500 ease-fluid  ${
+                          isOpen ? "w-5" : "w-6"
                         }`}
                       />
                       <span
