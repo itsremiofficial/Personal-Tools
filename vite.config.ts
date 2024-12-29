@@ -5,5 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/",
+  // Remove base path for local development
+  // Add it only when deploying to GitHub Pages
+  // base: process.env.NODE_ENV === 'production' ? "/Personal-Tools/" : "/",
 });
