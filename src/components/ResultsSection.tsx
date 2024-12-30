@@ -58,7 +58,7 @@ export const ResultsSection = React.memo(
         zip.file(`${names[index]}.tsx`, output);
         setDownloadState((prev) => ({
           status: "zipping",
-          progress: Math.min(((index + 1) / outputs.length) * 50, 50),
+          progress: Math.min(((index + 1) / outputs.length) * 100, 10),
         }));
       });
 
