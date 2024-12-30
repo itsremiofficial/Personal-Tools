@@ -86,7 +86,7 @@ const Sidebar = () => {
                 className={cn(
                   "!transition-[width] duration-700 h-fit",
                   "text-icu-700 w-14 py-7",
-                  isOpen && "w-32"
+                  isOpen && "w-20"
                 )}
                 fill
               />

@@ -130,30 +130,15 @@ export const ResultsSection = React.memo(
       <>
         <div
           className={cn(
-            "p-6 border rounded-4xl flex flex-col gap-6",
+            "p-6 border rounded-4xl flex flex-col gap-2",
             "border-icu-300 bg-icu-100",
             "dark:border-icu-800/70 dark:bg-icu-1000/40",
             disabled && "opacity-50 pointer-events-none"
           )}
         >
-          <div className="flex items-center justify-between mb-2">
-            <h2 className="text-xl font-medium text-icu-800 dark:text-icu-600">
-              Generated Components
-            </h2>
-            <div className="flex flex-col gap-2">
-              <Button
-                onClick={handleDownloadAll}
-                className={cn(
-                  "gap-2 w-54",
-                  downloadState.status !== "idle" && "!px-4 !py-6"
-                )}
-                size={"lg"}
-                disabled={disabled || downloadState.status !== "idle"}
-              >
-                {getButtonContent()}
-              </Button>
-            </div>
-          </div>
+          <h2 className="text-xl font-medium text-icu-800 dark:text-icu-600">
+            Generated Components
+          </h2>
 
           <div className="flex items-center gap-4">
             <div
@@ -178,10 +163,22 @@ export const ResultsSection = React.memo(
             <Button
               onClick={onClear}
               variant="danger"
+              size={"lg"}
               className="h-fit py-4 gap-2 whitespace-nowrap"
               disabled={disabled}
             >
               Clear All <Delete03Icon className="size-5" />
+            </Button>
+            <Button
+              onClick={handleDownloadAll}
+              className={cn(
+                "gap-2 w-54 whitespace-nowrap",
+                downloadState.status !== "idle" && "!px-4 !py-6"
+              )}
+              size={"lg"}
+              disabled={disabled || downloadState.status !== "idle"}
+            >
+              {getButtonContent()}
             </Button>
           </div>
         </div>
@@ -204,39 +201,41 @@ export const ResultsSection = React.memo(
           </label>
           <div
             className={cn(
-              "flex flex-col gap-2 p-4 rounded-3xl h-72 overflow-y-auto",
+              "flex flex-col gap-2 p-4 rounded-3xl",
               "bg-icu-200 dark:bg-icu-1000"
             )}
           >
-            {logs.map((log, index) => {
-              const isSuccess = log.startsWith("Success:");
-              const logText = log.replace(/^(Success|Failed): /, "");
-              return (
-                <div key={index} className="flex items-center gap-3">
-                  <span
-                    className={cn(
-                      "flex justify-center rounded-full uppercase px-2 py-1 text-[11px] tracking-wider leading-none w-[5rem]",
-                      isSuccess
-                        ? "bg-emerald-50 text-emerald-600 ring-emerald-600/20 dark:text-emerald-400 dark:bg-emerald-400/5"
-                        : "bg-rose-50 text-rose-600 ring-rose-600/10 dark:text-rose-400 dark:bg-rose-400/5"
-                    )}
-                  >
-                    <div className="inline-flex items-center gap-1">
-                      {isSuccess ? <>Success</> : <>Failed</>}
-                    </div>
-                  </span>
-                  <span
-                    className={
-                      isSuccess
-                        ? "text-emerald-600 dark:text-emerald-400"
-                        : "text-rose-600 dark:text-rose-400"
-                    }
-                  >
-                    {logText}
-                  </span>
-                </div>
-              );
-            })}
+            <div className="max-h-72 overflow-y-auto">
+              {logs.map((log, index) => {
+                const isSuccess = log.startsWith("Success:");
+                const logText = log.replace(/^(Success|Failed): /, "");
+                return (
+                  <div key={index} className="flex items-center gap-3">
+                    <span
+                      className={cn(
+                        "flex justify-center rounded-full uppercase px-2 py-1 text-[11px] tracking-wider leading-none w-[5rem]",
+                        isSuccess
+                          ? "bg-emerald-50 text-emerald-600 ring-emerald-600/20 dark:text-emerald-400 dark:bg-emerald-400/5"
+                          : "bg-rose-50 text-rose-600 ring-rose-600/10 dark:text-rose-400 dark:bg-rose-400/5"
+                      )}
+                    >
+                      <div className="inline-flex items-center gap-1">
+                        {isSuccess ? <>Success</> : <>Failed</>}
+                      </div>
+                    </span>
+                    <span
+                      className={
+                        isSuccess
+                          ? "text-emerald-600 dark:text-emerald-400"
+                          : "text-rose-600 dark:text-rose-400"
+                      }
+                    >
+                      {logText}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           {error && (
