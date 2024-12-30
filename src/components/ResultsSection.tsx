@@ -204,7 +204,7 @@ export const ResultsSection = React.memo(
           </label>
           <div
             className={cn(
-              "flex flex-col gap-2 p-4 rounded-3xl ",
+              "flex flex-col gap-2 p-4 rounded-3xl h-72 overflow-y-auto",
               "bg-icu-200 dark:bg-icu-1000"
             )}
           >
