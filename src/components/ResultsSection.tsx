@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Button } from "./ui/button";
-import { Download02Icon, Delete03Icon } from "hugeicons-react";
+import {
+  Download02Icon,
+  Delete03Icon,
+  Loading03Icon,
+  CheckmarkCircle01Icon,
+} from "hugeicons-react";
 import { cn } from "../hooks/formatSvgCode.ts";
 import { saveAs } from "file-saver";
 import JSZip from "jszip";
+import { toast } from "sonner";
+import { Progress } from "./ui/progress"; // Add Progress import
 
 interface ResultsSectionProps {
   outputs: string[];
@@ -12,6 +19,11 @@ interface ResultsSectionProps {
   names: string[];
   onClear: () => void;
   disabled?: boolean; // Add disabled prop
+}
+
+interface DownloadState {
+  status: "idle" | "zipping" | "downloading" | "complete";
+  progress: number;
 }
 
 export const ResultsSection = React.memo(
@@ -23,20 +35,95 @@ export const ResultsSection = React.memo(
     onClear,
     disabled = false,
   }: ResultsSectionProps) => {
+    const [downloadState, setDownloadState] = useState<DownloadState>({
+      status: "idle",
+      progress: 0,
+    });
+
     const handleDownload = async (output: string, fileName: string) => {
       if (disabled) return;
       const blob = new Blob([output], { type: "text/plain;charset=utf-8" });
       saveAs(blob, `${fileName}.tsx`);
     };
 
-    const handleDownloadAll = async () => {
+    const handleDownloadAll = useCallback(async () => {
       if (disabled) return;
+
+      // Start zipping
+      setDownloadState({ status: "zipping", progress: 0 });
       const zip = new JSZip();
+
+      // Add files with progress
       outputs.forEach((output, index) => {
         zip.file(`${names[index]}.tsx`, output);
+        setDownloadState((prev) => ({
+          status: "zipping",
+          progress: Math.min(((index + 1) / outputs.length) * 50, 50),
+        }));
       });
-      const content = await zip.generateAsync({ type: "blob" });
-      saveAs(content, "generated-icons.zip");
+
+      try {
+        // Generate zip with progress
+        const content = await zip.generateAsync(
+          {
+            type: "blob",
+            compression: "DEFLATE",
+          },
+          (metadata) => {
+            setDownloadState({
+              status: "downloading",
+              progress: metadata.percent,
+            });
+          }
+        );
+
+        // Save file
+        const downloadPath = await saveAs(content, "generated-icons.zip");
+        setDownloadState({ status: "complete", progress: 100 });
+
+        // Reset after delay
+        setTimeout(() => {
+          setDownloadState({ status: "idle", progress: 0 });
+        }, 3000);
+      } catch (error) {
+        setDownloadState({ status: "idle", progress: 0 });
+        toast.error("Failed to create zip file");
+      }
+    }, [outputs, names, disabled]);
+
+    const getButtonContent = () => {
+      switch (downloadState.status) {
+        case "zipping":
+          return (
+            <>
+              <Loading03Icon className="size-5 animate-spin" />
+              Zipping... {Math.round(downloadState.progress)}%
+            </>
+          );
+        case "downloading":
+          return (
+            <>
+              {/* <Loading03Icon className="size-5 animate-spin" /> */}
+              <Progress
+                value={downloadState.progress}
+                className="w-full h-4"
+              />{" "}
+              {Math.round(downloadState.progress)}%
+            </>
+          );
+        case "complete":
+          return (
+            <>
+              Completed <CheckmarkCircle01Icon />{" "}
+            </>
+          );
+        default:
+          return (
+            <>
+              Download All <Download02Icon className="size-5 !stroke-2" />
+            </>
+          );
+      }
     };
 
     return (
@@ -53,14 +140,19 @@ export const ResultsSection = React.memo(
             <h2 className="text-xl font-medium text-icu-800 dark:text-icu-600">
               Generated Components
             </h2>
-            <Button
-              onClick={handleDownloadAll}
-              variant="neutral"
-              className="gap-2"
-              disabled={disabled}
-            >
-              Download All <Download02Icon className="size-5 !stroke-2" />
-            </Button>
+            <div className="flex flex-col gap-2">
+              <Button
+                onClick={handleDownloadAll}
+                className={cn(
+                  "gap-2 w-54",
+                  downloadState.status !== "idle" && "!px-4 !py-6"
+                )}
+                size={"lg"}
+                disabled={disabled || downloadState.status !== "idle"}
+              >
+                {getButtonContent()}
+              </Button>
+            </div>
           </div>
 
           <div className="flex items-center gap-4">
@@ -128,11 +220,10 @@ export const ResultsSection = React.memo(
                         ? "bg-emerald-50 text-emerald-600 ring-emerald-600/20 dark:text-emerald-400 dark:bg-emerald-400/5"
                         : "bg-rose-50 text-rose-600 ring-rose-600/10 dark:text-rose-400 dark:bg-rose-400/5"
                     )}
-                  >
-                    <div className="inline-flex items-center gap-1">
-                      {isSuccess ? <>Success</> : <>Failed</>}
-                    </div>
-                  </span>
+                  ></span>
+                  <div className="inline-flex items-center gap-1">
+                    {isSuccess ? <>Success</> : <>Failed</>}
+                  </div>
                   <span
                     className={
                       isSuccess

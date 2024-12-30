@@ -1,50 +1,41 @@
 const replaceAttributes = (svg: string, isStroke: boolean = false): string => {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(svg, "image/svg+xml");
-  const svgElement = doc.querySelector("svg");
+  // Use a single regex pass instead of multiple
+  const replacements = {
+    "stroke-width": "strokeWidth",
+    "fill-rule": "fillRule",
+    "clip-rule": "clipRule",
+    "stroke-linecap": "strokeLinecap",
+    "stroke-linejoin": "strokeLinejoin",
+    "stroke-miterlimit": "strokeMiterlimit",
+    "stop-color": "stopColor",
+    "stop-opacity": "stopOpacity",
+    "stroke-dasharray": "strokeDasharray",
+    "stroke-dashoffset": "strokeDashoffset",
+  };
 
-  if (!svgElement) {
-    throw new Error("Invalid SVG");
-  }
+  let processedSvg = svg;
 
-  // Process the SVG string with all replacements
-  let processedSvg = svgElement.outerHTML
-    // Replace path attributes
-    .replace(/<path[^>]*>/g, (match) => {
-      return match
-        .replace(/stroke=["'][#a-zA-Z0-9]+["']/g, 'stroke="currentColor"')
-        .replace(/fill=["'][#a-zA-Z0-9]+["']/g, 'fill="currentColor"');
-    })
-    // Replace opacity with dynamic value
-    .replace(
-      /opacity=["'](.*?)["']/g,
-      (_, value) => `opacity={duotone ? '${value}' : '1'}`
-    )
-    // Convert attribute names to camelCase
-    .replace(/stroke-width=["'](.*?)["']/g, "strokeWidth={width}")
-    .replace(/fill-rule/g, "fillRule")
-    .replace(/clip-rule/g, "clipRule")
-    .replace(/stroke-linecap/g, "strokeLinecap")
-    .replace(/stroke-linejoin/g, "strokeLinejoin")
-    .replace(/stroke-miterlimit/g, "strokeMiterlimit")
-    .replace(/stop-color/g, "stopColor")
-    .replace(/stop-opacity/g, "stopOpacity")
-    .replace(/stroke-dasharray/g, "strokeDasharray")
-    .replace(/stroke-dashoffset/g, "strokeDashoffset");
+  // Do all replacements in one pass
+  processedSvg = processedSvg.replace(
+    new RegExp(Object.keys(replacements).join("|"), "g"),
+    (matched) => replacements[matched as keyof typeof replacements]
+  );
 
-  // Apply stroke/fill based on type
+  // Apply stroke/fill attributes
   if (isStroke) {
     processedSvg = processedSvg
       .replace(/fill=["'].*?["']/g, 'fill="none"')
       .replace(/stroke=["'].*?["']/g, 'stroke="currentColor"');
   } else {
     processedSvg = processedSvg
-      .replace(/stroke=["'].*?["']/g, '')
+      .replace(/stroke=["'].*?["']/g, "")
       .replace(/fill=["'].*?["']/g, 'fill="currentColor"');
   }
 
-  // Add className prop to svg element
-  processedSvg = processedSvg.replace(/<svg/, '<svg className={className}');
+  // Add React props
+  processedSvg = processedSvg
+    .replace(/<svg/, "<svg className={className}")
+    .replace(/opacity=["']([^"']+)["']/g, 'opacity={duotone ? "$1" : "1"}');
 
   return processedSvg;
 };

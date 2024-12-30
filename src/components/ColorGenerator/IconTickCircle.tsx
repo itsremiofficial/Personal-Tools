@@ -1,4 +1,4 @@
-import { Tick01Icon } from "hugeicons-react";
+import { Tick02Icon } from "hugeicons-react";
 import React from "react";
 
 interface IconProps {
@@ -7,5 +7,5 @@ interface IconProps {
 }
 
 export const IconTickCircle: React.FC<IconProps> = ({ className, width }) => {
-  return <Tick01Icon className={className} strokeWidth={width} />;
+  return <Tick02Icon className={className} strokeWidth={width} />;
 };

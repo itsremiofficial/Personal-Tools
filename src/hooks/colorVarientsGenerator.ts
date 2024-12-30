@@ -1,4 +1,4 @@
-import { ColorVariant } from "../../types";
+import { ColorVariant } from "../types";
 import {
   hexToRgb,
   rgbToHex,
@@ -19,7 +19,7 @@ export const generateColorVariants = (
   const variants: ColorVariant[] = [];
 
   // Generate lighter variants
-  const lightVariantSteps = [100, 200, 300, 400, 500, 600, 700];
+  const lightVariantSteps = [100, 200, 300, 400, 500, 600, 700, 800];
   lightVariantSteps.forEach((step, index) => {
     const percentage =
       (lightVariantSteps.length - index) / lightVariantSteps.length;
@@ -43,14 +43,16 @@ export const generateColorVariants = (
   // Add base color variant without number
   variants.push({
     value: color,
-    label: `--${colorName}`,
+    label: `--${colorName}-800`,
     hex: color,
     rgb: rgbToString(r, g, b),
     oklch: hexToOklch(color),
   });
 
   // Generate darker variants
-  const darkVariantSteps = [900, 1000, 1100, 1200, 1300, 1400, 1500];
+  const darkVariantSteps = [
+    900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000,
+  ];
   darkVariantSteps.forEach((step, index) => {
     const percentage = (index + 1) / darkVariantSteps.length;
     const [adjustedR, adjustedG, adjustedB] = adjustRGB(

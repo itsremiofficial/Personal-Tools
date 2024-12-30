@@ -3,7 +3,6 @@ import { IconTickCircle } from "./IconTickCircle";
 import IconCopy from "./IconCopy";
 import { cn } from "../../hooks/formatSvgCode.ts";
 import { ColorVariant } from "../../types";
-
 interface ColorCodeBlockProps {
   variants: ColorVariant[];
   colorFormat: "hex" | "rgb" | "oklch";
@@ -23,14 +22,13 @@ export const ColorCodeBlock: React.FC<ColorCodeBlockProps> = ({
   const formattedVariables = useMemo(() => {
     return variants
       .map((variant, index) => {
-        // Dynamically assign --color1, --color2, ... and use colorName in the format var(--colorName-100)
         const colorSuffix = (index + 1) * 100; // For example: 100, 200, 300, etc.
         return `--${variableName}${index + 1}: var(--${colorName
           .toLowerCase()
-          .replace(/\s+/g, "-")}-${colorSuffix});`; // Using colorName dynamically
+          .replace(/\s+/g, "-")}-${colorSuffix});`;
       })
       .join("\n");
-  }, [variants, colorName]); // Including colorName in the dependency array
+  }, [variants, colorName]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(formattedVariables);
@@ -64,6 +62,7 @@ export const ColorCodeBlock: React.FC<ColorCodeBlockProps> = ({
         dangerouslySetInnerHTML={{ __html: codeBlock }}
         className="pr-16 pt-5"
       />
+
       <button
         onClick={handleCopy}
         className={cn(

@@ -1,13 +1,13 @@
 import React, { useMemo, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import Logo from "../components/Logo";
-import { cn } from "../hooks/formatSvgCode.ts";
 import { ArrowRight01Icon } from "hugeicons-react";
 import IconPalette from "../components/Icon/Palette";
 import { IconLayers, IconMoon, IconSun } from "../components/Icon";
 import { useTheme } from "../hooks/useTheme";
 import { useSidebar } from "../hooks/useSidebar";
 import { NavItem } from "../components/NavItem";
+import { cn } from "../hooks/formatSvgCode";
 
 const Sidebar = () => {
   const { isDark, setDark } = useTheme();

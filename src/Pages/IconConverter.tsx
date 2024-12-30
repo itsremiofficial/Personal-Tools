@@ -21,6 +21,7 @@ interface GeneratedResult {
   name: string;
   success: boolean;
   output?: string;
+  error?: string;
 }
 
 interface IconConverterState {
@@ -37,6 +38,7 @@ const IconConverter: React.FC = () => {
   });
   const [isProcessing, setIsProcessing] = useState(false);
   const [iconPropsPath, setIconPropsPath] = useState(""); // Add this state
+  const [generateProgress, setGenerateProgress] = useState(0);
 
   const strokeHandler = useFileHandler("stroke");
   const duotoneHandler = useFileHandler("duotone");
@@ -50,16 +52,39 @@ const IconConverter: React.FC = () => {
   );
 
   const handleError = useCallback((error: Error, name?: string) => {
-    const message = name
-      ? `Failed to process ${name}: ${error.message}`
+    // Remove duplicate toast for same error
+    const errorMessage = name
+      ? `Failed to generate: ${name}.tsx (${error.message})`
       : error.message;
-    toast.error(message);
-    return { success: false, name: name || "unknown" };
+
+    // Only show toast for specific file errors, not general errors
+    if (name) {
+      toast.error(errorMessage, {
+        id: `error-${name}`, // Prevent duplicate toasts for same file
+      });
+    }
+
+    return {
+      success: false,
+      name: name || "unknown",
+      error: error.message,
+    };
   }, []);
 
   const updateStateWithResults = useCallback((results: GeneratedResult[]) => {
     const successfulResults = results.filter((r) => r.success);
     const failedResults = results.filter((r) => !r.success);
+    const totalFiles = results.length;
+
+    // Group failures by error message for better reporting
+    const failureGroups = failedResults.reduce((acc, result) => {
+      const key = result.error || "Unknown error";
+      if (!acc[key]) {
+        acc[key] = [];
+      }
+      acc[key].push(result.name);
+      return acc;
+    }, {} as Record<string, string[]>);
 
     setState((prev) => ({
       outputs: successfulResults.map((r) => r.output as string),
@@ -69,27 +94,67 @@ const IconConverter: React.FC = () => {
       ],
       error:
         failedResults.length > 0
-          ? `Failed to generate ${failedResults.length} components`
+          ? Object.entries(failureGroups)
+              .map(
+                ([error, names]) =>
+                  `Failed to generate ${
+                    names.length
+                  } files (${error}): ${names.join(", ")}`
+              )
+              .join("\n")
           : null,
     }));
 
-    if (successfulResults.length > 0) {
-      successfulResults.forEach((comp, idx) => {
-        toast(
-          <div className="flex gap-3 items-center">
-            <CheckmarkCircle02Icon className="size-5" /> Generated {comp.name}
-          </div>,
-          {
-            className: "toast-success",
-            duration: 50000,
-          }
-        );
+    // Show summary toast for failures if there are many
+    if (failedResults.length > 0) {
+      const failureSummary = Object.entries(failureGroups)
+        .map(([error, names]) => `${names.length} files failed: ${error}`)
+        .join("\n");
+
+      toast.error(failureSummary, {
+        id: "failure-summary", // Prevent duplicate summary toasts
       });
+    }
+
+    // Only show success toasts if total files are less than 20
+    if (totalFiles < 20) {
+      successfulResults.forEach((result) => {
+        toast.success(`Generated: ${result.name}.tsx`, {
+          id: `success-${result.name}`,
+        });
+      });
+    } else if (successfulResults.length > 0) {
+      toast.success(
+        `Successfully generated ${successfulResults.length} components`
+      );
     }
   }, []);
 
+  // Add batch processing size
+  const BATCH_SIZE = 5;
+
+  const processInBatches = async (tasks: any[], batchSize: number) => {
+    const results = [];
+    const total = tasks.length;
+
+    for (let i = 0; i < total; i += batchSize) {
+      const batch = tasks.slice(i, i + batchSize);
+      const batchResults = await Promise.all(batch);
+      results.push(...batchResults);
+
+      // Calculate progress including processing time
+      const progress = Math.min(Math.round(((i + batchSize) / total) * 90), 90);
+      setGenerateProgress(progress);
+    }
+
+    // Set to 100% only when actually complete
+    setGenerateProgress(100);
+    return results;
+  };
+
   const generateComponents = useCallback(async () => {
     setIsProcessing(true);
+    setGenerateProgress(0);
     setState((prev) => ({ ...prev, logs: [], error: null }));
 
     try {
@@ -97,52 +162,63 @@ const IconConverter: React.FC = () => {
         throw new Error("No SVG files loaded");
       }
 
-      const newOutputs = await Promise.all(
-        strokeHandler.names.map(
-          async (name, index): Promise<GeneratedResult> => {
-            if (
-              !name ||
-              !strokeHandler.svgs[index] ||
-              !duotoneHandler.svgs[index]
-            ) {
-              return handleError(new Error("Missing required files"), name);
-            }
-
-            try {
-              const strokeSvg = await replaceAttributes(
-                strokeHandler.svgs[index],
-                true
-              );
-              const duotoneSvg = await replaceAttributes(
-                duotoneHandler.svgs[index]
-              );
-
-              return {
-                name,
-                success: true,
-                output: generateComponentCode(
-                  `Icon${name}`,
-                  strokeSvg,
-                  duotoneSvg,
-                  iconPropsPath // Use the state here
-                ),
-              };
-            } catch (error) {
-              return handleError(
-                error instanceof Error ? error : new Error("Unknown error"),
-                name
-              );
-            }
+      const tasks = strokeHandler.names.map(
+        (name, index) => async (): Promise<GeneratedResult> => {
+          if (
+            !name ||
+            !strokeHandler.svgs[index] ||
+            !duotoneHandler.svgs[index]
+          ) {
+            return handleError(new Error("Missing required files"), name);
           }
-        )
+
+          try {
+            const strokeSvg = await replaceAttributes(
+              strokeHandler.svgs[index],
+              true
+            );
+            const duotoneSvg = await replaceAttributes(
+              duotoneHandler.svgs[index]
+            );
+
+            return {
+              name,
+              success: true,
+              output: generateComponentCode(
+                `Icon${name}`,
+                strokeSvg,
+                duotoneSvg,
+                iconPropsPath
+              ),
+            };
+          } catch (error) {
+            return handleError(
+              error instanceof Error ? error : new Error("Unknown error"),
+              name
+            );
+          }
+        }
       );
 
-      updateStateWithResults(newOutputs);
+      const results = await processInBatches(
+        tasks.map((t) => t()),
+        BATCH_SIZE
+      );
+
+      // Update results first
+      await updateStateWithResults(results);
+
+      // Brief delay before completion
+      await new Promise((resolve) => setTimeout(resolve, 300));
     } catch (err) {
       handleError(
         err instanceof Error ? err : new Error("Failed to generate components")
       );
     } finally {
+      // Ensure proper cleanup sequence
+      setGenerateProgress(100);
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      setGenerateProgress(0);
       setIsProcessing(false);
     }
   }, [
@@ -150,14 +226,19 @@ const IconConverter: React.FC = () => {
     strokeHandler.svgs,
     duotoneHandler.svgs,
     handleError,
-    updateStateWithResults,
-    iconPropsPath, // Add to dependencies
+    iconPropsPath,
   ]);
 
   const clearAll = useCallback(() => {
+    // Clear all states
     setState({ outputs: [], logs: [], error: null });
     strokeHandler.clearFiles();
     duotoneHandler.clearFiles();
+    setIconPropsPath(""); // Clear path input
+    setGenerateProgress(0); // Reset progress
+
+    // Show feedback toast
+    toast.success("All files cleared successfully");
   }, [strokeHandler, duotoneHandler]);
 
   const { open, setOpen } = useContext(TrayContext) as TrayProviderProps;
@@ -228,6 +309,7 @@ const IconConverter: React.FC = () => {
                   onClick={generateComponents}
                   disabled={!isReady}
                   loading={isProcessing}
+                  progress={generateProgress}
                 />
               </div>
             </div>
@@ -235,11 +317,13 @@ const IconConverter: React.FC = () => {
               {...strokeHandler}
               type="stroke"
               disabled={isProcessing}
+              onClear={clearAll} // Add onClear prop
             />
             <FileList
               {...duotoneHandler}
               type="duotone"
               disabled={isProcessing}
+              onClear={clearAll} // Add onClear prop
             />
           </>
         )}

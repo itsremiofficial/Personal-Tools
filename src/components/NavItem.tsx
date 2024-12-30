@@ -27,7 +27,7 @@ export const NavItem = React.memo(
         <Link
           to={path}
           className={cn(
-            "px-4 py-6 w-full overflow-hidden rounded-2xl tracking-wide font-semibold flex items-center gap-3",
+            "px-4 py-6 w-full overflow-hidden rounded-2xl tracking-wide font-medium flex items-center gap-3",
             "transition-colors duration-300",
             "text-icu-800 hover:text-icu-900",
             "bg-icu-200 hover:bg-icu-400/60",

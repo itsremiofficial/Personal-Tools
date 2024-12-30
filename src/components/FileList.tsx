@@ -7,11 +7,24 @@ import { FileHandlerType } from "../hooks/useFileHandler";
 interface FileListProps extends Omit<FileHandlerType, "handleRejected"> {
   type: "stroke" | "duotone";
   disabled?: boolean;
+  onClear: () => void; // Add onClear prop
 }
 
 export const FileList = React.memo(
-  ({ files, type, disabled, removeFile, clearFiles }: FileListProps) => {
+  ({
+    files,
+    type,
+    disabled,
+    removeFile,
+    clearFiles,
+    onClear,
+  }: FileListProps) => {
     if (!files.length) return null;
+
+    const handleClear = () => {
+      clearFiles();
+      onClear();
+    };
 
     return (
       <div className="flex items-center gap-4">
@@ -32,7 +45,7 @@ export const FileList = React.memo(
           ))}
         </div>
         <Button
-          onClick={clearFiles}
+          onClick={handleClear} // Use the combined clear function
           variant="danger"
           className="h-fit py-4 gap-2 whitespace-nowrap"
           disabled={disabled}
