@@ -276,7 +276,7 @@ const IconConverter: React.FC = () => {
             htmlFor="iconPropsPath"
             className="flex items-center gap-2 font-medium dark:text-icu-500"
           >
-            Path for &#60;IconProp&#62;
+            Path for &#60;IconProps&#62;
             <InformationCircleIcon
               className={cn(
                 "size-8 p-1 rounded-xl cursor-pointer transition-colors duration-300",

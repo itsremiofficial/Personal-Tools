@@ -106,7 +106,7 @@ export const ResultsSection = React.memo(
               {/* <Loading03Icon className="size-5 animate-spin" /> */}
               <Progress
                 value={Math.round(downloadState.progress)}
-                className="w-full h-4"
+                className="w-48 h-4"
               />{" "}
               {Math.round(downloadState.progress)}%
             </>
@@ -172,7 +172,7 @@ export const ResultsSection = React.memo(
             <Button
               onClick={handleDownloadAll}
               className={cn(
-                "gap-2 w-54 whitespace-nowrap",
+                "gap-2 !w-54 whitespace-nowrap",
                 downloadState.status !== "idle" && "!px-4 !py-6"
               )}
               size={"lg"}
