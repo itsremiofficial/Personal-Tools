@@ -2,12 +2,12 @@
 import React, { useState, useCallback, useEffect, useMemo } from "react";
 import { ColorVariantButton } from "./ColorVariantButton";
 import { ColorFormatSelector } from "./ColorFormatSelector";
-import { ColorVariant, ColorVariantsProps, ColorFormat } from "../types/color";
 import IconCopy from "./IconCopy";
 import { ColorCodeBlock } from "./ColorCodeBlock";
-import { generateColorVariants } from "../utils/colorVarientsGenerator";
-import { cn } from "../../lib/utils";
+import { cn } from "../../hooks/formatSvgCode.ts";
 import { Button } from "../../components/ui/button";
+import { ColorFormat, ColorVariant, ColorVariantsProps } from "../../types";
+import { generateColorVariants } from "../../hooks/colorVarientsGenerator.ts";
 
 const ColorVariants: React.FC<ColorVariantsProps> = ({
   baseColor: initBaseColor,
@@ -152,7 +152,10 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
 
         {colorVariants.length > 8 && (
           <ul className="flex flex-col gap-2 py-2">
-            <label htmlFor="Given Color" className="dark:text-icu-500 ">
+            <label
+              htmlFor="Given Color"
+              className="text-icu-900 dark:text-icu-500"
+            >
               Given Color
             </label>
             <li key="9">
@@ -167,7 +170,10 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
         )}
 
         <div className="flex flex-col gap-2 py-2">
-          <label htmlFor="Color Variants" className="dark:text-icu-500">
+          <label
+            htmlFor="Color Variants"
+            className="text-icu-900 dark:text-icu-500"
+          >
             Color Variants
           </label>
           <div className="flex gap-4">

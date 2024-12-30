@@ -1,6 +1,6 @@
 import React from "react";
-import { ColorFormat, ColorFormatSelectorProps } from "../types/color";
 import { IconTickCircle } from "./IconTickCircle";
+import { ColorFormat, ColorFormatSelectorProps } from "../../types";
 
 export const ColorFormatSelector: React.FC<ColorFormatSelectorProps> = ({
   selectedFormat,

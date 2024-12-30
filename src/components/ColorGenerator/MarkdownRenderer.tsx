@@ -12,17 +12,18 @@ const MarkdownComponent: React.FC<MarkdownComponentProps> = ({ code }) => {
     <Markdown
       children={code}
       components={{
-        code({ children, className, ...rest }) {
+        code({ children, className }) {
           const match = /language-(\w+)/.exec(className || "");
           return match ? (
             <SyntaxHighlighter
-              {...(rest as any)}
-              children={String(children).replace(/\n$/, "")}
               language={match[1]}
               style={dark}
-            />
+              PreTag="div"
+            >
+              {String(children).replace(/\n$/, "")}
+            </SyntaxHighlighter>
           ) : (
-            <code {...rest} className={className}>
+            <code className={className}>
               {children}
             </code>
           );

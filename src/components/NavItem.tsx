@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { cn } from "../lib/utils";
+import { cn } from "../hooks/formatSvgCode.ts";
 import Smooth from "./Common/Smooth";
 import { IconProps } from "../types";
 

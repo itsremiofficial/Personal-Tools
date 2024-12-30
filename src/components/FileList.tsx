@@ -1,50 +1,48 @@
-import React from 'react';
-import { Button } from './ui/button';
-import { Cancel01Icon, Delete03Icon } from 'hugeicons-react';
-import { cn } from '../lib/utils';
-import { FileHandlerType } from '../hooks/useFileHandler';
+import React from "react";
+import { Button } from "./ui/button";
+import { Cancel01Icon, Delete03Icon } from "hugeicons-react";
+import { cn } from "../hooks/formatSvgCode.ts";
+import { FileHandlerType } from "../hooks/useFileHandler";
 
-interface FileListProps extends Omit<FileHandlerType, 'handleRejected'> {
-  type: 'stroke' | 'duotone';
+interface FileListProps extends Omit<FileHandlerType, "handleRejected"> {
+  type: "stroke" | "duotone";
   disabled?: boolean;
 }
 
-export const FileList = React.memo(({
-  files,
-  type,
-  disabled,
-  removeFile,
-  clearFiles
-}: FileListProps) => {
-  if (!files.length) return null;
+export const FileList = React.memo(
+  ({ files, type, disabled, removeFile, clearFiles }: FileListProps) => {
+    if (!files.length) return null;
 
-  return (
-    <div className="flex items-center gap-4">
-      <div className={cn(
-        "grow border border-dashed mt-2 flex py-4 px-4 rounded-2xl gap-6 overflow-auto",
-        "border-icu-300/70 dark:border-icu-800/40",
-        disabled && "opacity-50 cursor-not-allowed"
-      )}>
-        {files.map((file, index) => (
-          <FileItem
-            key={`${file.name}-${index}`}
-            file={file}
-            onRemove={() => !disabled && removeFile(index)}
-            disabled={disabled}
-          />
-        ))}
+    return (
+      <div className="flex items-center gap-4">
+        <div
+          className={cn(
+            "grow border border-dashed mt-2 flex py-4 px-4 rounded-2xl gap-6 overflow-auto",
+            "border-icu-300/70 dark:border-icu-800/40",
+            disabled && "opacity-50 cursor-not-allowed"
+          )}
+        >
+          {files.map((file, index) => (
+            <FileItem
+              key={`${file.name}-${index}`}
+              file={file}
+              onRemove={() => !disabled && removeFile(index)}
+              disabled={disabled}
+            />
+          ))}
+        </div>
+        <Button
+          onClick={clearFiles}
+          variant="danger"
+          className="h-fit py-4 gap-2 whitespace-nowrap"
+          disabled={disabled}
+        >
+          Clear All <Delete03Icon className="size-5" />
+        </Button>
       </div>
-      <Button
-        onClick={clearFiles}
-        variant="danger"
-        className="h-fit py-4 gap-2 whitespace-nowrap"
-        disabled={disabled}
-      >
-        Clear All <Delete03Icon className="size-5" />
-      </Button>
-    </div>
-  );
-});
+    );
+  }
+);
 
 interface FileItemProps {
   file: File;
@@ -53,12 +51,14 @@ interface FileItemProps {
 }
 
 const FileItem = React.memo(({ file, onRemove, disabled }: FileItemProps) => (
-  <div className={cn(
-    "relative py-4 px-8 rounded-2xl text-sm flex items-center whitespace-nowrap",
-    "bg-icu-300/70 dark:bg-icu-800/50",
-    "text-icu-900 dark:text-icu-500",
-    disabled && "opacity-50"
-  )}>
+  <div
+    className={cn(
+      "relative py-4 px-8 rounded-2xl text-sm flex items-center whitespace-nowrap",
+      "bg-icu-300/70 dark:bg-icu-800/50",
+      "text-icu-900 dark:text-icu-500",
+      disabled && "opacity-50"
+    )}
+  >
     {file.name}
     <button
       onClick={onRemove}
@@ -75,5 +75,5 @@ const FileItem = React.memo(({ file, onRemove, disabled }: FileItemProps) => (
   </div>
 ));
 
-FileList.displayName = 'FileList';
-FileItem.displayName = 'FileItem';
+FileList.displayName = "FileList";
+FileItem.displayName = "FileItem";

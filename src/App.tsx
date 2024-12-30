@@ -1,11 +1,15 @@
 import { PropsWithChildren } from "react";
-import { Toaster } from "sonner";
+import { Toaster, ToasterProps } from "sonner";
 
 function App({ children }: PropsWithChildren) {
   return (
     <div className="antialiased relative">
       {children}
-      <Toaster position="top-right" />
+      <Toaster
+        toastOptions={{ className: "my-toast" }}
+        position="top-center"
+        richColors
+      />
     </div>
   );
 }

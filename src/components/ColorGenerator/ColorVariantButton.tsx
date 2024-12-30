@@ -1,9 +1,9 @@
 import React from "react";
 import { ColorDot } from "./ColorDot";
 import { CopyNotification } from "./CopyNotification";
-import { ColorVariant } from "../types/color";
 import IconCopy from "./IconCopy";
-import { cn } from "../../lib/utils";
+import { cn } from "../../hooks/formatSvgCode.ts";
+import { ColorVariant } from "../../types";
 
 interface ColorVariantButtonProps {
   variant: ColorVariant;

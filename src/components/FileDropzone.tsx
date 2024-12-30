@@ -1,7 +1,7 @@
 import React from "react";
 import { useDropzone, FileRejection } from "react-dropzone";
 import { CloudUploadIcon } from "hugeicons-react";
-import { cn } from "../lib/utils";
+import { cn } from "../hooks/formatSvgCode.ts";
 
 interface FileDropzoneProps {
   onDrop: (files: File[]) => void;
@@ -32,7 +32,7 @@ export const FileDropzone = React.memo(
     return (
       <div
         className={cn(
-          "p-6 border rounded-3xl flex flex-col gap-6 grow",
+          "p-6 border rounded-4xl flex flex-col gap-6 grow",
           "border-icu-300 bg-icu-100",
           "dark:border-icu-800/70 dark:bg-icu-1000/40"
         )}

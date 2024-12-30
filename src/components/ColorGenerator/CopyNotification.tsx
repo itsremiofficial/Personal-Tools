@@ -1,6 +1,6 @@
 import React from "react";
 import { IconTickCircle } from "./IconTickCircle";
-import { cn } from "../../lib/utils";
+import { cn } from "../../hooks/formatSvgCode.ts";
 
 interface CopyNotificationProps {
   show: boolean;

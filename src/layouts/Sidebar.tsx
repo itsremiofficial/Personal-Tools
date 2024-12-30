@@ -1,7 +1,7 @@
 import React, { useMemo, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import Logo from "../components/Logo";
-import { cn } from "../lib/utils";
+import { cn } from "../hooks/formatSvgCode.ts";
 import { ArrowRight01Icon } from "hugeicons-react";
 import IconPalette from "../components/Icon/Palette";
 import { IconLayers, IconMoon, IconSun } from "../components/Icon";
@@ -26,12 +26,15 @@ const Sidebar = () => {
     []
   );
 
-  const getIsActive = useCallback((path: string) => {
-    if (path === '/') {
-      return location.pathname === path || location.hash === '#/';
-    }
-    return location.pathname === path || location.hash === `#${path}`;
-  }, [location]);
+  const getIsActive = useCallback(
+    (path: string) => {
+      if (path === "/") {
+        return location.pathname === path || location.hash === "#/";
+      }
+      return location.pathname === path || location.hash === `#${path}`;
+    },
+    [location]
+  );
 
   return (
     <div

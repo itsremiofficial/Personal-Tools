@@ -12,13 +12,13 @@ const buttonVariants = cva(
         secondary:
           "bg-transparent border dark:border-icu-500 dark:hover:bg-icu-700/70 dark:hover:border-icu-700/50 dark:text-icu-400 dark:hover:text-icu-100 text-icu-900 border-icu-900 hover:bg-icu-900 hover:text-icu-100",
         neutral:
-          "text-icu-700 hover:text-icu-800 dark:text-icu-500 dark:hover:text-icu-400 bg-icu-300 dark:bg-icu-900/70 hover:bg-icu-400/80 dark:hover:bg-icu-1000/50",
+          "text-icu-800 hover:text-icu-1100 bg-icu-300/50 hover:bg-icu-400/70 dark:text-icu-500 dark:hover:text-icu-400 dark:bg-icu-900/70 dark:hover:bg-icu-1000/50",
         danger:
           " bg-rose-200 hover:bg-rose-300/80 text-rose-500 hover:text-rose-600 dark:text-rose-400 dark:hover:text-rose-300 dark:bg-rose-700/20 dark:hover:bg-rose-700/30",
       },
       size: {
         default: "px-6 py-3 rounded-xl",
-        sm: "rounded-md px-3 text-xs",
+        sm: "rounded-xl px-3 py-2 text-xs",
         lg: "rounded-2xl px-10 py-5 !text-base",
         icon: "p-3 rounded-2xl !aspect-square",
       },

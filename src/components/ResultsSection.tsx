@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "./ui/button";
 import { Download02Icon, Delete03Icon } from "hugeicons-react";
-import { cn } from "../lib/utils";
+import { cn } from "../hooks/formatSvgCode.ts";
 import { saveAs } from "file-saver";
 import JSZip from "jszip";
 
