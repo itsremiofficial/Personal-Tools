@@ -1,0 +1,16 @@
+import { FC } from 'react';
+import { IconProps } from "../../types";
+
+const IconBrush3: FC<IconProps> = ({ className, fill = false, duotone = true, width = '1.5' }) => {
+  return (
+    <>
+      {!fill ? (
+        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_3195_3379)"><path d="M9.5 19.5V18H4.5C3.95 18 3.45 17.78 3.09 17.41C2.72 17.05 2.5 16.55 2.5 16C2.5 14.97 3.3 14.11 4.31 14.01C4.37 14 4.43 14 4.5 14H19.5C19.57 14 19.63 14 19.69 14.01C20.17 14.05 20.59 14.26 20.91 14.59C21.32 14.99 21.54 15.56 21.49 16.18C21.4 17.23 20.45 18 19.39 18H14.5V19.5C14.5 20.88 13.38 22 12 22C10.62 22 9.5 20.88 9.5 19.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><g opacity={duotone ? "0.4" : "1"}><path d="M20.1702 5.3L19.6902 14.01C19.6302 14 19.5702 14 19.5002 14H4.50016C4.43016 14 4.37016 14 4.31016 14.01L3.83016 5.3C3.65016 3.53 5.04016 2 6.81016 2H17.1902C18.9602 2 20.3502 3.53 20.1702 5.3Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path d="M7.99023 2V7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path d="M12 2V4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></g></g><defs><clipPath ><rect width="24" height="24" fill="none" /></clipPath></defs></svg> 
+      ) : (
+        <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path opacity={duotone ? "0.4" : "1"} d="M14.19 0H5.81C2.17 0 0 2.17 0 5.81V14.18C0 17.83 2.17 20 5.81 20H14.18C17.82 20 19.99 17.83 19.99 14.19V5.81C20 2.17 17.83 0 14.19 0Z" fill="currentColor" /><path d="M19.8303 1.55022C18.7803 4.16022 16.4003 7.57022 14.1203 9.80022C13.7903 7.74022 12.1503 6.13022 10.0703 5.84022C12.3103 3.56022 15.7403 1.14022 18.3603 0.0802204C18.8203 -0.0997796 19.2903 0.0402204 19.5703 0.33022C19.8803 0.63022 20.0203 1.09022 19.8303 1.55022Z" fill="currentColor" /><path opacity={duotone ? "0.4" : "1"} d="M14.1197 9.79008C13.7197 10.1801 13.3197 10.5401 12.9397 10.8401L11.3697 12.1001C11.1697 12.2401 10.9697 12.3601 10.7497 12.4601C10.7497 12.3101 10.7297 12.1601 10.7197 12.0001C10.6297 11.3401 10.3297 10.7101 9.78969 10.1701C9.23969 9.63008 8.57969 9.32008 7.90969 9.23008C7.74969 9.21008 7.57969 9.21008 7.42969 9.21008C7.51969 8.96008 7.64969 8.73008 7.81969 8.54008L9.06969 6.97008C9.36969 6.59008 9.70969 6.21008 10.0797 5.83008C12.1497 6.12008 13.7997 7.74008 14.1197 9.79008Z" fill="currentColor" /><path d="M10.7506 12.47C10.7506 13.35 10.4106 14.19 9.78056 14.82C9.29056 15.31 8.64056 15.65 7.84056 15.75L5.88056 15.97C4.81056 16.09 3.89056 15.17 4.01056 14.09L4.23056 12.13C4.42056 10.38 5.88056 9.26 7.43056 9.23C7.58056 9.22 7.75056 9.23 7.91056 9.25C8.59056 9.34 9.24056 9.65 9.79056 10.19C10.3206 10.72 10.6306 11.36 10.7206 12.02C10.7306 12.17 10.7506 12.32 10.7506 12.47Z" fill="currentColor" /></svg> 
+      )}
+    </>
+  );
+};
+
+export default IconBrush3;

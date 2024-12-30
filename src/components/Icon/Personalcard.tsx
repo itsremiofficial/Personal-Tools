@@ -1,0 +1,16 @@
+import { FC } from 'react';
+import { IconProps } from "../../types";
+
+const IconPet: FC<IconProps> = ({ className, fill = false, duotone = true, width = '1.5' }) => {
+  return (
+    <>
+      {!fill ? (
+        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.41064 16.75C4.17064 19.64 6.35064 22 9.25064 22H14.0406C17.3006 22 19.5406 19.37 19.0006 16.15C18.4306 12.77 15.1706 10 11.7406 10C8.02064 10 4.72064 13.04 4.41064 16.75Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path opacity={duotone ? "0.34" : "1"} d="M10.4707 7.5C11.8514 7.5 12.9707 6.38071 12.9707 5C12.9707 3.61929 11.8514 2.5 10.4707 2.5C9.08999 2.5 7.9707 3.61929 7.9707 5C7.9707 6.38071 9.08999 7.5 10.4707 7.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path opacity={duotone ? "0.34" : "1"} d="M17.3008 8.7002C18.4053 8.7002 19.3008 7.80476 19.3008 6.7002C19.3008 5.59563 18.4053 4.7002 17.3008 4.7002C16.1962 4.7002 15.3008 5.59563 15.3008 6.7002C15.3008 7.80476 16.1962 8.7002 17.3008 8.7002Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path opacity={duotone ? "0.34" : "1"} d="M21 12.7002C21.8284 12.7002 22.5 12.0286 22.5 11.2002C22.5 10.3718 21.8284 9.7002 21 9.7002C20.1716 9.7002 19.5 10.3718 19.5 11.2002C19.5 12.0286 20.1716 12.7002 21 12.7002Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path opacity={duotone ? "0.34" : "1"} d="M3.9707 10.7002C5.07527 10.7002 5.9707 9.80476 5.9707 8.7002C5.9707 7.59563 5.07527 6.7002 3.9707 6.7002C2.86613 6.7002 1.9707 7.59563 1.9707 8.7002C1.9707 9.80476 2.86613 10.7002 3.9707 10.7002Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg> 
+      ) : (
+        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path opacity={duotone ? "0.4" : "1"} d="M16.1898 2H7.81976C4.17976 2 2.00977 4.17 2.00977 7.81V16.18C2.00977 19.82 4.17976 21.99 7.81976 21.99H16.1898C19.8298 21.99 21.9998 19.82 21.9998 16.18V7.81C21.9998 4.17 19.8298 2 16.1898 2Z" fill="currentColor" /><path d="M8.81976 16.0201C8.62976 16.0201 8.43977 15.9501 8.28977 15.8001C7.99977 15.5101 7.99977 15.0301 8.28977 14.7401L14.8398 8.19016C15.1298 7.90016 15.6098 7.90016 15.8998 8.19016C16.1898 8.48016 16.1898 8.96015 15.8998 9.25015L9.34976 15.8001C9.19976 15.9501 9.00976 16.0201 8.81976 16.0201Z" fill="currentColor" /><path d="M9.23001 7.66016C8.42001 7.66016 7.75 8.32017 7.75 9.14017C7.75 9.95017 8.41001 10.6201 9.23001 10.6201C10.04 10.6201 10.71 9.96017 10.71 9.14017C10.7 8.32017 10.04 7.66016 9.23001 7.66016Z" fill="currentColor" /><path d="M15.769 13.3901C14.959 13.3901 14.2891 14.0501 14.2891 14.8701C14.2891 15.6801 14.949 16.3501 15.769 16.3501C16.579 16.3501 17.2491 15.6901 17.2491 14.8701C17.2491 14.0501 16.589 13.3901 15.769 13.3901Z" fill="currentColor" /></svg> 
+      )}
+    </>
+  );
+};
+
+export default IconPet;

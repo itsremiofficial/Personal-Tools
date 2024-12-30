@@ -2,8 +2,12 @@ import React, { useMemo, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import Logo from "../components/Logo";
 import { ArrowRight01Icon } from "hugeicons-react";
-import IconPalette from "../components/Icon/Palette";
-import { IconLayers, IconMoon, IconSun } from "../components/Icon";
+import {
+  IconColorSwatch,
+  IconLayer,
+  IconMoon,
+  IconSun,
+} from "../components/Icon";
 import { useTheme } from "../hooks/useTheme";
 import { useSidebar } from "../hooks/useSidebar";
 import { NavItem } from "../components/NavItem";
@@ -16,11 +20,16 @@ const Sidebar = () => {
 
   const navItems = useMemo(
     () => [
-      { path: "/", label: "Icon Generator", icon: IconLayers },
+      { path: "/", label: "Icon Generator", icon: IconLayer },
       {
         path: "/color-palette-generator",
         label: "Color Generator",
-        icon: IconPalette,
+        icon: IconColorSwatch,
+      },
+      {
+        path: "/icons",
+        label: "Icons",
+        icon: IconColorSwatch,
       },
     ],
     []

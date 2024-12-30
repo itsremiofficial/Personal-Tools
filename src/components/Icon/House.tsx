@@ -1,0 +1,16 @@
+import { FC } from 'react';
+import { IconProps } from "../../types";
+
+const IconHouse: FC<IconProps> = ({ className, fill = false, duotone = true, width = '1.5' }) => {
+  return (
+    <>
+      {!fill ? (
+        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 22H22" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" /><path d="M2.9502 22.0003L3.00019 9.97023C3.00019 9.36023 3.2902 8.78029 3.7702 8.40029L10.7702 2.95027C11.4902 2.39027 12.5002 2.39027 13.2302 2.95027L20.2302 8.39028C20.7202 8.77028 21.0002 9.35023 21.0002 9.97023V22.0003" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinejoin="round" /><path opacity={duotone ? "0.4" : "1"} d="M13 17H11C10.17 17 9.5 17.67 9.5 18.5V22H14.5V18.5C14.5 17.67 13.83 17 13 17Z" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinejoin="round" /><path opacity={duotone ? "0.4" : "1"} d="M9.5 13.75H7.5C6.95 13.75 6.5 13.3 6.5 12.75V11.25C6.5 10.7 6.95 10.25 7.5 10.25H9.5C10.05 10.25 10.5 10.7 10.5 11.25V12.75C10.5 13.3 10.05 13.75 9.5 13.75Z" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinejoin="round" /><path opacity={duotone ? "0.4" : "1"} d="M16.5 13.75H14.5C13.95 13.75 13.5 13.3 13.5 12.75V11.25C13.5 10.7 13.95 10.25 14.5 10.25H16.5C17.05 10.25 17.5 10.7 17.5 11.25V12.75C17.5 13.3 17.05 13.75 16.5 13.75Z" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinejoin="round" /><path d="M19.0003 7L18.9703 4H14.5703" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" /></svg> 
+      ) : (
+        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path opacity={duotone ? "0.4" : "1"} d="M16.1898 21.9998H7.81976C4.17976 21.9998 2.00977 19.8298 2.00977 16.1898V7.81976C2.00977 4.17976 4.17976 2.00977 7.81976 2.00977H16.1898C19.8298 2.00977 21.9998 4.17976 21.9998 7.81976V16.1898C21.9998 19.8298 19.8298 21.9998 16.1898 21.9998Z" fill="currentColor" /><path d="M16.41 9.83002C15.8 11.57 14.16 12.74 12.32 12.74C12.31 12.74 12.31 12.74 12.3 12.74L10.24 12.73C10.24 12.73 10.24 12.73 10.23 12.73C9.46998 12.73 8.80999 13.24 8.60999 13.97C9.49999 14.25 10.15 15.08 10.15 16.06C10.15 17.27 9.16001 18.26 7.95001 18.26C6.74001 18.26 5.75 17.27 5.75 16.06C5.75 15.17 6.28999 14.4 7.04999 14.06V9.72003C6.28999 9.42003 5.75 8.68004 5.75 7.82004C5.75 6.69004 6.66999 5.77002 7.79999 5.77002C8.92999 5.77002 9.84998 6.69004 9.84998 7.82004C9.84998 8.69004 9.30999 9.42003 8.54999 9.72003V11.74C9.03999 11.43 9.61998 11.25 10.23 11.25H10.24L12.3 11.26C13.48 11.3 14.53 10.54 14.95 9.44003C14.46 9.06003 14.14 8.48004 14.14 7.82004C14.14 6.69004 15.06 5.77002 16.19 5.77002C17.32 5.77002 18.24 6.69004 18.24 7.82004C18.25 8.86004 17.44 9.72002 16.41 9.83002Z" fill="currentColor" /></svg> 
+      )}
+    </>
+  );
+};
+
+export default IconHouse;

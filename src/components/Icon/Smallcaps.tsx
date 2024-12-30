@@ -1,0 +1,16 @@
+import { FC } from 'react';
+import { IconProps } from "../../types";
+
+const IconSmartCar: FC<IconProps> = ({ className, fill = false, duotone = true, width = '1.5' }) => {
+  return (
+    <>
+      {!fill ? (
+        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.1398 7.62012H6.86977C5.00977 7.62012 4.58977 8.55013 4.35977 9.70013L3.50977 13.7501H15.5098L14.6598 9.70013C14.4098 8.55013 13.9998 7.62012 12.1398 7.62012Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path d="M16.9901 20.3602C17.0701 21.2402 16.3701 22.0002 15.4701 22.0002H14.0601C13.2501 22.0002 13.1401 21.6502 12.9901 21.2302L12.8401 20.7803C12.6301 20.1703 12.4901 19.7502 11.4101 19.7502H7.57013C6.49013 19.7502 6.33012 20.2203 6.14012 20.7803L5.99013 21.2302C5.85013 21.6602 5.74012 22.0002 4.92012 22.0002H3.51012C2.61012 22.0002 1.90013 21.2402 1.99013 20.3602L2.41013 15.7902C2.52013 14.6602 2.73012 13.7402 4.70012 13.7402H14.2701C16.2401 13.7402 16.4501 14.6602 16.5601 15.7902L16.9901 20.3602Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path d="M3.5 11.5H2.75" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path d="M16.25 11.5H15.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path opacity={duotone ? "0.4" : "1"} d="M5 16.75H7.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path opacity={duotone ? "0.4" : "1"} d="M11.75 16.75H14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path opacity={duotone ? "0.4" : "1"} d="M18.7092 8.74016C18.9892 8.09016 18.8891 7.21017 18.3691 6.44017C17.8591 5.67017 17.0791 5.24017 16.3691 5.25017" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path opacity={duotone ? "0.4" : "1"} d="M21.8206 9.72998C22.2406 8.21998 21.9406 6.37002 20.8706 4.77002C19.8006 3.17002 18.2006 2.19 16.6406 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg> 
+      ) : (
+        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path opacity={duotone ? "0.4" : "1"} d="M2 9V15C2 16.66 3.34 18 5 18H19C20.66 18 22 16.66 22 15V9C22 7.34 20.66 6 19 6H5C3.34 6 2 7.34 2 9Z" fill="currentColor" /><path d="M5.33008 5.33V5.67C5.33008 5.79 5.33008 5.9 5.34008 6.02C5.39008 6.01 5.44008 6 5.50008 6H7.00008H17.0001H18.5001C18.5601 6 18.6101 6.01 18.6601 6.02C18.6701 5.91 18.6701 5.8 18.6701 5.67V5.33C18.6701 2.67 18.0001 2 15.3301 2H8.67008C6.00008 2 5.33008 2.67 5.33008 5.33Z" fill="currentColor" /><path d="M18.5001 18H17.0001H7.00008H5.50008C5.44008 18 5.39008 17.99 5.34008 17.98C5.33008 18.09 5.33008 18.2 5.33008 18.33V18.67C5.33008 21.33 6.00008 22 8.67008 22H15.3301C18.0001 22 18.6701 21.33 18.6701 18.67V18.33C18.6701 18.21 18.6701 18.1 18.6601 17.98C18.6101 17.99 18.5601 18 18.5001 18Z" fill="currentColor" /></svg> 
+      )}
+    </>
+  );
+};
+
+export default IconSmartCar;

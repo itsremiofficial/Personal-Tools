@@ -1,0 +1,16 @@
+import { FC } from 'react';
+import { IconProps } from "../../types";
+
+const IconColorsSquare: FC<IconProps> = ({ className, fill = false, duotone = true, width = '1.5' }) => {
+  return (
+    <>
+      {!fill ? (
+        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity={duotone ? "0.4" : "1"}><path d="M13.2 14.4002C13.2 15.4602 12.74 16.4202 12 17.0802C11.36 17.6602 10.52 18.0002 9.59998 18.0002C7.60998 18.0002 6 16.3902 6 14.4002C6 12.7402 7.13002 11.3402 8.65002 10.9302C9.06002 11.9702 9.94999 12.7802 11.05 13.0802C11.35 13.1602 11.67 13.2102 12 13.2102C12.33 13.2102 12.65 13.1702 12.95 13.0802C13.11 13.4802 13.2 13.9302 13.2 14.4002Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path d="M15.6003 9.6C15.6003 10.07 15.5103 10.52 15.3503 10.93C14.9403 11.97 14.0504 12.78 12.9504 13.08C12.6504 13.16 12.3304 13.21 12.0004 13.21C11.6704 13.21 11.3504 13.17 11.0504 13.08C9.95035 12.78 9.06039 11.98 8.65039 10.93C8.49039 10.52 8.40039 10.07 8.40039 9.6C8.40039 7.61 10.0104 6 12.0004 6C13.9904 6 15.6003 7.61 15.6003 9.6Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path d="M18 14.3999C18 16.3899 16.39 17.9999 14.4 17.9999C13.48 17.9999 12.64 17.6499 12 17.0799C12.74 16.4299 13.2 15.4699 13.2 14.3999C13.2 13.9299 13.11 13.4799 12.95 13.0699C14.05 12.7699 14.94 11.9699 15.35 10.9199C16.87 11.3399 18 12.7399 18 14.3999Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></g><path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg> 
+      ) : (
+        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path opacity={duotone ? "0.6" : "1"} d="M17.79 10.47V12H2V10.47C2 8.15001 3.89 6.26001 6.21 6.26001H13.58C15.9 6.26001 17.79 8.15001 17.79 10.47Z" fill="currentColor" /><path opacity={duotone ? "0.4" : "1"} d="M17.79 12V17.79C17.79 20.11 15.9 22 13.58 22H6.21C3.89 22 2 20.11 2 17.79V12H17.79Z" fill="currentColor" /><path d="M5.5 5.12012C5.09 5.12012 4.75 4.78012 4.75 4.37012V2.62012C4.75 2.21012 5.09 1.87012 5.5 1.87012C5.91 1.87012 6.25 2.21012 6.25 2.62012V4.37012C6.25 4.79012 5.91 5.12012 5.5 5.12012Z" fill="currentColor" /><path d="M9.5 5.12012C9.09 5.12012 8.75 4.78012 8.75 4.37012V2.62012C8.75 2.21012 9.09 1.87012 9.5 1.87012C9.91 1.87012 10.25 2.21012 10.25 2.62012V4.37012C10.25 4.79012 9.91 5.12012 9.5 5.12012Z" fill="currentColor" /><path d="M13.5 5.12012C13.09 5.12012 12.75 4.78012 12.75 4.37012V2.62012C12.75 2.21012 13.09 1.87012 13.5 1.87012C13.91 1.87012 14.25 2.21012 14.25 2.62012V4.37012C14.25 4.79012 13.91 5.12012 13.5 5.12012Z" fill="currentColor" /><path d="M21.6498 14.3199C21.6498 16.4699 19.9098 18.2099 17.7598 18.2099V10.4199C19.8998 10.4199 21.6498 12.1699 21.6498 14.3199Z" fill="currentColor" /></svg> 
+      )}
+    </>
+  );
+};
+
+export default IconColorsSquare;

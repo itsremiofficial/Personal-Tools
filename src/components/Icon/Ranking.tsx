@@ -1,0 +1,16 @@
+import { FC } from 'react';
+import { IconProps } from "../../types";
+
+const IconRanking1: FC<IconProps> = ({ className, fill = false, duotone = true, width = '1.5' }) => {
+  return (
+    <>
+      {!fill ? (
+        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.67 14H4C2.9 14 2 14.9 2 16V22H8.67V14Z" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" /><path d="M13.3302 10H10.6602C9.56016 10 8.66016 10.9 8.66016 12V22H15.3302V12C15.3302 10.9 14.4402 10 13.3302 10Z" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" /><path d="M20.0001 17H15.3301V22H22.0001V19C22.0001 17.9 21.1001 17 20.0001 17Z" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" /><path opacity={duotone ? "0.4" : "1"} d="M12.5202 2.06982L13.0502 3.12982C13.1202 3.27982 13.3102 3.41982 13.4702 3.43982L14.4302 3.59982C15.0402 3.69982 15.1902 4.1498 14.7502 4.5798L14.0002 5.3298C13.8702 5.4598 13.8002 5.69981 13.8402 5.86981L14.0502 6.78982C14.2202 7.51982 13.8302 7.79983 13.1902 7.41983L12.2902 6.88983C12.1302 6.78983 11.8602 6.78983 11.7002 6.88983L10.8002 7.41983C10.1602 7.79983 9.77023 7.51982 9.94023 6.78982L10.1502 5.86981C10.1902 5.69981 10.1202 5.4498 9.99023 5.3298L9.25023 4.58981C8.81023 4.14981 8.95023 3.7098 9.57023 3.6098L10.5302 3.44983C10.6902 3.41983 10.8802 3.27983 10.9502 3.13983L11.4802 2.0798C11.7702 1.4998 12.2302 1.49982 12.5202 2.06982Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg> 
+      ) : (
+        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path opacity={duotone ? "0.4" : "1"} d="M18.5 10V12.17C18.5 12.7 18.71 13.21 19.09 13.59L19.91 14.41C20.29 14.79 20.5 15.3 20.5 15.83V17C20.5 20 18.97 22 15.5 22H8.5C4.97 22 3.5 20 3.5 17V7C3.5 4.08 4.9 2.1 8.24 2.01C8.32 2 8.41 2 8.5 2H15.5C15.58 2 15.66 2 15.74 2.01C19.04 2.09 20.5 4.07 20.5 7V8C20.5 8.55 20.05 9 19.5 9C18.95 9 18.5 9.45 18.5 10Z" fill="currentColor" /><path d="M9.73967 2L9.68967 4.96C9.67967 5.37 9.34967 5.7 8.93967 5.7H8.92968C8.50968 5.69 8.17967 5.35 8.18967 4.93L8.23967 2.01C8.31967 2 8.40967 2 8.49967 2H9.73967Z" fill="currentColor" /><path d="M12.7397 2L12.6897 4.95C12.6797 5.35 12.3497 5.68 11.9397 5.68H11.9297C11.5097 5.67 11.1797 5.33 11.1897 4.92L11.2397 2H12.7397Z" fill="currentColor" /><path d="M15.7397 2.01L15.6897 4.89C15.6797 5.3 15.3497 5.63 14.9397 5.63H14.9297C14.5097 5.62 14.1797 5.28 14.1897 4.87L14.2397 2H15.4997C15.5797 2 15.6597 2 15.7397 2.01Z" fill="currentColor" /><path d="M16.0205 21.98C15.8505 21.99 15.6805 22 15.5105 22H8.51047C8.33047 22 8.16047 22 8.00047 21.98L7.98047 19C7.98047 17.9 8.87047 17 9.98047 17H13.9905C15.0905 17 15.9805 17.89 15.9905 18.99L16.0205 21.98Z" fill="currentColor" /></svg> 
+      )}
+    </>
+  );
+};
+
+export default IconRanking1;

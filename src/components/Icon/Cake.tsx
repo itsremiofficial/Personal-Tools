@@ -1,0 +1,16 @@
+import { FC } from 'react';
+import { IconProps } from "../../types";
+
+const IconCake: FC<IconProps> = ({ className, fill = false, duotone = true, width = '1.5' }) => {
+  return (
+    <>
+      {!fill ? (
+        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 22H22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path d="M3.10938 22V13C3.10938 11.34 4.59938 10 6.43938 10H17.5494C19.3894 10 20.8794 11.34 20.8794 13V22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path d="M5.56055 10V7.17C5.56055 5.97 6.64055 5 7.98055 5H16.0305C17.3605 5 18.4405 5.97 18.4405 7.17V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path opacity={duotone ? "0.34" : "1"} d="M3.5293 13.98L3.8993 13.99C4.6393 14 5.2293 14.6 5.2293 15.34V15.67C5.2293 16.41 5.8293 17.02 6.5793 17.02C7.3193 17.02 7.9293 16.42 7.9293 15.67V15.36C7.9293 14.62 8.5293 14.01 9.2793 14.01C10.0193 14.01 10.6293 14.61 10.6293 15.36V15.67C10.6293 16.41 11.2293 17.02 11.9793 17.02C12.7193 17.02 13.3293 16.42 13.3293 15.67V15.36C13.3293 14.62 13.9293 14.01 14.6793 14.01C15.4193 14.01 16.0293 14.61 16.0293 15.36V15.67C16.0293 16.41 16.6293 17.02 17.3793 17.02C18.1193 17.02 18.7293 16.42 18.7293 15.67V15.36C18.7293 14.62 19.3293 14.01 20.0793 14.01H20.5293" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path opacity={duotone ? "0.34" : "1"} d="M8 5V3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path opacity={duotone ? "0.34" : "1"} d="M16 5V3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><path opacity={duotone ? "0.34" : "1"} d="M12 5V2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg> 
+      ) : (
+        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path opacity={duotone ? "0.6" : "1"} d="M10.11 4C10.03 4.3 10 4.63 10 5V8H5V6C5 4.9 5.9 4 7 4H10.11Z" fill="currentColor" /><path d="M10 19V8H5C3 8 2 9 2 11V19C2 21 3 22 5 22H13C11 22 10 21 10 19ZM6.75 17C6.75 17.41 6.41 17.75 6 17.75C5.59 17.75 5.25 17.41 5.25 17V13C5.25 12.59 5.59 12.25 6 12.25C6.41 12.25 6.75 12.59 6.75 13V17Z" fill="currentColor" /><path opacity={duotone ? "0.4" : "1"} d="M14 22H13C11 22 10 21 10 19V5C10 3 11 2 13 2H19C21 2 22 3 22 5V19C22 21 21 22 19 22H18" fill="currentColor" /><path d="M18 18V22H14V18C14 17.45 14.45 17 15 17H17C17.55 17 18 17.45 18 18Z" fill="currentColor" /><path d="M14 13.75C13.59 13.75 13.25 13.41 13.25 13V8C13.25 7.59 13.59 7.25 14 7.25C14.41 7.25 14.75 7.59 14.75 8V13C14.75 13.41 14.41 13.75 14 13.75Z" fill="currentColor" /><path d="M18 13.75C17.59 13.75 17.25 13.41 17.25 13V8C17.25 7.59 17.59 7.25 18 7.25C18.41 7.25 18.75 7.59 18.75 8V13C18.75 13.41 18.41 13.75 18 13.75Z" fill="currentColor" /></svg> 
+      )}
+    </>
+  );
+};
+
+export default IconCake;

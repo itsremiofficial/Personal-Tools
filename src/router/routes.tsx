@@ -3,6 +3,7 @@ import App from "../App";
 import MainLayout from "../layouts/MainLayout";
 import IconConverter from "../Pages/IconConverter";
 import ColorPalette from "../Pages/ColorPalette";
+import IconsList from "../Pages/Icons";
 
 const router = createHashRouter([
   {
@@ -20,6 +21,10 @@ const router = createHashRouter([
       {
         path: "color-palette-generator",
         element: <ColorPalette />,
+      },
+      {
+        path: "icons",
+        element: <IconsList />,
       },
     ],
   },
