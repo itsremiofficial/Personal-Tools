@@ -11,11 +11,11 @@ import { toast } from "sonner";
 import replaceAttributes from "../utils/svgUtils";
 import { CheckmarkCircle02Icon, InformationCircleIcon } from "hugeicons-react";
 import { cn } from "../hooks/formatSvgCode";
+import Tray from "../components/ui/Tray";
 import {
   TrayContext,
   TrayProviderProps,
-} from "../components/ContextProvider/ContextProvider";
-import Tray from "../components/ui/Tray";
+} from "../components/ContextProvider/TrayProvider";
 
 interface GeneratedResult {
   name: string;
@@ -81,6 +81,7 @@ const IconConverter: React.FC = () => {
           </div>,
           {
             className: "toast-success",
+            duration: 50000,
           }
         );
       });

@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import {
   TrayContext,
   TrayProviderProps,
-} from "../ContextProvider/ContextProvider";
+} from "../ContextProvider/TrayProvider";
 import { ViewType } from "../../types";
 import CodeHighlight from "../Common/CodeHighlight";
 
