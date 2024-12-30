@@ -265,67 +265,93 @@ const IconConverter: React.FC = () => {
           />
         </div>
 
+        <div
+          className={cn(
+            "p-6 border rounded-4xl flex flex-col gap-6",
+            "border-icu-300 bg-icu-100",
+            "dark:border-icu-800/70 dark:bg-icu-1000/40"
+          )}
+        >
+          <label
+            htmlFor="iconPropsPath"
+            className="flex items-center gap-2 font-medium dark:text-icu-500"
+          >
+            Path for &#60;IconProp&#62;
+            <InformationCircleIcon
+              className={cn(
+                "size-8 p-1 rounded-xl cursor-pointer transition-colors duration-300",
+                "text-icu-600 hover:text-icu-700",
+                "dark:text-icu-700 dark:hover:text-icu-600"
+              )}
+              onClick={() => setOpen(!open)}
+            />
+            <Tray />
+          </label>
+          <div className="flex items-center justify-between gap-4">
+            <input
+              id="iconPropsPath"
+              type="text"
+              value={iconPropsPath}
+              onChange={(e) => setIconPropsPath(e.target.value)}
+              className={cn(
+                "grow rounded-2xl py-4.5 px-3 border-[1.5px] w-max !ring-0 !outline-0 transition-colors duration-300",
+                "bg-icu-200 border-icu-400/70 text-icu-800",
+                "focus-visible:border-icu-600",
+                "dark:bg-icu-900 dark:border-icu-800/70 dark:text-icu-400",
+                "dark:focus-visible:border-icu-700/70"
+              )}
+              placeholder="Enter path for Type e.g: ../types"
+            />
+            <GenerateButton
+              onClick={generateComponents}
+              disabled={!isReady || !iconPropsPath.length}
+              loading={isProcessing}
+              progress={generateProgress}
+            />
+          </div>
+        </div>
         {(strokeHandler.files.length > 0 ||
           duotoneHandler.files.length > 0) && (
-          <>
-            <div
-              className={cn(
-                "p-6 border rounded-4xl flex flex-col gap-6",
-                "border-icu-300 bg-icu-100",
-                "dark:border-icu-800/70 dark:bg-icu-1000/40"
+          <div
+            className={cn(
+              "p-6 border rounded-4xl flex flex-col gap-6",
+              "border-icu-300 bg-icu-100",
+              "dark:border-icu-800/70 dark:bg-icu-1000/40"
+            )}
+          >
+            <div>
+              {strokeHandler.files.length > 0 && (
+                <label
+                  htmlFor="bulkIconsList"
+                  className="pl-3 flex items-center gap-2 font-medium dark:text-icu-500"
+                >
+                  Line Icon Files
+                </label>
               )}
-            >
-              <label
-                htmlFor="iconPropsPath"
-                className="flex items-center gap-2 font-medium dark:text-icu-500"
-              >
-                Path for &#60;IconProp&#62;
-                <InformationCircleIcon
-                  className={cn(
-                    "size-8 p-1 rounded-xl cursor-pointer transition-colors duration-300",
-                    "text-icu-600 hover:text-icu-700",
-                    "dark:text-icu-700 dark:hover:text-icu-600"
-                  )}
-                  onClick={() => setOpen(!open)}
-                />
-                <Tray />
-              </label>
-              <div className="flex items-center justify-between gap-4">
-                <input
-                  id="iconPropsPath"
-                  type="text"
-                  value={iconPropsPath}
-                  onChange={(e) => setIconPropsPath(e.target.value)}
-                  className={cn(
-                    "grow rounded-2xl py-4.5 px-3 border-[1.5px] w-max !ring-0 !outline-0 transition-colors duration-300",
-                    "bg-icu-200 border-icu-400/70 text-icu-800",
-                    "focus-visible:border-icu-600",
-                    "dark:bg-icu-900 dark:border-icu-800/70 dark:text-icu-400",
-                    "dark:focus-visible:border-icu-700/70"
-                  )}
-                  placeholder="Enter path for Type e.g: ../types"
-                />
-                <GenerateButton
-                  onClick={generateComponents}
-                  disabled={!isReady}
-                  loading={isProcessing}
-                  progress={generateProgress}
-                />
-              </div>
+              <FileList
+                {...strokeHandler}
+                type="stroke"
+                disabled={isProcessing}
+                onClear={clearAll} // Add onClear prop
+              />
             </div>
-            <FileList
-              {...strokeHandler}
-              type="stroke"
-              disabled={isProcessing}
-              onClear={clearAll} // Add onClear prop
-            />
-            <FileList
-              {...duotoneHandler}
-              type="duotone"
-              disabled={isProcessing}
-              onClear={clearAll} // Add onClear prop
-            />
-          </>
+            <div>
+              {duotoneHandler.files.length > 0 && (
+                <label
+                  htmlFor="bulkIconsList"
+                  className="pl-3 flex items-center gap-2 font-medium dark:text-icu-500"
+                >
+                  Bulk Icon Files
+                </label>
+              )}
+              <FileList
+                {...duotoneHandler}
+                type="duotone"
+                disabled={isProcessing}
+                onClear={clearAll} // Add onClear prop
+              />
+            </div>
+          </div>
         )}
 
         {state.logs.length > 0 && (

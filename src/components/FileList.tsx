@@ -7,18 +7,11 @@ import { FileHandlerType } from "../hooks/useFileHandler";
 interface FileListProps extends Omit<FileHandlerType, "handleRejected"> {
   type: "stroke" | "duotone";
   disabled?: boolean;
-  onClear: () => void; // Add onClear prop
+  onClear: () => void;
 }
 
 export const FileList = React.memo(
-  ({
-    files,
-    type,
-    disabled,
-    removeFile,
-    clearFiles,
-    onClear,
-  }: FileListProps) => {
+  ({ files, disabled, removeFile, clearFiles, onClear }: FileListProps) => {
     if (!files.length) return null;
 
     const handleClear = () => {

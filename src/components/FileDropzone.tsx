@@ -40,12 +40,13 @@ export const FileDropzone = React.memo(
         <div
           {...getRootProps()}
           className={cn(
-            "border-2 border-dashed p-6 pb-10 rounded-3xl cursor-pointer transition-colors duration-300 group/input",
-            "border-icu-300/70 hover:border-icu-400/70",
-            "dark:border-icu-800/40 dark:hover:border-icu-800/50",
-            "hover:bg-icu-300/40",
-            "dark:hover:bg-icu-800/30",
-            isDragActive && "border-blue-500 bg-blue-50/10",
+            "border-2 border-dashed p-6 pb-10 rounded-3xl cursor-pointer transition-colors duration-500 group/input",
+            "border-icu-300/70 hover:border-icu-400",
+            "dark:border-icu-800/70 dark:hover:border-icu-800",
+            "hover:bg-icu-300/70",
+            "dark:hover:bg-icu-800/40",
+            isDragActive &&
+              "border-icu-400 bg-icu-300/70 dark:border-icu-800 dark:bg-icu-800/40",
             disabled && "cursor-not-allowed opacity-50",
             !disabled && "cursor-pointer",
             className
@@ -55,21 +56,24 @@ export const FileDropzone = React.memo(
           <label
             className={cn(
               "px-3 py-1 rounded-full text-sm border tracking-widest",
-              "border-icu-600 group-hover/input:border-icu-900",
-              "dark:border-icu-800/30 group-hover/input:dark:border-icu-800",
-              "text-icu-800 group-hover/input:!text-icu-900",
-              "dark:!text-icu-600 group-hover/input:dark:!text-icu-400",
-              "transition-colors duration-300"
+              "border-icu-400 group-hover/input:border-icu-600/60",
+              "text-icu-600 group-hover/input:!text-icu-700",
+              "dark:border-icu-800/70 group-hover/input:dark:border-icu-700/60",
+              "dark:!text-icu-600/80 group-hover/input:dark:!text-icu-500",
+              "transition-colors duration-500",
+              isDragActive &&
+                "!text-icu-700 border-icu-600/60 dark:!text-icu-500 dark:border-icu-700/60"
             )}
           >
             {label}
           </label>
           <div
             className={cn(
-              "size-full flex gap-2 flex-col items-center justify-center text-center",
+              "flex gap-2 flex-col items-center justify-center text-center",
               "text-icu-700 group-hover/input:text-icu-900",
               "dark:text-icu-700 dark:group-hover/input:text-icu-500",
-              "transition-colors duration-300"
+              "transition-colors duration-500",
+              isDragActive && "text-icu-900 dark:text-icu-500"
             )}
           >
             <CloudUploadIcon className="size-14" />

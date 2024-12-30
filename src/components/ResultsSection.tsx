@@ -130,7 +130,7 @@ export const ResultsSection = React.memo(
       <>
         <div
           className={cn(
-            "p-6 border rounded-3xl flex flex-col gap-6",
+            "p-6 border rounded-4xl flex flex-col gap-6",
             "border-icu-300 bg-icu-100",
             "dark:border-icu-800/70 dark:bg-icu-1000/40",
             disabled && "opacity-50 pointer-events-none"
@@ -188,7 +188,7 @@ export const ResultsSection = React.memo(
 
         <div
           className={cn(
-            "p-6 border rounded-3xl flex flex-col gap-4",
+            "p-6 border rounded-4xl flex flex-col gap-4",
             "border-icu-300 bg-icu-100",
             "dark:border-icu-800/70 dark:bg-icu-1000/40"
           )}
@@ -220,10 +220,11 @@ export const ResultsSection = React.memo(
                         ? "bg-emerald-50 text-emerald-600 ring-emerald-600/20 dark:text-emerald-400 dark:bg-emerald-400/5"
                         : "bg-rose-50 text-rose-600 ring-rose-600/10 dark:text-rose-400 dark:bg-rose-400/5"
                     )}
-                  ></span>
-                  <div className="inline-flex items-center gap-1">
-                    {isSuccess ? <>Success</> : <>Failed</>}
-                  </div>
+                  >
+                    <div className="inline-flex items-center gap-1">
+                      {isSuccess ? <>Success</> : <>Failed</>}
+                    </div>
+                  </span>
                   <span
                     className={
                       isSuccess
