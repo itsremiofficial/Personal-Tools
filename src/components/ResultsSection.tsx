@@ -105,7 +105,7 @@ export const ResultsSection = React.memo(
             <>
               {/* <Loading03Icon className="size-5 animate-spin" /> */}
               <Progress
-                value={downloadState.progress}
+                value={Math.round(downloadState.progress)}
                 className="w-full h-4"
               />{" "}
               {Math.round(downloadState.progress)}%
