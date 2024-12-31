@@ -7,9 +7,9 @@ import {
   TrayProviderProps,
 } from "../ContextProvider/TrayProvider";
 import { Button } from "./Button";
-import CodeHighlight from "./CodeHighlight";
 import { ViewType } from "@/types";
 import { cn, useResizeObserver } from "@/hooks";
+import CodeHighlight from "./CodeHighlight";
 
 const backdropVariants = {
   initial: {
