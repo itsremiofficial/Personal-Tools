@@ -32,10 +32,10 @@ export const useFileHandler = (type: "stroke" | "duotone"): FileHandlerType => {
     (files: File[]): Promise<void> => {
       return new Promise((resolve) => {
         try {
-          console.log(
-            `Processing ${type} files:`,
-            files.map((f) => f.name)
-          );
+          // console.log(
+          //   `Processing ${type} files:`,
+          //   files.map((f) => f.name)
+          // );
 
           const fileQueue = files
             .filter((file) => {
@@ -91,13 +91,13 @@ export const useFileHandler = (type: "stroke" | "duotone"): FileHandlerType => {
           fileQueue.sort((a, b) => a.name.localeCompare(b.name));
 
           // Debug log sorted files
-          console.log(
-            `Sorted ${type} files:`,
-            fileQueue.map((f) => ({
-              original: f.originalName,
-              sanitized: f.name,
-            }))
-          );
+          // console.log(
+          //   `Sorted ${type} files:`,
+          //   fileQueue.map((f) => ({
+          //     original: f.originalName,
+          //     sanitized: f.name,
+          //   }))
+          // );
 
           const newState = {
             files: [] as File[],
@@ -136,11 +136,11 @@ export const useFileHandler = (type: "stroke" | "duotone"): FileHandlerType => {
               processed++;
               if (processed === total) {
                 // Debug log final state
-                console.log(`Final ${type} state:`, {
-                  files: newState.files.length,
-                  names: newState.names,
-                  svgs: newState.svgs.length,
-                });
+                // console.log(`Final ${type} state:`, {
+                //   files: newState.files.length,
+                //   names: newState.names,
+                //   svgs: newState.svgs.length,
+                // });
 
                 setState((prev) => ({
                   ...prev,

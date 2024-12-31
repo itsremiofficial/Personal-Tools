@@ -87,6 +87,17 @@ const IconConverter: React.FC = () => {
     ) => {
       const successfulResults = results.filter((r) => r.success);
       const failedResults = results.filter((r) => !r.success);
+      const totalFiles = results.length;
+
+      // Group failures by error message
+      const failureGroups = failedResults.reduce((acc, result) => {
+        const key = result.error || "Unknown error";
+        if (!acc[key]) {
+          acc[key] = [];
+        }
+        acc[key].push(result.name);
+        return acc;
+      }, {} as Record<string, string[]>);
 
       // Create logs including missing files
       const logs = [
@@ -247,10 +258,10 @@ const IconConverter: React.FC = () => {
         ({ name, strokeIndex, duotoneIndex }) =>
           async (): Promise<GeneratedResult> => {
             try {
-              console.log(`Processing pair: ${name}`, {
-                stroke: strokeHandler.svgs[strokeIndex],
-                duotone: duotoneHandler.svgs[duotoneIndex],
-              });
+              // console.log(`Processing pair: ${name}`, {
+              //   stroke: strokeHandler.svgs[strokeIndex],
+              //   duotone: duotoneHandler.svgs[duotoneIndex],
+              // });
 
               const strokeSvg = await replaceAttributes(
                 strokeHandler.svgs[strokeIndex],

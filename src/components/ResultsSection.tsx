@@ -235,7 +235,9 @@ export const ResultsSection = React.memo(
                 )}
               >
                 Missing Files{" "}
-                {missingFiles.stroke.length + missingFiles.duotone.length}
+                <kbd className="px-2 rounded-md py-1 dark:bg-icu-1000 dark:text-icu-500">
+                  {missingFiles.stroke.length + missingFiles.duotone.length}
+                </kbd>
               </label>
               <div
                 className={cn(
@@ -245,24 +247,28 @@ export const ResultsSection = React.memo(
               >
                 {missingFiles.stroke.length > 0 && (
                   <div className="mb-2">
-                    <span className="text-amber-700 dark:text-amber-500">
-                      Missing Line Icons:
+                    <span className="dark:bg-icu-1000 dark:text-icu-500">
+                      Line Icons
                     </span>
                     <div className="text-amber-600 dark:text-amber-400 ml-4">
                       {missingFiles.stroke.map((name) => (
-                        <div key={name}>{name}.svg</div>
+                        <div className="leading-[1.2]" key={name}>
+                          ├ {name}.svg
+                        </div>
                       ))}
                     </div>
                   </div>
                 )}
                 {missingFiles.duotone.length > 0 && (
                   <div>
-                    <span className="text-amber-700 dark:text-amber-500">
-                      Missing Bulk Icons:
+                    <span className="dark:bg-icu-1000 dark:text-icu-500">
+                      Bulk Icons
                     </span>
                     <div className="text-amber-600 dark:text-amber-400 ml-4">
                       {missingFiles.duotone.map((name) => (
-                        <div key={name}>{name}.svg</div>
+                        <div className="leading-[1.2]" key={name}>
+                          ├ {name}.svg
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -285,7 +291,10 @@ export const ResultsSection = React.memo(
               "dark:text-icu-600 dark:border-icu-800"
             )}
           >
-            Logs {logs.length}
+            Logs{" "}
+            <kbd className="px-2 rounded-md py-1 dark:bg-icu-1000 dark:text-icu-500">
+              {logs.length}
+            </kbd>
           </label>
           <div
             className={cn(
