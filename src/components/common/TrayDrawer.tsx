@@ -9,7 +9,7 @@ import {
 import { Button } from "./Button";
 import { ViewType } from "@/types";
 import { cn, useResizeObserver } from "@/hooks";
-import CodeHighlight from "./CodeHighlight";
+import CodeHighlight from "./Code";
 
 const backdropVariants = {
   initial: {

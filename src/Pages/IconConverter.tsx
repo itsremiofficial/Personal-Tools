@@ -18,7 +18,7 @@ import {
   ResultsSection,
 } from "@/components";
 import { cn } from "@/hooks";
-import Tray from "@/components/common/Tray";
+import Tray from "@/components/common/TrayDrawer";
 import { generateComponentCodeSync } from "@/utils/generateComponentCode";
 
 const IconConverter: React.FC = () => {
