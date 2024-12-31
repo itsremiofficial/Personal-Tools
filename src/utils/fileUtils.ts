@@ -6,20 +6,37 @@
  * 4. Removing special characters
  */
 export const sanitizeFileName = (fileName: string): string => {
-  return (
-    fileName
-      // Remove file extension
+  try {
+    // Safety check
+    if (!fileName) return "UnknownIcon";
+
+    const name = fileName
+      // Remove extension
       .replace(/\.svg$/i, "")
-      // Remove 'icon' prefix or suffix (case insensitive)
-      .replace(/^icon|icon$/i, "")
-      // Replace special characters with spaces
-      .replace(/[^a-zA-Z0-9]/g, " ")
-      // Split into words
-      .split(" ")
-      // Filter out empty strings and 'svg'
-      .filter((word) => word && word.toLowerCase() !== "svg")
-      // Convert to PascalCase
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-      .join("")
-  );
+      // Split on special characters
+      .split(/[-_.\s]+/)
+      // Remove empty parts and 'icon'
+      .filter((part) => part && part.toLowerCase() !== "icon")
+      // Process each part
+      .map((part, index) => {
+        // Handle numbers
+        if (/^\d+$/.test(part)) {
+          return part;
+        }
+        // Capitalize first letter, lowercase rest
+        return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
+      })
+      .join("");
+
+    return name ? `${name}` : "UnknownIcon";
+  } catch (error) {
+    console.error("Error sanitizing filename:", fileName, error);
+    return "UnknownIcon";
+  }
 };
+
+// Test cases:
+// console.log(sanitizeFileName('icon-home.svg')); // -> "HomeIcon"
+// console.log(sanitizeFileName('arrow-right-2.svg')); // -> "ArrowRight2Icon"
+// console.log(sanitizeFileName('01-home.svg')); // -> "01HomeIcon"
+// console.log(sanitizeFileName('check_circle_01.svg')); // -> "CheckCircle01Icon"

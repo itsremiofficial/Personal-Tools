@@ -1,8 +1,7 @@
 import { useCallback, useContext, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useResizeObserver } from "../../hooks";
+import { cn, useResizeObserver } from "../../hooks";
 import { Copy01Icon } from "hugeicons-react";
-import { cn } from "../../hooks/formatSvgCode";
 import { Button } from "./button";
 import { toast } from "sonner";
 import {

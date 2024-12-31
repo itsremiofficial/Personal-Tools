@@ -6,7 +6,7 @@ export const generateComponentCode = (
 ): string => `import { FC } from 'react';
 import { IconProps } from "${iconPropsPath}";
 
-const ${name}: FC<IconProps> = ({ className, fill = false, duotone = true, width = '1.5' }) => {
+const Icon${name}: FC<IconProps> = ({ className, fill = false, duotone = true, width = '1.5' }) => {
   return (
     <>
       {!fill ? (
@@ -18,4 +18,4 @@ const ${name}: FC<IconProps> = ({ className, fill = false, duotone = true, width
   );
 };
 
-export default ${name};`;
+export default Icon${name};`;

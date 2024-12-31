@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { cn } from "../hooks/formatSvgCode.ts";
 import Smooth from "./Common/Smooth";
 import { IconProps } from "../types";
+import { cn } from "../hooks";
 
 interface NavItemProps {
   path: string;

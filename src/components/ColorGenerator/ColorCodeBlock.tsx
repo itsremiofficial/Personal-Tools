@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from "react";
 import { IconTickCircle } from "./IconTickCircle";
 import IconCopy from "./IconCopy";
-import { cn } from "../../hooks/formatSvgCode.ts";
 import { ColorVariant } from "../../types";
+import { cn } from "../../hooks";
 interface ColorCodeBlockProps {
   variants: ColorVariant[];
   colorFormat: "hex" | "rgb" | "oklch";

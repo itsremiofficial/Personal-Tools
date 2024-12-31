@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "./ui/button";
 import { Cancel01Icon, Delete03Icon } from "hugeicons-react";
-import { cn } from "../hooks/formatSvgCode.ts";
 import { FileHandlerType } from "../hooks/useFileHandler";
+import { cn } from "../hooks";
 
 interface FileListProps extends Omit<FileHandlerType, "handleRejected"> {
   type: "stroke" | "duotone";

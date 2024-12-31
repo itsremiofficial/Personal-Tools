@@ -1,7 +1,7 @@
 import React from "react";
 import { useDropzone, FileRejection } from "react-dropzone";
 import { CloudUploadIcon } from "hugeicons-react";
-import { cn } from "../hooks/formatSvgCode.ts";
+import { cn } from "../hooks";
 
 interface FileDropzoneProps {
   onDrop: (files: File[]) => void;

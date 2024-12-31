@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 
 import * as Iconss from "../components/Icon";
 import { toast } from "sonner";
-import { cn } from "../hooks/formatSvgCode";
+import { cn } from "../hooks";
 
 const IconsList = () => {
   const copyIconCode = (iconName = "", fill = false) => {
@@ -38,7 +39,7 @@ const IconsList = () => {
   const showSuccessToast = (iconName: string, type: string) => {
     if (type === "success") {
       return toast.success(`${iconName} copied!`);
-    } else if (type === "success") {
+    } else if (type === "error") {
       return toast.error(`${iconName} copied!`);
     }
   };

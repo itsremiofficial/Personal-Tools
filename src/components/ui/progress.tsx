@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
-import { cn } from "../../hooks/formatSvgCode";
+import { cn } from "../../hooks";
 
 interface ProgressProps
   extends React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root> {

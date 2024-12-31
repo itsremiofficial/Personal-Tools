@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn } from "../../hooks/formatSvgCode.ts";
+import { cn } from "../../hooks";
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 

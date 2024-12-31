@@ -11,7 +11,9 @@ import {
 import { useTheme } from "../hooks/useTheme";
 import { useSidebar } from "../hooks/useSidebar";
 import { NavItem } from "../components/NavItem";
-import { cn } from "../hooks/formatSvgCode";
+import { cn } from "../hooks";
+import IconWoman from "../components/Common/Woman";
+import Icon24Support from "../components/ui/24Support";
 
 const Sidebar = () => {
   const { isDark, setDark } = useTheme();
@@ -20,7 +22,7 @@ const Sidebar = () => {
 
   const navItems = useMemo(
     () => [
-      { path: "/", label: "Icon Generator", icon: IconLayer },
+      { path: "/", label: "Icon Generator", icon: Icon24Support },
       {
         path: "/color-palette-generator",
         label: "Color Generator",

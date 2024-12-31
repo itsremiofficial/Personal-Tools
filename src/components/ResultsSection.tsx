@@ -6,11 +6,11 @@ import {
   Loading03Icon,
   CheckmarkCircle01Icon,
 } from "hugeicons-react";
-import { cn } from "../hooks/formatSvgCode.ts";
 import { saveAs } from "file-saver";
 import JSZip from "jszip";
 import { toast } from "sonner";
 import { Progress } from "./ui/progress"; // Add Progress import
+import { cn } from "../hooks";
 
 interface ResultsSectionProps {
   outputs: string[];
@@ -19,6 +19,10 @@ interface ResultsSectionProps {
   names: string[];
   onClear: () => void;
   disabled?: boolean; // Add disabled prop
+  missingFiles?: {
+    stroke: string[];
+    duotone: string[];
+  };
 }
 
 interface DownloadState {
@@ -34,6 +38,7 @@ export const ResultsSection = React.memo(
     names,
     onClear,
     disabled = false,
+    missingFiles,
   }: ResultsSectionProps) => {
     const [downloadState, setDownloadState] = useState<DownloadState>({
       status: "idle",
@@ -126,6 +131,35 @@ export const ResultsSection = React.memo(
       }
     };
 
+    const getLogStatus = (log: string) => {
+      if (log.startsWith("Success:")) return "success";
+      if (log.startsWith("Missing:")) return "warning";
+      return "error";
+    };
+
+    const getLogStyles = (status: "success" | "warning" | "error") => {
+      switch (status) {
+        case "success":
+          return {
+            badge:
+              "bg-emerald-50 text-emerald-600 ring-emerald-600/20 dark:text-emerald-400 dark:bg-emerald-400/5",
+            text: "text-emerald-600 dark:text-emerald-400",
+          };
+        case "warning":
+          return {
+            badge:
+              "bg-amber-50 text-amber-600 ring-amber-600/20 dark:text-amber-400 dark:bg-amber-400/5",
+            text: "text-amber-600 dark:text-amber-400",
+          };
+        default:
+          return {
+            badge:
+              "bg-rose-50 text-rose-600 ring-rose-600/10 dark:text-rose-400 dark:bg-rose-400/5",
+            text: "text-rose-600 dark:text-rose-400",
+          };
+      }
+    };
+
     return (
       <>
         <div
@@ -183,6 +217,60 @@ export const ResultsSection = React.memo(
           </div>
         </div>
 
+        {missingFiles &&
+          (missingFiles.stroke.length > 0 ||
+            missingFiles.duotone.length > 0) && (
+            <div
+              className={cn(
+                "p-6 border rounded-4xl flex flex-col gap-4",
+                "border-icu-300 bg-icu-100",
+                "dark:border-icu-800/70 dark:bg-icu-1000/40"
+              )}
+            >
+              <label
+                className={cn(
+                  "pl-4 rounded-full uppercase text-sm tracking-widest font-bold text-center w-max leading-none",
+                  "text-icu-700 border-icu-400",
+                  "dark:text-icu-600 dark:border-icu-800"
+                )}
+              >
+                Missing Files{" "}
+                {missingFiles.stroke.length + missingFiles.duotone.length}
+              </label>
+              <div
+                className={cn(
+                  "flex flex-col gap-2 p-4 rounded-3xl",
+                  "bg-icu-200 dark:bg-icu-1000"
+                )}
+              >
+                {missingFiles.stroke.length > 0 && (
+                  <div className="mb-2">
+                    <span className="text-amber-700 dark:text-amber-500">
+                      Missing Line Icons:
+                    </span>
+                    <div className="text-amber-600 dark:text-amber-400 ml-4">
+                      {missingFiles.stroke.map((name) => (
+                        <div key={name}>{name}.svg</div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {missingFiles.duotone.length > 0 && (
+                  <div>
+                    <span className="text-amber-700 dark:text-amber-500">
+                      Missing Bulk Icons:
+                    </span>
+                    <div className="text-amber-600 dark:text-amber-400 ml-4">
+                      {missingFiles.duotone.map((name) => (
+                        <div key={name}>{name}.svg</div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
         <div
           className={cn(
             "p-6 border rounded-4xl flex flex-col gap-4",
@@ -192,12 +280,12 @@ export const ResultsSection = React.memo(
         >
           <label
             className={cn(
-              "rounded-full uppercase text-sm tracking-widest font-bold text-center w-max leading-none",
+              "pl-4 rounded-full uppercase text-sm tracking-widest font-bold text-center w-max leading-none",
               "text-icu-700 border-icu-400",
               "dark:text-icu-600 dark:border-icu-800"
             )}
           >
-            Logs
+            Logs {logs.length}
           </label>
           <div
             className={cn(
@@ -207,31 +295,27 @@ export const ResultsSection = React.memo(
           >
             <div className="max-h-72 overflow-y-auto">
               {logs.map((log, index) => {
-                const isSuccess = log.startsWith("Success:");
-                const logText = log.replace(/^(Success|Failed): /, "");
+                const status = getLogStatus(log);
+                const styles = getLogStyles(status);
+                const logText = log.replace(/^(Success|Failed|Missing): /, "");
+
                 return (
                   <div key={index} className="flex items-center gap-3">
                     <span
                       className={cn(
                         "flex justify-center rounded-full uppercase px-2 py-1 text-[11px] tracking-wider leading-none w-[5rem]",
-                        isSuccess
-                          ? "bg-emerald-50 text-emerald-600 ring-emerald-600/20 dark:text-emerald-400 dark:bg-emerald-400/5"
-                          : "bg-rose-50 text-rose-600 ring-rose-600/10 dark:text-rose-400 dark:bg-rose-400/5"
+                        styles.badge
                       )}
                     >
                       <div className="inline-flex items-center gap-1">
-                        {isSuccess ? <>Success</> : <>Failed</>}
+                        {status === "success"
+                          ? "Success"
+                          : status === "warning"
+                          ? "Missing"
+                          : "Failed"}
                       </div>
                     </span>
-                    <span
-                      className={
-                        isSuccess
-                          ? "text-emerald-600 dark:text-emerald-400"
-                          : "text-rose-600 dark:text-rose-400"
-                      }
-                    >
-                      {logText}
-                    </span>
+                    <span className={styles.text}>{logText}</span>
                   </div>
                 );
               })}

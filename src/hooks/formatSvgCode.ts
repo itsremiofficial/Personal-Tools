@@ -1,11 +1,3 @@
-// lib/utils.ts
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
 export function formatSvgCode(svg: string, type: "stroke" | "duotone"): string {
   let formatted = svg
     .replace(/class=/g, "className=")

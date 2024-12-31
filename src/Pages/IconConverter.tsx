@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState, useCallback, useMemo, useContext } from "react";
 import { useFileHandler } from "../hooks/useFileHandler";
@@ -9,13 +10,13 @@ import { ResultsSection } from "../components/ResultsSection";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 import { toast } from "sonner";
 import replaceAttributes from "../utils/svgUtils";
-import { CheckmarkCircle02Icon, InformationCircleIcon } from "hugeicons-react";
-import { cn } from "../hooks/formatSvgCode";
+import { InformationCircleIcon } from "hugeicons-react";
 import Tray from "../components/ui/Tray";
 import {
   TrayContext,
   TrayProviderProps,
 } from "../components/ContextProvider/TrayProvider";
+import { cn } from "../hooks";
 
 interface GeneratedResult {
   name: string;
@@ -28,6 +29,10 @@ interface IconConverterState {
   outputs: string[];
   logs: string[];
   error: string | null;
+  missingFiles?: {
+    stroke: string[];
+    duotone: string[];
+  };
 }
 
 const IconConverter: React.FC = () => {
@@ -35,6 +40,10 @@ const IconConverter: React.FC = () => {
     outputs: [],
     logs: [],
     error: null,
+    missingFiles: {
+      stroke: [],
+      duotone: [],
+    },
   });
   const [isProcessing, setIsProcessing] = useState(false);
   const [iconPropsPath, setIconPropsPath] = useState(""); // Add this state
@@ -71,64 +80,66 @@ const IconConverter: React.FC = () => {
     };
   }, []);
 
-  const updateStateWithResults = useCallback((results: GeneratedResult[]) => {
-    const successfulResults = results.filter((r) => r.success);
-    const failedResults = results.filter((r) => !r.success);
-    const totalFiles = results.length;
+  const updateStateWithResults = useCallback(
+    (
+      results: GeneratedResult[],
+      unmatched?: { stroke: string[]; duotone: string[] }
+    ) => {
+      const successfulResults = results.filter((r) => r.success);
+      const failedResults = results.filter((r) => !r.success);
 
-    // Group failures by error message for better reporting
-    const failureGroups = failedResults.reduce((acc, result) => {
-      const key = result.error || "Unknown error";
-      if (!acc[key]) {
-        acc[key] = [];
-      }
-      acc[key].push(result.name);
-      return acc;
-    }, {} as Record<string, string[]>);
-
-    setState((prev) => ({
-      outputs: successfulResults.map((r) => r.output as string),
-      logs: [
+      // Create logs including missing files
+      const logs = [
+        // Successful generations
         ...successfulResults.map((r) => `Success: ${r.name}.tsx`),
+        // Failed generations
         ...failedResults.map((r) => `Failed: ${r.name}.tsx`),
-      ],
-      error:
-        failedResults.length > 0
-          ? Object.entries(failureGroups)
-              .map(
-                ([error, names]) =>
-                  `Failed to generate ${
-                    names.length
-                  } files (${error}): ${names.join(", ")}`
-              )
-              .join("\n")
-          : null,
-    }));
+        // Missing stroke files
+        ...(unmatched?.stroke.map(
+          (name) => `Missing: ${name}.svg (Line Icon)`
+        ) || []),
+        // Missing duotone files
+        ...(unmatched?.duotone.map(
+          (name) => `Missing: ${name}.svg (Bulk Icon)`
+        ) || []),
+      ];
 
-    // Show summary toast for failures if there are many
-    if (failedResults.length > 0) {
-      const failureSummary = Object.entries(failureGroups)
-        .map(([error, names]) => `${names.length} files failed: ${error}`)
-        .join("\n");
+      setState((prev) => ({
+        outputs: successfulResults.map((r) => r.output as string),
+        logs,
+        error:
+          failedResults.length > 0
+            ? `Failed to generate ${failedResults.length} components`
+            : null,
+        missingFiles: unmatched || { stroke: [], duotone: [] },
+      }));
 
-      toast.error(failureSummary, {
-        id: "failure-summary", // Prevent duplicate summary toasts
-      });
-    }
+      // Show summary toast for failures if there are many
+      if (failedResults.length > 0) {
+        const failureSummary = Object.entries(failureGroups)
+          .map(([error, names]) => `${names.length} files failed: ${error}`)
+          .join("\n");
 
-    // Only show success toasts if total files are less than 20
-    if (totalFiles < 20) {
-      successfulResults.forEach((result) => {
-        toast.success(`Generated: ${result.name}.tsx`, {
-          id: `success-${result.name}`,
+        toast.error(failureSummary, {
+          id: "failure-summary", // Prevent duplicate summary toasts
         });
-      });
-    } else if (successfulResults.length > 0) {
-      toast.success(
-        `Successfully generated ${successfulResults.length} components`
-      );
-    }
-  }, []);
+      }
+
+      // Only show success toasts if total files are less than 20
+      if (totalFiles < 20) {
+        successfulResults.forEach((result) => {
+          toast.success(`Generated: ${result.name}.tsx`, {
+            id: `success-${result.name}`,
+          });
+        });
+      } else if (successfulResults.length > 0) {
+        toast.success(
+          `Successfully generated ${successfulResults.length} components`
+        );
+      }
+    },
+    []
+  );
 
   // Add batch processing size
   const BATCH_SIZE = 5;
@@ -152,6 +163,54 @@ const IconConverter: React.FC = () => {
     return results;
   };
 
+  // Add new validation function
+  const validateFileMatches = useCallback(() => {
+    // Convert to lowercase and remove special characters for comparison
+    const normalizeFileName = (name: string) =>
+      name.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+    const strokeFiles = new Map(
+      strokeHandler.names.map((name, i) => [
+        normalizeFileName(name),
+        { name, index: i },
+      ])
+    );
+
+    const duotoneFiles = new Map(
+      duotoneHandler.names.map((name, i) => [
+        normalizeFileName(name),
+        { name, index: i },
+      ])
+    );
+
+    // Find matching pairs
+    const matchedPairs = Array.from(strokeFiles.keys())
+      .filter((key) => duotoneFiles.has(key))
+      .map((key) => ({
+        name: strokeFiles.get(key)!.name,
+        strokeIndex: strokeFiles.get(key)!.index,
+        duotoneIndex: duotoneFiles.get(key)!.index,
+      }));
+
+    // Find missing files
+    const missingInDuotone = Array.from(strokeFiles.keys())
+      .filter((key) => !duotoneFiles.has(key))
+      .map((key) => strokeFiles.get(key)!.name);
+
+    const missingInStroke = Array.from(duotoneFiles.keys())
+      .filter((key) => !strokeFiles.has(key))
+      .map((key) => duotoneFiles.get(key)!.name);
+
+    return {
+      matchedPairs,
+      unmatched: {
+        stroke: missingInStroke,
+        duotone: missingInDuotone,
+      },
+    };
+  }, [strokeHandler.names, duotoneHandler.names]);
+
+  // Update generate components to use matching pairs
   const generateComponents = useCallback(async () => {
     setIsProcessing(true);
     setGenerateProgress(0);
@@ -162,42 +221,63 @@ const IconConverter: React.FC = () => {
         throw new Error("No SVG files loaded");
       }
 
-      const tasks = strokeHandler.names.map(
-        (name, index) => async (): Promise<GeneratedResult> => {
-          if (
-            !name ||
-            !strokeHandler.svgs[index] ||
-            !duotoneHandler.svgs[index]
-          ) {
-            return handleError(new Error("Missing required files"), name);
-          }
+      // Get matched and unmatched files
+      const { matchedPairs, unmatched } = validateFileMatches();
 
-          try {
-            const strokeSvg = await replaceAttributes(
-              strokeHandler.svgs[index],
-              true
-            );
-            const duotoneSvg = await replaceAttributes(
-              duotoneHandler.svgs[index]
-            );
+      // Show only the count in toast
+      if (unmatched.stroke.length || unmatched.duotone.length) {
+        const totalMissing = unmatched.stroke.length + unmatched.duotone.length;
+        toast.warning(`${totalMissing} files are missing their counterparts`, {
+          duration: 5000,
+        });
+      }
 
-            return {
-              name,
-              success: true,
-              output: generateComponentCode(
-                `Icon${name}`,
-                strokeSvg,
-                duotoneSvg,
-                iconPropsPath
-              ),
-            };
-          } catch (error) {
-            return handleError(
-              error instanceof Error ? error : new Error("Unknown error"),
-              name
-            );
+      // Update state with missing files
+      setState((prev) => ({
+        ...prev,
+        missingFiles: unmatched,
+      }));
+
+      if (!matchedPairs.length) {
+        throw new Error("No matching icon pairs found");
+      }
+
+      // Process only matched files
+      const tasks = matchedPairs.map(
+        ({ name, strokeIndex, duotoneIndex }) =>
+          async (): Promise<GeneratedResult> => {
+            try {
+              console.log(`Processing pair: ${name}`, {
+                stroke: strokeHandler.svgs[strokeIndex],
+                duotone: duotoneHandler.svgs[duotoneIndex],
+              });
+
+              const strokeSvg = await replaceAttributes(
+                strokeHandler.svgs[strokeIndex],
+                true
+              );
+              const duotoneSvg = await replaceAttributes(
+                duotoneHandler.svgs[duotoneIndex]
+              );
+
+              return {
+                name,
+                success: true,
+                output: generateComponentCode(
+                  name,
+                  strokeSvg,
+                  duotoneSvg,
+                  iconPropsPath
+                ),
+              };
+            } catch (error) {
+              console.error(`Error generating component for ${name}:`, error);
+              return handleError(
+                error instanceof Error ? error : new Error("Unknown error"),
+                name
+              );
+            }
           }
-        }
       );
 
       const results = await processInBatches(
@@ -206,7 +286,7 @@ const IconConverter: React.FC = () => {
       );
 
       // Update results first
-      await updateStateWithResults(results);
+      await updateStateWithResults(results, unmatched);
 
       // Brief delay before completion
       await new Promise((resolve) => setTimeout(resolve, 300));
@@ -224,9 +304,11 @@ const IconConverter: React.FC = () => {
   }, [
     strokeHandler.names,
     strokeHandler.svgs,
+    duotoneHandler.names,
     duotoneHandler.svgs,
     handleError,
     iconPropsPath,
+    validateFileMatches,
   ]);
 
   const clearAll = useCallback(() => {
@@ -326,6 +408,9 @@ const IconConverter: React.FC = () => {
                   className="pl-3 flex items-center gap-2 font-medium dark:text-icu-500"
                 >
                   Line Icon Files
+                  <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
+                    {strokeHandler.files.length}
+                  </kbd>
                 </label>
               )}
               <FileList
@@ -342,6 +427,9 @@ const IconConverter: React.FC = () => {
                   className="pl-3 flex items-center gap-2 font-medium dark:text-icu-500"
                 >
                   Bulk Icon Files
+                  <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
+                    {duotoneHandler.files.length}
+                  </kbd>
                 </label>
               )}
               <FileList

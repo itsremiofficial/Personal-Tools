@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "./ui/button";
 import { AiBeautifyIcon, Loading03Icon } from "hugeicons-react";
 import { Progress } from "./ui/progress";
-import { cn } from "../hooks/formatSvgCode";
+import { cn } from "../hooks";
 
 interface GenerateButtonProps {
   onClick: () => void;

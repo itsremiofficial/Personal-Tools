@@ -4,10 +4,10 @@ import { ColorVariantButton } from "./ColorVariantButton";
 import { ColorFormatSelector } from "./ColorFormatSelector";
 import IconCopy from "./IconCopy";
 import { ColorCodeBlock } from "./ColorCodeBlock";
-import { cn } from "../../hooks/formatSvgCode.ts";
 import { Button } from "../../components/ui/button";
 import { ColorFormat, ColorVariant, ColorVariantsProps } from "../../types";
 import { generateColorVariants } from "../../hooks/colorVarientsGenerator.ts";
+import { cn } from "../../hooks/index.ts";
 
 const ColorVariants: React.FC<ColorVariantsProps> = ({
   baseColor: initBaseColor,
