@@ -1,4 +1,4 @@
-import { ColorVariant } from "../types";
+import { ColorVariant } from "@/types";
 import {
   hexToRgb,
   rgbToHex,

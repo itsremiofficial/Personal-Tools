@@ -1,15 +1,15 @@
 import { useCallback, useContext, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { cn, useResizeObserver } from "../../hooks";
 import { Copy01Icon } from "hugeicons-react";
-import { Button } from "./button";
 import { toast } from "sonner";
 import {
   TrayContext,
   TrayProviderProps,
-} from "../ContextProvider/TrayProvider";
-import { ViewType } from "../../types";
-import CodeHighlight from "../Common/CodeHighlight";
+} from "../contextProvider/TrayProvider";
+import { Button } from "./Button";
+import CodeHighlight from "./CodeHighlight";
+import { ViewType } from "@/types";
+import { cn, useResizeObserver } from "@/hooks";
 
 const backdropVariants = {
   initial: {

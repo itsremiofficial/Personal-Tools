@@ -1,9 +1,8 @@
+import { cn } from "@/hooks";
+import { IconProps } from "@/types";
 import React from "react";
 import { Link } from "react-router-dom";
-import Smooth from "./Common/Smooth";
-import { IconProps } from "../types";
-import { cn } from "../hooks";
-
+import { SmoothCorner } from "./common";
 interface NavItemProps {
   path: string;
   label: string;
@@ -23,7 +22,7 @@ export const NavItem = React.memo(
     isDelayedClosed,
   }: NavItemProps) => {
     return (
-      <Smooth className="w-full navlink">
+      <SmoothCorner className="w-full navlink">
         <Link
           to={path}
           className={cn(
@@ -49,7 +48,7 @@ export const NavItem = React.memo(
             {label}
           </span>
         </Link>
-      </Smooth>
+      </SmoothCorner>
     );
   }
 );

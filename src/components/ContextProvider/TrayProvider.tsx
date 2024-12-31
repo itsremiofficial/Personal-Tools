@@ -1,5 +1,5 @@
+import { ViewType } from "@/types";
 import React from "react";
-import { ViewType } from "../../types";
 
 export interface TrayProviderProps {
   open: boolean;

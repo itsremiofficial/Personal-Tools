@@ -1,7 +1,45 @@
 {
-  "files": [],
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@common/*": ["./src/components/common/*"],
+      "@icons/*": ["./src/components/icons/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@types/*": ["./src/types/*"],
+      "@ui/*": ["./src/components/ui/*"]
+    },
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist/src",
+    "rootDir": ".",
+    "tsBuildInfoFile": "./dist/.tsbuildinfo",
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
+    "preserveSymlinks": true
+  },
+  "include": ["src"],
   "references": [
-    { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "exclude": ["dist", "node_modules"]
 }

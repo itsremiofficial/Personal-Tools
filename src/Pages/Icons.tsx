@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { cn } from "@/hooks";
 import React, { useState } from "react";
-
-import * as Iconss from "../components/Icon";
 import { toast } from "sonner";
-import { cn } from "../hooks";
+
+import * as Iconss from "@/components/icons";
 
 const IconsList = () => {
   const copyIconCode = (iconName = "", fill = false) => {

@@ -1,16 +1,8 @@
 import React from "react";
-import { useDropzone, FileRejection } from "react-dropzone";
+import { useDropzone } from "react-dropzone";
 import { CloudUploadIcon } from "hugeicons-react";
-import { cn } from "../hooks";
-
-interface FileDropzoneProps {
-  onDrop: (files: File[]) => void;
-  onReject: (rejections: FileRejection[]) => void; // Update type to match handler
-  label: string;
-  accept: Record<string, string[]>;
-  disabled?: boolean;
-  className?: string;
-}
+import { FileDropzoneProps } from "@/types";
+import { cn } from "@/hooks";
 
 export const FileDropzone = React.memo(
   ({

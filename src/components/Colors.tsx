@@ -1,13 +1,195 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState, useCallback, useEffect, useMemo } from "react";
-import { ColorVariantButton } from "./ColorVariantButton";
-import { ColorFormatSelector } from "./ColorFormatSelector";
-import IconCopy from "./IconCopy";
-import { ColorCodeBlock } from "./ColorCodeBlock";
-import { Button } from "../../components/ui/button";
-import { ColorFormat, ColorVariant, ColorVariantsProps } from "../../types";
-import { generateColorVariants } from "../../hooks/colorVarientsGenerator.ts";
-import { cn } from "../../hooks/index.ts";
+import { cn } from "@/hooks";
+import {
+  ColorCodeBlockProps,
+  ColorFormat,
+  ColorFormatSelectorProps,
+  ColorVariant,
+  ColorVariantsProps,
+} from "@/types";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { IconCopy, IconTickCircle } from "./icons";
+import { generateColorVariants } from "@/hooks/colorVarientsGenerator";
+import { Button } from "./common";
+
+export const ColorCodeBlock: React.FC<ColorCodeBlockProps> = ({
+  variants,
+  colorName,
+  className,
+  variableName,
+}) => {
+  const [isCopied, setIsCopied] = useState(false);
+
+  const formattedVariables = useMemo(() => {
+    return variants
+      .map((variant, index) => {
+        const colorSuffix = (index + 1) * 100; // For example: 100, 200, 300, etc.
+        return `--${variableName}${index + 1}: var(--${colorName
+          .toLowerCase()
+          .replace(/\s+/g, "-")}-${colorSuffix});`;
+      })
+      .join("\n");
+  }, [variants, colorName]);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(formattedVariables);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
+  };
+  const threecircle = variants[9].hex;
+  const lines = formattedVariables.split("\n");
+  const codeBlock = lines
+    .map((line, i) => {
+      const variant = variants[i];
+      return `<pre><span style="background-color: ${variant.hex};"></span><code>${line}</code></pre>`;
+    })
+    .join("");
+
+  return (
+    <div className={`mockup-code relative w-full ${className}`}>
+      <div className="relative flex gap-2 px-5 pb-6">
+        {Array(3)
+          .fill(null)
+          .map((_, index) => (
+            <span
+              key={index}
+              className="size-3 rounded-full"
+              style={{ backgroundColor: threecircle }}
+            ></span>
+          ))}
+      </div>
+
+      <div
+        dangerouslySetInnerHTML={{ __html: codeBlock }}
+        className="pr-16 pt-5"
+      />
+
+      <button
+        onClick={handleCopy}
+        className={cn(
+          "absolute top-3 right-3 px-3 py-1.5 rounded-xl text-sm flex items-center gap-2 font-medium transition-colors uppercase text-[12px] cursor-pointer",
+          "bg-icu-300 hover:bg-icu-400/70 text-icu-700 hover:text-icu-900",
+          "dark:bg-icu-800/50 dark:hover:bg-icu-800 dark:text-icu-600 dark:hover:text-icu-400"
+        )}
+      >
+        {isCopied ? (
+          <>
+            Copied <IconTickCircle className="size-4" />
+          </>
+        ) : (
+          <>
+            Copy <IconCopy className="size-4" />
+          </>
+        )}
+      </button>
+    </div>
+  );
+};
+
+interface ColorDotProps {
+  color: string;
+}
+
+export const ColorDot: React.FC<ColorDotProps> = ({ color }) => (
+  <div
+    className="w-8 h-8 rounded-full mr-2"
+    style={{ backgroundColor: color }}
+  />
+);
+
+export const ColorFormatSelector: React.FC<ColorFormatSelectorProps> = ({
+  selectedFormat,
+  onChange,
+}) => {
+  const formats: {
+    value: ColorFormat;
+    label: string;
+    notification?: number;
+  }[] = [
+    { value: "hex", label: "HEX" },
+    { value: "rgb", label: "RGB" },
+    { value: "oklch", label: "OKLCH" },
+  ];
+
+  return (
+    <div className="container">
+      <div className="tabs flex relative justify-center gap-4">
+        {formats.map(({ value, label }, index) => (
+          <React.Fragment key={value}>
+            <input
+              type="radio"
+              id={`radio-${value}`}
+              name="tabs"
+              checked={selectedFormat === value}
+              onChange={() => onChange(value)}
+              className="hidden peer"
+            />
+            <label
+              htmlFor={`radio-${value}`}
+              id={"radio-" + (index + 1)}
+              className={`px-10 py-2 select-none rounded-xl cursor-pointer flex grow justify-center font-medium relative !transition-color !duration-300 ${
+                selectedFormat === value
+                  ? "!bg-accent !text-icu-100 dark:!bg-icu-800 dark:!text-icu-400"
+                  : ""
+              } 
+              bg-icu-200 hover:bg-accent text-icu-800 hover:text-icu-100
+              dark:bg-icu-800/50 dark:hover:bg-icu-800 dark:text-icu-700 dark:hover:text-icu-400
+              `}
+            >
+              {label}
+              <IconTickCircle
+                className={`absolute top-1/2 right-2 transform -translate-y-1/2 !transition-opacity !duration-500
+                  bg-blue-700/40 text-icu-100 dark:bg-icu-600/40 dark:text-icu-200
+                  rounded-full p-1 size-5 opacity-0 ${
+                    selectedFormat === value ? "opacity-100" : ""
+                  }`}
+                width={4}
+              />
+            </label>
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+interface ColorVariantButtonProps {
+  variant: ColorVariant;
+  isCopied: boolean;
+  onClick: () => void;
+  displayValue: string;
+}
+
+export const ColorVariantButton: React.FC<ColorVariantButtonProps> = ({
+  variant,
+  isCopied,
+  onClick,
+  displayValue,
+}) => {
+  return (
+    <button
+      onClick={onClick}
+      className={cn(
+        "flex items-center cursor-pointer py-3 pl-3 pr-12 transition-colors duration-300 rounded-xl w-full relative text-secondary group ",
+        "bg-icu-200 hover:bg-icu-300",
+        "text-icu-800 hover:text-icu-1000",
+        "dark:bg-icu-900 dark:hover:bg-icu-800/60",
+        "dark:text-icu-500 dark:hover:text-icu-400"
+      )}
+    >
+      <ColorDot color={variant.hex} />
+      <div className="flex flex-col items-start">
+        <span className="whitespace-nowrap text-sm font-medium">
+          {variant.label.toLowerCase().replace(/\s+/g, "-")}
+        </span>
+        <IconCopy className="absolute top-1/2 right-2 transform -translate-y-1/2 text-icu-500 group-hover:text-icu-700 dark:text-icu-800 dark:group-hover:text-icu-600 size-5 transition-colors duration-300" />
+        <span className=" transition-colors duration-300 text-xs text-icu-500 group-hover:text-icu-700 dark:text-icu-700/60 group-hover:dark:text-icu-600 font-mono whitespace-nowrap">
+          {displayValue}
+        </span>
+      </div>
+      <CopyNotification show={isCopied} />
+    </button>
+  );
+};
 
 const ColorVariants: React.FC<ColorVariantsProps> = ({
   baseColor: initBaseColor,
@@ -242,3 +424,22 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
 };
 
 export default ColorVariants;
+
+interface CopyNotificationProps {
+  show: boolean;
+}
+
+export const CopyNotification: React.FC<CopyNotificationProps> = ({ show }) => {
+  if (!show) return null;
+
+  return (
+    <span
+      className={cn(
+        "absolute text-[9px] leading-none tracking-widest uppercase font-bold py-1 px-2 right-2 flex w-max rounded-full items-center gap-1 backdrop-blur-2xl",
+        "bg-emerald-50 text-emerald-600 dark:text-emerald-500 dark:bg-icu-1000/40"
+      )}
+    >
+      Copied <IconTickCircle className="size-3 stroke-3" />
+    </span>
+  );
+};

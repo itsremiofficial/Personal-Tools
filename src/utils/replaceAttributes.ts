@@ -1,4 +1,7 @@
-const replaceAttributes = (svg: string, isStroke: boolean = false): string => {
+export const replaceAttributes = (
+  svg: string,
+  isStroke: boolean = false
+): string => {
   // Use a single regex pass instead of multiple
   const replacements = {
     "stroke-width": "strokeWidth",
@@ -39,5 +42,3 @@ const replaceAttributes = (svg: string, isStroke: boolean = false): string => {
 
   return processedSvg;
 };
-
-export default replaceAttributes;

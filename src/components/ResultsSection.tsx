@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { Button } from "./ui/button";
 import {
   Download02Icon,
   Delete03Icon,
@@ -9,26 +8,9 @@ import {
 import { saveAs } from "file-saver";
 import JSZip from "jszip";
 import { toast } from "sonner";
-import { Progress } from "./ui/progress"; // Add Progress import
-import { cn } from "../hooks";
-
-interface ResultsSectionProps {
-  outputs: string[];
-  logs: string[];
-  error: string | null;
-  names: string[];
-  onClear: () => void;
-  disabled?: boolean; // Add disabled prop
-  missingFiles?: {
-    stroke: string[];
-    duotone: string[];
-  };
-}
-
-interface DownloadState {
-  status: "idle" | "zipping" | "downloading" | "complete";
-  progress: number;
-}
+import { cn } from "@/hooks";
+import { Button, Progress } from "./common";
+import { DownloadState, ResultsSectionProps } from "@/types";
 
 export const ResultsSection = React.memo(
   ({

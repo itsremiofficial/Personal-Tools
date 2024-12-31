@@ -1,15 +1,8 @@
 import React from "react";
-import { Button } from "./ui/button";
-import { AiBeautifyIcon, Loading03Icon } from "hugeicons-react";
-import { Progress } from "./ui/progress";
-import { cn } from "../hooks";
-
-interface GenerateButtonProps {
-  onClick: () => void;
-  disabled: boolean;
-  loading?: boolean;
-  progress?: number;
-}
+import { AiBeautifyIcon } from "hugeicons-react";
+import { GenerateButtonProps } from "@/types";
+import { cn } from "@/hooks";
+import { Progress, Button } from "./common";
 
 export const GenerateButton = React.memo(
   ({
@@ -38,7 +31,6 @@ export const GenerateButton = React.memo(
           </>
         )}
       </Button>
-      {/* {loading && <Progress value={progress} className="w-full" />} */}
     </div>
   )
 );

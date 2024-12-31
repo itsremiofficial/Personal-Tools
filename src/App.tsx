@@ -1,5 +1,6 @@
 import { PropsWithChildren } from "react";
-import { Toaster, ToasterProps } from "sonner";
+import { Toaster } from "sonner";
+
 
 function App({ children }: PropsWithChildren) {
   return (

@@ -1,10 +1,3 @@
-/**
- * Sanitizes file names for icon components by:
- * 1. Removing 'icon' prefix/suffix if present
- * 2. Removing 'svg' extension
- * 3. Converting to PascalCase
- * 4. Removing special characters
- */
 export const sanitizeFileName = (fileName: string): string => {
   try {
     // Safety check
@@ -34,9 +27,3 @@ export const sanitizeFileName = (fileName: string): string => {
     return "UnknownIcon";
   }
 };
-
-// Test cases:
-// console.log(sanitizeFileName('icon-home.svg')); // -> "HomeIcon"
-// console.log(sanitizeFileName('arrow-right-2.svg')); // -> "ArrowRight2Icon"
-// console.log(sanitizeFileName('01-home.svg')); // -> "01HomeIcon"
-// console.log(sanitizeFileName('check_circle_01.svg')); // -> "CheckCircle01Icon"

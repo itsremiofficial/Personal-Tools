@@ -1,14 +1,8 @@
 import React from "react";
-import { Button } from "./ui/button";
+import { Button } from "./common";
 import { Cancel01Icon, Delete03Icon } from "hugeicons-react";
-import { FileHandlerType } from "../hooks/useFileHandler";
-import { cn } from "../hooks";
-
-interface FileListProps extends Omit<FileHandlerType, "handleRejected"> {
-  type: "stroke" | "duotone";
-  disabled?: boolean;
-  onClear: () => void;
-}
+import { FileItemProps, FileListProps } from "@/types";
+import { cn } from "@/hooks";
 
 export const FileList = React.memo(
   ({ files, disabled, removeFile, clearFiles, onClear }: FileListProps) => {
@@ -49,12 +43,6 @@ export const FileList = React.memo(
     );
   }
 );
-
-interface FileItemProps {
-  file: File;
-  onRemove: () => void;
-  disabled?: boolean;
-}
 
 const FileItem = React.memo(({ file, onRemove, disabled }: FileItemProps) => (
   <div

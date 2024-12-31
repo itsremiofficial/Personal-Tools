@@ -1,7 +1,7 @@
+import { IconProps } from "@/types";
 import { FC } from "react";
-import { IconProps } from "../types";
 
-const Logo: FC<IconProps> = ({ className }) => {
+export const Logo: FC<IconProps> = ({ className }) => {
   return (
     <svg
       id="Layer_2"
@@ -37,5 +37,3 @@ const Logo: FC<IconProps> = ({ className }) => {
     </svg>
   );
 };
-
-export default Logo;

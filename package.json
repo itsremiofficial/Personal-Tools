@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "fix-case": "node scripts/fix-case.js"
   },
   "dependencies": {
     "@radix-ui/react-progress": "^1.1.1",
@@ -37,7 +38,8 @@
     "smooth-corners": "^1.0.8",
     "sonner": "^1.7.1",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss": "^4.0.0-beta.8"
+    "tailwindcss": "^4.0.0-beta.8",
+    "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

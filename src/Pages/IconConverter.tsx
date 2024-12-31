@@ -1,39 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState, useCallback, useMemo, useContext } from "react";
-import { useFileHandler } from "../hooks/useFileHandler";
-import { generateComponentCode } from "../utils/componentGenerator";
-import { FileDropzone } from "../components/FileDropzone";
-import { FileList } from "../components/FileList";
-import { GenerateButton } from "../components/GenerateButton";
-import { ResultsSection } from "../components/ResultsSection";
-import { ErrorBoundary } from "../components/ErrorBoundary";
 import { toast } from "sonner";
-import replaceAttributes from "../utils/svgUtils";
 import { InformationCircleIcon } from "hugeicons-react";
-import Tray from "../components/ui/Tray";
+import { GeneratedResult, IconConverterState } from "@/types";
+import { useFileHandler } from "@/hooks/useFileHandler";
+import { generateComponentCode, replaceAttributes } from "@/utils";
 import {
   TrayContext,
   TrayProviderProps,
-} from "../components/ContextProvider/TrayProvider";
-import { cn } from "../hooks";
-
-interface GeneratedResult {
-  name: string;
-  success: boolean;
-  output?: string;
-  error?: string;
-}
-
-interface IconConverterState {
-  outputs: string[];
-  logs: string[];
-  error: string | null;
-  missingFiles?: {
-    stroke: string[];
-    duotone: string[];
-  };
-}
+} from "@/components/contextProvider/TrayProvider";
+import {
+  ErrorBoundary,
+  FileDropzone,
+  FileList,
+  GenerateButton,
+  ResultsSection,
+} from "@/components";
+import { cn } from "@/hooks";
+import { Tray } from "@/components/common";
 
 const IconConverter: React.FC = () => {
   const [state, setState] = useState<IconConverterState>({

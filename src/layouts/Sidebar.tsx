@@ -1,19 +1,16 @@
 import React, { useMemo, useCallback } from "react";
 import { useLocation } from "react-router-dom";
-import Logo from "../components/Logo";
 import { ArrowRight01Icon } from "hugeicons-react";
+import { useTheme } from "@/hooks/useTheme";
+import { useSidebar } from "@/hooks/useSidebar";
 import {
+  Icon24Support,
   IconColorSwatch,
-  IconLayer,
   IconMoon,
   IconSun,
-} from "../components/Icon";
-import { useTheme } from "../hooks/useTheme";
-import { useSidebar } from "../hooks/useSidebar";
-import { NavItem } from "../components/NavItem";
-import { cn } from "../hooks";
-import IconWoman from "../components/Common/Woman";
-import Icon24Support from "../components/ui/24Support";
+} from "@/components/icons";
+import { cn } from "@/hooks";
+import { Logo, NavItem } from "@/components";
 
 const Sidebar = () => {
   const { isDark, setDark } = useTheme();
