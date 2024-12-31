@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import {
   TrayContext,
   TrayProviderProps,
-} from "../contextProvider/TrayProvider";
+} from "../ContextProvider/TrayProvider";
 import { Button } from "./Button";
 import CodeHighlight from "./CodeHighlight";
 import { ViewType } from "@/types";
@@ -54,7 +54,7 @@ const containerVariants = {
 };
 
 const DefaultView = () => {
-  const { setActiveView } = useContext(TrayContext) as TrayProviderProps;
+  const { openTray } = useContext(TrayContext) as TrayProviderProps;
   const codeText = `export interface IconProps {
     className?: string;
     fill?: boolean;
@@ -70,14 +70,15 @@ const DefaultView = () => {
 
   return (
     <div className="private-key__container">
-      <div className="flex justify-between items-center my-4">
-        <h3 className="text-xl text-icu-900 dark:text-icu-400">Icon Props</h3>
-        {/* <SecurityCheckIcon className="size-12 text-icu-400 " /> */}
+      <div className="px-4">
+        <div className="flex justify-between items-center my-4">
+          <h3 className="text-xl text-icu-900 dark:text-icu-400">Icon Props</h3>
+        </div>
+        <p className="text-icu-900 mb-4 dark:text-icu-600">
+          Add below types in your type definitions and enter the relative (to
+          the icons folder) path of your types.
+        </p>
       </div>
-      <p className="text-icu-900 mb-4 dark:text-icu-600">
-        Add below types in your type definitions and enter the relative (to the
-        icons folder) path of your types.
-      </p>
 
       <div className="p-4 rounded-3xl flex flex-col bg-icu-200 dark:bg-icu-1000/70">
         <div className="pb-2 border-b mb-3 flex justify-between items-center border-icu-300 dark:border-icu-900/50">
@@ -98,23 +99,13 @@ const DefaultView = () => {
           </CodeHighlight>
         </code>
       </div>
-
-      {/* <div className="flex justify-between gap-2">
-        <Button
-          className="grow !rounded-full"
-          onClick={() => setActiveView("default")}
-        >
-          <FingerPrintScanIcon />
-          Cancel
-        </Button>
-        <Button
-          className="grow !rounded-full"
-          onClick={() => setActiveView("default")}
-        >
-          <FingerPrintScanIcon />
-          Reveal
-        </Button>
-      </div> */}
+      {/* <Button
+        variant={"neutral"}
+        onClick={() => openTray("forward")}
+        className="mt-4"
+      >
+        Learn More
+      </Button> */}
     </div>
   );
 };
@@ -224,7 +215,7 @@ const DefaultView = () => {
 // };
 
 const Tray = () => {
-  const { open, setOpen, activeView } = useContext(
+  const { open, closeTray, activeView } = useContext(
     TrayContext
   ) as TrayProviderProps;
 
@@ -252,7 +243,7 @@ const Tray = () => {
   return (
     <AnimatePresence mode="wait">
       {open && (
-        <div className="tray__container ">
+        <div className="tray__container">
           <>
             <motion.div
               variants={backdropVariants}
@@ -260,14 +251,14 @@ const Tray = () => {
               animate="animate"
               exit="exit"
               className="tray__backdrop"
-              onClick={() => setOpen(false)}
+              onClick={closeTray}
             />
             <motion.div
               drag="y"
               dragConstraints={{ top: 0, bottom: 100 }}
               dragSnapToOrigin={true}
               dragElastic={0.1}
-              onDragEnd={(_, info) => info.offset.y > 100 && setOpen(false)}
+              onDragEnd={(_, info) => info.offset.y > 100 && closeTray()}
               className="tray__content--wrapper--primary "
             >
               <motion.div
@@ -288,7 +279,7 @@ const Tray = () => {
                         "absolute h-2 w-14 rounded-full left-1/2 transform -translate-x-1/2 top-2",
                         "bg-icu-300 dark:bg-icu-800"
                       )}
-                      onClick={() => setOpen(false)}
+                      onClick={closeTray}
                     ></button>
                     <AnimatePresence mode="popLayout" initial={false}>
                       <motion.div

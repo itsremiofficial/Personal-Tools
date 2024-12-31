@@ -9,7 +9,7 @@ import { generateComponentCode, replaceAttributes } from "@/utils";
 import {
   TrayContext,
   TrayProviderProps,
-} from "@/components/contextProvider/TrayProvider";
+} from "@/components/ContextProvider/TrayProvider";
 import {
   ErrorBoundary,
   FileDropzone,
