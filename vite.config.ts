@@ -17,14 +17,12 @@ export default defineConfig({
       "@hooks": resolve(__dirname, "./src/hooks"),
       "@types": resolve(__dirname, "./src/types"),
       "@ui": resolve(__dirname, "./src/components/ui"),
-      // Ensure exact casing for ContextProvider
-      "@components/ContextProvider": resolve(__dirname, "./src/components/ContextProvider"),
+      "@components/ContextProvider": resolve(__dirname, "./src/components/ContextProvider"), // Ensure exact casing
     },
-  }, 
+  },
   base: "/Personal-Tools/",
   build: {
     sourcemap: true,
-    // Add rollup options for better error handling
     rollupOptions: {
       onwarn(warning, warn) {
         if (warning.code === 'MODULE_LEVEL_DIRECTIVE') return;

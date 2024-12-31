@@ -6,20 +6,12 @@ export const sanitizeFileName = (fileName: string): string => {
     const name = fileName
       // Remove extension
       .replace(/\.svg$/i, "")
-      // Split on special characters
-      .split(/[-_.\s]+/)
-      // Remove empty parts and 'icon'
-      .filter((part) => part && part.toLowerCase() !== "icon")
-      // Process each part
-      .map((part, index) => {
-        // Handle numbers
-        if (/^\d+$/.test(part)) {
-          return part;
-        }
-        // Capitalize first letter, lowercase rest
-        return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
-      })
-      .join("");
+      // Capitalize letter after any non-alphanumeric character
+      .replace(/[^a-zA-Z0-9]([a-zA-Z])/g, (_, char) => char.toUpperCase())
+      // Remove all non-alphanumeric characters
+      .replace(/[^a-zA-Z0-9]/g, "")
+      // Ensure first letter is capitalized
+      .replace(/^[a-z]/, (char) => char.toUpperCase());
 
     return name ? `${name}` : "UnknownIcon";
   } catch (error) {

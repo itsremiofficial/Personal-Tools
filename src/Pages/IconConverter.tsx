@@ -19,6 +19,7 @@ import {
 } from "@/components";
 import { cn } from "@/hooks";
 import Tray from "@/components/common/Tray";
+import { generateComponentCodeSync } from "@/utils/generateComponentCode";
 
 const IconConverter: React.FC = () => {
   const [state, setState] = useState<IconConverterState>({
@@ -33,6 +34,7 @@ const IconConverter: React.FC = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [iconPropsPath, setIconPropsPath] = useState(""); // Add this state
   const [generateProgress, setGenerateProgress] = useState(0);
+  const [includeKeywords, setIncludeKeywords] = useState(false);
 
   const strokeHandler = useFileHandler("stroke");
   const duotoneHandler = useFileHandler("duotone");
@@ -45,24 +47,31 @@ const IconConverter: React.FC = () => {
     [strokeHandler.files.length, duotoneHandler.files.length, isProcessing]
   );
 
+  const createErrorResult = useCallback(
+    (error: Error, name: string = "unknown"): GeneratedResult => {
+      return {
+        fileName: `Icon${name}.tsx`,
+        output: "",
+        success: false,
+        error: error.message,
+        name,
+      };
+    },
+    []
+  );
+
   const handleError = useCallback((error: Error, name?: string) => {
-    // Remove duplicate toast for same error
     const errorMessage = name
       ? `Failed to generate: ${name}.tsx (${error.message})`
       : error.message;
 
-    // Only show toast for specific file errors, not general errors
     if (name) {
       toast.error(errorMessage, {
-        id: `error-${name}`, // Prevent duplicate toasts for same file
+        id: `error-${name}`,
       });
     }
 
-    return {
-      success: false,
-      name: name || "unknown",
-      error: error.message,
-    };
+    return createErrorResult(error, name);
   }, []);
 
   const updateStateWithResults = useCallback(
@@ -256,16 +265,22 @@ const IconConverter: React.FC = () => {
                 duotoneHandler.svgs[duotoneIndex]
               );
 
-              return {
-                name,
-                success: true,
-                output: generateComponentCode(
-                  name,
-                  strokeSvg,
-                  duotoneSvg,
-                  iconPropsPath
-                ),
-              };
+              // Use generateComponentCode or generateComponentCodeSync based on includeKeywords
+              const result = includeKeywords
+                ? await generateComponentCode(
+                    name,
+                    strokeSvg,
+                    duotoneSvg,
+                    iconPropsPath
+                  )
+                : generateComponentCodeSync(
+                    name,
+                    strokeSvg,
+                    duotoneSvg,
+                    iconPropsPath
+                  );
+
+              return result;
             } catch (error) {
               console.error(`Error generating component for ${name}:`, error);
               return handleError(
@@ -287,9 +302,9 @@ const IconConverter: React.FC = () => {
       // Brief delay before completion
       await new Promise((resolve) => setTimeout(resolve, 300));
     } catch (err) {
-      handleError(
-        err instanceof Error ? err : new Error("Failed to generate components")
-      );
+      const error =
+        err instanceof Error ? err : new Error("Failed to generate components");
+      return createErrorResult(error);
     } finally {
       // Ensure proper cleanup sequence
       setGenerateProgress(100);
@@ -305,6 +320,8 @@ const IconConverter: React.FC = () => {
     handleError,
     iconPropsPath,
     validateFileMatches,
+    createErrorResult,
+    includeKeywords,
   ]);
 
   const clearAll = useCallback(() => {
@@ -350,21 +367,32 @@ const IconConverter: React.FC = () => {
             "dark:border-icu-800/70 dark:bg-icu-1000/40"
           )}
         >
-          <label
-            htmlFor="iconPropsPath"
-            className="flex items-center gap-2 font-medium dark:text-icu-500"
-          >
-            Path for &#60;IconProps&#62;
-            <InformationCircleIcon
-              className={cn(
-                "size-8 p-1 rounded-xl cursor-pointer transition-colors duration-300",
-                "text-icu-600 hover:text-icu-700",
-                "dark:text-icu-700 dark:hover:text-icu-600"
-              )}
-              onClick={() => setOpen(!open)}
-            />
-            <Tray />
-          </label>
+          <div className="flex items-center justify-between">
+            <label
+              htmlFor="iconPropsPath"
+              className="flex items-center gap-2 font-medium dark:text-icu-500"
+            >
+              Path for &#60;IconProps&#62;
+              <InformationCircleIcon
+                className={cn(
+                  "size-8 p-1 rounded-xl cursor-pointer transition-colors duration-300",
+                  "text-icu-600 hover:text-icu-700",
+                  "dark:text-icu-700 dark:hover:text-icu-600"
+                )}
+                onClick={() => setOpen(!open)}
+              />
+              <Tray />
+            </label>
+            <label className="flex items-center gap-2 font-medium dark:text-icu-500">
+              <input
+                type="checkbox"
+                checked={includeKeywords}
+                onChange={(e) => setIncludeKeywords(e.target.checked)}
+                className="rounded border-icu-400/70"
+              />
+              Include Keywords
+            </label>
+          </div>
           <div className="flex items-center justify-between gap-4">
             <input
               id="iconPropsPath"

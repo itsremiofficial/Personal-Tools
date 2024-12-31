@@ -7,6 +7,7 @@ export const replaceAttributes = (
     "stroke-width": "strokeWidth",
     "fill-rule": "fillRule",
     "clip-rule": "clipRule",
+    "clip-path": "clipPath",
     "stroke-linecap": "strokeLinecap",
     "stroke-linejoin": "strokeLinejoin",
     "stroke-miterlimit": "strokeMiterlimit",

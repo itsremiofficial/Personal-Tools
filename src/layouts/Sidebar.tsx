@@ -3,10 +3,14 @@ import { useLocation } from "react-router-dom";
 import { ArrowRight01Icon } from "hugeicons-react";
 import { useTheme } from "@/hooks/useTheme";
 import { useSidebar } from "@/hooks/useSidebar";
-import { IconLayers, IconMoon, IconSun } from "@/components/icons";
+import {
+  IconColorSwatch,
+  IconLayer,
+  IconMoon,
+  IconSun,
+} from "@/components/icons";
 import { cn } from "@/hooks";
 import { Logo, NavItem } from "@/components";
-import IconPalette from "@/components/icons/Palette";
 
 const Sidebar = () => {
   const { isDark, setDark } = useTheme();
@@ -15,16 +19,16 @@ const Sidebar = () => {
 
   const navItems = useMemo(
     () => [
-      { path: "/", label: "Icon Generator", icon: IconLayers },
+      { path: "/", label: "Icon Generator", icon: IconLayer },
       {
         path: "/color-palette-generator",
         label: "Color Generator",
-        icon: IconPalette,
+        icon: IconColorSwatch,
       },
       {
         path: "/icons",
         label: "Icons",
-        icon: IconPalette,
+        icon: IconColorSwatch,
       },
     ],
     []

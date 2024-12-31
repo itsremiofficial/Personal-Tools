@@ -1,4 +1,5 @@
 import { FileHandlerType } from "@/hooks/useFileHandler";
+import { FC } from "react";
 import { FileRejection } from "react-dropzone";
 
 export interface IconProps {
@@ -6,7 +7,13 @@ export interface IconProps {
   fill?: boolean;
   duotone?: boolean;
   width?: string | number;
+  keywords?: string[];
 }
+
+// Add new type for Icon components
+export type IconComponentType = FC<IconProps> & {
+  keywords: string[];
+};
 
 export interface SmoothCornerProps {
   className?: string;
@@ -36,14 +43,15 @@ export interface ColorFormatSelectorProps {
 export type ViewType = "default" | "forward" | "secret" | "remove";
 
 export interface GeneratedResult {
-  name: string;
+  fileName: string;
+  output: string; // Simplified to just string
   success: boolean;
-  output?: string;
   error?: string;
+  name: string;
 }
 
 export interface IconConverterState {
-  outputs: string[];
+  outputs: string[]; // Simplified to string array
   logs: string[];
   error: string | null;
   missingFiles?: {
@@ -58,7 +66,7 @@ export interface ResultsSectionProps {
   error: string | null;
   names: string[];
   onClear: () => void;
-  disabled?: boolean; // Add disabled prop
+  disabled?: boolean;
   missingFiles?: {
     stroke: string[];
     duotone: string[];
@@ -91,7 +99,7 @@ export interface FileItemProps {
 
 export interface FileDropzoneProps {
   onDrop: (files: File[]) => void;
-  onReject: (rejections: FileRejection[]) => void; // Update type to match handler
+  onReject: (rejections: FileRejection[]) => void;
   label: string;
   accept: Record<string, string[]>;
   disabled?: boolean;

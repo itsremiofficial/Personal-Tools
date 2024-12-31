@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { cn } from "@/hooks";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { toast } from "sonner";
-
 import * as Iconss from "@/components/icons";
 
 const IconsList = () => {
@@ -44,11 +43,58 @@ const IconsList = () => {
     }
   };
 
-  const [searchQuery, setSearchQuery] = useState<any>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value.toLowerCase());
   };
+
+  const filteredIcons = useMemo(() => {
+    return Object.entries(Iconss).filter(([name, Icon]) => {
+      const iconComponent = Icon as any;
+      const keywords = iconComponent.keywords || [];
+      const searchTerms = searchQuery.toLowerCase().split(" ");
+
+      return searchTerms.every(
+        (term) =>
+          name.toLowerCase().includes(term) ||
+          keywords.some((keyword: string) =>
+            keyword.toLowerCase().includes(term)
+          )
+      );
+    });
+  }, [searchQuery]);
+
+  const renderIconGroup = (icons: [string, any][], fill: boolean = false) => (
+    <div className="flex items-center max-[600px]:justify-between flex-wrap gap-lg-5 gap-3 mb-5">
+      {icons.length > 0 ? (
+        icons.map(([name, Icon]) => (
+          <div
+            key={name}
+            className="grid place-content-center"
+            onClick={() => copyIconCode(name, fill)}
+            title={`Keywords: ${
+              (Icon as any).keywords?.join(", ") || "No keywords"
+            }`}
+          >
+            <Icon
+              className={cn(
+                "w-16 h-16 rounded-2xl text-2xl cursor-pointer transition-all duration-300 linear p-4",
+                "bg-gray-200 hover:bg-gray-300 text-icu-600 hover:text-icu-800",
+                "dark:bg-icu-800/30 dark:text-icu-600 dark:hover:bg-icu-800/70 dark:hover:text-icu-200"
+              )}
+              fill={fill}
+            />
+          </div>
+        ))
+      ) : (
+        <div className="flex w-full p-2 text-center">
+          <p className="text-center text-gray-500 w-full">No icons found.</p>
+        </div>
+      )}
+    </div>
+  );
 
   return (
     <div className="relative flex flex-col justify-center gap-6 p-4">
@@ -66,9 +112,12 @@ const IconsList = () => {
           <div className="mb-5">
             <form
               className={`${
-                searchQuery && "!block"
+                isSearchVisible && "!block"
               } sm:relative absolute inset-x-0 sm:top-0 top-1/2 sm:translate-y-0 -translate-y-1/2 sm:mx-0 mx-4 z-10 sm:block hidden`}
-              onSubmit={() => setSearchQuery(false)}
+              onSubmit={(e) => {
+                e.preventDefault();
+                setIsSearchVisible(false);
+              }}
             >
               <div className="relative">
                 <input
@@ -89,83 +138,30 @@ const IconsList = () => {
                   type="button"
                   className="absolute h-full w-8 pl-3 inset-0 appearance-none text-icu-800 peer-focus:text-icu-600 transition duration-300"
                 >
-                  <Iconss.IconLayers className="mx-auto w-5 h-5" />
+                  <Iconss.IconActivity className="mx-auto w-5 h-5" />
                 </button>
               </div>
             </form>
             <button
               type="button"
-              onClick={() => setSearchQuery(!searchQuery)}
+              onClick={() => setIsSearchVisible(!isSearchVisible)}
               className="search_btn sm:hidden p-4 rounded-full bg-icu-600 dark:bg-icu-500 hover:bg-icu-500 dark:hover:bg-icu-500"
             >
-              <Iconss.IconLayers className="w-3.5 h-3.5 mx-auto dark:text-icu-200" />
+              <Iconss.IconActivity className="w-3.5 h-3.5 mx-auto dark:text-icu-200" />
             </button>
           </div>
         </div>
 
         <div className="mb-5">
           <div className="bg-[#03bd87]/[.16] text-[#03bd87] py-1 px-3 rounded-xl inline-block text-base mb-5">
-            Line Duotone
+            Line Duotone {Object.entries(Iconss).length}
           </div>
-          <div className="flex items-center max-[600px]:justify-between flex-wrap gap-lg-5 gap-3 mb-5">
-            {Object.entries(Iconss)
-              .filter(([name]) => name.toLowerCase().includes(searchQuery))
-              .map(([name, Icon], index) => (
-                <div
-                  key={name}
-                  className="grid place-content-center"
-                  onClick={() => copyIconCode(name, false)}
-                >
-                  <Icon
-                    className={cn(
-                      "w-16 h-16 rounded-2xl text-2xl cursor-pointer transition-all duration-300 linear p-4",
-                      "bg-gray-200 hover:bg-gray-300 text-icu-600 hover:text-icu-800",
-                      "dark:bg-icu-800/30 dark:text-icu-600 dark:hover:bg-icu-800/70 dark:hover:text-icu-200"
-                    )}
-                  />
-                </div>
-              ))}
-
-            {Object.entries(Iconss).filter(([name]) =>
-              name.toLowerCase().includes(searchQuery)
-            ).length === 0 && (
-              <div className="flex w-full p-2 text-center">
-                <p className="text-center text-gray-500 w-full">
-                  No icons found.
-                </p>
-              </div>
-            )}
-          </div>
+          {renderIconGroup(filteredIcons)}
 
           <div className="bg-[#03bd87]/[.16] text-[#03bd87] py-1 px-3 rounded-xl inline-block text-base mb-5">
             Bold Duotone
           </div>
-          <div className="flex items-center max-[600px]:justify-between flex-wrap gap-lg-5 gap-3 mb-5">
-            {Object.entries(Iconss)
-              .filter(([name]) => name.toLowerCase().includes(searchQuery))
-              .map(([name, Icon], index) => (
-                <div
-                  key={name}
-                  className="grid place-content-center"
-                  onClick={() => copyIconCode(name, true)}
-                >
-                  <Icon
-                    className="w-16 h-16 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800/30 rounded-2xl text-2xl cursor-pointer text-gray-600 dark:text-brandsec-50 dark:hover:bg-gray-800/70 dark:hover:text-brand hover:text-brand transition-all duration-300 linear p-4"
-                    fill={true}
-                  />
-                </div>
-              ))}
-
-            {Object.entries(Iconss).filter(([name]) =>
-              name.toLowerCase().includes(searchQuery)
-            ).length === 0 && (
-              <div className="flex w-full p-2 text-center">
-                <p className="text-center text-gray-500 w-full">
-                  No icons found.
-                </p>
-              </div>
-            )}
-          </div>
+          {renderIconGroup(filteredIcons, true)}
         </div>
       </div>
     </div>
