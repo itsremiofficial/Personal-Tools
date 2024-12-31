@@ -1,29 +1,17 @@
-import { ViewType } from "@/types";
-import React from "react";
+import React, { createContext, useState, PropsWithChildren } from 'react';
 
 export interface TrayProviderProps {
   open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  activeView: ViewType;
-  setActiveView: React.Dispatch<React.SetStateAction<ViewType>>;
+  setOpen: (open: boolean) => void;
 }
 
-export const TrayContext = React.createContext<TrayProviderProps | null>(null);
+export const TrayContext = createContext<TrayProviderProps | null>(null);
 
-const TrayProvider = ({ children }: { children: React.ReactNode }) => {
-  const [open, setOpen] = React.useState(false);
-
-  const [activeView, setActiveView] = React.useState<ViewType>("default");
+export const TrayProvider: React.FC<PropsWithChildren> = ({ children }) => {
+  const [open, setOpen] = useState(false);
 
   return (
-    <TrayContext.Provider
-      value={{
-        open,
-        setOpen,
-        activeView,
-        setActiveView,
-      }}
-    >
+    <TrayContext.Provider value={{ open, setOpen }}>
       {children}
     </TrayContext.Provider>
   );

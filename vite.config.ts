@@ -6,7 +6,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [react(), tsconfigPaths(), tailwindcss()],
-  base: "/Personal-Tools/",
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
@@ -20,4 +19,5 @@ export default defineConfig({
       "@ui": resolve(__dirname, "./src/components/ui"),
     },
   },
+  base: "/Personal-Tools/",
 });
