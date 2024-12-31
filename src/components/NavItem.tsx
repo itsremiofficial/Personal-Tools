@@ -2,7 +2,7 @@ import { cn } from "@/hooks";
 import { IconProps } from "@/types";
 import React from "react";
 import { Link } from "react-router-dom";
-import { SmoothCorner } from "./common";
+import SmoothCorner from "./common/SmoothCorner";
 interface NavItemProps {
   path: string;
   label: string;

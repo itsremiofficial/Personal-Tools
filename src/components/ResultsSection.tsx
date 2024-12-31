@@ -9,7 +9,8 @@ import { saveAs } from "file-saver";
 import JSZip from "jszip";
 import { toast } from "sonner";
 import { cn } from "@/hooks";
-import { Button, Progress } from "./common";
+import { Button } from "./common/Button";
+import { Progress } from "./common/Progress";
 import { DownloadState, ResultsSectionProps } from "@/types";
 
 export const ResultsSection = React.memo(

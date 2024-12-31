@@ -18,7 +18,7 @@ import {
   ResultsSection,
 } from "@/components";
 import { cn } from "@/hooks";
-import { Tray } from "@/components/common";
+import Tray from "@/components/common/Tray";
 
 const IconConverter: React.FC = () => {
   const [state, setState] = useState<IconConverterState>({

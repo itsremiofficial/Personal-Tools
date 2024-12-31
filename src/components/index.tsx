@@ -6,4 +6,3 @@ export { FileList } from "./FileList";
 export { FileDropzone } from "./FileDropzone";
 export { ErrorBoundary } from "./ErrorBoundary";
 export { default as ColorVariants } from "./Colors";
-export { CodeHighlight, SmoothCorner } from "./common";

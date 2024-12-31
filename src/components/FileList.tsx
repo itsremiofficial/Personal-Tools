@@ -1,8 +1,8 @@
 import React from "react";
-import { Button } from "./common";
 import { Cancel01Icon, Delete03Icon } from "hugeicons-react";
 import { FileItemProps, FileListProps } from "@/types";
 import { cn } from "@/hooks";
+import { Button } from "./common/Button";
 
 export const FileList = React.memo(
   ({ files, disabled, removeFile, clearFiles, onClear }: FileListProps) => {

@@ -89,7 +89,7 @@ const IconsList = () => {
                   type="button"
                   className="absolute h-full w-8 pl-3 inset-0 appearance-none text-icu-800 peer-focus:text-icu-600 transition duration-300"
                 >
-                  <Iconss.IconSearchNormal className="mx-auto w-5 h-5" />
+                  <Iconss.IconLayers className="mx-auto w-5 h-5" />
                 </button>
               </div>
             </form>
@@ -98,7 +98,7 @@ const IconsList = () => {
               onClick={() => setSearchQuery(!searchQuery)}
               className="search_btn sm:hidden p-4 rounded-full bg-icu-600 dark:bg-icu-500 hover:bg-icu-500 dark:hover:bg-icu-500"
             >
-              <Iconss.IconSearchStatus className="w-3.5 h-3.5 mx-auto dark:text-icu-200" />
+              <Iconss.IconLayers className="w-3.5 h-3.5 mx-auto dark:text-icu-200" />
             </button>
           </div>
         </div>

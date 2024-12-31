@@ -7,9 +7,10 @@ import {
   ColorVariantsProps,
 } from "@/types";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { IconCopy, IconTickCircle } from "./icons";
 import { generateColorVariants } from "@/hooks/colorVarientsGenerator";
-import { Button } from "./common";
+import IconCopy from "./IconCopy";
+import { IconTickCircle } from "./IconTickCircle";
+import { Button } from "./common/Button";
 
 export const ColorCodeBlock: React.FC<ColorCodeBlockProps> = ({
   variants,
