@@ -6,10 +6,10 @@ import { useSidebar } from "@/hooks/useSidebar";
 import { cn } from "@/hooks";
 import { Logo, NavItem } from "@/components";
 import { Card } from "@/components/common/Card";
-import IconLayers from "@/components/icons/Layers";
-import IconPalette from "@/components/icons/Palette";
-import IconSun from "@/components/icons/Sun";
-import IconMoon from "@/components/icons/Moon";
+import IconLayers from "@/components/remix/Layers";
+import IconPalette from "@/components/remix/Palette";
+import IconSun from "@/components/remix/Sun";
+import IconMoon from "@/components/remix/Moon";
 
 const Sidebar = () => {
   const { isDark, setDark } = useTheme();

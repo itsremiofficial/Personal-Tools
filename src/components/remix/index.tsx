@@ -1,6 +1,6 @@
 export type { IconProps } from "@/types";
 export { default as Icon4K } from "./4K";
-export { default as IconAccessibility } from "./Accessibility";
+export { default as IconAccessibility } from "./vuesax/Accessibility";
 export { default as IconAccumulator } from "./Accumulator";
 export { default as IconAdd } from "./Add";
 export { default as IconAddCircle } from "./AddCircle";

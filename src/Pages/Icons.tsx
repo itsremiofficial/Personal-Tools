@@ -2,7 +2,7 @@
 import { cn } from "@/hooks";
 import React, { useState, useMemo, useCallback } from "react";
 import { toast } from "sonner";
-import * as Iconss from "@/components/icons";
+import * as Iconss from "@/components/remix";
 
 type IconsType = typeof Iconss;
 type IconKey = keyof IconsType;
@@ -107,32 +107,36 @@ const IconsList = () => {
 
   const downloadIcon = useCallback(async (iconName: string) => {
     try {
-      const cleanIconName = iconName.replace('Icon', '');
-      const baseUrl = import.meta.env.DEV ? '' : import.meta.env.BASE_URL;
+      const cleanIconName = iconName.replace("Icon", "");
+      const baseUrl = import.meta.env.DEV ? "" : import.meta.env.BASE_URL;
       const response = await fetch(`${baseUrl}/api/icons/${cleanIconName}`, {
         headers: {
-          'Accept': 'text/plain',
-        }
+          Accept: "text/plain",
+        },
       });
 
       if (!response.ok) {
-        throw new Error(response.status === 404 ? 'Icon not found' : 'Failed to download');
+        throw new Error(
+          response.status === 404 ? "Icon not found" : "Failed to download"
+        );
       }
 
       const content = await response.text();
-      const blob = new Blob([content], { type: 'text/typescript' });
+      const blob = new Blob([content], { type: "text/typescript" });
       const url = URL.createObjectURL(blob);
 
-      const a = document.createElement('a');
+      const a = document.createElement("a");
       a.href = url;
       a.download = `${cleanIconName}.tsx`;
       a.click();
-      
+
       URL.revokeObjectURL(url);
       toast.success(`${cleanIconName} downloaded!`);
     } catch (err) {
-      toast.error(err instanceof Error ? err.message : 'Failed to download icon');
-      console.error('Download failed:', err);
+      toast.error(
+        err instanceof Error ? err.message : "Failed to download icon"
+      );
+      console.error("Download failed:", err);
     }
   }, []);
 

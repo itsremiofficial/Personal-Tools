@@ -106,9 +106,6 @@ export default defineConfig({
       },
     },
   },
-  optimizeDeps: {
-    include: ["os-browserify/browser"],
-  },
   server: {
     fs: {
       strict: false,
