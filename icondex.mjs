@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 
 const componentsDir = path.resolve("src/components/icon/version01");
-const outputFile = path.resolve(componentsDir, "_index.tsx");
+const outputFile = path.resolve(componentsDir, "index.tsx");
 
 fs.readdir(componentsDir, (err, files) => {
   if (err) throw err;
@@ -19,7 +19,6 @@ fs.readdir(componentsDir, (err, files) => {
 
   const outputContent = `export type { IconProps } from "@/types";\n${componentImports}`;
 
-  // Write the imports to the index.ts file
   fs.writeFileSync(outputFile, outputContent, "utf8");
   console.log(`Successfully generated ${outputFile}`);
 });
