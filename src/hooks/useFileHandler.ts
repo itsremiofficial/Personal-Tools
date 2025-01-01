@@ -17,9 +17,20 @@ export interface FileHandlerActions {
   removeFile: (index: number) => void;
 }
 
-export type FileHandlerType = FileHandlerState & FileHandlerActions;
+export type FileHandlerType = {
+  files: File[];
+  names: string[];
+  svgs: string[];
+  type: "lineDuotone" | "boldDuotone" | "bold";
+  handleFiles: (acceptedFiles: File[]) => void;
+  handleRejected: (fileRejections: FileRejection[]) => void;
+  removeFile: (index: number) => void;
+  clearFiles: () => void;
+};
 
-export const useFileHandler = (type: "stroke" | "duotone"): FileHandlerType => {
+export const useFileHandler = (
+  type: "lineDuotone" | "boldDuotone" | "bold"
+): FileHandlerType => {
   const [state, setState] = useState<FileHandlerState>({
     files: [],
     svgs: [],
@@ -204,5 +215,9 @@ export const useFileHandler = (type: "stroke" | "duotone"): FileHandlerType => {
     }, []),
   };
 
-  return { ...state, ...actions };
+  return {
+    ...state,
+    ...actions,
+    type, // Add the type property here
+  };
 };

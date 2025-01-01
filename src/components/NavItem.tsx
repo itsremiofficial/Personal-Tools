@@ -38,7 +38,11 @@ export const NavItem = React.memo(
               "bg-icu-400/60 text-icu-900 dark:bg-icu-800 dark:text-icu-300"
           )}
         >
-          <IconComponent fill={isActive} className="size-6 !aspect-square" />
+          <IconComponent
+            fill={isActive}
+            duotone={false}
+            className="size-6 !aspect-square"
+          />
           <span
             className={cn(
               "hidden opacity-0 transition-opacity duration-1000 ease-fluid whitespace-nowrap",

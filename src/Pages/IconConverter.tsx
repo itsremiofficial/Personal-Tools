@@ -28,8 +28,9 @@ const IconConverter: React.FC = () => {
     logs: [],
     error: null,
     missingFiles: {
-      stroke: [],
-      duotone: [],
+      lineDuotone: [],
+      boldDuotone: [],
+      bold: [],
     },
   });
   const [isProcessing, setIsProcessing] = useState(false);
@@ -37,15 +38,22 @@ const IconConverter: React.FC = () => {
   const [generateProgress, setGenerateProgress] = useState(0);
   const [includeKeywords, setIncludeKeywords] = useState(false);
 
-  const strokeHandler = useFileHandler("stroke");
-  const duotoneHandler = useFileHandler("duotone");
+  const lineDuotoneHandler = useFileHandler("lineDuotone");
+  const boldDuotoneHandler = useFileHandler("boldDuotone");
+  const boldHandler = useFileHandler("bold");
 
   const isReady = useMemo(
     () =>
-      strokeHandler.files.length > 0 &&
-      duotoneHandler.files.length > 0 &&
+      lineDuotoneHandler.files.length > 0 &&
+      boldDuotoneHandler.files.length > 0 &&
+      boldHandler.files.length > 0 &&
       !isProcessing,
-    [strokeHandler.files.length, duotoneHandler.files.length, isProcessing]
+    [
+      lineDuotoneHandler.files.length,
+      boldDuotoneHandler.files.length,
+      boldHandler.files.length,
+      isProcessing,
+    ]
   );
 
   const createErrorResult = useCallback(
@@ -78,7 +86,11 @@ const IconConverter: React.FC = () => {
   const updateStateWithResults = useCallback(
     (
       results: GeneratedResult[],
-      unmatched?: { stroke: string[]; duotone: string[] }
+      unmatched?: {
+        lineDuotone: string[];
+        boldDuotone: string[];
+        bold: string[];
+      }
     ) => {
       const successfulResults = results.filter((r) => r.success);
       const failedResults = results.filter((r) => !r.success);
@@ -101,13 +113,15 @@ const IconConverter: React.FC = () => {
         // Failed generations
         ...failedResults.map((r) => `Failed: ${r.name}.tsx`),
         // Missing stroke files
-        ...(unmatched?.stroke.map(
+        ...(unmatched?.lineDuotone.map(
           (name) => `Missing: ${name}.svg (Line Icon)`
         ) || []),
         // Missing duotone files
-        ...(unmatched?.duotone.map(
+        ...(unmatched?.boldDuotone.map(
           (name) => `Missing: ${name}.svg (Bulk Icon)`
         ) || []),
+        ...(unmatched?.bold.map((name) => `Missing: ${name}.svg (Bold Icon)`) ||
+          []),
       ];
 
       setState((prev) => ({
@@ -117,7 +131,11 @@ const IconConverter: React.FC = () => {
           failedResults.length > 0
             ? `Failed to generate ${failedResults.length} components`
             : null,
-        missingFiles: unmatched || { stroke: [], duotone: [] },
+        missingFiles: unmatched || {
+          lineDuotone: [],
+          boldDuotone: [],
+          bold: [],
+        },
       }));
 
       // Show summary toast for failures if there are many
@@ -175,46 +193,59 @@ const IconConverter: React.FC = () => {
     const normalizeFileName = (name: string) =>
       name.toLowerCase().replace(/[^a-z0-9]/g, "");
 
-    const strokeFiles = new Map(
-      strokeHandler.names.map((name, i) => [
+    const lineDuotoneFiles = new Map(
+      lineDuotoneHandler.names.map((name, i) => [
         normalizeFileName(name),
         { name, index: i },
       ])
     );
 
-    const duotoneFiles = new Map(
-      duotoneHandler.names.map((name, i) => [
+    const boldDuotoneFiles = new Map(
+      boldDuotoneHandler.names.map((name, i) => [
+        normalizeFileName(name),
+        { name, index: i },
+      ])
+    );
+
+    const boldFiles = new Map(
+      boldHandler.names.map((name, i) => [
         normalizeFileName(name),
         { name, index: i },
       ])
     );
 
     // Find matching pairs
-    const matchedPairs = Array.from(strokeFiles.keys())
-      .filter((key) => duotoneFiles.has(key))
+    const matchedSets = Array.from(lineDuotoneFiles.keys())
+      .filter((key) => boldDuotoneFiles.has(key) && boldFiles.has(key))
       .map((key) => ({
-        name: strokeFiles.get(key)!.name,
-        strokeIndex: strokeFiles.get(key)!.index,
-        duotoneIndex: duotoneFiles.get(key)!.index,
+        name: lineDuotoneFiles.get(key)!.name,
+        lineDuotoneIndex: lineDuotoneFiles.get(key)!.index,
+        boldDuotoneIndex: boldDuotoneFiles.get(key)!.index,
+        boldIndex: boldFiles.get(key)!.index,
       }));
 
     // Find missing files
-    const missingInDuotone = Array.from(strokeFiles.keys())
-      .filter((key) => !duotoneFiles.has(key))
-      .map((key) => strokeFiles.get(key)!.name);
+    const missingInBoldDuotone = Array.from(lineDuotoneFiles.keys())
+      .filter((key) => !boldDuotoneFiles.has(key))
+      .map((key) => lineDuotoneFiles.get(key)!.name);
 
-    const missingInStroke = Array.from(duotoneFiles.keys())
-      .filter((key) => !strokeFiles.has(key))
-      .map((key) => duotoneFiles.get(key)!.name);
+    const missingInBold = Array.from(boldDuotoneFiles.keys())
+      .filter((key) => !boldFiles.has(key))
+      .map((key) => boldDuotoneFiles.get(key)!.name);
 
     return {
-      matchedPairs,
+      matchedSets,
       unmatched: {
-        stroke: missingInStroke,
-        duotone: missingInDuotone,
+        lineDuotone: missingInBoldDuotone,
+        boldDuotone: missingInBold,
+        bold: Array.from(boldFiles.keys())
+          .filter(
+            (key) => !lineDuotoneFiles.has(key) || !boldDuotoneFiles.has(key)
+          )
+          .map((key) => boldFiles.get(key)!.name),
       },
     };
-  }, [strokeHandler.names, duotoneHandler.names]);
+  }, [lineDuotoneHandler.names, boldDuotoneHandler.names, boldHandler.names]);
 
   // Update generate components to use matching pairs
   const generateComponents = useCallback(async () => {
@@ -223,16 +254,27 @@ const IconConverter: React.FC = () => {
     setState((prev) => ({ ...prev, logs: [], error: null }));
 
     try {
-      if (!strokeHandler.svgs.length || !duotoneHandler.svgs.length) {
+      if (
+        !lineDuotoneHandler.svgs.length ||
+        !boldDuotoneHandler.svgs.length ||
+        !boldHandler.svgs.length
+      ) {
         throw new Error("No SVG files loaded");
       }
 
       // Get matched and unmatched files
-      const { matchedPairs, unmatched } = validateFileMatches();
+      const { matchedSets, unmatched } = validateFileMatches();
 
       // Show only the count in toast
-      if (unmatched.stroke.length || unmatched.duotone.length) {
-        const totalMissing = unmatched.stroke.length + unmatched.duotone.length;
+      if (
+        unmatched.lineDuotone.length ||
+        unmatched.boldDuotone.length ||
+        unmatched.bold.length
+      ) {
+        const totalMissing =
+          unmatched.lineDuotone.length +
+          unmatched.boldDuotone.length +
+          unmatched.bold.length;
         toast.warning(`${totalMissing} files are missing their counterparts`, {
           duration: 5000,
         });
@@ -244,13 +286,13 @@ const IconConverter: React.FC = () => {
         missingFiles: unmatched,
       }));
 
-      if (!matchedPairs.length) {
+      if (!matchedSets.length) {
         throw new Error("No matching icon pairs found");
       }
 
       // Process only matched files
-      const tasks = matchedPairs.map(
-        ({ name, strokeIndex, duotoneIndex }) =>
+      const tasks = matchedSets.map(
+        ({ name, lineDuotoneIndex, boldDuotoneIndex, boldIndex }) =>
           async (): Promise<GeneratedResult> => {
             try {
               // console.log(`Processing pair: ${name}`, {
@@ -258,26 +300,31 @@ const IconConverter: React.FC = () => {
               //   duotone: duotoneHandler.svgs[duotoneIndex],
               // });
 
-              const strokeSvg = await replaceAttributes(
-                strokeHandler.svgs[strokeIndex],
+              const lineDuotoneSvg = await replaceAttributes(
+                lineDuotoneHandler.svgs[lineDuotoneIndex],
                 true
               );
-              const duotoneSvg = await replaceAttributes(
-                duotoneHandler.svgs[duotoneIndex]
+              const boldDuotoneSvg = await replaceAttributes(
+                boldDuotoneHandler.svgs[boldDuotoneIndex]
+              );
+              const boldSvg = await replaceAttributes(
+                boldHandler.svgs[boldIndex]
               );
 
               // Use generateComponentCode or generateComponentCodeSync based on includeKeywords
               const result = includeKeywords
                 ? await generateComponentCode(
                     name,
-                    strokeSvg,
-                    duotoneSvg,
+                    lineDuotoneSvg,
+                    boldDuotoneSvg,
+                    boldSvg,
                     iconPropsPath
                   )
                 : generateComponentCodeSync(
                     name,
-                    strokeSvg,
-                    duotoneSvg,
+                    lineDuotoneSvg,
+                    boldDuotoneSvg,
+                    boldSvg,
                     iconPropsPath
                   );
 
@@ -314,10 +361,12 @@ const IconConverter: React.FC = () => {
       setIsProcessing(false);
     }
   }, [
-    strokeHandler.names,
-    strokeHandler.svgs,
-    duotoneHandler.names,
-    duotoneHandler.svgs,
+    lineDuotoneHandler.names,
+    lineDuotoneHandler.svgs,
+    boldDuotoneHandler.names,
+    boldDuotoneHandler.svgs,
+    boldHandler.names,
+    boldHandler.svgs,
     handleError,
     iconPropsPath,
     validateFileMatches,
@@ -326,16 +375,26 @@ const IconConverter: React.FC = () => {
   ]);
 
   const clearAll = useCallback(() => {
-    // Clear all states
-    setState({ outputs: [], logs: [], error: null });
-    strokeHandler.clearFiles();
-    duotoneHandler.clearFiles();
-    setIconPropsPath(""); // Clear path input
-    setGenerateProgress(0); // Reset progress
+    // Clear all states with the correct shape
+    setState({
+      outputs: [],
+      logs: [],
+      error: null,
+      missingFiles: {
+        lineDuotone: [],
+        boldDuotone: [],
+        bold: [],
+      },
+    });
 
-    // Show feedback toast
+    lineDuotoneHandler.clearFiles();
+    boldDuotoneHandler.clearFiles();
+    boldHandler.clearFiles();
+    setIconPropsPath("");
+    setGenerateProgress(0);
+
     toast.success("All files cleared successfully");
-  }, [strokeHandler, duotoneHandler]);
+  }, [lineDuotoneHandler, boldDuotoneHandler, boldHandler]);
 
   const { open, setOpen } = useContext(TrayContext) as TrayProviderProps;
 
@@ -344,18 +403,29 @@ const IconConverter: React.FC = () => {
       fallback={<div>Something went wrong. Please try again.</div>}
     >
       <div className="relative flex flex-col justify-center gap-6 p-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <FileDropzone
-            onDrop={strokeHandler.handleFiles}
-            onReject={(rejections) => strokeHandler.handleRejected(rejections)}
+            onDrop={lineDuotoneHandler.handleFiles}
+            onReject={(rejections) =>
+              lineDuotoneHandler.handleRejected(rejections)
+            }
             label="Line SVGs"
             accept={{ "image/svg+xml": [".svg"] }}
             disabled={isProcessing}
           />
           <FileDropzone
-            onDrop={duotoneHandler.handleFiles}
-            onReject={(rejections) => duotoneHandler.handleRejected(rejections)}
-            label="Bulk SVGs"
+            onDrop={boldDuotoneHandler.handleFiles}
+            onReject={(rejections) =>
+              boldDuotoneHandler.handleRejected(rejections)
+            }
+            label="Bold Duotone SVGs"
+            accept={{ "image/svg+xml": [".svg"] }}
+            disabled={isProcessing}
+          />
+          <FileDropzone
+            onDrop={boldHandler.handleFiles}
+            onReject={(rejections) => boldHandler.handleRejected(rejections)}
+            label="Bold SVGs"
             accept={{ "image/svg+xml": [".svg"] }}
             disabled={isProcessing}
           />
@@ -411,8 +481,9 @@ const IconConverter: React.FC = () => {
             />
           </div>
         </Card>
-        {(strokeHandler.files.length > 0 ||
-          duotoneHandler.files.length > 0) && (
+        {(lineDuotoneHandler.files.length > 0 ||
+          boldDuotoneHandler.files.length > 0 ||
+          boldHandler.files.length > 0) && (
           <div
             className={cn(
               "p-6 border rounded-4xl flex flex-col gap-6",
@@ -421,39 +492,58 @@ const IconConverter: React.FC = () => {
             )}
           >
             <div>
-              {strokeHandler.files.length > 0 && (
+              {lineDuotoneHandler.files.length > 0 && (
                 <label
                   htmlFor="bulkIconsList"
                   className="pl-3 flex items-center gap-2 font-medium dark:text-icu-500"
                 >
                   Line Icon Files
                   <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
-                    {strokeHandler.files.length}
+                    {lineDuotoneHandler.files.length}
                   </kbd>
                 </label>
               )}
               <FileList
-                {...strokeHandler}
-                type="stroke"
+                {...lineDuotoneHandler}
+                type="lineDuotone"
                 disabled={isProcessing}
                 onClear={clearAll} // Add onClear prop
               />
             </div>
             <div>
-              {duotoneHandler.files.length > 0 && (
+              {boldDuotoneHandler.files.length > 0 && (
                 <label
                   htmlFor="bulkIconsList"
                   className="pl-3 flex items-center gap-2 font-medium dark:text-icu-500"
                 >
-                  Bulk Icon Files
+                  Bold Duotone Icon Files
                   <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
-                    {duotoneHandler.files.length}
+                    {boldDuotoneHandler.files.length}
                   </kbd>
                 </label>
               )}
               <FileList
-                {...duotoneHandler}
-                type="duotone"
+                {...boldDuotoneHandler}
+                type="boldDuotone"
+                disabled={isProcessing}
+                onClear={clearAll} // Add onClear prop
+              />
+            </div>
+            <div>
+              {boldHandler.files.length > 0 && (
+                <label
+                  htmlFor="bulkIconsList"
+                  className="pl-3 flex items-center gap-2 font-medium dark:text-icu-500"
+                >
+                  Bold Icon Files
+                  <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
+                    {boldHandler.files.length}
+                  </kbd>
+                </label>
+              )}
+              <FileList
+                {...boldHandler}
+                type="bold"
                 disabled={isProcessing}
                 onClear={clearAll} // Add onClear prop
               />
@@ -464,7 +554,7 @@ const IconConverter: React.FC = () => {
         {state.logs.length > 0 && (
           <ResultsSection
             {...state}
-            names={strokeHandler.names}
+            names={lineDuotoneHandler.names}
             onClear={clearAll}
             disabled={isProcessing}
           />

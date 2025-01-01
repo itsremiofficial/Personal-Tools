@@ -11,7 +11,7 @@ import { toast } from "sonner";
 import { cn } from "@/hooks";
 import { Button } from "./common/Button";
 import { Progress } from "./common/Progress";
-import { DownloadState, ResultsSectionProps } from "@/types";
+import { ResultsSectionProps, DownloadState } from "@/types";
 
 export const ResultsSection = React.memo(
   ({
@@ -143,6 +143,34 @@ export const ResultsSection = React.memo(
       }
     };
 
+    // Update log display text for each file type
+    const getFileTypeLabel = (log: string): string => {
+      if (log.includes("(Line Duotone Icon)")) return "Line Duotone";
+      if (log.includes("(Bold Duotone Icon)")) return "Bold Duotone";
+      if (log.includes("(Bold Icon)")) return "Bold";
+      return "";
+    };
+
+    const getStatusBadge = (status: string) => {
+      const styles = getLogStyles(status as "success" | "warning" | "error");
+      return (
+        <span
+          className={cn(
+            "flex justify-center rounded-full uppercase px-2 py-1 text-[11px] tracking-wider leading-none w-[5rem]",
+            styles.badge
+          )}
+        >
+          <div className="inline-flex items-center gap-1">
+            {status === "success"
+              ? "Success"
+              : status === "warning"
+              ? "Missing"
+              : "Failed"}
+          </div>
+        </span>
+      );
+    };
+
     return (
       <>
         <div
@@ -201,8 +229,9 @@ export const ResultsSection = React.memo(
         </div>
 
         {missingFiles &&
-          (missingFiles.stroke.length > 0 ||
-            missingFiles.duotone.length > 0) && (
+          (missingFiles.lineDuotone.length > 0 ||
+            missingFiles.boldDuotone.length > 0 ||
+            missingFiles.bold.length > 0) && (
             <div
               className={cn(
                 "p-6 border rounded-4xl flex flex-col gap-4",
@@ -219,7 +248,9 @@ export const ResultsSection = React.memo(
               >
                 Missing Files{" "}
                 <kbd className="px-2 rounded-md py-1 dark:bg-icu-1000 dark:text-icu-500">
-                  {missingFiles.stroke.length + missingFiles.duotone.length}
+                  {missingFiles.lineDuotone.length +
+                    missingFiles.boldDuotone.length +
+                    missingFiles.bold.length}
                 </kbd>
               </label>
               <div
@@ -228,13 +259,13 @@ export const ResultsSection = React.memo(
                   "bg-icu-200 dark:bg-icu-1000"
                 )}
               >
-                {missingFiles.stroke.length > 0 && (
+                {missingFiles.lineDuotone.length > 0 && (
                   <div className="mb-2">
                     <span className="dark:bg-icu-1000 dark:text-icu-500">
                       Line Icons
                     </span>
                     <div className="text-amber-600 dark:text-amber-400 ml-4">
-                      {missingFiles.stroke.map((name) => (
+                      {missingFiles.lineDuotone.map((name) => (
                         <div className="leading-[1.2]" key={name}>
                           ├ {name}.svg
                         </div>
@@ -242,13 +273,27 @@ export const ResultsSection = React.memo(
                     </div>
                   </div>
                 )}
-                {missingFiles.duotone.length > 0 && (
-                  <div>
+                {missingFiles.boldDuotone.length > 0 && (
+                  <div className="mb-2">
                     <span className="dark:bg-icu-1000 dark:text-icu-500">
-                      Bulk Icons
+                      Bold Duotone Icons
                     </span>
                     <div className="text-amber-600 dark:text-amber-400 ml-4">
-                      {missingFiles.duotone.map((name) => (
+                      {missingFiles.boldDuotone.map((name) => (
+                        <div className="leading-[1.2]" key={name}>
+                          ├ {name}.svg
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {missingFiles.bold.length > 0 && (
+                  <div>
+                    <span className="dark:bg-icu-1000 dark:text-icu-500">
+                      Bold Icons
+                    </span>
+                    <div className="text-amber-600 dark:text-amber-400 ml-4">
+                      {missingFiles.bold.map((name) => (
                         <div className="leading-[1.2]" key={name}>
                           ├ {name}.svg
                         </div>
@@ -289,25 +334,18 @@ export const ResultsSection = React.memo(
               {logs.map((log, index) => {
                 const status = getLogStatus(log);
                 const styles = getLogStyles(status);
+                const fileType = getFileTypeLabel(log);
                 const logText = log.replace(/^(Success|Failed|Missing): /, "");
 
                 return (
                   <div key={index} className="flex items-center gap-3">
-                    <span
-                      className={cn(
-                        "flex justify-center rounded-full uppercase px-2 py-1 text-[11px] tracking-wider leading-none w-[5rem]",
-                        styles.badge
+                    {getStatusBadge(status)}
+                    <span className={styles.text}>
+                      {logText}
+                      {fileType && (
+                        <span className="ml-2 text-xs opacity-75">[{fileType}]</span>
                       )}
-                    >
-                      <div className="inline-flex items-center gap-1">
-                        {status === "success"
-                          ? "Success"
-                          : status === "warning"
-                          ? "Missing"
-                          : "Failed"}
-                      </div>
                     </span>
-                    <span className={styles.text}>{logText}</span>
                   </div>
                 );
               })}

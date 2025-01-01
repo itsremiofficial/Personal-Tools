@@ -12,8 +12,9 @@ const extractComponentWords = (name: string): string[] => {
 
 const generateComponentTemplate = (
   name: string,
-  strokeSvg: string,
-  duotoneSvg: string,
+  lineDuotoneSvg: string,
+  boldDuotoneSvg: string,
+  boldSvg: string,
   keywords: string[],
   iconPropsPath: string
 ): string => {
@@ -24,9 +25,11 @@ const Icon${name}: FC<IconProps> = ({ className, fill = false, duotone = true, w
   return (
     <>
       {!fill ? (
-        ${strokeSvg}
+        ${lineDuotoneSvg}
+      ) : duotone ? (
+        ${boldDuotoneSvg}
       ) : (
-        ${duotoneSvg}
+        ${boldSvg}
       )}
     </>
   );
@@ -44,8 +47,9 @@ export default Icon${name} as IconComponentType;`;
 
 export const generateComponentCode = async (
   name: string,
-  strokeSvg: string,
-  duotoneSvg: string,
+  lineDuotoneSvg: string,
+  boldDuotoneSvg: string,
+  boldSvg: string,
   iconPropsPath: string = "../../types"
 ): Promise<GeneratedResult> => {
   const defaultName = name || "UnknownIcon";
@@ -71,8 +75,9 @@ export const generateComponentCode = async (
 
     const output = generateComponentTemplate(
       name,
-      strokeSvg,
-      duotoneSvg,
+      lineDuotoneSvg,
+      boldDuotoneSvg,
+      boldSvg,
       keywords,
       iconPropsPath
     );
@@ -96,30 +101,23 @@ export const generateComponentCode = async (
 
 export const generateComponentCodeSync = (
   name: string,
-  strokeSvg: string,
-  duotoneSvg: string,
+  lineDuotoneSvg: string,
+  boldDuotoneSvg: string,
+  boldSvg: string,
   iconPropsPath: string = "../../types"
 ): GeneratedResult => {
   const defaultName = name || "UnknownIcon";
   const fileName = `Icon${defaultName}.tsx`;
 
   try {
-    const output = `import { FC } from 'react';
-import { IconProps } from "${iconPropsPath}";
-
-const Icon${name}: FC<IconProps> = ({ className, fill = false, duotone = true, width = '1.5' }) => {
-  return (
-    <>
-      {!fill ? (
-        ${strokeSvg}
-      ) : (
-        ${duotoneSvg}
-      )}
-    </>
-  );
-};
-
-export default Icon${name};`;
+    const output = generateComponentTemplate(
+      name,
+      lineDuotoneSvg,
+      boldDuotoneSvg,
+      boldSvg,
+      [],
+      iconPropsPath
+    );
 
     return {
       fileName: `Icon${name}.tsx`,

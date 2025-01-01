@@ -54,9 +54,10 @@ export interface IconConverterState {
   outputs: string[]; // Simplified to string array
   logs: string[];
   error: string | null;
-  missingFiles?: {
-    stroke: string[];
-    duotone: string[];
+  missingFiles: {
+    lineDuotone: string[];
+    boldDuotone: string[];
+    bold: string[];
   };
 }
 
@@ -67,9 +68,10 @@ export interface ResultsSectionProps {
   names: string[];
   onClear: () => void;
   disabled?: boolean;
-  missingFiles?: {
-    stroke: string[];
-    duotone: string[];
+  missingFiles: {
+    lineDuotone: string[];
+    boldDuotone: string[];
+    bold: string[];
   };
 }
 
@@ -86,7 +88,7 @@ export interface GenerateButtonProps {
 }
 
 export interface FileListProps extends Omit<FileHandlerType, "handleRejected"> {
-  type: "stroke" | "duotone";
+  type: "lineDuotone" | "boldDuotone" | "bold"; // Update valid types
   disabled?: boolean;
   onClear: () => void;
 }
