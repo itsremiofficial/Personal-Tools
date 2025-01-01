@@ -52,20 +52,29 @@ export const generateComponentCode = async (
   boldSvg: string,
   iconPropsPath: string = "../../types"
 ): Promise<GeneratedResult> => {
-  const defaultName = name || "UnknownIcon";
-  const fileName = `Icon${defaultName}.tsx`;
-
-  if (!name) {
-    return {
-      fileName,
-      output: "",
-      success: false,
-      error: "Component name is required",
-      name: defaultName,
-    };
-  }
-
   try {
+    if (!name) {
+      throw new Error("Component name is required");
+    }
+
+    if (!lineDuotoneSvg || !boldDuotoneSvg || !boldSvg) {
+      throw new Error("All SVG variants are required");
+    }
+
+    // Validate SVG content
+    const validateSvg = (svg: string, type: string) => {
+      if (!svg.includes("<svg") || !svg.includes("</svg>")) {
+        throw new Error(`Invalid ${type} SVG content`);
+      }
+    };
+
+    validateSvg(lineDuotoneSvg, "Line Duotone");
+    validateSvg(boldDuotoneSvg, "Bold Duotone");
+    validateSvg(boldSvg, "Bold");
+
+    const defaultName = name || "UnknownIcon";
+    const fileName = `Icon${defaultName}.tsx`;
+
     const words = extractComponentWords(name);
     // Use batched keyword fetching
     const keywordSets = await fetchKeywordsInBatches(words);
@@ -89,12 +98,17 @@ export const generateComponentCode = async (
       name: defaultName,
     };
   } catch (error) {
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error occurred";
+
+    console.error(`Error generating component ${name}:`, errorMessage);
+
     return {
-      fileName,
+      fileName: `Icon${name}.tsx`,
       output: "",
       success: false,
-      error: error instanceof Error ? error.message : "Unknown error occurred",
-      name: defaultName,
+      error: errorMessage,
+      name,
     };
   }
 };

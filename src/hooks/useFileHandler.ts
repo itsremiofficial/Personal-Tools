@@ -181,12 +181,18 @@ export const useFileHandler = (
   const actions: FileHandlerActions = {
     handleFiles: useCallback(
       async (acceptedFiles: File[]) => {
-        const sortedFiles = [...acceptedFiles].sort((a, b) =>
+        // Sort and merge with existing files
+        const sortedNewFiles = [...acceptedFiles].sort((a, b) =>
           sanitizeFileName(a.name).localeCompare(sanitizeFileName(b.name))
         );
-        await processFiles(sortedFiles);
+        
+        // Merge with existing files
+        const mergedFiles = [...state.files, ...sortedNewFiles];
+        
+        // Process all files together
+        await processFiles(mergedFiles);
       },
-      [processFiles]
+      [processFiles, state.files]
     ),
 
     handleRejected: useCallback((rejections: FileRejection[]) => {

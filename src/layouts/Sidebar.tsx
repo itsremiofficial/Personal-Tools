@@ -12,7 +12,6 @@ import {
 import { cn } from "@/hooks";
 import { Logo, NavItem } from "@/components";
 import { Card } from "@/components/common/Card";
-import Icon4k from "@/components/icons/1con4k";
 
 const Sidebar = () => {
   const { isDark, setDark } = useTheme();
@@ -21,7 +20,7 @@ const Sidebar = () => {
 
   const navItems = useMemo(
     () => [
-      { path: "/", label: "Icon Generator", icon: Icon4k },
+      { path: "/", label: "Icon Generator", icon: IconLayer },
       {
         path: "/color-palette-generator",
         label: "Color Generator",
