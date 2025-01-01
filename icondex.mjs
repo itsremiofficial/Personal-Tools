@@ -2,7 +2,7 @@
 import fs from "fs";
 import path from "path";
 
-const componentsDir = path.resolve("../src/components/icons/vuesax");
+const componentsDir = path.resolve("src/components/icon/version01");
 const outputFile = path.resolve(componentsDir, "_index.tsx");
 
 fs.readdir(componentsDir, (err, files) => {
