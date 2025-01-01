@@ -8,7 +8,7 @@ import fs from "fs/promises";
 import type { Connect } from "vite";
 
 const iconDownloadPlugin = (): Plugin => ({
-  name: 'icon-download',
+  name: "icon-download",
   configureServer(server) {
     server.middlewares.use(async (req, res, next) => {
       if (req.url?.startsWith("/api/icons/")) {
@@ -20,15 +20,26 @@ const iconDownloadPlugin = (): Plugin => ({
         }
 
         try {
-          const filePath = path.join(
-            __dirname,
+          // Use absolute path resolution
+          const rootDir = server.config.root || process.cwd();
+          const filePath = path.resolve(
+            rootDir,
             "src",
             "components",
             "icons",
             `${iconName}.tsx`
           );
-          const content = await fs.readFile(filePath, "utf-8");
 
+          // Verify the file exists and is within the project
+          const relativePath = path.relative(rootDir, filePath);
+          if (
+            relativePath.startsWith("..") ||
+            !relativePath.startsWith("src")
+          ) {
+            throw new Error("Invalid icon path");
+          }
+
+          const content = await fs.readFile(filePath, "utf-8");
           res.setHeader("Content-Type", "text/plain");
           res.setHeader(
             "Content-Disposition",
@@ -36,6 +47,7 @@ const iconDownloadPlugin = (): Plugin => ({
           );
           res.end(content);
         } catch (error) {
+          console.error("Icon download error:", error);
           res.statusCode = 404;
           res.end("Icon not found");
         }
@@ -43,16 +55,29 @@ const iconDownloadPlugin = (): Plugin => ({
       }
       next();
     });
-  }
+  },
+  // Add build configuration
+  config(config) {
+    return {
+      ...config,
+      build: {
+        ...config.build,
+        rollupOptions: {
+          ...config.build?.rollupOptions,
+          external: [
+            ...(Array.isArray(config.build?.rollupOptions?.external)
+              ? config.build.rollupOptions.external
+              : []),
+            /^@\/components\/icons\/.+/,
+          ],
+        },
+      },
+    };
+  },
 });
 
 export default defineConfig({
-  plugins: [
-    react(),
-    tsconfigPaths(),
-    tailwindcss(),
-    iconDownloadPlugin()
-  ],
+  plugins: [react(), tsconfigPaths(), tailwindcss(), iconDownloadPlugin()],
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
@@ -88,6 +113,6 @@ export default defineConfig({
     fs: {
       strict: false,
       allow: [".."],
-    }
+    },
   },
 });
