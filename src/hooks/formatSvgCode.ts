@@ -3,7 +3,8 @@ export function formatSvgCode(svg: string, type: "stroke" | "duotone"): string {
     .replace(/class=/g, "className=")
     .replace(/stroke-linecap/g, "strokeLinecap")
     .replace(/stroke-linejoin/g, "strokeLinejoin")
-    .replace(/stroke-width/g, "strokeWidth");
+    .replace(/stroke-width/g, "strokeWidth")
+    .replace(/strokeWidth="1.5"/g, 'strokeWidth={width}');
 
   if (type === "stroke") {
     formatted = formatted.replace(

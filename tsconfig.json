@@ -19,7 +19,7 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@common/*": ["./src/components/common/*"],
-      "@icons/*": ["./src/components/icons/*"],
+      "@icons/*": ["src/components/icons/*"],
       "@pages/*": ["./src/pages/*"],
       "@utils/*": ["./src/utils/*"],
       "@hooks/*": ["./src/hooks/*"],
@@ -38,8 +38,6 @@
     "preserveSymlinks": true
   },
   "include": ["src"],
-  "references": [
-    { "path": "./tsconfig.node.json" }
-  ],
+  "references": [{ "path": "./tsconfig.node.json" }],
   "exclude": ["dist", "node_modules"]
 }

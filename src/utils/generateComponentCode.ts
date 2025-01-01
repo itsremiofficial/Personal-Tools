@@ -1,4 +1,4 @@
-import { GeneratedResult, IconComponentType } from "../types";
+import { GeneratedResult } from "../types";
 import { fetchKeywordsInBatches } from "./keywordUtils";
 
 const extractComponentWords = (name: string): string[] => {
