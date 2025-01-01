@@ -25,6 +25,6 @@
     "types": ["node"],
     "emitDeclarationOnly": true
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts"],
+  "exclude": ["public/iconns", "public/vuesax", "scripts",]
 }
- 
