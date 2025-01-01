@@ -2,7 +2,7 @@
 import { cn } from "@/hooks";
 import React, { useState, useMemo, useCallback } from "react";
 import { toast } from "sonner";
-import * as Iconss from "@/components/icons/iconindex";
+import * as Iconss from "@/components/icons";
 
 type IconsType = typeof Iconss;
 type IconKey = keyof IconsType;
