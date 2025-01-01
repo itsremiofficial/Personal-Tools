@@ -11,6 +11,7 @@ import {
 } from "@/components/icons";
 import { cn } from "@/hooks";
 import { Logo, NavItem } from "@/components";
+import { Card } from "@/components/common/Card";
 
 const Sidebar = () => {
   const { isDark, setDark } = useTheme();
@@ -57,12 +58,10 @@ const Sidebar = () => {
           isOpen ? "w-[280px]" : "w-[110px]"
         )}
       >
-        <div
+        <Card
           className={cn(
-            "border-[1.5px] !relative",
-            "border-icu-300 bg-icu-100",
-            "dark:border-icu-800/70 dark:bg-icu-1000/40",
-            "h-full rounded-3xl flex flex-col backdrop-blur-3xl"
+            "border-[1.5px] !relative",       
+            "h-full rounded-3xl flex flex-col"
           )}
         >
           <div
@@ -201,7 +200,7 @@ const Sidebar = () => {
               </div>
             </div>
           </div>
-        </div>
+        </Card>
       </nav>
     </div>
   );

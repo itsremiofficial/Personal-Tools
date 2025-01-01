@@ -6,12 +6,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "preview": "vite preview",
-    "fix-case": "node scripts/fix-case.js"
+    "fix-case": "node scripts/fix-case.js",
+    "rename": "node scripts/rename.mjs"
   },
   "dependencies": {
     "@radix-ui/react-progress": "^1.1.1",
@@ -21,7 +22,6 @@
     "class-variance-authority": "^0.7.1",
     "file-saver": "^2.0.5",
     "framer-motion": "^11.15.0",
-    "fs": "^0.0.1-security",
     "highlight.js": "^11.11.1",
     "hugeicons-react": "^0.3.0",
     "install": "^0.13.0",

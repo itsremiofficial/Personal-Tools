@@ -9,7 +9,7 @@ import { generateComponentCode, replaceAttributes } from "@/utils";
 import {
   TrayContext,
   TrayProviderProps,
-} from "@/components/ContextProvider/TrayProvider";
+} from "@/components/context/TrayProvider";
 import {
   ErrorBoundary,
   FileDropzone,
@@ -20,6 +20,7 @@ import {
 import { cn } from "@/hooks";
 import Tray from "@/components/common/TrayDrawer";
 import { generateComponentCodeSync } from "@/utils/generateComponentCode";
+import { Card } from "@/components/common/Card";
 
 const IconConverter: React.FC = () => {
   const [state, setState] = useState<IconConverterState>({
@@ -360,13 +361,7 @@ const IconConverter: React.FC = () => {
           />
         </div>
 
-        <div
-          className={cn(
-            "p-6 border rounded-4xl flex flex-col gap-6",
-            "border-icu-300 bg-icu-100",
-            "dark:border-icu-800/70 dark:bg-icu-1000/40"
-          )}
-        >
+        <Card className={cn("p-6 border rounded-4xl flex flex-col gap-6")}>
           <div className="flex items-center justify-between">
             <label
               htmlFor="iconPropsPath"
@@ -415,7 +410,7 @@ const IconConverter: React.FC = () => {
               progress={generateProgress}
             />
           </div>
-        </div>
+        </Card>
         {(strokeHandler.files.length > 0 ||
           duotoneHandler.files.length > 0) && (
           <div

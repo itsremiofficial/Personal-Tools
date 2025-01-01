@@ -2,10 +2,7 @@ import { useCallback, useContext, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Copy01Icon } from "hugeicons-react";
 import { toast } from "sonner";
-import {
-  TrayContext,
-  TrayProviderProps,
-} from "../ContextProvider/TrayProvider";
+import { TrayContext, TrayProviderProps } from "../context/TrayProvider";
 import { Button } from "./Button";
 import { ViewType } from "@/types";
 import { cn, useResizeObserver } from "@/hooks";

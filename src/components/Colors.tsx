@@ -11,6 +11,7 @@ import { generateColorVariants } from "@/hooks/colorVarientsGenerator";
 import IconCopy from "./IconCopy";
 import { IconTickCircle } from "./IconTickCircle";
 import { Button } from "./common/Button";
+import { Card, CardBody } from "./common/Card";
 
 export const ColorCodeBlock: React.FC<ColorCodeBlockProps> = ({
   variants,
@@ -283,18 +284,16 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
   }, []);
 
   return (
-    <div
+    <Card
       className={cn(
-        "w-fit flex p-5 gap-4 rounded-3xl flex-wrap lg:flex-nowrap lg:justify-center",
-        "p-4 grow rounded-3xl max-h-screen overflow-y-auto"
+        "w-fit flex p-5 gap-4 flex-wrap lg:flex-nowrap lg:justify-center",
+        "p-4 grow max-h-screen overflow-y-auto backdrop-blur-3xl",
+        "border-icu-300 bg-icu-100/60 ",
+        "dark:border-icu-800/70 dark:bg-icu-1000/60"
       )}
     >
-      <div
-        className={cn(
-          "p-6 w-full rounded-3xl border flex flex-col gap-4",
-          "border-icu-300 bg-icu-100",
-          "dark:border-icu-800/70 dark:bg-icu-1000/40"
-        )}
+      <CardBody
+        className={cn("p-6 w-full rounded-3xl border flex flex-col gap-4")}
       >
         <div className="flex gap-4 w-full flex-col">
           <label className="space-y-4 flex flex-col justify-center w-full">
@@ -391,13 +390,9 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
         <Button onClick={handleCopyAll} size={"lg"} className="flex gap-2">
           Copy All <IconCopy className="size-5" />
         </Button>
-      </div>
-      <div
-        className={cn(
-          "w-full h-full p-6 rounded-3xl border",
-          "border-icu-300 bg-icu-100",
-          "dark:border-icu-800/70 dark:bg-icu-1000/40"
-        )}
+      </CardBody>
+      <CardBody
+        className={cn("w-full h-full p-6 rounded-3xl")}
       >
         <input
           type="text"
@@ -419,8 +414,8 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
           className={`lg:min-w-max lg:w-full`}
           variableName={variableName}
         />
-      </div>
-    </div>
+      </CardBody>
+    </Card>
   );
 };
 

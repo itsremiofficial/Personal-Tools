@@ -3,6 +3,7 @@ import { useDropzone } from "react-dropzone";
 import { CloudUploadIcon } from "hugeicons-react";
 import { FileDropzoneProps } from "@/types";
 import { cn } from "@/hooks";
+import { Card } from "./common/Card";
 
 export const FileDropzone = React.memo(
   ({
@@ -22,13 +23,7 @@ export const FileDropzone = React.memo(
     });
 
     return (
-      <div
-        className={cn(
-          "p-6 border rounded-4xl flex flex-col gap-6 grow",
-          "border-icu-300 bg-icu-100",
-          "dark:border-icu-800/70 dark:bg-icu-1000/40"
-        )}
-      >
+      <Card className={cn("p-6 border rounded-4xl flex flex-col gap-6 grow ")}>
         <div
           {...getRootProps()}
           className={cn(
@@ -75,7 +70,7 @@ export const FileDropzone = React.memo(
             </p>
           </div>
         </div>
-      </div>
+      </Card>
     );
   }
 );

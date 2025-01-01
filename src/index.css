@@ -9,6 +9,8 @@
   --color-accent: oklch(62.73% 0.25 262.4);
   --color-accent-alt: oklch(55.88% 0.3 265.7);
 
+  --color-bga: 55.88% 0.3 165.7;
+
   --color-icu-100: oklch(95.9% 0.004 286.32);
   --color-icu-200: oklch(91.98% 0.0098 252.82);
   --color-icu-300: oklch(87.83% 0.0148 264.49);
@@ -24,6 +26,49 @@
   --ease-fluid: cubic-bezier(0.7, 0, 0.2, 1);
   --radius-4xl: 2.5rem;
   --radius-5xl: 3rem;
+
+  --animate-bg1: moveVertical 30s ease infinite;
+  --animate-bg2: moveInCircle 20s reverse infinite;
+  --animate-bg3: moveInCircle 40s linear infinite;
+  --animate-bg4: moveHorizontal 40s ease infinite;
+  --animate-bg5: moveInCircle 20s ease infinite;
+
+  /* Define the keyframes */
+  @keyframes moveHorizontal {
+    0% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+    50% {
+      transform: translateX(50%) translateY(10%);
+    }
+    100% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+  }
+
+  @keyframes moveInCircle {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes moveVertical {
+    0% {
+      transform: translateY(-50%);
+    }
+    50% {
+      transform: translateY(50%);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
 }
 @layer base {
   body {
