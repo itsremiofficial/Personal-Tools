@@ -11,20 +11,28 @@ export default async function handler(
   }
 
   try {
-    const { name } = req.query;
+    const { name, version } = req.query;
     const iconName = Array.isArray(name) ? name[0] : name;
+    const iconVersion = Array.isArray(version) ? version[0] : version;
 
-    if (!iconName) {
-      return res.status(400).json({ message: "Icon name is required" });
+    if (!iconName || !iconVersion) {
+      return res
+        .status(400)
+        .json({ message: "Icon name and version are required" });
     }
 
     const filePath = join(
       process.cwd(),
       "src",
       "components",
-      "icons",
+      "icon",
+      iconVersion,
       `${iconName}.tsx`
     );
+
+    // Add logging
+    console.log("Request for icon:", { iconName, iconVersion, filePath });
+
     const content = await readFile(filePath, "utf-8");
 
     res.setHeader("Content-Type", "text/plain");

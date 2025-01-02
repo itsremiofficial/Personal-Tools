@@ -15,6 +15,15 @@ export type IconComponentType = FC<IconProps> & {
   keywords: string[];
 };
 
+export type IconStyle = "line" | "bulk" | "bold";
+
+export interface IconMetadata {
+  name: string;
+  Icon: React.ComponentType<any>;
+  keywords: string[];
+  version: string; // Add version property
+}
+
 export interface SmoothCornerProps {
   className?: string;
   children?: React.ReactNode;

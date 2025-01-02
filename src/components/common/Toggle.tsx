@@ -68,7 +68,7 @@ export const Toggle = React.memo(
         "dark:data-[state=on]:bg-icu-1100 dark:data-[state=on]:border-icu-1100 dark:data-[state=on]:text-icu-500/80"
       )}
     >
-      {label} {icon}
+      {label} {icon && icon}
     </ToggleSwitch>
   )
 );
