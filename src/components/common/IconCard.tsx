@@ -36,44 +36,51 @@ export const IconCard = memo(
           "dark:bg-icu-1100/30 dark:text-icu-600"
         )}
       >
-        <Icon
-          className={cn(
-            "grow w-full h-20 rounded-2xl text-2xl transition-all duration-300 linear p-4",
-            "bg-gray-200 text-icu-600",
-            "dark:bg-icu-800/30 dark:text-icu-600"
-          )}
-          fill={currentStyle !== "line"}
-          duotone={currentStyle !== "bold"}
-          width={1.2}
-        />
-        <div className={cn("grow flex items-center justify-center gap-2")}>
-          <Button
-            onClick={() => onCopy()}
-            size="sm"
+        <div className="flex">
+          <Icon
             className={cn(
-              "grow py-3 rounded-lg bg-white/90 hover:bg-white",
-              "dark:!text-icu-700/70 dark:hover:!text-icu-500",
-              "dark:!bg-icu-800/30 dark:hover:!bg-icu-800",
-              "transition-colors duration-200 cursor-pointer"
+              "grow w-full h-20 rounded-2xl text-2xl transition-all duration-300 linear p-4"
+              // "bg-gray-200 text-icu-600",
+              // "dark:bg-icu-800/30 dark:text-icu-600"
             )}
-            title="Copy component"
-          >
-            <iv01.IconCopy className="size-5" width={2} />
-          </Button>
-          <Button
-            onClick={() => onDownload(name, version)} // Pass version to onDownload
-            size="sm"
+            fill={currentStyle !== "line"}
+            duotone={currentStyle !== "bold"}
+            width={1.2}
+          />
+          <div
             className={cn(
-              "grow py-3 rounded-lg bg-white/90 hover:bg-white",
-              "dark:!text-icu-600/70 dark:hover:!text-icu-400",
-              "dark:!bg-icu-800/30 dark:hover:!bg-icu-800",
-              "transition-colors duration-200 cursor-pointer"
+              "grow flex flex-col items-center justify-center gap-2"
             )}
-            title="Download icon"
           >
-            <iv01.IconDownloadMinimalistic className="size-5" width={2} />
-          </Button>
+            <Button
+              onClick={() => onCopy()}
+              size="sm"
+              className={cn(
+                "grow !p-2 rounded-lg bg-white/90 hover:bg-white",
+                "dark:!text-icu-700/70 dark:hover:!text-icu-500",
+                "dark:!bg-icu-800/30 dark:hover:!bg-icu-800",
+                "transition-colors duration-200 cursor-pointer"
+              )}
+              title="Copy component"
+            >
+              <iv01.IconCopy className="size-5" width={2} />
+            </Button>
+            <Button
+              onClick={() => onDownload(name, version)} // Pass version to onDownload
+              size="sm"
+              className={cn(
+                "grow !p-2 rounded-lg bg-white/90 hover:bg-white",
+                "dark:!text-icu-600/70 dark:hover:!text-icu-400",
+                "dark:!bg-icu-800/30 dark:hover:!bg-icu-800",
+                "transition-colors duration-200 cursor-pointer"
+              )}
+              title="Download icon"
+            >
+              <iv01.IconDownloadMinimalistic className="size-5" width={2} />
+            </Button>
+          </div>
         </div>
+
         <ToggleGroup
           type="single"
           value={currentStyle}

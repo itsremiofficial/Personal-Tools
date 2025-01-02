@@ -145,7 +145,7 @@ export const VirtualizedIconGrid = memo(
         className="h-[84vh] overflow-x-hidden overflow-y-auto scroll-smooth"
         style={{ willChange: "transform" }}
       >
-        <div ref={containerRef} className="relative w-full px-4">
+        <div ref={containerRef} className="relative w-full pr-4">
           <div
             style={{
               height: virtualizer.getTotalSize(),
@@ -193,7 +193,7 @@ export const VirtualizedIconGrid = memo(
                         }
                         onDownload={() =>
                           handleDownload(icon.name, icon.version)
-                        } // Pass version to onDownload
+                        }
                       />
                     );
                   })}

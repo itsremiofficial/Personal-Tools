@@ -24,7 +24,6 @@ import { Card } from "@/components/common/Card";
 import { Toggle } from "@/components/common/Toggle";
 import { IconDocumentText } from "@/components/icon/version01";
 import { Button } from "@/components/common/Button";
-import { Progress } from "@/components/common/Progress";
 
 const IconConverter: React.FC = () => {
   const [state, setState] = useState<IconConverterState>({

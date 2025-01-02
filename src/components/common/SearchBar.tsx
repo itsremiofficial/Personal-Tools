@@ -30,11 +30,11 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         <input
           type="text"
           className={cn(
-            "grow rounded-3xl py-4.5 pl-10 border-[1.5px] peer w-max !ring-0 !outline-0 transition-colors duration-300",
+            "grow rounded-3xl py-4.5 pl-14 border-[1.5px] peer w-max !ring-0 !outline-0 transition-colors duration-300",
             "bg-icu-200 border-icu-400/70 text-icu-800",
             "focus-visible:border-icu-600",
             "dark:bg-icu-900 dark:border-icu-800/70 dark:text-icu-400",
-            "dark:focus-visible:border-icu-700/70"
+            "dark:focus-visible:border-icu-700/70 "
           )}
           autoFocus
           placeholder="Search..."
@@ -43,9 +43,9 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         />
         <button
           type="button"
-          className="absolute h-full w-8 pl-3 inset-0 appearance-none text-icu-800 peer-focus:text-icu-600 transition duration-300"
+          className="absolute h-full w-10 pl-4 inset-0 appearance-none text-icu-800 peer-focus:text-icu-600 transition duration-300"
         >
-          <iv02.IconSearchStatus className="mx-auto w-5 h-5" />
+          <iv02.IconSearchStatus className="w-7 h-7" />
         </button>
       </div>
     </form>

@@ -5,58 +5,64 @@ import { resolve } from "path";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import fs from "fs/promises";
-import type { Connect } from "vite";
 
 const iconDownloadPlugin = (): Plugin => ({
   name: "icon-download",
   configureServer(server) {
     server.middlewares.use(async (req, res, next) => {
-      if (req.url?.startsWith("/api/icons/")) {
-        const iconName = req.url.split("/").pop()?.split("?")[0];
+      if (!req.url?.startsWith("/api/icons/")) {
+        return next();
+      }
+
+      try {
+        const urlParts = req.url.split("/");
+        const iconNameWithQuery = urlParts.pop() || "";
+        const iconName = iconNameWithQuery.split("?")[0];
+        const queryVersion =
+          new URLSearchParams(iconNameWithQuery.split("?")[1]).get("version") ||
+          "v1";
+
+        // Convert version format
+        const version = queryVersion.replace(
+          /^v(\d+)$/,
+          (_, num) => `version${num.padStart(2, "0")}`
+        );
+
         if (!iconName) {
           res.statusCode = 400;
           res.end("Icon name required");
           return;
         }
 
-        try {
-          // Use absolute path resolution
-          const rootDir = server.config.root || process.cwd();
-          const filePath = path.resolve(
-            rootDir,
-            "src",
-            "components",
-            "icons",
-            `${iconName}.tsx`
-          );
+        const rootDir = server.config.root || process.cwd();
+        const filePath = path.resolve(
+          rootDir,
+          "src",
+          "components",
+          "icon",
+          version,
+          `${iconName}.tsx`
+        );
 
-          // Verify the file exists and is within the project
-          const relativePath = path.relative(rootDir, filePath);
-          if (
-            relativePath.startsWith("..") ||
-            !relativePath.startsWith("src")
-          ) {
-            throw new Error("Invalid icon path");
-          }
-
-          const content = await fs.readFile(filePath, "utf-8");
-          res.setHeader("Content-Type", "text/plain");
-          res.setHeader(
-            "Content-Disposition",
-            `attachment; filename=${iconName}.tsx`
-          );
-          res.end(content);
-        } catch (error) {
-          console.error("Icon download error:", error);
-          res.statusCode = 404;
-          res.end("Icon not found");
+        const relativePath = path.relative(rootDir, filePath);
+        if (relativePath.startsWith("..") || !relativePath.startsWith("src")) {
+          throw new Error("Invalid icon path");
         }
-        return;
+
+        const content = await fs.readFile(filePath, "utf-8");
+        res.setHeader("Content-Type", "text/plain");
+        res.setHeader(
+          "Content-Disposition",
+          `attachment; filename=${iconName}.tsx`
+        );
+        res.end(content);
+      } catch (error) {
+        console.error("Icon download error:", error);
+        res.statusCode = 404;
+        res.end("Icon not found");
       }
-      next();
     });
   },
-  // Add build configuration
   config(config) {
     return {
       ...config,
@@ -68,7 +74,7 @@ const iconDownloadPlugin = (): Plugin => ({
             ...(Array.isArray(config.build?.rollupOptions?.external)
               ? config.build.rollupOptions.external
               : []),
-            /^@\/components\/icons\/.+/,
+            /^@\/components\/icon\/v\d+\/.+/,
           ],
         },
       },
@@ -83,7 +89,7 @@ export default defineConfig({
       "@": resolve(__dirname, "./src"),
       "@components": resolve(__dirname, "./src/components"),
       "@common": resolve(__dirname, "./src/components/common"),
-      "@icons": resolve(__dirname, "./src/components/icons"),
+      "@icon": resolve(__dirname, "./src/components/icon"),
       "@pages": resolve(__dirname, "./src/pages"),
       "@utils": resolve(__dirname, "./src/utils"),
       "@hooks": resolve(__dirname, "./src/hooks"),

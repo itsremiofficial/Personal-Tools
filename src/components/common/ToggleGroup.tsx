@@ -31,7 +31,7 @@ const ToggleGroupItem = React.forwardRef<
       "data-[state=on]:bg-white data-[state=on]:text-icu-900",
       "dark:ring-offset-icu-950 dark:focus-visible:ring-icu-800",
       "dark:hover:bg-icu-1000 dark:hover:text-icu-600",
-      "dark:data-[state=on]:bg-icu-1000 dark:data-[state=on]:text-icu-600",
+      "dark:data-[state=on]:bg-icu-1000 dark:data-[state=on]:text-icu-500",
       className
     )}
     {...props}
