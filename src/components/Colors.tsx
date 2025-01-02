@@ -8,10 +8,10 @@ import {
 } from "@/types";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { generateColorVariants } from "@/hooks/colorVarientsGenerator";
-import IconCopy from "./IconCopy";
-import { IconTickCircle } from "./IconTickCircle";
 import { Button } from "./common/Button";
 import { Card, CardBody } from "./common/Card";
+import { IconCopy, IconTickCircle } from "./icon/version02";
+import { IconCheck } from "./icon/version01";
 
 export const ColorCodeBlock: React.FC<ColorCodeBlockProps> = ({
   variants,
@@ -138,13 +138,13 @@ export const ColorFormatSelector: React.FC<ColorFormatSelectorProps> = ({
               `}
             >
               {label}
-              <IconTickCircle
+              <IconCheck
+                duotone={false}
                 className={`absolute top-1/2 right-2 transform -translate-y-1/2 !transition-opacity !duration-500
                   bg-blue-700/40 text-icu-100 dark:bg-icu-600/40 dark:text-icu-200
-                  rounded-full p-1 size-5 opacity-0 ${
+                  rounded-full p-0.5 size-6 opacity-0 ${
                     selectedFormat === value ? "opacity-100" : ""
                   }`}
-                width={4}
               />
             </label>
           </React.Fragment>
@@ -391,9 +391,7 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
           Copy All <IconCopy className="size-5" />
         </Button>
       </CardBody>
-      <CardBody
-        className={cn("w-full h-full p-6 rounded-3xl")}
-      >
+      <CardBody className={cn("w-full h-full p-6 rounded-3xl")}>
         <input
           type="text"
           placeholder="Change Variable Name eg: color or primary"
