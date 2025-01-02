@@ -2,8 +2,8 @@
 import fs from "fs";
 import path from "path";
 
-const componentsDir = path.resolve("src/components/icon/version01");
-const outputFile = path.resolve(componentsDir, "index.tsx");
+const componentsDir = path.resolve("src/components/icon/version02");
+const outputFile = path.resolve(componentsDir, "_index.tsx");
 
 fs.readdir(componentsDir, (err, files) => {
   if (err) throw err;

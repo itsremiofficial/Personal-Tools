@@ -2,9 +2,11 @@
 import { cn } from "@/hooks";
 import React, { useState, useMemo, useCallback } from "react";
 import { toast } from "sonner";
-import * as Iconss from "@/components/icon/version01/index";
+import * as iv01 from "@/components/icon/version01";
+import * as iv02 from "@/components/icon/version02";
+import { Button } from "@/components/common/Button";
 
-type IconsType = typeof Iconss;
+type IconsType = typeof iv01;
 type IconKey = keyof IconsType;
 
 const TOAST_MESSAGES = {
@@ -54,7 +56,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           type="button"
           className="absolute h-full w-8 pl-3 inset-0 appearance-none text-icu-800 peer-focus:text-icu-600 transition duration-300"
         >
-          <Iconss.IconCardSearch className="mx-auto w-5 h-5" />
+          <iv01.IconCardSearch className="mx-auto w-5 h-5" />
         </button>
       </div>
     </form>
@@ -63,7 +65,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       onClick={() => onToggleVisibility(!isVisible)}
       className="search_btn sm:hidden p-4 rounded-full bg-icu-600 dark:bg-icu-500 hover:bg-icu-500 dark:hover:bg-icu-500"
     >
-      <Iconss.IconCardSearch className="w-3.5 h-3.5 mx-auto dark:text-icu-200" />
+      <iv01.IconCardSearch className="w-3.5 h-3.5 mx-auto dark:text-icu-200" />
     </button>
   </div>
 );
@@ -142,7 +144,7 @@ const IconsList = () => {
 
   const filteredIcons = useMemo(() => {
     const searchTerms = searchQuery.split(" ");
-    return Object.entries(Iconss).filter(([name, Icon]) => {
+    return Object.entries(iv01).filter(([name, Icon]) => {
       const iconComponent = Icon as any;
       const keywords = iconComponent.keywords || [];
 
@@ -157,53 +159,64 @@ const IconsList = () => {
   }, [searchQuery]);
 
   const renderIconGroup = (icons: [string, any][], fill: boolean = false) => (
-    <div className="flex items-center max-[600px]:justify-between flex-wrap gap-lg-5 gap-3 mb-5">
+    <div className="flex items-center flex-wrap gap-lg-5 gap-3 mb-5">
       {icons.length > 0 ? (
         icons.map(([name, Icon]) => (
           <div
             key={name}
-            className="relative group grid place-content-center"
+            className={cn("grow relative grid place-content-center")}
             title={`Keywords: ${
               (Icon as any).keywords?.join(", ") || "No keywords"
             }`}
           >
-            <Icon
-              className={cn(
-                "w-16 h-16 rounded-2xl text-2xl transition-all duration-300 linear p-4",
-                "bg-gray-200 text-icu-600",
-                "dark:bg-icu-800/30 dark:text-icu-600",
-                "group-hover:opacity-80"
-              )}
-              fill={fill}
-            />
             <div
               className={cn(
-                "absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100",
-                "transition-opacity duration-200 bg-black/20 rounded-2xl"
+                "flex flex-col p-2 rounded-2xl gap-2",
+                "bg-gray-200 text-icu-600",
+                "dark:bg-icu-1100/30 dark:text-icu-600"
               )}
             >
-              <button
-                onClick={() => copyIconCode(name, fill)}
+              <Icon
                 className={cn(
-                  "p-2 rounded-lg bg-white/90 hover:bg-white",
-                  "dark:bg-icu-800/90 dark:hover:bg-icu-800",
-                  "transition-colors duration-200"
+                  "grow w-full h-20 rounded-2xl text-2xl transition-all duration-300 linear p-4",
+                  "bg-gray-200 text-icu-600",
+                  "dark:bg-icu-800/30 dark:text-icu-600"
                 )}
-                title="Copy component"
-              >
-                <Iconss.IconCopy className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => downloadIcon(name)}
+                fill={fill}
+                width={1.3}
+              />
+              <div
                 className={cn(
-                  "p-2 rounded-lg bg-white/90 hover:bg-white",
-                  "dark:bg-icu-800/90 dark:hover:bg-icu-800",
-                  "transition-colors duration-200 cursor-pointer"
+                  "grow flex items-center justify-center gap-2 py-1"
                 )}
-                title="Download icon"
               >
-                <Iconss.IconDownload className="w-4 h-4" />
-              </button>
+                <Button
+                  onClick={() => copyIconCode(name, fill)}
+                  size={"sm"}
+                  className={cn(
+                    "p-2 rounded-lg bg-white/90 hover:bg-white",
+                    "dark:!text-icu-700/70 dark:hover:!text-icu-500",
+                    "dark:!bg-icu-800/50 dark:hover:!bg-icu-800",
+                    "transition-colors duration-200 cursor-pointer"
+                  )}
+                  title="Copy component"
+                >
+                  <iv01.IconCopy className="size-5" width={2} />
+                </Button>
+                <Button
+                  onClick={() => downloadIcon(name)}
+                  size={"sm"}
+                  className={cn(
+                    "p-2 rounded-lg bg-white/90 hover:bg-white",
+                    "dark:!text-icu-700/70 dark:hover:!text-icu-400",
+                    "dark:!bg-icu-800/50 dark:hover:!bg-icu-800",
+                    "transition-colors duration-200 cursor-pointer"
+                  )}
+                  title="Download icon"
+                >
+                  <iv01.IconDownloadMinimalistic className="size-5" width={2} />
+                </Button>
+              </div>
             </div>
           </div>
         ))
@@ -238,14 +251,9 @@ const IconsList = () => {
 
         <div className="mb-5">
           <div className="bg-[#03bd87]/[.16] text-[#03bd87] py-1 px-3 rounded-xl inline-block text-base mb-5">
-            Line Duotone {Object.entries(Iconss).length}
+            Line Duotone {Object.entries(iv01).length}
           </div>
           {renderIconGroup(filteredIcons)}
-
-          <div className="bg-[#03bd87]/[.16] text-[#03bd87] py-1 px-3 rounded-xl inline-block text-base mb-5">
-            Bold Duotone
-          </div>
-          {renderIconGroup(filteredIcons, true)}
         </div>
       </div>
     </div>

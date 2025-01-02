@@ -504,7 +504,7 @@ const IconConverter: React.FC = () => {
               pressed={includeKeywords}
               onPressedChange={setIncludeKeywords}
               size="sm"
-              disabled={isProcessing}
+              disabled={!isReady || !iconPropsPath.length || isProcessing}
               icon={
                 includeKeywords ? (
                   <IconDocumentText className="size-5" fill />
