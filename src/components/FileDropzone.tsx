@@ -4,6 +4,7 @@ import { CloudUploadIcon } from "hugeicons-react";
 import { FileDropzoneProps } from "@/types";
 import { cn } from "@/hooks";
 import { Card } from "./common/Card";
+import { toast } from "sonner";
 
 export const FileDropzone = React.memo(
   ({
@@ -15,11 +16,50 @@ export const FileDropzone = React.memo(
     className,
   }: FileDropzoneProps) => {
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
-      onDrop,
-      onDropRejected: onReject, // Match the handler type
+      onDrop: (acceptedFiles, rejectedFiles) => {
+        // Check for folders (size 0 and type '')
+        const folders = acceptedFiles.filter(
+          (file) => file.size === 0 || !file.type
+        );
+        if (folders.length > 0) {
+          toast.error("Folders are not allowed. Please upload SVG files only.");
+          return;
+        }
+
+        // Handle valid files
+        if (acceptedFiles.length > 0) {
+          onDrop(acceptedFiles);
+        }
+      },
+      onDropRejected: (rejectedFiles) => {
+        // Show error for each rejected file
+        rejectedFiles.forEach((rejection) => {
+          const error = rejection.errors[0];
+          if (error.code === "file-invalid-type") {
+            toast.error(
+              `"${rejection.file.name}" is not allowed. Please upload SVG files only.`
+            );
+          } else {
+            toast.error(`Error: ${error.message}`);
+          }
+        });
+        onReject(rejectedFiles);
+      },
       accept,
       multiple: true,
       disabled,
+      noClick: disabled,
+      noDrag: disabled,
+      validator: (file) => {
+        // Additional validation for SVG files
+        if (!file.type.includes("svg")) {
+          return {
+            code: "file-invalid-type",
+            message: "Only SVG files are allowed",
+          };
+        }
+        return null;
+      },
     });
 
     return (

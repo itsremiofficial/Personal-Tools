@@ -2,10 +2,10 @@ import { readdir, rename } from "fs/promises";
 import { join } from "path";
 
 // Set the directory path
-const folderPath = "public/iconns/line_duotone";
+const folderPath = "public/iconsax/TwoTone";
 
 // The part of the filename you want to remove
-const partToRemove = "Line Duotone_ ";
+const partToRemove = "_twotone_ ";
 
 async function renameFiles() {
   try {

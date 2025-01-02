@@ -2,7 +2,7 @@
 "use client";
 import React, { useState, useCallback, useMemo, useContext } from "react";
 import { toast } from "sonner";
-import { InformationCircleIcon } from "hugeicons-react";
+import { Delete03Icon, InformationCircleIcon } from "hugeicons-react";
 import { GeneratedResult, IconConverterState } from "@/types";
 import { useFileHandler } from "@/hooks/useFileHandler";
 import { generateComponentCode, replaceAttributes } from "@/utils";
@@ -21,6 +21,10 @@ import { cn } from "@/hooks";
 import Tray from "@/components/common/TrayDrawer";
 import { generateComponentCodeSync } from "@/utils/generateComponentCode";
 import { Card } from "@/components/common/Card";
+import { Toggle } from "@/components/common/Toggle";
+import { IconDocumentText } from "@/components/icon/version01";
+import { Button } from "@/components/common/Button";
+import { Progress } from "@/components/common/Progress";
 
 const IconConverter: React.FC = () => {
   const [state, setState] = useState<IconConverterState>({
@@ -295,11 +299,6 @@ const IconConverter: React.FC = () => {
         ({ name, lineDuotoneIndex, boldDuotoneIndex, boldIndex }) =>
           async (): Promise<GeneratedResult> => {
             try {
-              // console.log(`Processing pair: ${name}`, {
-              //   stroke: strokeHandler.svgs[strokeIndex],
-              //   duotone: duotoneHandler.svgs[duotoneIndex],
-              // });
-
               const lineDuotoneSvg = await replaceAttributes(
                 lineDuotoneHandler.svgs[lineDuotoneIndex],
                 true
@@ -396,6 +395,55 @@ const IconConverter: React.FC = () => {
     toast.success("All files cleared successfully");
   }, [lineDuotoneHandler, boldDuotoneHandler, boldHandler]);
 
+  const clearType = useCallback(
+    (type: "lineDuotone" | "boldDuotone" | "bold") => {
+      // Clear generated content since we're modifying the file set
+      setState({
+        outputs: [],
+        logs: [],
+        error: null,
+        missingFiles: {
+          lineDuotone: [],
+          boldDuotone: [],
+          bold: [],
+        },
+      });
+
+      // Clear specific file type
+      switch (type) {
+        case "lineDuotone":
+          lineDuotoneHandler.clearFiles();
+          toast.success("Line SVG files cleared");
+          break;
+        case "boldDuotone":
+          boldDuotoneHandler.clearFiles();
+          toast.success("Bold Duotone SVG files cleared");
+          break;
+        case "bold":
+          boldHandler.clearFiles();
+          toast.success("Bold SVG files cleared");
+          break;
+      }
+    },
+    [lineDuotoneHandler, boldDuotoneHandler, boldHandler]
+  );
+
+  const clearGenerated = useCallback(() => {
+    // Clear only generated content
+    setState({
+      outputs: [],
+      logs: [],
+      error: null,
+      missingFiles: {
+        lineDuotone: [],
+        boldDuotone: [],
+        bold: [],
+      },
+    });
+
+    toast.success("Generated files cleared");
+  }, []);
+
   const { open, setOpen } = useContext(TrayContext) as TrayProviderProps;
 
   return (
@@ -418,7 +466,7 @@ const IconConverter: React.FC = () => {
             onReject={(rejections) =>
               boldDuotoneHandler.handleRejected(rejections)
             }
-            label="Bold Duotone SVGs"
+            label="Bulk SVGs"
             accept={{ "image/svg+xml": [".svg"] }}
             disabled={isProcessing}
           />
@@ -435,9 +483,12 @@ const IconConverter: React.FC = () => {
           <div className="flex items-center justify-between">
             <label
               htmlFor="iconPropsPath"
-              className="flex items-center gap-2 font-medium dark:text-icu-500"
+              className="flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
             >
-              Path for &#60;IconProps&#62;
+              Path for{" "}
+              <kbd className="px-2 rounded-lg py-1 dark:bg-icu-1000 dark:text-icu-500">
+                &#60;IconProps&#62;
+              </kbd>
               <InformationCircleIcon
                 className={cn(
                   "size-8 p-1 rounded-xl cursor-pointer transition-colors duration-300",
@@ -446,17 +497,22 @@ const IconConverter: React.FC = () => {
                 )}
                 onClick={() => setOpen(!open)}
               />
-              <Tray />
             </label>
-            <label className="flex items-center gap-2 font-medium dark:text-icu-500">
-              <input
-                type="checkbox"
-                checked={includeKeywords}
-                onChange={(e) => setIncludeKeywords(e.target.checked)}
-                className="rounded border-icu-400/70"
-              />
-              Include Keywords
-            </label>
+
+            <Toggle
+              label="Keywords"
+              pressed={includeKeywords}
+              onPressedChange={setIncludeKeywords}
+              size="sm"
+              disabled={isProcessing}
+              icon={
+                includeKeywords ? (
+                  <IconDocumentText className="size-5" fill />
+                ) : (
+                  <IconDocumentText className="size-5" />
+                )
+              }
+            />
           </div>
           <div className="flex items-center justify-between gap-4">
             <input
@@ -480,86 +536,115 @@ const IconConverter: React.FC = () => {
               progress={generateProgress}
             />
           </div>
-        </Card>
-        {(lineDuotoneHandler.files.length > 0 ||
-          boldDuotoneHandler.files.length > 0 ||
-          boldHandler.files.length > 0) && (
-          <div
-            className={cn(
-              "p-6 border rounded-4xl flex flex-col gap-6",
-              "border-icu-300 bg-icu-100",
-              "dark:border-icu-800/70 dark:bg-icu-1000/40"
-            )}
-          >
-            <div>
+
+          {(lineDuotoneHandler.files.length > 0 ||
+            boldDuotoneHandler.files.length > 0 ||
+            boldHandler.files.length > 0) && (
+            <>
               {lineDuotoneHandler.files.length > 0 && (
-                <label
-                  htmlFor="bulkIconsList"
-                  className="pl-3 flex items-center gap-2 font-medium dark:text-icu-500"
-                >
-                  Line Icon Files
-                  <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
-                    {lineDuotoneHandler.files.length}
-                  </kbd>
-                </label>
+                <div className="flex justify-center-center flex-col gap-2">
+                  <div className="flex items-end justify-between">
+                    <label
+                      htmlFor="bulkIconsList"
+                      className="pl-3 flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
+                    >
+                      Line Icon Files
+                      <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
+                        {lineDuotoneHandler.files.length}
+                      </kbd>
+                    </label>
+                    <Button
+                      onClick={() => clearType("lineDuotone")}
+                      variant="danger"
+                      className="h-fit gap-2 whitespace-nowrap"
+                      disabled={isProcessing}
+                    >
+                      Clear Line <Delete03Icon className="size-5" />
+                    </Button>
+                  </div>
+                  <FileList
+                    {...lineDuotoneHandler}
+                    type="lineDuotone"
+                    disabled={isProcessing}
+                    onClear={() => clearType("lineDuotone")}
+                  />
+                </div>
               )}
-              <FileList
-                {...lineDuotoneHandler}
-                type="lineDuotone"
-                disabled={isProcessing}
-                onClear={clearAll} // Add onClear prop
-              />
-            </div>
-            <div>
+
               {boldDuotoneHandler.files.length > 0 && (
-                <label
-                  htmlFor="bulkIconsList"
-                  className="pl-3 flex items-center gap-2 font-medium dark:text-icu-500"
-                >
-                  Bold Duotone Icon Files
-                  <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
-                    {boldDuotoneHandler.files.length}
-                  </kbd>
-                </label>
+                <div className="flex justify-center-center flex-col gap-2">
+                  <div className="flex items-end justify-between">
+                    <label
+                      htmlFor="bulkIconsList"
+                      className="pl-3 flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
+                    >
+                      Bulk Icon Files
+                      <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
+                        {boldDuotoneHandler.files.length}
+                      </kbd>
+                    </label>
+                    <Button
+                      onClick={() => clearType("boldDuotone")}
+                      variant="danger"
+                      className="h-fit gap-2 whitespace-nowrap"
+                      disabled={isProcessing}
+                    >
+                      Clear Bulk <Delete03Icon className="size-5" />
+                    </Button>
+                  </div>
+                  <FileList
+                    {...boldDuotoneHandler}
+                    type="boldDuotone"
+                    disabled={isProcessing}
+                    onClear={() => clearType("boldDuotone")}
+                  />
+                </div>
               )}
-              <FileList
-                {...boldDuotoneHandler}
-                type="boldDuotone"
-                disabled={isProcessing}
-                onClear={clearAll} // Add onClear prop
-              />
-            </div>
-            <div>
+
               {boldHandler.files.length > 0 && (
-                <label
-                  htmlFor="bulkIconsList"
-                  className="pl-3 flex items-center gap-2 font-medium dark:text-icu-500"
-                >
-                  Bold Icon Files
-                  <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
-                    {boldHandler.files.length}
-                  </kbd>
-                </label>
+                <div className="flex justify-center-center flex-col gap-2">
+                  <div className="flex items-end justify-between">
+                    <label
+                      htmlFor="bulkIconsList"
+                      className="pl-3 flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
+                    >
+                      Bold Files
+                      <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
+                        {boldHandler.files.length}
+                      </kbd>
+                    </label>
+                    <Button
+                      onClick={() => clearType("bold")}
+                      variant="danger"
+                      className="h-fit gap-2 whitespace-nowrap"
+                      disabled={isProcessing}
+                    >
+                      Clear Bold <Delete03Icon className="size-5" />
+                    </Button>
+                  </div>
+                  <FileList
+                    {...boldHandler}
+                    type="bold"
+                    disabled={isProcessing}
+                    onClear={() => clearType("bold")}
+                  />
+                </div>
               )}
-              <FileList
-                {...boldHandler}
-                type="bold"
-                disabled={isProcessing}
-                onClear={clearAll} // Add onClear prop
-              />
-            </div>
-          </div>
-        )}
+            </>
+          )}
+        </Card>
 
         {state.logs.length > 0 && (
           <ResultsSection
             {...state}
             names={lineDuotoneHandler.names}
-            onClear={clearAll}
+            onClear={clearGenerated} // Changed from clearAll to clearGenerated
             disabled={isProcessing}
           />
         )}
       </div>
+
+      <Tray />
     </ErrorBoundary>
   );
 };

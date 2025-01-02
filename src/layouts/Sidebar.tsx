@@ -6,10 +6,10 @@ import { useSidebar } from "@/hooks/useSidebar";
 import { cn } from "@/hooks";
 import { Logo, NavItem } from "@/components";
 import { Card } from "@/components/common/Card";
-import IconLayers from "@/components/icon/version01/Layers";
 import IconPalette from "@/components/icon/version01/Palette";
 import IconSun from "@/components/icon/version01/Sun";
 import IconMoon from "@/components/icon/version01/Moon";
+import { IconLayersMinimalistic } from "@/components/icon/version01";
 
 const Sidebar = () => {
   const { isDark, setDark } = useTheme();
@@ -18,7 +18,7 @@ const Sidebar = () => {
 
   const navItems = useMemo(
     () => [
-      { path: "/", label: "Icon Generator", icon: IconLayers },
+      { path: "/", label: "Icon Generator", icon: IconLayersMinimalistic },
       {
         path: "/color-palette-generator",
         label: "Color Generator",

@@ -144,16 +144,17 @@ export const ResultsSection = React.memo(
             <>
               {/* <Loading03Icon className="size-5 animate-spin" /> */}
               <Progress
+                root="w-full h-4 bg-white/20"
+                indicator=" bg-blue-200"
                 value={Math.round(downloadState.progress)}
-                className="w-48 h-4"
-              />{" "}
+              />
               {Math.round(downloadState.progress)}%
             </>
           );
         case "complete":
           return (
             <>
-              Completed <CheckmarkCircle01Icon />{" "}
+              Completed <CheckmarkCircle01Icon />
             </>
           );
         default:
@@ -232,14 +233,36 @@ export const ResultsSection = React.memo(
             disabled && "opacity-50 pointer-events-none"
           )}
         >
-          <h2 className="text-xl font-medium text-icu-800 dark:text-icu-600">
-            Generated Components
-          </h2>
+          <div className="flex items-end justify-between">
+            <h2 className="pl-3 flex items-center gap-2 font-medium dark:text-icu-500">
+              Generated Components
+            </h2>
+            <div className="flex gap-4">
+              <Button
+                onClick={onClear}
+                variant="danger"
+                className="h-fit py-4 gap-2 whitespace-nowrap"
+                disabled={disabled}
+              >
+                Clear Generated <Delete03Icon className="size-5" />
+              </Button>
+              <Button
+                onClick={handleDownloadAll}
+                className={cn(
+                  "gap-2 !w-54 whitespace-nowrap !relative",
+                  downloadState.status !== "idle" && "!px-4 !py-4"
+                )}
+                disabled={disabled || downloadState.status !== "idle"}
+              >
+                {getButtonContent()}
+              </Button>
+            </div>
+          </div>
 
           <div className="flex items-center gap-4">
             <div
               className={cn(
-                "grow border border-dashed mt-2 flex py-4 px-4 rounded-2xl gap-6 overflow-auto",
+                "grow border border-dashed flex py-4 px-4 rounded-2xl gap-6 overflow-auto",
                 "border-icu-300/70 dark:border-icu-800/40"
               )}
             >
@@ -256,26 +279,6 @@ export const ResultsSection = React.memo(
                 </Button>
               ))}
             </div>
-            <Button
-              onClick={onClear}
-              variant="danger"
-              size={"lg"}
-              className="h-fit py-4 gap-2 whitespace-nowrap"
-              disabled={disabled}
-            >
-              Clear All <Delete03Icon className="size-5" />
-            </Button>
-            <Button
-              onClick={handleDownloadAll}
-              className={cn(
-                "gap-2 !w-54 whitespace-nowrap",
-                downloadState.status !== "idle" && "!px-4 !py-6"
-              )}
-              size={"lg"}
-              disabled={disabled || downloadState.status !== "idle"}
-            >
-              {getButtonContent()}
-            </Button>
           </div>
         </div>
 
@@ -295,7 +298,7 @@ export const ResultsSection = React.memo(
               "dark:text-icu-600 dark:border-icu-800"
             )}
           >
-            Logs{" "}
+            Logs
             <kbd className="px-2 rounded-md py-1 dark:bg-icu-1000 dark:text-icu-500">
               {logs.length}
             </kbd>

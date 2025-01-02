@@ -1,44 +1,43 @@
 import React from "react";
-import { Cancel01Icon, Delete03Icon } from "hugeicons-react";
+import { Cancel01Icon } from "hugeicons-react";
 import { FileItemProps, FileListProps } from "@/types";
 import { cn } from "@/hooks";
-import { Button } from "./common/Button";
 
 export const FileList = React.memo(
-  ({ files, disabled, removeFile, clearFiles, onClear }: FileListProps) => {
+  ({ files, disabled, removeFile }: FileListProps) => {
     if (!files.length) return null;
 
-    const handleClear = () => {
-      clearFiles();
-      onClear();
-    };
-
     return (
-      <div className="flex items-center gap-4">
+      <div
+        className={cn(
+          "relative rounded-2xl overflow-hidden",
+          "border-2 border-dashed border-icu-300/70 dark:border-icu-800/40"
+        )}
+      >
         <div
           className={cn(
-            "grow border border-dashed mt-2 flex py-4 px-4 rounded-2xl gap-6 overflow-auto",
-            "border-icu-300/70 dark:border-icu-800/40",
+            "absolute w-32 inset-y-0 right-0 bg-gradient-to-r z-1 from-0% via-80% to-100%",
+            "from-transparent via-icu-100 to-icu-100",
+            "dark:via-icu-1000 dark:to-icu-1000"
+          )}
+        />
+        <div
+          className={cn(
+            "px-4 py-2",
             disabled && "opacity-50 cursor-not-allowed"
           )}
         >
-          {files.map((file, index) => (
-            <FileItem
-              key={`${file.name}-${index}`}
-              file={file}
-              onRemove={() => !disabled && removeFile(index)}
-              disabled={disabled}
-            />
-          ))}
+          <div className="flex overflow-auto py-2 gap-4 ">
+            {files.map((file, index) => (
+              <FileItem
+                key={`${file.name}-${index}`}
+                file={file}
+                onRemove={() => !disabled && removeFile(index)}
+                disabled={disabled}
+              />
+            ))}
+          </div>
         </div>
-        <Button
-          onClick={handleClear} // Use the combined clear function
-          variant="danger"
-          className="h-fit py-4 gap-2 whitespace-nowrap"
-          disabled={disabled}
-        >
-          Clear All <Delete03Icon className="size-5" />
-        </Button>
       </div>
     );
   }
@@ -58,7 +57,7 @@ const FileItem = React.memo(({ file, onRemove, disabled }: FileItemProps) => (
       onClick={onRemove}
       disabled={disabled}
       className={cn(
-        "absolute -right-1 -top-1 rounded-full p-1.5",
+        "absolute -right-1 -top-1 rounded-full p-1.5 z-1",
         "bg-icu-400/50 hover:bg-icu-400/80",
         "dark:bg-icu-1100/30 dark:hover:bg-icu-1100/40",
         !disabled && "cursor-pointer"

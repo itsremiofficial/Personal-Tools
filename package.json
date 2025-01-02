@@ -18,8 +18,10 @@
   "dependencies": {
     "@radix-ui/react-progress": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.1",
+    "@radix-ui/react-toggle": "^1.1.1",
     "@super-effective/react-color-picker": "^3.0.0",
     "@tailwindcss/vite": "^4.0.0-beta.8",
+    "add": "^2.0.6",
     "class-variance-authority": "^0.7.1",
     "file-saver": "^2.0.5",
     "framer-motion": "^11.15.0",
@@ -42,6 +44,7 @@
     "sonner": "^1.7.1",
     "tailwind-merge": "^2.6.0",
     "tailwindcss": "^4.0.0-beta.8",
+    "toggle": "^1.0.1",
     "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {

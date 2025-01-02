@@ -79,7 +79,7 @@ const DefaultView = () => {
 
       <div className="p-4 rounded-3xl flex flex-col bg-icu-200 dark:bg-icu-1000/70">
         <div className="pb-2 border-b mb-3 flex justify-between items-center border-icu-300 dark:border-icu-900/50">
-          <span>Types</span>
+          <span className="text-icu-900 dark:text-icu-400">Types</span>
           <Button
             variant={"neutral"}
             size={"sm"}

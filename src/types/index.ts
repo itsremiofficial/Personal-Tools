@@ -1,5 +1,5 @@
 import { FileHandlerType } from "@/hooks/useFileHandler";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { FileRejection } from "react-dropzone";
 
 export interface IconProps {
@@ -114,4 +114,13 @@ export interface ColorCodeBlockProps {
   colorName: string;
   className: string;
   variableName: string;
+}
+
+export interface ToggleSwitchProps {
+  label: string;
+  icon?: ReactNode;
+  pressed: boolean;
+  onPressedChange: (pressed: boolean) => void;
+  size?: "sm" | "default" | "lg";
+  disabled?: boolean;
 }
