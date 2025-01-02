@@ -26,7 +26,7 @@ export const GenerateButton = React.memo(
           <>
             <Progress
               root="w-full h-4 bg-white/20"
-              indicator=" bg-blue-200"
+              indicator="bg-icu-100"
               value={progress}
             />
           </>

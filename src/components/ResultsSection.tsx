@@ -142,10 +142,9 @@ export const ResultsSection = React.memo(
         case "downloading":
           return (
             <>
-              {/* <Loading03Icon className="size-5 animate-spin" /> */}
               <Progress
                 root="w-full h-4 bg-white/20"
-                indicator=" bg-blue-200"
+                indicator="bg-icu-100"
                 value={Math.round(downloadState.progress)}
               />
               {Math.round(downloadState.progress)}%
