@@ -96,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({
           }}
           optionClasses={{
             selected:
-              "bg-icu-300/70 !text-icu-900 dark:bg-icu-900 dark:text-icu-400",
+              "bg-icu-300/70 !text-icu-900 dark:bg-icu-900 dark:!text-icu-400",
             destructive: "text-blue-400 hover:text-red-300 !cursor-pointer",
             disabled: "opacity-40",
           }}
