@@ -3,7 +3,7 @@
 import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { cn } from "@/hooks";
-import { IconAltArrowRight } from "../icon/version01";
+import { IconAltArrowRight } from "../icons/version01";
 
 // Types
 interface DropdownItem {
@@ -130,7 +130,13 @@ const DropdownMenuContent = React.forwardRef<
 
 // Main Dropdown Component
 const Dropdown = React.memo(
-  ({ trigger, items, className, menuClasses, optionClasses }: DropdownProps) => {
+  ({
+    trigger,
+    items,
+    className,
+    menuClasses,
+    optionClasses,
+  }: DropdownProps) => {
     const renderMenuItem = React.useCallback(
       (item: DropdownItem) => (
         <DropdownMenuItem
@@ -141,14 +147,15 @@ const Dropdown = React.memo(
           menuClasses={menuClasses}
           optionClasses={optionClasses}
         >
-          {item.icon && (
-            <span className="mr-2">
-              {item.icon}
-            </span>
-          )}
+          {item.icon && <span className="mr-2">{item.icon}</span>}
           <span>{item.label}</span>
           {item.shortcut && (
-            <span className={cn("ml-auto text-xs tracking-widest opacity-60", menuClasses?.shortcut)}>
+            <span
+              className={cn(
+                "ml-auto text-xs tracking-widest opacity-60",
+                menuClasses?.shortcut
+              )}
+            >
               {item.shortcut}
             </span>
           )}

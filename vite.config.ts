@@ -39,7 +39,7 @@ const iconDownloadPlugin = (): Plugin => ({
           rootDir,
           "src",
           "components",
-          "icon",
+          "icons",
           version,
           `${iconName}.tsx`
         );
@@ -74,7 +74,7 @@ const iconDownloadPlugin = (): Plugin => ({
             ...(Array.isArray(config.build?.rollupOptions?.external)
               ? config.build.rollupOptions.external
               : []),
-            /^@\/components\/icon\/v\d+\/.+/,
+            /^@\/components\/icons\/v\d+\/.+/,
           ],
         },
       },
@@ -89,20 +89,14 @@ export default defineConfig({
       "@": resolve(__dirname, "./src"),
       "@components": resolve(__dirname, "./src/components"),
       "@common": resolve(__dirname, "./src/components/common"),
-      "@icon": resolve(__dirname, "./src/components/icon"),
+      "@icons": resolve(__dirname, "./src/components/icons"),
       "@pages": resolve(__dirname, "./src/pages"),
       "@utils": resolve(__dirname, "./src/utils"),
       "@hooks": resolve(__dirname, "./src/hooks"),
       "@types": resolve(__dirname, "./src/types"),
-      "@ui": resolve(__dirname, "./src/components/ui"),
-      "@components/ContextProvider": resolve(
-        __dirname,
-        "./src/components/ContextProvider"
-      ), // Ensure exact casing
-      os: "os-browserify/browser",
     },
   },
-  base: "/react-icon-generator/",
+  base: "/Personal-Tools/",
   build: {
     sourcemap: true,
     rollupOptions: {

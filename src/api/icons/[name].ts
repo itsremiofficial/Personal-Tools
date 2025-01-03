@@ -25,7 +25,7 @@ export default async function handler(
       process.cwd(),
       "src",
       "components",
-      "icon",
+      "icons",
       iconVersion,
       `${iconName}.tsx`
     );

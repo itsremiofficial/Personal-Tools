@@ -1,7 +1,7 @@
 import { cn } from "@/hooks";
 import React, { useState, useMemo, useCallback, useEffect } from "react";
-import * as iv01 from "@/components/icon/version01";
-import * as iv02 from "@/components/icon/version02";
+import * as iv01 from "@/components/icons/version01";
+import * as iv02 from "@/components/icons/version02";
 import { Header } from "@/components/common/Header";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import type { IconStyle, IconMetadata } from "@/types";

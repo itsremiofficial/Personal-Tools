@@ -22,7 +22,7 @@ import Tray from "@/components/common/TrayDrawer";
 import { generateComponentCodeSync } from "@/utils/generateComponentCode";
 import { Card } from "@/components/common/Card";
 import { Toggle } from "@/components/common/Toggle";
-import { IconDocumentText } from "@/components/icon/version01";
+import { IconDocumentText } from "@/components/icons/version01";
 import { Button } from "@/components/common/Button";
 
 const IconConverter: React.FC = () => {

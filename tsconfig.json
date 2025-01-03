@@ -19,12 +19,11 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@common/*": ["./src/components/common/*"],
-      "@icons/*": ["src/components/icon/version01/*"],
+      "@icons/*": ["src/components/icons/*"],
       "@pages/*": ["./src/pages/*"],
       "@utils/*": ["./src/utils/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@types/*": ["./src/types/*"],
-      "@ui/*": ["./src/components/ui/*"]
+      "@types/*": ["./src/types/*"]
     },
     "composite": true,
     "declaration": true,

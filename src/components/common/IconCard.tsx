@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { cn } from "@/hooks";
 import { Button } from "./Button";
 import { ToggleGroup, ToggleGroupItem } from "./ToggleGroup";
-import * as iv01 from "@/components/icon/version01";
+import * as iv01 from "@/components/icons/version01";
 import type { IconComponentType, IconProps, IconStyle } from "@/types";
 import { Tooltip } from "./Tooltip";
 

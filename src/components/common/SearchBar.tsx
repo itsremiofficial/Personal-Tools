@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "@/hooks";
-import * as iv02 from "@/components/icon/version02";
-import * as iv01 from "@/components/icon/version01";
+import * as iv02 from "@/components/icons/version02";
+import * as iv01 from "@/components/icons/version01";
 
 interface SearchBarProps {
   searchQuery: string;

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { SearchBar } from "./SearchBar";
-import { Dropdown } from "./dropdown";
 import { Button } from "./Button";
-import { IconAltArrowDown, IconBackpack } from "../icon/version01";
+import { IconAltArrowDown, IconBackpack } from "../icons/version01";
 import type { IconStyle } from "@/types";
 import { cn } from "@/hooks";
+import { Dropdown } from "./Select";
 
 interface HeaderProps {
   count: number;

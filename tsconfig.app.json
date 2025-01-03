@@ -9,14 +9,13 @@
     "skipLibCheck": true,
     "paths": {
       "@/*": ["src/*"],
-      "@Components/*": ["src/components/*"],
-      "@Common/*": ["src/components/common/*"],
-      "@Icons/*": ["src/components/icons/*"],
-      "@Pages/*": ["src/pages/*"],
-      "@Utils/*": ["src/utils/*"],
-      "@Hooks/*": ["src/hooks/*"],
-      "@Types/*": ["src/types/*"],
-      "@ui/*": ["src/components/ui/*"]
+      "@components/*": ["src/components/*"],
+      "@common/*": ["src/components/common/*"],
+      "@icons/*": ["src/components/icons/*"],
+      "@pages/*": ["src/pages/*"],
+      "@utils/*": ["src/utils/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@types/*": ["src/types/*"]
     },
 
     /* Bundler mode */
