@@ -1054,6 +1054,7 @@ export { default as IconSuspensionCross } from "./SuspensionCross";
 export { default as IconSwimming } from "./Swimming";
 export { default as IconSyringe } from "./Syringe";
 export { default as IconTablet } from "./Tablet";
+export { default as IconTerminal } from "./Terminal";
 export { default as IconTag } from "./Tag";
 export { default as IconTagHorizontal } from "./TagHorizontal";
 export { default as IconTagPrice } from "./TagPrice";
