@@ -140,12 +140,15 @@ export const VirtualizedIconGrid = memo(
     );
 
     // Add style change handler
-    const handleStyleChange = useCallback((name: string, style: IconStyle) => {
-      setIconStyles(prev => ({
-        ...prev,
-        [name]: style
-      }));
-    }, [setIconStyles]);
+    const handleStyleChange = useCallback(
+      (name: string, style: IconStyle) => {
+        setIconStyles((prev) => ({
+          ...prev,
+          [name]: style,
+        }));
+      },
+      [setIconStyles]
+    );
 
     return (
       <div ref={parentRef} style={CONTAINER} className="scroll-smooth">
@@ -186,7 +189,9 @@ export const VirtualizedIconGrid = memo(
                         key={`${icon.name}-${icon.version}`}
                         {...icon}
                         currentStyle={iconStyles[icon.name] || "line"}
-                        onStyleChange={(style) => handleStyleChange(icon.name, style)}
+                        onStyleChange={(style) =>
+                          handleStyleChange(icon.name, style)
+                        }
                         onCopy={() =>
                           handleCopy(icon.name, iconStyles[icon.name] || "line")
                         }
