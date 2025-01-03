@@ -16,11 +16,11 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   isVisible,
   onToggleVisibility,
 }) => (
-  <div>
+  <div className="grow w-full max-w-4/12 ">
     <form
       className={`${
         isVisible && "!block"
-      } sm:relative absolute inset-x-0 sm:top-0 top-1/2 sm:translate-y-0 -translate-y-1/2 sm:mx-0 mx-4 z-10 sm:block hidden`}
+      } grow sm:relative absolute inset-x-0 sm:top-0 top-1/2 sm:translate-y-0 -translate-y-1/2 sm:mx-0 mx-4 z-10 sm:block hidden`}
       onSubmit={(e) => {
         e.preventDefault();
         onToggleVisibility(false);
@@ -30,7 +30,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         <input
           type="text"
           className={cn(
-            "grow rounded-3xl py-4.5 pl-14 border-[1.5px] peer w-max !ring-0 !outline-0 transition-colors duration-300",
+            "grow rounded-3xl py-4.5 pl-14 border-[1.5px] peer !ring-0 !outline-0 transition-colors duration-300 w-full",
             "bg-icu-200 border-icu-400/70 text-icu-800",
             "focus-visible:border-icu-600",
             "dark:bg-icu-900 dark:border-icu-800/70 dark:text-icu-400",
@@ -47,14 +47,18 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         >
           <iv02.IconSearchStatus className="w-7 h-7" />
         </button>
+        <button
+          type="button"
+          onClick={() => onSearch("")}
+          className={cn(
+            "absolute h-full w-10 pl-4 inset-y-0 !right-4 appearance-none text-icu-800 peer-focus:text-icu-600 cursor-pointer",
+            "opacity-0 transition-all duration-700",
+            searchQuery.length && "opacity-100"
+          )}
+        >
+          <iv01.IconClose className="w-7 h-7" />
+        </button>
       </div>
     </form>
-    <button
-      type="button"
-      onClick={() => onToggleVisibility(!isVisible)}
-      className="search_btn sm:hidden p-4 rounded-full bg-icu-600 dark:bg-icu-500 hover:bg-icu-500 dark:hover:bg-icu-500"
-    >
-      <iv01.IconCardSearch className="w-3.5 h-3.5 mx-auto dark:text-icu-200" />
-    </button>
   </div>
 );

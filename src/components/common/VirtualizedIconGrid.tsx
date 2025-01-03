@@ -3,7 +3,7 @@ import { IconCard } from "./IconCard";
 import type { Virtualizer, VirtualItem } from "@tanstack/react-virtual";
 import type { IconMetadata, IconStyle } from "@/types";
 import { toast } from "sonner";
-import { VIRTUALIZATION_CONFIG } from "@/constants/virtualization";
+import { VIRTUALIZATION_CONFIG, CONTAINER } from "@/constants/virtualization";
 
 interface VirtualizedIconGridProps {
   parentRef: React.RefObject<HTMLDivElement>;
@@ -139,13 +139,17 @@ export const VirtualizedIconGrid = memo(
       [columns]
     );
 
+    // Add style change handler
+    const handleStyleChange = useCallback((name: string, style: IconStyle) => {
+      setIconStyles(prev => ({
+        ...prev,
+        [name]: style
+      }));
+    }, [setIconStyles]);
+
     return (
-      <div
-        ref={parentRef}
-        className="h-[84vh] overflow-x-hidden overflow-y-auto scroll-smooth"
-        style={{ willChange: "transform" }}
-      >
-        <div ref={containerRef} className="relative w-full pr-4">
+      <div ref={parentRef} style={CONTAINER} className="scroll-smooth">
+        <div ref={containerRef} className="relative w-full">
           <div
             style={{
               height: virtualizer.getTotalSize(),
@@ -182,12 +186,7 @@ export const VirtualizedIconGrid = memo(
                         key={`${icon.name}-${icon.version}`}
                         {...icon}
                         currentStyle={iconStyles[icon.name] || "line"}
-                        onStyleChange={(style) =>
-                          setIconStyles((prev) => ({
-                            ...prev,
-                            [icon.name]: style,
-                          }))
-                        }
+                        onStyleChange={(style) => handleStyleChange(icon.name, style)}
                         onCopy={() =>
                           handleCopy(icon.name, iconStyles[icon.name] || "line")
                         }

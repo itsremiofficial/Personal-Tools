@@ -82,6 +82,9 @@
   .sidebar.sidebar_opened + .main-content {
     width: calc(100% - 110px);
   }
+  [title].icon_tooltip {
+    @apply bg-red-500;
+  }
   ::-webkit-scrollbar-track {
     @apply bg-transparent rounded-full;
   }

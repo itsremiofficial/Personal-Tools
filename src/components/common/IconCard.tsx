@@ -3,11 +3,12 @@ import { cn } from "@/hooks";
 import { Button } from "./Button";
 import { ToggleGroup, ToggleGroupItem } from "./ToggleGroup";
 import * as iv01 from "@/components/icon/version01";
-import type { IconStyle } from "@/types";
+import type { IconComponentType, IconProps, IconStyle } from "@/types";
+import { Tooltip } from "./Tooltip";
 
 interface IconCardProps {
   name: string;
-  Icon: React.ComponentType<any>;
+  Icon: React.ComponentType<IconProps>;
   currentStyle: IconStyle;
   onStyleChange: (style: IconStyle) => void;
   onCopy: () => void;
@@ -25,40 +26,72 @@ export const IconCard = memo(
     onDownload,
     version, // Destructure version prop
   }: IconCardProps) => (
-    <div
-      className={cn("w-full h-full")}
-      title={`Keywords: ${(Icon as any).keywords?.join(", ") || "No keywords"}`}
-    >
+    <div className={cn("w-full h-full")}>
       <div
         className={cn(
           "flex flex-col p-2 rounded-2xl gap-2 h-full",
-          "bg-gray-200 text-icu-600",
-          "dark:bg-icu-1100/30 dark:text-icu-600"
+          "bg-icu-200/70 text-icu-800",
+          "dark:bg-icu-1100/30 dark:text-icu-400"
         )}
       >
         <div className="flex">
-          <Icon
+          <Tooltip
             className={cn(
-              "grow w-full h-20 rounded-2xl text-2xl transition-all duration-300 linear p-4"
-              // "bg-gray-200 text-icu-600",
-              // "dark:bg-icu-800/30 dark:text-icu-600"
+              "bg-icu-100 text-icu-100 border-icu-500/50",
+              "dark:bg-icu-1100 dark:text-icu-300 dark:border-icu-800/50"
             )}
-            fill={currentStyle !== "line"}
-            duotone={currentStyle !== "bold"}
-            width={1.2}
+            trigger={
+              <div className="grow">
+                <Icon
+                  className={cn(
+                    "w-full h-20 rounded-2xl text-2xl transition-all duration-300 linear p-4"
+                  )}
+                  fill={currentStyle !== "line"}
+                  duotone={currentStyle !== "bold"}
+                  width={1.2}
+                />
+              </div>
+            }
+            content={
+              <div className="max-w-60">
+                <p className="text-sm font-medium mb-2 text-icu-900 dark:text-icu-300">
+                  Keywords
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {(Icon as IconComponentType).keywords?.map(
+                    (keyword, index) => (
+                      <span
+                        key={index}
+                        className={cn(
+                          "px-2 py-0.5 text-xs rounded-lg",
+                          "bg-icu-200 text-icu-700",
+                          "dark:bg-icu-1000 dark:text-icu-400"
+                        )}
+                      >
+                        {keyword}
+                      </span>
+                    )
+                  ) || (
+                    <span className="text-xs text-icu-400">No keywords</span>
+                  )}
+                </div>
+              </div>
+            }
+            side="right"
+            sideOffset={-15}
           />
           <div
-            className={cn(
-              "grow flex flex-col items-center justify-center gap-2"
-            )}
+            className={cn("flex flex-col items-center justify-center gap-2")}
           >
             <Button
               onClick={() => onCopy()}
               size="sm"
               className={cn(
-                "grow !p-2 rounded-lg bg-white/90 hover:bg-white",
-                "dark:!text-icu-700/70 dark:hover:!text-icu-500",
-                "dark:!bg-icu-800/30 dark:hover:!bg-icu-800",
+                "grow !p-2 rounded-lg",
+                "!text-icu-600 hover:!text-icu-800",
+                "!bg-icu-300 hover:!bg-icu-400/70",
+                "dark:!text-icu-700 dark:hover:!text-icu-400",
+                "dark:!bg-icu-1100/50 dark:hover:!bg-icu-1100",
                 "transition-colors duration-200 cursor-pointer"
               )}
               title="Copy component"
@@ -66,12 +99,14 @@ export const IconCard = memo(
               <iv01.IconCopy className="size-5" width={2} />
             </Button>
             <Button
-              onClick={() => onDownload(name, version)} // Pass version to onDownload
+              onClick={() => onDownload(name, version)}
               size="sm"
               className={cn(
-                "grow !p-2 rounded-lg bg-white/90 hover:bg-white",
-                "dark:!text-icu-600/70 dark:hover:!text-icu-400",
-                "dark:!bg-icu-800/30 dark:hover:!bg-icu-800",
+                "grow !p-2 rounded-lg",
+                "!text-icu-600 hover:!text-icu-800",
+                "!bg-icu-300 hover:!bg-icu-400/70",
+                "dark:!text-icu-700 dark:hover:!text-icu-400",
+                "dark:!bg-icu-1100/50 dark:hover:!bg-icu-1100",
                 "transition-colors duration-200 cursor-pointer"
               )}
               title="Download icon"
@@ -85,7 +120,10 @@ export const IconCard = memo(
           type="single"
           value={currentStyle}
           onValueChange={(value) => value && onStyleChange(value as IconStyle)}
-          className="flex justify-between gap-2"
+          className={cn(
+            "flex justify-between gap-2",
+            "bg-icu-300 dark:text-icu-600"
+          )}
         >
           <ToggleGroupItem
             className="grow"

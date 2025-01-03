@@ -21,7 +21,4 @@ dist-ssr
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
-
-# Ensure case sensitivity
-!src/components/ContextProvider/
+*.sw? 

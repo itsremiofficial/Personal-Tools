@@ -8,22 +8,12 @@ import type { IconStyle, IconMetadata } from "@/types";
 import { VIRTUALIZATION_CONFIG } from "@/constants/virtualization";
 import { VirtualizedIconGrid } from "@/components/common/VirtualizedIconGrid";
 
-const CONTAINER_STYLES: React.CSSProperties = {
-  height: "84vh",
-  overflowY: "auto",
-  overflowX: "hidden",
-  paddingRight: "1rem",
-  WebkitOverflowScrolling: "touch",
-  transform: "translateZ(0)",
-  willChange: "transform",
-  contain: "strict",
-};
-
 const IconsList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [columns, setColumns] = useState(1);
   const [iconStyles, setIconStyles] = useState<Record<string, IconStyle>>({});
+  const [globalStyle, setGlobalStyle] = useState<IconStyle>("line");
 
   const parentRef = React.useRef<HTMLDivElement>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -156,11 +146,23 @@ const IconsList = () => {
     return () => parentRef.current?.removeEventListener("scroll", handleScroll);
   }, [virtualizer, filteredIcons.length]);
 
+  // Update iconStyles when globalStyle changes
+  useEffect(() => {
+    if (globalStyle) {
+      // Update all icons to use the global style
+      const newStyles = iconMetadata.reduce((acc, { name }) => {
+        acc[name] = globalStyle;
+        return acc;
+      }, {} as Record<string, IconStyle>);
+      setIconStyles(newStyles);
+    }
+  }, [globalStyle, iconMetadata]);
+
   return (
     <div className="relative flex flex-col justify-center gap-6 p-2 h-full">
       <div
         className={cn(
-          "p-6 border rounded-3xl flex flex-col gap-4 h-full",
+          "p-6 border rounded-3xl flex flex-col gap-8 h-full",
           "border-icu-300 bg-icu-100",
           "dark:border-icu-800/70 dark:bg-icu-1000/40"
         )}
@@ -173,10 +175,9 @@ const IconsList = () => {
             isVisible: isSearchVisible,
             onToggleVisibility: setIsSearchVisible,
           }}
+          onStyleChange={setGlobalStyle}
+          currentStyle={globalStyle}
         />
-        <div className="bg-icu-900 text-icu-500 py-1 px-3 rounded-xl inline-block text-base w-max">
-          Total Icons: {filteredIcons.length}
-        </div>
         <VirtualizedIconGrid
           parentRef={parentRef}
           containerRef={containerRef}
