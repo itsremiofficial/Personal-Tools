@@ -31,7 +31,7 @@ export default async function handler(
     );
 
     // Add logging
-    console.log("Request for icon:", { iconName, iconVersion, filePath });
+    console.log("Requested:", { filePath });
 
     const content = await readFile(filePath, "utf-8");
 
