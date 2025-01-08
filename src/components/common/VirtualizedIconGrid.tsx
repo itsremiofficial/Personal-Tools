@@ -99,11 +99,21 @@ export const VirtualizedIconGrid = memo(
         try {
           const cleanIconName = iconName.replace("Icon", "");
           console.log(cleanIconName, version);
-          const response = await fetch(
-            `/api/icons/${cleanIconName}?version=${version}`
+
+          // Use the BASE_URL from Vite for the correct path prefix
+          const basePath = import.meta.env.BASE_URL;
+          const formattedVersion = version.replace(
+            /^v(\d+)$/,
+            (_, num) => `version${num.padStart(2, "0")}`
           );
 
-          if (!response.ok) throw new Error("Failed to download");
+          const response = await fetch(
+            `${basePath}icons/${formattedVersion}/${cleanIconName}.tsx`
+          );
+
+          if (!response.ok) {
+            throw new Error(`Failed to download: ${response.statusText}`);
+          }
 
           const content = await response.text();
           const blob = new Blob([content], { type: "text/typescript" });
@@ -112,11 +122,14 @@ export const VirtualizedIconGrid = memo(
           const a = document.createElement("a");
           a.href = url;
           a.download = `${cleanIconName}.tsx`;
+          document.body.appendChild(a);
           a.click();
+          document.body.removeChild(a);
           URL.revokeObjectURL(url);
 
           toast.success(`${iconName} downloaded!`);
         } catch (err) {
+          console.error("Download error:", err);
           toast.error("Failed to download icon");
         }
       },
