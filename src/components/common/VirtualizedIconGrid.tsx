@@ -93,23 +93,22 @@ export const VirtualizedIconGrid = memo(
       },
       []
     );
-
-    const handleDownload = useCallback(
-      async (iconName: string, version: string) => {
-        try {
-          const cleanIconName = iconName.replace("Icon", "");
-          console.log(cleanIconName, version);
-
-          // Use the BASE_URL from Vite for the correct path prefix
-          const basePath = import.meta.env.BASE_URL;
-          const formattedVersion = version.replace(
-            /^v(\d+)$/,
-            (_, num) => `version${num.padStart(2, "0")}`
-          );
-
-          const response = await fetch(
-            `${basePath}icons/${formattedVersion}/${cleanIconName}.tsx`
-          );
+    const handleDownload = useCallback(async (iconName: string, version: string) => {
+      try {
+        const cleanIconName = iconName.replace("Icon", "");
+        const baseUrl = import.meta.env.BASE_URL.endsWith('/') 
+          ? import.meta.env.BASE_URL 
+          : `${import.meta.env.BASE_URL}/`;
+        
+        const formattedVersion = version.replace(
+          /^v(\d+)$/,
+          (_, num) => `version${num.padStart(2, '0')}`
+        );
+        
+        // This will resolve to /Personal-Tools/icons/version01/MyIcon.tsx in production
+        const iconUrl = `${baseUrl}icons/${formattedVersion}/${cleanIconName}.tsx`;
+        
+        const response = await fetch(iconUrl);
 
           if (!response.ok) {
             throw new Error(`Failed to download: ${response.statusText}`);
