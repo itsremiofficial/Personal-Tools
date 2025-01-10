@@ -1,6 +1,5 @@
 import React from "react";
 import { AiBeautifyIcon } from "hugeicons-react";
-import { GenerateButtonProps } from "@/types";
 import { cn } from "@/hooks";
 import { Button } from "./common/Button";
 import { Progress } from "./common/Progress";

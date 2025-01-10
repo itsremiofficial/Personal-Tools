@@ -1,74 +1,56 @@
-import { cn } from "@/hooks";
-import React, { useState, useMemo, useCallback, useEffect } from "react";
-import * as iv01 from "@/components/icons/version01";
-import * as iv02 from "@/components/icons/version02";
+import { Suspense, useState, useCallback, useEffect, useRef } from "react";
+import { useIconLoader } from "@/hooks/useIconLoader";
+import { useIconFiltering } from "@/hooks/useIconFiltering";
 import { Header } from "@/components/common/Header";
 import { useVirtualizer } from "@tanstack/react-virtual";
-import type { IconStyle, IconMetadata } from "@/types";
+import type { IconStyle } from "@/types";
 import { VIRTUALIZATION_CONFIG } from "@/constants/virtualization";
 import { VirtualizedIconGrid } from "@/components/common/VirtualizedIconGrid";
+import { toast } from "sonner";
+import { debounce } from "lodash";
+
+interface ScrollState {
+  loadingLock: boolean;
+  lastScrollTop: number;
+  scrollTimeout: NodeJS.Timeout | null;
+}
 
 const IconsList = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [columns, setColumns] = useState(1);
-  const [iconStyles, setIconStyles] = useState<Record<string, IconStyle>>({});
   const [globalStyle, setGlobalStyle] = useState<IconStyle>("line");
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const [_iconStyles, setIconStyles] = useState<Record<string, IconStyle>>({});
+  const [firstLoadedIndex, setFirstLoadedIndex] = useState(0);
 
-  const parentRef = React.useRef<HTMLDivElement>(null);
-  const containerRef = React.useRef<HTMLDivElement>(null);
+  const { loadedIcons, isLoading, loadIconChunk, preloadRange, totalIcons } =
+    useIconLoader();
+  const filteredIcons = useIconFiltering(loadedIcons, searchQuery);
 
-  // Fix visibleRange type
-  const [visibleRange, setVisibleRange] = useState<{
-    start: number;
-    end: number;
-  }>({
-    start: 0,
-    end: VIRTUALIZATION_CONFIG.CHUNK_SIZE,
+  const parentRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollState = useRef<ScrollState>({
+    loadingLock: false,
+    lastScrollTop: 0,
+    scrollTimeout: null,
   });
-  const [isLoadingChunk, setIsLoadingChunk] = useState(false);
 
-  // Memoized data
-  const iconMetadata = useMemo(
-    () =>
-      [
-        ...Object.entries(iv01).map(([name, Icon]) => ({
-          name,
-          Icon,
-          keywords: (Icon as any).keywords || [],
-          version: "v1", // Ensure version is included
-        })),
-        ...Object.entries(iv02).map(([name, Icon]) => ({
-          name,
-          Icon,
-          keywords: (Icon as any).keywords || [],
-          version: "v2", // Ensure version is included
-        })),
-      ] as IconMetadata[],
-    []
-  );
+  useEffect(() => {
+    loadIconChunk(0, VIRTUALIZATION_CONFIG.INITIAL_CHUNK_SIZE);
+    setFirstLoadedIndex(0);
+  }, [loadIconChunk]);
 
-  const filteredIcons = useMemo(() => {
-    const searchTerms = searchQuery.toLowerCase().split(" ").filter(Boolean);
-    if (!searchTerms.length) return iconMetadata;
-    return iconMetadata.filter(({ name, keywords }) =>
-      searchTerms.every(
-        (term) =>
-          name.toLowerCase().includes(term) ||
-          keywords.some((keyword) => keyword.toLowerCase().includes(term))
-      )
-    );
-  }, [searchQuery, iconMetadata]);
-
-  // Column calculation
   const updateColumns = useCallback(() => {
     if (containerRef.current) {
       const width = containerRef.current.offsetWidth;
-      const newColumns = Math.floor(
-        (width + VIRTUALIZATION_CONFIG.GAP) /
-          (VIRTUALIZATION_CONFIG.MIN_COLUMN_WIDTH + VIRTUALIZATION_CONFIG.GAP)
+      const newColumns = Math.max(
+        1,
+        Math.floor(
+          (width + VIRTUALIZATION_CONFIG.GAP) /
+            (VIRTUALIZATION_CONFIG.MIN_COLUMN_WIDTH + VIRTUALIZATION_CONFIG.GAP)
+        )
       );
-      setColumns(Math.max(1, newColumns));
+      setColumns(newColumns);
     }
   }, []);
 
@@ -78,116 +60,181 @@ const IconsList = () => {
     return () => observer.disconnect();
   }, [updateColumns]);
 
-  // Virtualization
   const virtualizer = useVirtualizer({
     count: Math.ceil(filteredIcons.length / columns),
-    getScrollElement: useCallback(() => parentRef.current, []),
-    estimateSize: useCallback(() => VIRTUALIZATION_CONFIG.ROW_HEIGHT, []),
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => VIRTUALIZATION_CONFIG.ROW_HEIGHT,
     overscan: VIRTUALIZATION_CONFIG.OVERSCAN,
-    initialMeasurementsCache: [],
   });
 
-  // Force re-measure on column or data changes
-  useEffect(() => {
-    virtualizer.measure();
-  }, [columns, filteredIcons.length, virtualizer]);
+  const handleScroll = useCallback(async () => {
+    const currentScrollState = scrollState.current;
+    if (!parentRef.current || currentScrollState.loadingLock) return;
 
-  // Add chunked loading effect
-  useEffect(() => {
-    if (isLoadingChunk) return;
+    const parent = parentRef.current;
+    const { scrollTop, scrollHeight, clientHeight } = parent;
+    const isScrollingUp = scrollTop < currentScrollState.lastScrollTop;
 
-    const loadNextChunk = async () => {
-      setIsLoadingChunk(true);
-      await new Promise((resolve) => setTimeout(resolve, 32)); // Debounce loading
-      virtualizer.measure();
-      setIsLoadingChunk(false);
-    };
+    currentScrollState.loadingLock = true;
+    currentScrollState.lastScrollTop = scrollTop;
 
-    if (
-      visibleRange.end >=
-      filteredIcons.length * VIRTUALIZATION_CONFIG.SCROLL_THRESHOLD
-    ) {
-      loadNextChunk();
-    }
-  }, [visibleRange, filteredIcons.length, virtualizer, isLoadingChunk]);
+    try {
+      if (
+        isScrollingUp &&
+        scrollTop < VIRTUALIZATION_CONFIG.PREFETCH_THRESHOLD
+      ) {
+        const chunkSize = VIRTUALIZATION_CONFIG.CHUNK_SIZE * columns;
+        const prevStart = Math.max(0, firstLoadedIndex - chunkSize);
+        const oldScrollHeight = parent.scrollHeight;
 
-  useEffect(() => {
-    const handleResize = () => {
-      virtualizer.measure();
-      updateColumns();
-    };
+        await Promise.all([
+          loadIconChunk(prevStart, firstLoadedIndex, true),
+          preloadRange(Math.max(0, prevStart - chunkSize), prevStart),
+        ]);
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [virtualizer, updateColumns]);
+        requestAnimationFrame(() => {
+          const heightDiff = parent.scrollHeight - oldScrollHeight;
+          if (heightDiff > 0) {
+            parent.scrollTop = scrollTop + heightDiff;
+            virtualizer.measure();
+          }
+        });
 
-  useEffect(() => {
-    virtualizer.measure();
-  }, [filteredIcons, virtualizer]);
+        setFirstLoadedIndex(prevStart);
+      }
 
-  useEffect(() => {
-    if (!parentRef.current) return;
+      const remainingHeight = scrollHeight - scrollTop - clientHeight;
+      if (remainingHeight < VIRTUALIZATION_CONFIG.PREFETCH_THRESHOLD) {
+        const nextStart = loadedIcons.length;
+        const chunkSize = VIRTUALIZATION_CONFIG.CHUNK_SIZE * columns;
 
-    const handleScroll = () => {
-      const element = parentRef.current;
-      if (!element) return;
+        await Promise.all([
+          loadIconChunk(nextStart, nextStart + chunkSize),
+          preloadRange(nextStart + chunkSize, nextStart + chunkSize * 2),
+        ]);
 
-      const { scrollTop, scrollHeight, clientHeight } = element;
-      const scrolledToBottom = scrollHeight - scrollTop <= clientHeight * 1.5;
-
-      if (scrolledToBottom) {
         virtualizer.measure();
       }
-    };
-
-    parentRef.current.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-    return () => parentRef.current?.removeEventListener("scroll", handleScroll);
-  }, [virtualizer, filteredIcons.length]);
-
-  // Update iconStyles when globalStyle changes
-  useEffect(() => {
-    if (globalStyle) {
-      // Update all icons to use the global style
-      const newStyles = iconMetadata.reduce((acc, { name }) => {
-        acc[name] = globalStyle;
-        return acc;
-      }, {} as Record<string, IconStyle>);
-      setIconStyles(newStyles);
+    } finally {
+      currentScrollState.loadingLock = false;
     }
-  }, [globalStyle, iconMetadata]);
+  }, [
+    columns,
+    firstLoadedIndex,
+    loadIconChunk,
+    loadedIcons.length,
+    preloadRange,
+    virtualizer,
+  ]);
+
+  // Force measure on mount and column change
+  useEffect(() => {
+    virtualizer.measure();
+  }, [virtualizer, columns]);
+
+  // Optimize scroll listener
+  useEffect(() => {
+    const parent = parentRef.current;
+    if (!parent) return;
+
+    const debouncedScroll = debounce(handleScroll, 16, {
+      leading: true,
+      trailing: true,
+      maxWait: 32,
+    });
+
+    parent.addEventListener("scroll", debouncedScroll, { passive: true });
+    return () => {
+      parent.removeEventListener("scroll", debouncedScroll);
+      debouncedScroll.cancel();
+    };
+  }, [handleScroll]);
+
+  // Cleanup
+  useEffect(() => {
+    const currentState = scrollState.current;
+    return () => {
+      if (currentState.scrollTimeout) {
+        clearTimeout(currentState.scrollTimeout);
+      }
+    };
+  }, []);
+
+  const handleStyleChange = useCallback((name: string, style: IconStyle) => {
+    setIconStyles((prev) => ({ ...prev, [name]: style }));
+  }, []);
+
+  const handleDownload = useCallback(async (name: string, version: string) => {
+    try {
+      const cleanIconName = name.replace("Icon", "");
+      const baseUrl = import.meta.env.BASE_URL.endsWith("/")
+        ? import.meta.env.BASE_URL
+        : `${import.meta.env.BASE_URL}/`;
+      const formattedVersion = version.replace(
+        /^v(\d+)$/,
+        (_, num) => `version${num.padStart(2, "0")}`
+      );
+      const iconUrl = `${baseUrl}icons/${formattedVersion}/${cleanIconName}.tsx`;
+
+      const response = await fetch(iconUrl);
+      if (!response.ok) {
+        throw new Error(`Failed to download: ${response.statusText}`);
+      }
+
+      const content = await response.text();
+      const blob = new Blob([content], { type: "text/typescript" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${cleanIconName}.tsx`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      toast.success(`${name} downloaded!`);
+    } catch (err) {
+      console.error("Download error:", err);
+      toast.error("Failed to download icon");
+    }
+  }, []);
 
   return (
     <div className="relative flex flex-col justify-center gap-6 p-2 h-full">
-      <div
-        className={cn(
-          "p-6 border rounded-3xl flex flex-col gap-8 h-full",
-          "border-icu-300 bg-icu-100",
-          "dark:border-icu-800/70 dark:bg-icu-1000/40"
-        )}
-      >
-        <Header
-          count={filteredIcons.length}
-          searchProps={{
-            searchQuery,
-            onSearch: setSearchQuery,
-            isVisible: isSearchVisible,
-            onToggleVisibility: setIsSearchVisible,
-          }}
-          onStyleChange={setGlobalStyle}
-          currentStyle={globalStyle}
-        />
-        <VirtualizedIconGrid
-          parentRef={parentRef}
-          containerRef={containerRef}
-          virtualizer={virtualizer}
-          filteredIcons={filteredIcons}
-          columns={columns}
-          iconStyles={iconStyles}
-          setIconStyles={setIconStyles}
-        />
-      </div>
+      <Suspense fallback={<div>Loading icons...</div>}>
+        <div
+          className="
+            p-6 border rounded-3xl flex flex-col gap-8 h-full
+            border-icu-300 bg-icu-100
+            dark:border-icu-800/70 dark:bg-icu-1000/40
+          "
+        >
+          <Header
+            count={totalIcons}
+            loadedCount={filteredIcons.length}
+            searchProps={{
+              searchQuery,
+              onSearch: setSearchQuery,
+              isVisible: isSearchVisible,
+              onToggleVisibility: setIsSearchVisible,
+            }}
+            onStyleChange={setGlobalStyle}
+            currentStyle={globalStyle}
+          />
+          <VirtualizedIconGrid
+            parentRef={parentRef}
+            containerRef={containerRef}
+            virtualizer={virtualizer}
+            filteredIcons={filteredIcons}
+            columns={columns}
+            isLoading={isLoading}
+            onScroll={handleScroll}
+            globalStyle={globalStyle}
+            onStyleChange={handleStyleChange}
+            onDownload={handleDownload}
+          />
+        </div>
+      </Suspense>
     </div>
   );
 };

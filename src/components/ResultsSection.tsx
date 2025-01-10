@@ -11,7 +11,6 @@ import { toast } from "sonner";
 import { cn } from "@/hooks";
 import { Button } from "./common/Button";
 import { Progress } from "./common/Progress";
-import { ResultsSectionProps, DownloadState } from "@/types";
 
 const MissingFilesSection = ({
   missingFiles,
@@ -215,8 +214,8 @@ export const ResultsSection = React.memo(
             {status === "success"
               ? "Success"
               : status === "warning"
-              ? "Missing"
-              : "Failed"}
+                ? "Missing"
+                : "Failed"}
           </div>
         </span>
       );

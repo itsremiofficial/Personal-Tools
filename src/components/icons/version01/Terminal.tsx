@@ -1,20 +1,39 @@
-import { FC } from 'react';
-import { IconProps } from '@/types';
+import { FC } from "react";
+import { IconProps } from "@/types";
 
-const IconTerminal: FC<IconProps> = ({ className, fill = false, duotone = true, width = '1.5' }) => {
+const IconTerminal: FC<IconProps> = ({
+  className,
+  fill = false,
+  duotone = true,
+  width = "1.5",
+}) => {
   return (
     <>
       {!fill ? (
-        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className={className}
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
-            opacity={duotone ? '0.4' : '1'}
+            opacity={duotone ? "0.4" : "1"}
             d="M7 7L8.22654 8.05719C8.74218 8.50163 9 8.72386 9 9C9 9.27614 8.74218 9.49836 8.22654 9.94281L7 11"
             stroke="currentColor"
             strokeWidth={width}
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          <path opacity={duotone ? '0.4' : '1'} d="M11 11H14" stroke="currentColor" strokeWidth={width} strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            opacity={duotone ? "0.4" : "1"}
+            d="M11 11H14"
+            stroke="currentColor"
+            strokeWidth={width}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
           <path
             d="M12 21C15.7497 21 17.6246 21 18.9389 20.0451C19.3634 19.7367 19.7367 19.3634 20.0451 18.9389C21 17.6246 21 15.7497 21 12C21 8.25027 21 6.3754 20.0451 5.06107C19.7367 4.6366 19.3634 4.26331 18.9389 3.95491C17.6246 3 15.7497 3 12 3C8.25027 3 6.3754 3 5.06107 3.95491C4.6366 4.26331 4.26331 4.6366 3.95491 5.06107C3 6.3754 3 8.25027 3 12C3 15.7497 3 17.6246 3.95491 18.9389C4.26331 19.3634 4.6366 19.7367 5.06107 20.0451C6.3754 21 8.25027 21 12 21Z"
             stroke="currentColor"
@@ -24,9 +43,16 @@ const IconTerminal: FC<IconProps> = ({ className, fill = false, duotone = true, 
           />
         </svg>
       ) : duotone ? (
-        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className={className}
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
-            opacity={duotone ? '0.4' : '1'}
+            opacity={duotone ? "0.4" : "1"}
             d="M12.0452 2.25C13.8818 2.24999 15.3214 2.24999 16.4635 2.37373C17.6291 2.50001 18.5734 2.76232 19.3798 3.34815C19.8679 3.70281 20.2972 4.13209 20.6518 4.62024C21.2377 5.42656 21.5 6.37094 21.6263 7.53648C21.75 8.6786 21.75 10.2087 21.75 12.0452C21.75 13.8817 21.75 15.3214 21.6263 16.4635C21.5 17.6291 21.2377 18.5734 20.6518 19.3798C20.2972 19.8679 19.8679 20.2972 19.3798 20.6518C18.5734 21.2377 17.6291 21.5 16.4635 21.6263C15.3214 21.75 13.7913 21.75 11.9548 21.75C10.1183 21.75 8.67859 21.75 7.53648 21.6263C6.37094 21.5 5.42656 21.2377 4.62024 20.6518C4.13209 20.2972 3.70281 19.8679 3.34815 19.3798C2.76232 18.5734 2.50001 17.6291 2.37373 16.4635C2.24999 15.3214 2.24999 13.8818 2.25 12.0452C2.24999 10.2087 2.24999 8.67861 2.37373 7.53648C2.50001 6.37094 2.76232 5.42656 3.34815 4.62024C3.70281 4.13209 4.13209 3.70281 4.62024 3.34815C5.42656 2.76232 6.37094 2.50001 7.53648 2.37373C8.67861 2.24999 10.2087 2.24999 12.0452 2.25Z"
             fill="currentColor"
           />
@@ -44,7 +70,14 @@ const IconTerminal: FC<IconProps> = ({ className, fill = false, duotone = true, 
           />
         </svg>
       ) : (
-        <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className={className}
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             fillRule="evenodd"
             clipRule="evenodd"

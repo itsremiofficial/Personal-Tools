@@ -75,13 +75,29 @@
     @apply bg-icu-200 dark:bg-icu-900 font-display;
   }
 
-  .main-content {
+  /* .main-content {
     width: calc(100% - 280px);
     @apply transition-[width] duration-700 ease-fluid;
   }
   .sidebar.sidebar_opened + .main-content {
     width: calc(100% - 110px);
   }
+
+  .sidebar.sidebar_opened + .main-content {
+    width: calc(100% - 110px);
+  } */
+
+  .main-content {
+    --_width-sidebar: var(--sidebar-width, 280px);
+    width: calc(100% - var(--_width-sidebar));
+    @apply transition-[width] duration-700 ease-fluid;
+  }
+  .sidebar.sidebar_opened + .main-content {
+    --sidebar-width: 110px;
+    width: calc(100% - var(--_width-sidebar));
+    @apply transition-[width] duration-700 ease-fluid;
+  }
+
   [title].icon_tooltip {
     @apply bg-red-500;
   }
@@ -108,13 +124,13 @@
     @apply peer-checked:cursor-default peer-checked:pointer-events-none;
 
     /* radio colors */
-    @apply bg-gray-200 hover:bg-gray-300;
+    @apply bg-icu-300 hover:bg-icu-300;
     @apply text-icu-800 hover:text-icu-900;
     @apply dark:text-icu-200 dark:hover:text-icu-100;
     @apply dark:bg-icu-800/70 dark:hover:bg-icu-700/50;
 
     /* radio checked colors */
-    @apply peer-checked:bg-gray-200/50 peer-checked:hover:bg-gray-200/50;
+    @apply peer-checked:bg-icu-300/50 peer-checked:hover:bg-icu-300/50;
     @apply peer-checked:text-icu-600 peer-checked:hover:text-icu-600;
     @apply peer-checked:dark:bg-icu-900/90 peer-checked:dark:hover:bg-icu-900/90;
     @apply peer-checked:dark:text-icu-700/70 peer-checked:dark:hover:text-icu-700/70;

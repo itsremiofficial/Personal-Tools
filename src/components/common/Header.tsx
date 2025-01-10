@@ -8,6 +8,7 @@ import { Dropdown } from "./Select";
 
 interface HeaderProps {
   count: number;
+  loadedCount?: number;
   searchProps: {
     searchQuery: string;
     onSearch: (query: string) => void;
@@ -20,6 +21,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({
   count,
+  loadedCount,
   searchProps,
   onStyleChange,
   currentStyle = "line",
@@ -69,7 +71,7 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <div className="panel-header flex w-full justify-between items-center gap-4">
       <div className="flex items-center gap-4 text-xl font-semibold dark:text-icu-500">
-        Icons List ({count})
+        Icons List ({loadedCount ?? count}/{count})
         <Dropdown
           trigger={
             <Button

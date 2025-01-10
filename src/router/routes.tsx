@@ -1,9 +1,11 @@
 import { createHashRouter } from "react-router-dom";
+import { lazy } from "react";
 import App from "../App";
 import MainLayout from "../layouts/MainLayout";
-import IconConverter from "@/Pages/IconConverter";
-import ColorPalette from "@/Pages/ColorPalette";
-import IconsList from "@/Pages/Icons";
+
+const IconsList = lazy(() => import("@/Pages/Icons"));
+const IconConverter = lazy(() => import("@/Pages/IconConverter"));
+const ColorPalette = lazy(() => import("@/Pages/ColorPalette"));
 
 const router = createHashRouter([
   {
@@ -16,15 +18,15 @@ const router = createHashRouter([
     children: [
       {
         index: true,
+        element: <IconsList />,
+      },
+      {
+        path: "icon-converter",
         element: <IconConverter />,
       },
       {
         path: "color-palette-generator",
         element: <ColorPalette />,
-      },
-      {
-        path: "icons",
-        element: <IconsList />,
       },
     ],
   },

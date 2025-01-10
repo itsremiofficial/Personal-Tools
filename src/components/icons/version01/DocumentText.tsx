@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { IconProps, IconComponentType } from "@/types";
 
 const IconDocumentText: FC<IconProps> = ({
   className,
@@ -98,7 +97,7 @@ const IconDocumentText: FC<IconProps> = ({
 };
 
 // Keywords for search and categorization
-(IconDocumentText as IconComponentType).keywords = [
+(IconDocumentText as IconComponent).keywords = [
   "document",
   "text",
   "papers",
@@ -121,4 +120,4 @@ const IconDocumentText: FC<IconProps> = ({
   "manuscript",
 ];
 
-export default IconDocumentText as IconComponentType;
+export default IconDocumentText as IconComponent;

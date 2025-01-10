@@ -1,7 +1,6 @@
 import React from "react";
-import { Cancel01Icon } from "hugeicons-react";
-import { FileItemProps, FileListProps } from "@/types";
 import { cn } from "@/hooks";
+import { IconClose } from "./icons/version01";
 
 export const FileList = React.memo(
   ({ files, disabled, removeFile }: FileListProps) => {
@@ -28,7 +27,7 @@ export const FileList = React.memo(
           )}
         >
           <div className="flex overflow-auto py-2 gap-4 ">
-            {files.map((file, index) => (
+            {files.map((file: File, index: number) => (
               <FileItem
                 key={`${file.name}-${index}`}
                 file={file}
@@ -63,7 +62,7 @@ const FileItem = React.memo(({ file, onRemove, disabled }: FileItemProps) => (
         !disabled && "cursor-pointer"
       )}
     >
-      <Cancel01Icon className="size-3.5 stroke-3" />
+      <IconClose className="size-3.5 stroke-3" />
     </button>
   </div>
 ));

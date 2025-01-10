@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { IconProps, IconComponentType } from "@/types";
 
 const IconCheck: FC<IconProps> = ({
   className,
@@ -105,7 +104,7 @@ const IconCheck: FC<IconProps> = ({
 };
 
 // Keywords for search and categorization
-(IconCheck as IconComponentType).keywords = [
+(IconCheck as IconComponent).keywords = [
   "check",
   "match",
   "hitch",
@@ -118,4 +117,4 @@ const IconCheck: FC<IconProps> = ({
   "hold",
 ];
 
-export default IconCheck as IconComponentType;
+export default IconCheck as IconComponent;

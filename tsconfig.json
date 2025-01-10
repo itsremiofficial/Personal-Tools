@@ -33,6 +33,7 @@
     "rootDir": ".",
     "tsBuildInfoFile": "./dist/.tsbuildinfo",
     "noEmit": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "preserveSymlinks": true
   },

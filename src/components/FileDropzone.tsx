@@ -1,7 +1,6 @@
 import React from "react";
 import { useDropzone } from "react-dropzone";
 import { CloudUploadIcon } from "hugeicons-react";
-import { FileDropzoneProps } from "@/types";
 import { cn } from "@/hooks";
 import { Card } from "./common/Card";
 import { toast } from "sonner";

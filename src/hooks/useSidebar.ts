@@ -1,18 +1,18 @@
-import { useState, useEffect, useCallback, useTransition } from "react";
+import { useState, useEffect, useCallback, useTransition } from 'react';
 
 export const useSidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const [isDelayedClosed, setIsDelayedClosed] = useState(false);
+  const [isDelayed, setIsDelayed] = useState(false);
   const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     if (!isOpen) {
       const timer = setTimeout(() => {
-        setIsDelayedClosed(true);
+        setIsDelayed(true);
       }, 500);
       return () => clearTimeout(timer);
     } else {
-      setIsDelayedClosed(false);
+      setIsDelayed(false);
     }
   }, [isOpen]);
 
@@ -22,5 +22,5 @@ export const useSidebar = () => {
     });
   }, []);
 
-  return { isOpen, isDelayedClosed, isPending, toggleSidebar };
+  return { isOpen, isDelayed, isPending, toggleSidebar };
 };
