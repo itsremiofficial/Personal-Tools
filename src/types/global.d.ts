@@ -1,3 +1,4 @@
+
 declare global {
   interface IconProps {
     className?: string;
@@ -132,28 +133,6 @@ declare global {
 
   interface IconModule {
     [key: string]: IconComponent;
-  }
-
-  interface Window {
-    __smoothCornersLoaded?: boolean;
-  }
-
-  interface SmoothProps {
-    className?: string;
-    children?: React.ReactNode;
-  }
-
-  interface CustomStyles extends React.CSSProperties {
-    "--smooth-corners": string | MotionValue<string>;
-  }
-
-  interface NavItemProps {
-    path: string;
-    label: string;
-    icon: React.FC<IconProps>;
-    isActive: boolean;
-    isOpen: boolean;
-    isDelayedClosed: boolean;
   }
 }
 
