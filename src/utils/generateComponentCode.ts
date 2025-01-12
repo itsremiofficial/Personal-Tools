@@ -1,7 +1,6 @@
 import { fetchKeywordsInBatches } from "./keywordUtils";
 
 const extractComponentWords = (name: string): string[] => {
-  // Extract words from camelCase/PascalCase and numbers
   const words =
     name
       .match(/[A-Z][a-z]+|\d+[a-z]*|[a-z]+/g)
