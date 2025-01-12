@@ -6,7 +6,7 @@ import prettier from "prettier";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const folderPath = resolve(__dirname, "../public/icons/"); // Change this to your folder path
+const folderPath = resolve(__dirname, "../src/components/icons/"); // Change this to your folder path
 
 async function formatCodeInFiles(directoryPath) {
   readdir(directoryPath, (err, files) => {
