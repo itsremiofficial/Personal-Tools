@@ -36,15 +36,12 @@ export const VirtualizedIconGrid = memo(
     searchQuery = "",
   }: VirtualizedIconGridProps) => {
     const handleCopy = useCallback(async (name: string, style: IconStyle) => {
-      const componentCode = `<${name} ${
-        style === "line"
-          ? ""
-          : style === "bulk"
-            ? "fill={true}"
-            : "duotone={false} fill={true}"
-      }/>`;
-
       try {
+        const componentCode = `<${name}${
+          style === "line"
+            ? ""
+            : ` ${style === "bulk" ? "fill={true}" : "duotone={false} fill={true}"}`
+        }/>`;
         await navigator.clipboard.writeText(componentCode);
         toast.success(`${name} copied!`);
       } catch {

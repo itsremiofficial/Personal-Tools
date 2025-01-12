@@ -8,10 +8,15 @@ export const useIconLoader = (searchQuery: string) => {
   const [isSearching, setIsSearching] = useState(false);
   const [totalIcons, setTotalIcons] = useState(0);
   const searchTimeout = useRef<NodeJS.Timeout>();
+  const cachedIcons = useRef<IconMetadata[]>([]);
 
   // Load and cache all icon modules
   const loadAllIconModules = useCallback(async () => {
     try {
+      if (cachedIcons.current.length > 0) {
+        return cachedIcons.current;
+      }
+
       const [v1Module, v2Module] = await Promise.all([
         import("@/components/icons/version01"),
         import("@/components/icons/version02"),
@@ -32,6 +37,7 @@ export const useIconLoader = (searchQuery: string) => {
         })),
       ];
 
+      cachedIcons.current = allIcons;
       setTotalIcons(allIcons.length);
       return allIcons;
     } catch (error) {
@@ -42,36 +48,40 @@ export const useIconLoader = (searchQuery: string) => {
 
   // Update filtering logic
   useEffect(() => {
+    let isActive = true;
     const filterIcons = async () => {
-      if (!searchQuery) {
-        setIsSearching(false);
-        const allIcons = await loadAllIconModules();
-        setFilteredIcons(allIcons);
-        setLoadedIcons(allIcons.slice(0, VIRTUALIZATION_CONFIG.INITIAL_CHUNK_SIZE));
-        return;
-      }
-
+      if (!isActive) return;
       setIsSearching(true);
-      
+
       try {
         const allIcons = await loadAllIconModules();
-        const filtered = allIcons.filter(
-          (icon) =>
-            icon.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            icon.keywords?.some((keyword) =>
-              keyword.toLowerCase().includes(searchQuery.toLowerCase())
+        if (!isActive) return;
+
+        const filtered = searchQuery
+          ? allIcons.filter(
+              (icon) =>
+                icon.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                icon.keywords?.some((keyword) =>
+                  keyword.toLowerCase().includes(searchQuery.toLowerCase())
+                )
             )
-        );
+          : allIcons;
+
         setFilteredIcons(filtered);
         setLoadedIcons(filtered.slice(0, VIRTUALIZATION_CONFIG.INITIAL_CHUNK_SIZE));
       } finally {
         setTimeout(() => {
-          setIsSearching(false);
+          if (isActive) {
+            setIsSearching(false);
+          }
         }, 300);
       }
     };
 
     filterIcons();
+    return () => {
+      isActive = false;
+    };
   }, [searchQuery, loadAllIconModules]);
 
   const loadIconChunk = useCallback(

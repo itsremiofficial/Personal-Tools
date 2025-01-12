@@ -81,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({
             <Button
               className={cn(
                 "transition-colors focus:!ring-0 !py-2.5 !px-5 !font-normal",
-                "bg-icu-200 hover:bg-icu-300 !text-icu-600 hover:!text-icu-800 active:bg-icu-300",
+                "bg-icu-200 hover:bg-icu-300 !text-icu-600 hover:!text-icu-500 active:bg-icu-300",
                 "dark:hover:bg-icu-900 dark:active:bg-icu-800"
               )}
             >

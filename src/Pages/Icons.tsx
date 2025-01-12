@@ -77,49 +77,19 @@ const IconsList = () => {
   });
 
   const handleScroll = useCallback(async () => {
-    const currentScrollState = scrollState.current;
-    if (!parentRef.current || currentScrollState.loadingLock || isLoading)
-      return;
+    if (!parentRef.current || isLoading) return;
 
-    const parent = parentRef.current;
-    const { scrollTop, scrollHeight, clientHeight } = parent;
-    const isScrollingUp = scrollTop < currentScrollState.lastScrollTop;
+    const { scrollTop, scrollHeight, clientHeight } = parentRef.current;
+    const remainingHeight = scrollHeight - scrollTop - clientHeight;
 
-    currentScrollState.loadingLock = true;
-    currentScrollState.lastScrollTop = scrollTop;
-
-    try {
-      // Load more icons when scrolling up
-      if (
-        isScrollingUp &&
-        scrollTop < VIRTUALIZATION_CONFIG.PREFETCH_THRESHOLD
-      ) {
-        const chunkSize = VIRTUALIZATION_CONFIG.CHUNK_SIZE * columns;
-        const prevStart = Math.max(0, firstLoadedIndex - chunkSize);
-        await loadIconChunk(prevStart, firstLoadedIndex, true);
-        setFirstLoadedIndex(prevStart);
-      }
-
-      // Load more icons when scrolling down
-      const remainingHeight = scrollHeight - scrollTop - clientHeight;
-      if (remainingHeight < VIRTUALIZATION_CONFIG.PREFETCH_THRESHOLD) {
-        const nextStart = loadedIcons.length;
-        const chunkSize = VIRTUALIZATION_CONFIG.CHUNK_SIZE * columns;
-        await loadIconChunk(nextStart, nextStart + chunkSize);
-      }
-
-      virtualizer.measure();
-    } finally {
-      currentScrollState.loadingLock = false;
+    if (remainingHeight < VIRTUALIZATION_CONFIG.PREFETCH_THRESHOLD) {
+      const nextStart = loadedIcons.length;
+      const chunkSize = VIRTUALIZATION_CONFIG.CHUNK_SIZE * columns;
+      await loadIconChunk(nextStart, nextStart + chunkSize);
     }
-  }, [
-    columns,
-    firstLoadedIndex,
-    loadIconChunk,
-    loadedIcons.length,
-    virtualizer,
-    isLoading,
-  ]);
+
+    virtualizer.measure();
+  }, [columns, loadIconChunk, loadedIcons.length, virtualizer, isLoading]);
 
   // Force measure on mount and column change
   useEffect(() => {
@@ -201,7 +171,7 @@ const IconsList = () => {
       if (parentRef.current) {
         parentRef.current.scrollTop = 0;
       }
-    }, 500), // Wait 500ms after user stops typing
+    }, 300), // Reduced from 500ms to 300ms for better responsiveness
     []
   );
 

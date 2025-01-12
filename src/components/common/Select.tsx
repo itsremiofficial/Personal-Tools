@@ -152,7 +152,7 @@ const Dropdown = React.memo(
           {item.shortcut && (
             <span
               className={cn(
-                "ml-auto text-xs tracking-widest opacity-60",
+                "ml-auto text-xs tracking-widest opacity-60 select-none",
                 menuClasses?.shortcut
               )}
             >
@@ -190,7 +190,9 @@ const Dropdown = React.memo(
 
     return (
       <Root>
-        <Trigger asChild>{trigger}</Trigger>
+        <Trigger className="select-none" asChild>
+          {trigger}
+        </Trigger>
         <DropdownMenuContent
           className={cn(menuContentStyles, menuClasses?.content)}
         >
