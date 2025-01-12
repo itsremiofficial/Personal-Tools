@@ -15,6 +15,7 @@ import { useTheme } from "@/hooks/useTheme";
 import { Logo } from "@/components";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { useSmoothCorners } from "@/utils/SmoothCorners";
+import { IconLayer } from "@/components/icons/version02";
 
 const Sidebar = forwardRef<HTMLElement>((props, ref) => {
   const { isDark, setDark } = useTheme();
@@ -30,7 +31,7 @@ const Sidebar = forwardRef<HTMLElement>((props, ref) => {
 
   const navItems = useMemo(
     () => [
-      { path: "/", label: "Icons", icon: IconLayersMinimalistic },
+      { path: "/", label: "Icons", icon: IconLayer },
       {
         path: "/color-palette-generator",
         label: "Color Generator",
