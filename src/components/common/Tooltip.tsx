@@ -11,6 +11,7 @@ interface TooltipProps {
     typeof TooltipPrimitive.Content
   >;
   side?: "top" | "right" | "bottom" | "left";
+  align?: "start" | "center" | "end";
   sideOffset?: number;
   className?: string;
   delayDuration?: number;
@@ -42,6 +43,7 @@ export const Tooltip = React.memo(
         delayDuration = 200,
         className,
         contentProps,
+        align,
       },
       ref
     ) => (
@@ -51,6 +53,10 @@ export const Tooltip = React.memo(
           <TooltipPrimitive.Content
             ref={ref}
             side={side}
+            align={
+              align ??
+              (side === "left" || side === "right" ? "start" : "center")
+            }
             sideOffset={sideOffset}
             className={cn(tooltipContentStyles, className)}
             {...contentProps}

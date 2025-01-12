@@ -15,7 +15,7 @@ export const VIRTUALIZATION_CONFIG = {
 } as const;
 
 export const CONTAINER: React.CSSProperties = {
-  height: "89vh",
+  height: "87vh",
   overflowY: "auto",
   overflowX: "hidden",
   paddingRight: "0.5rem",

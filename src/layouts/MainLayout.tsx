@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useState, useCallback } from "react";
 import PreLoader from "@/components/PreLoader";
 
 const MainLayout = memo(() => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isSidebarReady, setIsSidebarReady] = useState(false);
 
   useEffect(() => {
     // Check if the document is already loaded
@@ -12,7 +13,6 @@ const MainLayout = memo(() => {
       setIsLoading(false);
     } else {
       const handleLoad = () => {
-        // Add a small delay to ensure smooth transition
         setTimeout(() => setIsLoading(false), 300);
       };
 
@@ -21,13 +21,23 @@ const MainLayout = memo(() => {
     }
   }, []);
 
+  const sidebarRef = useCallback((node: HTMLElement | null) => {
+    if (node) {
+      setIsSidebarReady(true);
+    }
+  }, []);
+
   return (
     <div className="flex relative">
       {isLoading && <PreLoader />}
-      <Sidebar />
-      <main className="main-content flex flex-col min-h-screen ml-auto">
-        <Outlet />
-      </main>
+      <div ref={sidebarRef}>
+        <Sidebar />
+      </div>
+      {isSidebarReady && (
+        <main className="main-content flex flex-col min-h-screen ml-auto">
+          <Outlet />
+        </main>
+      )}
     </div>
   );
 });

@@ -4,7 +4,6 @@ import React, {
   useCallback,
   PropsWithChildren,
 } from "react";
-import { ViewType } from "@/types";
 
 export interface TrayProviderProps {
   open: boolean;

@@ -1,11 +1,4 @@
 import { cn } from "@/hooks";
-import {
-  ColorCodeBlockProps,
-  ColorFormat,
-  ColorFormatSelectorProps,
-  ColorVariant,
-  ColorVariantsProps,
-} from "@/types";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { generateColorVariants } from "@/hooks/colorVarientsGenerator";
 import { Button } from "./common/Button";

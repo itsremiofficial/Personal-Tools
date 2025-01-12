@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { SearchBar } from "./SearchBar";
 import { Button } from "./Button";
 import { IconAltArrowDown, IconBackpack } from "../icons/version01";
-import type { IconStyle } from "@/types";
 import { cn } from "@/hooks";
 import { Dropdown } from "./Select";
+import { LoadingSpinner } from "./LoadingSpinner";
 
 interface HeaderProps {
   count: number;
@@ -14,9 +14,11 @@ interface HeaderProps {
     onSearch: (query: string) => void;
     isVisible: boolean;
     onToggleVisibility: (visible: boolean) => void;
+    isLoading?: boolean; // Add this prop
   };
   onStyleChange?: (style: IconStyle) => void;
   currentStyle?: IconStyle;
+  isLoading: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -25,6 +27,7 @@ export const Header: React.FC<HeaderProps> = ({
   searchProps,
   onStyleChange,
   currentStyle = "line",
+  isLoading,
 }) => {
   const styleItems = [
     {
@@ -72,6 +75,7 @@ export const Header: React.FC<HeaderProps> = ({
     <div className="panel-header flex w-full justify-between items-center gap-4">
       <div className="flex items-center gap-4 text-xl font-semibold dark:text-icu-500">
         Icons List ({loadedCount ?? count}/{count})
+        {isLoading && <LoadingSpinner className="w-5 h-5 ml-2" />}
         <Dropdown
           trigger={
             <Button
@@ -104,7 +108,7 @@ export const Header: React.FC<HeaderProps> = ({
           }}
         />
       </div>
-      <SearchBar {...searchProps} />
+      <SearchBar {...searchProps} isLoading={isLoading} />
     </div>
   );
 };

@@ -56,13 +56,14 @@ const FileItem = React.memo(({ file, onRemove, disabled }: FileItemProps) => (
       onClick={onRemove}
       disabled={disabled}
       className={cn(
-        "absolute -right-1 -top-1 rounded-full p-1.5 z-1",
+        "absolute -right-2.5 -top-2 rounded-full p-0.5 z-1 transition-colors duration-300",
         "bg-icu-400/50 hover:bg-icu-400/80",
-        "dark:bg-icu-1100/30 dark:hover:bg-icu-1100/40",
+        "dark:bg-rose-950/30 dark:hover:bg-rose-900/40",
+        "dark:text-rose-500 dark:hover:text-rose-400",
         !disabled && "cursor-pointer"
       )}
     >
-      <IconClose className="size-3.5 stroke-3" />
+      <IconClose className="size-5 stroke-3" duotone={false} />
     </button>
   </div>
 ));

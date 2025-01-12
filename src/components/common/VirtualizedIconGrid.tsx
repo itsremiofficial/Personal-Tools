@@ -1,9 +1,9 @@
 import React, { memo, useCallback } from "react";
 import type { Virtualizer, VirtualItem } from "@tanstack/react-virtual";
-import type { IconMetadata, IconStyle } from "@/types";
 import { toast } from "sonner";
 import { VIRTUALIZATION_CONFIG, CONTAINER } from "@/constants/virtualization";
 import { IconCard } from "./IconCard";
+import { LoadingSpinner } from "./LoadingSpinner"; // Add this import
 
 interface VirtualizedIconGridProps {
   parentRef: React.RefObject<HTMLDivElement>;
@@ -16,6 +16,8 @@ interface VirtualizedIconGridProps {
   globalStyle: IconStyle;
   onStyleChange: (name: string, style: IconStyle) => void;
   onDownload: (name: string, version: string) => Promise<void>;
+  isSearching?: boolean; // Add this prop
+  searchQuery?: string; // Add this line
 }
 
 export const VirtualizedIconGrid = memo(
@@ -30,14 +32,16 @@ export const VirtualizedIconGrid = memo(
     globalStyle,
     onStyleChange,
     onDownload,
+    isSearching = false,
+    searchQuery = "",
   }: VirtualizedIconGridProps) => {
     const handleCopy = useCallback(async (name: string, style: IconStyle) => {
       const componentCode = `<${name} ${
         style === "line"
           ? ""
           : style === "bulk"
-          ? "fill={true}"
-          : "duotone={false} fill={true}"
+            ? "fill={true}"
+            : "duotone={false} fill={true}"
       }/>`;
 
       try {
@@ -98,18 +102,37 @@ export const VirtualizedIconGrid = memo(
         onScroll={onScroll}
         className="scroll-smooth"
       >
-        <div ref={containerRef} className="relative w-full">
-          <div
-            style={{ height: virtualizer.getTotalSize(), position: "relative" }}
-          >
-            {virtualizer.getVirtualItems().map(renderVirtualRow)}
-          </div>
-          {isLoading && (
-            <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
-              Loading more icons...
+        {isSearching ? (
+          <div className="flex items-center justify-center h-full">
+            <div className="text-center flex items-center flex-col gap-2">
+              <LoadingSpinner className="w-8 h-8 mb-2" />
+              <p className="text-icu-600 dark:text-icu-500">
+                {searchQuery ? "Searching Icons" : "Loading All Icons"}
+              </p>
             </div>
-          )}
-        </div>
+          </div>
+        ) : isLoading && filteredIcons.length === 0 ? (
+          <div className="flex items-center justify-center h-full">
+            <LoadingSpinner className="w-8 h-8" />
+          </div>
+        ) : (
+          <div ref={containerRef} className="relative w-full">
+            <div
+              style={{
+                height: virtualizer.getTotalSize(),
+                position: "relative",
+              }}
+            >
+              {virtualizer.getVirtualItems().map(renderVirtualRow)}
+            </div>
+            {isLoading && (
+              <div className="sticky bottom-0 left-0 right-0 p-4 text-center bg-gradient-to-t from-icu-100/90 to-transparent dark:from-icu-1000/90">
+                <LoadingSpinner className="w-6 h-6 inline-block mr-2" />
+                Loading more icons...
+              </div>
+            )}
+          </div>
+        )}
       </div>
     );
   }

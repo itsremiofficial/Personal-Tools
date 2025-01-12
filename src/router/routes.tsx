@@ -1,6 +1,5 @@
 import { createHashRouter } from "react-router-dom";
 import { lazy } from "react";
-import App from "../App";
 import MainLayout from "../layouts/MainLayout";
 
 const IconsList = lazy(() => import("@/Pages/Icons"));
@@ -10,11 +9,7 @@ const ColorPalette = lazy(() => import("@/Pages/ColorPalette"));
 const router = createHashRouter([
   {
     path: "/",
-    element: (
-      <App>
-        <MainLayout />
-      </App>
-    ),
+    element: <MainLayout />,
     children: [
       {
         index: true,

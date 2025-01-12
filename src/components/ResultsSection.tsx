@@ -1,16 +1,16 @@
-import React, { useState, useCallback, useEffect } from "react";
-import {
-  Download02Icon,
-  Delete03Icon,
-  Loading03Icon,
-  CheckmarkCircle01Icon,
-} from "hugeicons-react";
+import React, { useState, useCallback } from "react";
 import { saveAs } from "file-saver";
 import JSZip from "jszip";
 import { toast } from "sonner";
 import { cn } from "@/hooks";
 import { Button } from "./common/Button";
 import { Progress } from "./common/Progress";
+import {
+  IconCheck,
+  IconDownloadMinimalistic,
+  IconTrashBinMinimalistic,
+} from "./icons/version01";
+import IconLoading from "./icons/version01/Loading";
 
 const MissingFilesSection = ({
   missingFiles,
@@ -134,7 +134,7 @@ export const ResultsSection = React.memo(
         case "zipping":
           return (
             <>
-              <Loading03Icon className="size-5 animate-spin" />
+              <IconLoading className="size-5 animate-spin" duotone={false} />
               Zipping... {Math.round(downloadState.progress)}%
             </>
           );
@@ -152,13 +152,17 @@ export const ResultsSection = React.memo(
         case "complete":
           return (
             <>
-              Completed <CheckmarkCircle01Icon />
+              Completed <IconCheck duotone={false} />
             </>
           );
         default:
           return (
             <>
-              Download All <Download02Icon className="size-5 !stroke-2" />
+              Download All{" "}
+              <IconDownloadMinimalistic
+                className="size-5 !stroke-2"
+                duotone={false}
+              />
             </>
           );
       }
@@ -242,7 +246,7 @@ export const ResultsSection = React.memo(
                 className="h-fit py-4 gap-2 whitespace-nowrap"
                 disabled={disabled}
               >
-                Clear Generated <Delete03Icon className="size-5" />
+                Clear Generated <IconTrashBinMinimalistic className="size-5" />
               </Button>
               <Button
                 onClick={handleDownloadAll}
@@ -273,7 +277,7 @@ export const ResultsSection = React.memo(
                   disabled={disabled}
                 >
                   {names[index]}.tsx
-                  <Download02Icon className="size-5" />
+                  <IconDownloadMinimalistic className="size-5" />
                 </Button>
               ))}
             </div>
@@ -313,10 +317,6 @@ export const ResultsSection = React.memo(
                 const styles = getLogStyles(status);
                 const fileType = getFileTypeLabel(log);
                 const logText = log.replace(/^(Success|Failed|Missing): /, "");
-                // console.log(logText);
-                // console.log(status);
-                // console.log(styles);
-                // console.log(fileType);
 
                 return (
                   <div key={index} className="flex items-center gap-3">

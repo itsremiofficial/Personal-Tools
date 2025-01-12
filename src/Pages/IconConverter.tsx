@@ -2,8 +2,6 @@
 "use client";
 import React, { useState, useCallback, useMemo, useContext } from "react";
 import { toast } from "sonner";
-import { Delete03Icon, InformationCircleIcon } from "hugeicons-react";
-import { GeneratedResult, IconConverterState } from "@/types";
 import { useFileHandler } from "@/hooks/useFileHandler";
 import { generateComponentCode, replaceAttributes } from "@/utils";
 import {
@@ -22,7 +20,11 @@ import Tray from "@/components/common/TrayDrawer";
 import { generateComponentCodeSync } from "@/utils/generateComponentCode";
 import { Card } from "@/components/common/Card";
 import { Toggle } from "@/components/common/Toggle";
-import { IconDocumentText } from "@/components/icons/version01";
+import {
+  IconDocumentText,
+  IconInfoCircle,
+  IconTrashBin2,
+} from "@/components/icons/version01";
 import { Button } from "@/components/common/Button";
 
 const IconConverter: React.FC = () => {
@@ -37,7 +39,7 @@ const IconConverter: React.FC = () => {
     },
   });
   const [isProcessing, setIsProcessing] = useState(false);
-  const [iconPropsPath, setIconPropsPath] = useState(""); // Add this state
+  const [iconPropsPath, setIconPropsPath] = useState("");
   const [generateProgress, setGenerateProgress] = useState(0);
   const [includeKeywords, setIncludeKeywords] = useState(false);
 
@@ -100,14 +102,17 @@ const IconConverter: React.FC = () => {
       const totalFiles = results.length;
 
       // Group failures by error message
-      const failureGroups = failedResults.reduce((acc, result) => {
-        const key = result.error || "Unknown error";
-        if (!acc[key]) {
-          acc[key] = [];
-        }
-        acc[key].push(result.name);
-        return acc;
-      }, {} as Record<string, string[]>);
+      const failureGroups = failedResults.reduce(
+        (acc, result) => {
+          const key = result.error || "Unknown error";
+          if (!acc[key]) {
+            acc[key] = [];
+          }
+          acc[key].push(result.name);
+          return acc;
+        },
+        {} as Record<string, string[]>
+      );
 
       // Create logs including missing files
       const logs = [
@@ -315,15 +320,13 @@ const IconConverter: React.FC = () => {
                     name,
                     lineDuotoneSvg,
                     boldDuotoneSvg,
-                    boldSvg,
-                    iconPropsPath
+                    boldSvg
                   )
                 : generateComponentCodeSync(
                     name,
                     lineDuotoneSvg,
                     boldDuotoneSvg,
-                    boldSvg,
-                    iconPropsPath
+                    boldSvg
                   );
 
               return result;
@@ -373,7 +376,6 @@ const IconConverter: React.FC = () => {
   ]);
 
   const clearAll = useCallback(() => {
-    // Clear all states with the correct shape
     setState({
       outputs: [],
       logs: [],
@@ -443,7 +445,7 @@ const IconConverter: React.FC = () => {
     toast.success("Generated files cleared");
   }, []);
 
-  const { open, setOpen } = useContext(TrayContext) as TrayProviderProps;
+  const { openTray } = useContext(TrayContext) as TrayProviderProps;
 
   return (
     <ErrorBoundary
@@ -488,54 +490,41 @@ const IconConverter: React.FC = () => {
               <kbd className="px-2 rounded-lg py-1 dark:bg-icu-1000 dark:text-icu-500">
                 &#60;IconProps&#62;
               </kbd>
-              <InformationCircleIcon
-                className={cn(
-                  "size-8 p-1 rounded-xl cursor-pointer transition-colors duration-300",
-                  "text-icu-600 hover:text-icu-700",
-                  "dark:text-icu-700 dark:hover:text-icu-600"
-                )}
-                onClick={() => setOpen(!open)}
-              />
+              <Button
+                className="!p-1 rounded-xl"
+                variant={"neutral"}
+                size={"icon"}
+                onClick={() => {
+                  openTray();
+                }}
+              >
+                <IconInfoCircle className="size-8 p-1 rounded-xl cursor-pointer transition-colors duration-300" />
+              </Button>
             </label>
 
-            <Toggle
-              label="Keywords"
-              pressed={includeKeywords}
-              onPressedChange={setIncludeKeywords}
-              size="sm"
-              disabled={!isReady || !iconPropsPath.length || isProcessing}
-              icon={
-                includeKeywords ? (
-                  <IconDocumentText className="size-5" fill />
-                ) : (
-                  <IconDocumentText className="size-5" />
-                )
-              }
-            />
+            <div className="flex items-center gap-4">
+              <Toggle
+                label="Keywords"
+                size="lg"
+                pressed={includeKeywords}
+                onPressedChange={setIncludeKeywords}
+                disabled={!isReady || isProcessing}
+                icon={
+                  includeKeywords ? (
+                    <IconDocumentText className="size-5" fill />
+                  ) : (
+                    <IconDocumentText className="size-5" />
+                  )
+                }
+              />
+              <GenerateButton
+                onClick={generateComponents}
+                disabled={!isReady || isProcessing}
+                loading={isProcessing}
+                progress={generateProgress}
+              />
+            </div>
           </div>
-          <div className="flex items-center justify-between gap-4">
-            <input
-              id="iconPropsPath"
-              type="text"
-              value={iconPropsPath}
-              onChange={(e) => setIconPropsPath(e.target.value)}
-              className={cn(
-                "grow rounded-2xl py-4.5 px-3 border-[1.5px] w-max !ring-0 !outline-0 transition-colors duration-300",
-                "bg-icu-200 border-icu-400/70 text-icu-800",
-                "focus-visible:border-icu-600",
-                "dark:bg-icu-900 dark:border-icu-800/70 dark:text-icu-400",
-                "dark:focus-visible:border-icu-700/70"
-              )}
-              placeholder="Enter path for Type e.g: ../types"
-            />
-            <GenerateButton
-              onClick={generateComponents}
-              disabled={!isReady || !iconPropsPath.length}
-              loading={isProcessing}
-              progress={generateProgress}
-            />
-          </div>
-
           {(lineDuotoneHandler.files.length > 0 ||
             boldDuotoneHandler.files.length > 0 ||
             boldHandler.files.length > 0) && (
@@ -558,7 +547,8 @@ const IconConverter: React.FC = () => {
                       className="h-fit gap-2 whitespace-nowrap"
                       disabled={isProcessing}
                     >
-                      Clear Line <Delete03Icon className="size-5" />
+                      Clear Line{" "}
+                      <IconTrashBin2 className="size-5" duotone={false} />
                     </Button>
                   </div>
                   <FileList
@@ -588,7 +578,8 @@ const IconConverter: React.FC = () => {
                       className="h-fit gap-2 whitespace-nowrap"
                       disabled={isProcessing}
                     >
-                      Clear Bulk <Delete03Icon className="size-5" />
+                      Clear Bulk{" "}
+                      <IconTrashBin2 className="size-5" duotone={false} />
                     </Button>
                   </div>
                   <FileList
@@ -618,7 +609,8 @@ const IconConverter: React.FC = () => {
                       className="h-fit gap-2 whitespace-nowrap"
                       disabled={isProcessing}
                     >
-                      Clear Bold <Delete03Icon className="size-5" />
+                      Clear Bold
+                      <IconTrashBin2 className="size-5" duotone={false} />
                     </Button>
                   </div>
                   <FileList
@@ -637,7 +629,7 @@ const IconConverter: React.FC = () => {
           <ResultsSection
             {...state}
             names={lineDuotoneHandler.names}
-            onClear={clearGenerated} // Changed from clearAll to clearGenerated
+            onClear={clearGenerated}
             disabled={isProcessing}
           />
         )}

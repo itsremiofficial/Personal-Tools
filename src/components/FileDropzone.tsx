@@ -1,9 +1,9 @@
 import React from "react";
 import { useDropzone } from "react-dropzone";
-import { CloudUploadIcon } from "hugeicons-react";
 import { cn } from "@/hooks";
 import { Card } from "./common/Card";
 import { toast } from "sonner";
+import { IconCloudUpload } from "./icons/version01";
 
 export const FileDropzone = React.memo(
   ({
@@ -50,7 +50,6 @@ export const FileDropzone = React.memo(
       noClick: disabled,
       noDrag: disabled,
       validator: (file) => {
-        // Additional validation for SVG files
         if (!file.type.includes("svg")) {
           return {
             code: "file-invalid-type",
@@ -102,7 +101,7 @@ export const FileDropzone = React.memo(
               isDragActive && "text-icu-900 dark:text-icu-500"
             )}
           >
-            <CloudUploadIcon className="size-14" />
+            <IconCloudUpload className="size-14" />
             <p>Drag and drop files here, or click to select files</p>
             <p className="text-sm text-icu-600 dark:text-icu-500">
               Supports SVG files only

@@ -1,9 +1,7 @@
 import { Suspense, useState, useCallback, useEffect, useRef } from "react";
 import { useIconLoader } from "@/hooks/useIconLoader";
-import { useIconFiltering } from "@/hooks/useIconFiltering";
 import { Header } from "@/components/common/Header";
 import { useVirtualizer } from "@tanstack/react-virtual";
-import type { IconStyle } from "@/types";
 import { VIRTUALIZATION_CONFIG } from "@/constants/virtualization";
 import { VirtualizedIconGrid } from "@/components/common/VirtualizedIconGrid";
 import { toast } from "sonner";
@@ -16,6 +14,7 @@ interface ScrollState {
 }
 
 const IconsList = () => {
+  const [inputValue, setInputValue] = useState(""); // Add this line
   const [searchQuery, setSearchQuery] = useState("");
   const [columns, setColumns] = useState(1);
   const [globalStyle, setGlobalStyle] = useState<IconStyle>("line");
@@ -23,9 +22,15 @@ const IconsList = () => {
   const [_iconStyles, setIconStyles] = useState<Record<string, IconStyle>>({});
   const [firstLoadedIndex, setFirstLoadedIndex] = useState(0);
 
-  const { loadedIcons, isLoading, loadIconChunk, preloadRange, totalIcons } =
-    useIconLoader();
-  const filteredIcons = useIconFiltering(loadedIcons, searchQuery);
+  const {
+    loadedIcons,
+    isLoading,
+    isSearching, // Add this line
+    loadIconChunk,
+    preloadRange,
+    totalIcons,
+    filteredIcons,
+  } = useIconLoader(searchQuery);
 
   const parentRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -36,9 +41,13 @@ const IconsList = () => {
   });
 
   useEffect(() => {
+    // Reset loaded icons when search changes
+    if (parentRef.current) {
+      parentRef.current.scrollTop = 0;
+    }
     loadIconChunk(0, VIRTUALIZATION_CONFIG.INITIAL_CHUNK_SIZE);
     setFirstLoadedIndex(0);
-  }, [loadIconChunk]);
+  }, [loadIconChunk, searchQuery]);
 
   const updateColumns = useCallback(() => {
     if (containerRef.current) {
@@ -69,7 +78,8 @@ const IconsList = () => {
 
   const handleScroll = useCallback(async () => {
     const currentScrollState = scrollState.current;
-    if (!parentRef.current || currentScrollState.loadingLock) return;
+    if (!parentRef.current || currentScrollState.loadingLock || isLoading)
+      return;
 
     const parent = parentRef.current;
     const { scrollTop, scrollHeight, clientHeight } = parent;
@@ -79,42 +89,26 @@ const IconsList = () => {
     currentScrollState.lastScrollTop = scrollTop;
 
     try {
+      // Load more icons when scrolling up
       if (
         isScrollingUp &&
         scrollTop < VIRTUALIZATION_CONFIG.PREFETCH_THRESHOLD
       ) {
         const chunkSize = VIRTUALIZATION_CONFIG.CHUNK_SIZE * columns;
         const prevStart = Math.max(0, firstLoadedIndex - chunkSize);
-        const oldScrollHeight = parent.scrollHeight;
-
-        await Promise.all([
-          loadIconChunk(prevStart, firstLoadedIndex, true),
-          preloadRange(Math.max(0, prevStart - chunkSize), prevStart),
-        ]);
-
-        requestAnimationFrame(() => {
-          const heightDiff = parent.scrollHeight - oldScrollHeight;
-          if (heightDiff > 0) {
-            parent.scrollTop = scrollTop + heightDiff;
-            virtualizer.measure();
-          }
-        });
-
+        await loadIconChunk(prevStart, firstLoadedIndex, true);
         setFirstLoadedIndex(prevStart);
       }
 
+      // Load more icons when scrolling down
       const remainingHeight = scrollHeight - scrollTop - clientHeight;
       if (remainingHeight < VIRTUALIZATION_CONFIG.PREFETCH_THRESHOLD) {
         const nextStart = loadedIcons.length;
         const chunkSize = VIRTUALIZATION_CONFIG.CHUNK_SIZE * columns;
-
-        await Promise.all([
-          loadIconChunk(nextStart, nextStart + chunkSize),
-          preloadRange(nextStart + chunkSize, nextStart + chunkSize * 2),
-        ]);
-
-        virtualizer.measure();
+        await loadIconChunk(nextStart, nextStart + chunkSize);
       }
+
+      virtualizer.measure();
     } finally {
       currentScrollState.loadingLock = false;
     }
@@ -123,8 +117,8 @@ const IconsList = () => {
     firstLoadedIndex,
     loadIconChunk,
     loadedIcons.length,
-    preloadRange,
     virtualizer,
+    isLoading,
   ]);
 
   // Force measure on mount and column change
@@ -199,6 +193,34 @@ const IconsList = () => {
     }
   }, []);
 
+  // Create debounced search handler
+  const debouncedSearch = useCallback(
+    debounce((query: string) => {
+      setSearchQuery(query);
+      setFirstLoadedIndex(0);
+      if (parentRef.current) {
+        parentRef.current.scrollTop = 0;
+      }
+    }, 500), // Wait 500ms after user stops typing
+    []
+  );
+
+  // Cleanup debounce on unmount
+  useEffect(() => {
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [debouncedSearch]);
+
+  // Update the search handler to handle immediate input updates
+  const handleSearch = useCallback(
+    (query: string) => {
+      setInputValue(query); // Update input value immediately
+      debouncedSearch(query); // Debounce the actual search
+    },
+    [debouncedSearch]
+  );
+
   return (
     <div className="relative flex flex-col justify-center gap-6 p-2 h-full">
       <Suspense fallback={<div>Loading icons...</div>}>
@@ -212,11 +234,13 @@ const IconsList = () => {
           <Header
             count={totalIcons}
             loadedCount={filteredIcons.length}
+            isLoading={isLoading}
             searchProps={{
-              searchQuery,
-              onSearch: setSearchQuery,
+              searchQuery: inputValue, // Use inputValue instead of searchQuery
+              onSearch: handleSearch,
               isVisible: isSearchVisible,
               onToggleVisibility: setIsSearchVisible,
+              isLoading: isSearching,
             }}
             onStyleChange={setGlobalStyle}
             currentStyle={globalStyle}
@@ -228,6 +252,8 @@ const IconsList = () => {
             filteredIcons={filteredIcons}
             columns={columns}
             isLoading={isLoading}
+            isSearching={isSearching} // Add this line
+            searchQuery={searchQuery} // Add this line
             onScroll={handleScroll}
             globalStyle={globalStyle}
             onStyleChange={handleStyleChange}

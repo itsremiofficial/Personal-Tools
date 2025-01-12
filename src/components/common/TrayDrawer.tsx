@@ -1,12 +1,11 @@
 import { useCallback, useContext, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Copy01Icon } from "hugeicons-react";
 import { toast } from "sonner";
 import { TrayContext, TrayProviderProps } from "../context/TrayProvider";
 import { Button } from "./Button";
-import { ViewType } from "@/types";
 import { cn, useResizeObserver } from "@/hooks";
 import CodeHighlight from "./Code";
+import IconCopy3 from "../icons/version01/Copy3";
 
 const backdropVariants = {
   initial: {
@@ -69,7 +68,9 @@ const DefaultView = () => {
     <div className="private-key__container">
       <div className="px-4">
         <div className="flex justify-between items-center my-4">
-          <h3 className="text-xl text-icu-900 dark:text-icu-400">Icon Props</h3>
+          <h3 className="text-xl text-icu-800 dark:text-icu-400 font-bold">
+            Icon Props
+          </h3>
         </div>
         <p className="text-icu-900 mb-4 dark:text-icu-600">
           Add below types in your type definitions and enter the relative (to
@@ -86,7 +87,7 @@ const DefaultView = () => {
             onClick={handleCopy}
             className="flex items-center gap-2 text-sm rounded-lg transition-colors"
           >
-            <Copy01Icon className="size-4" />
+            <IconCopy3 className="size-4" />
             Copy
           </Button>
         </div>

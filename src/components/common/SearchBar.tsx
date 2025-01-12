@@ -2,12 +2,14 @@ import React from "react";
 import { cn } from "@/hooks";
 import * as iv02 from "@/components/icons/version02";
 import * as iv01 from "@/components/icons/version01";
+import { LoadingSpinner } from "./LoadingSpinner";
 
 interface SearchBarProps {
   searchQuery: string;
   onSearch: (query: string) => void;
   isVisible: boolean;
   onToggleVisibility: (visible: boolean) => void;
+  isLoading?: boolean;  // Add this prop
 }
 
 export const SearchBar: React.FC<SearchBarProps> = ({
@@ -15,6 +17,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   onSearch,
   isVisible,
   onToggleVisibility,
+  isLoading = false,  // Add default value
 }) => (
   <div className="grow w-full max-w-4/12 ">
     <form
@@ -45,7 +48,11 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           type="button"
           className="absolute h-full w-10 pl-4 inset-0 appearance-none text-icu-800 peer-focus:text-icu-600 transition duration-300"
         >
-          <iv02.IconSearchStatus className="w-7 h-7" />
+          {isLoading ? (
+            <LoadingSpinner className="w-7 h-7" />
+          ) : (
+            <iv02.IconSearchStatus className="w-7 h-7" />
+          )}
         </button>
         <button
           type="button"

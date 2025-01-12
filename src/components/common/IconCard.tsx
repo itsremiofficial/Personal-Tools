@@ -1,14 +1,13 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import { cn } from "@/hooks";
 import { Button } from "./Button";
 import { ToggleGroup, ToggleGroupItem } from "./ToggleGroup";
 import * as iv01 from "@/components/icons/version01";
-import type { IconComponentType, IconProps, IconStyle } from "@/types";
 import { Tooltip } from "./Tooltip";
 
 interface IconCardProps {
   name: string;
-  Icon: React.ComponentType<IconProps>;
+  Icon: IconComponent; // Changed from React.ComponentType<IconProps> to IconComponent
   currentStyle: IconStyle;
   onStyleChange: (style: IconStyle) => void;
   onCopy: () => void;
@@ -58,8 +57,8 @@ export const IconCard = memo(
                   Keywords
                 </p>
                 <div className="flex flex-wrap gap-1.5">
-                  {(Icon as IconComponentType).keywords?.map(
-                    (keyword, index) => (
+                  {(Icon as IconComponent).keywords?.map(
+                    (keyword: string, index: number) => (
                       <span
                         key={index}
                         className={cn(

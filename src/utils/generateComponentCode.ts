@@ -1,4 +1,3 @@
-import { GeneratedResult } from "../types";
 import { fetchKeywordsInBatches } from "./keywordUtils";
 
 const extractComponentWords = (name: string): string[] => {
@@ -15,11 +14,9 @@ const generateComponentTemplate = (
   lineDuotoneSvg: string,
   boldDuotoneSvg: string,
   boldSvg: string,
-  keywords: string[],
-  iconPropsPath: string
+  keywords: string[]
 ): string => {
   return `import { FC } from 'react';
-import { IconProps, IconComponentType } from "${iconPropsPath}";
 
 const Icon${name}: FC<IconProps> = ({ className, fill = false, duotone = true, width = '1.5' }) => {
   return (
@@ -36,21 +33,16 @@ const Icon${name}: FC<IconProps> = ({ className, fill = false, duotone = true, w
 };
 
 // Keywords for search and categorization
-(Icon${name} as IconComponentType).keywords = ${JSON.stringify(
-    keywords,
-    null,
-    2
-  )};
+(Icon${name} as IconComponent).keywords = ${JSON.stringify(keywords, null, 2)};
 
-export default Icon${name} as IconComponentType;`;
+export default Icon${name} as IconComponent;`;
 };
 
 export const generateComponentCode = async (
   name: string,
   lineDuotoneSvg: string,
   boldDuotoneSvg: string,
-  boldSvg: string,
-  iconPropsPath: string = "../../types"
+  boldSvg: string
 ): Promise<GeneratedResult> => {
   try {
     if (!name) {
@@ -87,8 +79,7 @@ export const generateComponentCode = async (
       lineDuotoneSvg,
       boldDuotoneSvg,
       boldSvg,
-      keywords,
-      iconPropsPath
+      keywords
     );
 
     return {
@@ -117,8 +108,7 @@ export const generateComponentCodeSync = (
   name: string,
   lineDuotoneSvg: string,
   boldDuotoneSvg: string,
-  boldSvg: string,
-  iconPropsPath: string = "../../types"
+  boldSvg: string
 ): GeneratedResult => {
   const defaultName = name || "UnknownIcon";
   const fileName = `Icon${defaultName}.tsx`;
@@ -129,8 +119,7 @@ export const generateComponentCodeSync = (
       lineDuotoneSvg,
       boldDuotoneSvg,
       boldSvg,
-      [],
-      iconPropsPath
+      []
     );
 
     return {

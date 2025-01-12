@@ -4,7 +4,6 @@ import * as React from "react";
 import * as TogglePrimitive from "@radix-ui/react-toggle";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/hooks";
-import { ToggleSwitchProps } from "@/types";
 
 const toggleVariants = cva(
   [
@@ -22,7 +21,7 @@ const toggleVariants = cva(
       size: {
         sm: "h-8 px-1.5 min-w-8",
         default: "h-9 px-2 min-w-9",
-        lg: "h-10 px-2.5 min-w-10",
+        lg: "rounded-3xl px-10 py-5",
       },
     },
     defaultVariants: {
@@ -54,6 +53,7 @@ export const Toggle = React.memo(
     size = "default",
     disabled = false,
     icon,
+    className,
   }: ToggleSwitchProps) => (
     <ToggleSwitch
       pressed={pressed}
@@ -61,11 +61,12 @@ export const Toggle = React.memo(
       size={size}
       disabled={disabled}
       className={cn(
-        "border px-3 !py-5 cursor-pointer rounded-xl !leading-relaxed flex gap-2 select-none",
+        "border cursor-pointer rounded-xl !leading-relaxed flex gap-2 select-none",
         "bg-transparent text-icu-800 border-icu-500 hover:bg-icu-200",
         "data-[state=on]:bg-icu-300 data-[state=on]:border-icu-300 data-[state=on]:text-icu-1000",
-        "dark:hover:bg-icu-1100/70 dark:border-icu-800/70 dark:text-icu-500",
-        "dark:data-[state=on]:bg-icu-1100 dark:data-[state=on]:border-icu-1100 dark:data-[state=on]:text-icu-500/80"
+        "dark:hover:bg-icu-900 dark:border-icu-800 dark:text-icu-500",
+        "dark:data-[state=on]:bg-icu-1100 dark:data-[state=on]:border-icu-1100 dark:data-[state=on]:text-icu-500/80",
+        className
       )}
     >
       {label} {icon && icon}

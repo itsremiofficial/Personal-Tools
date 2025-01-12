@@ -1,119 +1,108 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
+import { VIRTUALIZATION_CONFIG } from "@/constants/virtualization";
 
-interface ModuleCache {
-  module: IconModule;
-  length: number;
-}
-
-export interface UseIconLoaderReturn {
-  loadedIcons: IconMetadata[];
-  isLoading: boolean;
-  loadIconChunk: (
-    start: number,
-    end: number,
-    prepend?: boolean
-  ) => Promise<void>;
-  preloadRange: (start: number, end: number) => Promise<void>;
-  totalIcons: number;
-}
-
-export const useIconLoader = () => {
+export const useIconLoader = (searchQuery: string) => {
   const [loadedIcons, setLoadedIcons] = useState<IconMetadata[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const iconCache = useRef<Map<number, IconMetadata>>(new Map());
-  const moduleCache = useRef<Record<string, ModuleCache>>({});
-  const totalIconsRef = useRef(0);
+  const [filteredIcons, setFilteredIcons] = useState<IconMetadata[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
+  const [totalIcons, setTotalIcons] = useState(0);
+  const searchTimeout = useRef<NodeJS.Timeout>();
 
-  const loadModules = useCallback(async () => {
-    if (moduleCache.current.v1) return moduleCache.current;
+  // Load and cache all icon modules
+  const loadAllIconModules = useCallback(async () => {
+    try {
+      const [v1Module, v2Module] = await Promise.all([
+        import("@/components/icons/version01"),
+        import("@/components/icons/version02"),
+      ]);
 
-    const [v1, v2] = (await Promise.all([
-      import("@/components/icons/version01"),
-      import("@/components/icons/version02"),
-    ])) as [IconModule, IconModule];
+      const allIcons: IconMetadata[] = [
+        ...Object.entries(v1Module).map(([name, Icon]) => ({
+          name,
+          Icon: Icon as IconComponent,
+          keywords: (Icon as IconComponent).keywords || [],
+          version: "v1",
+        })),
+        ...Object.entries(v2Module).map(([name, Icon]) => ({
+          name,
+          Icon: Icon as IconComponent,
+          keywords: (Icon as IconComponent).keywords || [],
+          version: "v2",
+        })),
+      ];
 
-    moduleCache.current = {
-      v1: { module: v1, length: Object.keys(v1).length },
-      v2: { module: v2, length: Object.keys(v2).length },
-    };
-
-    totalIconsRef.current = Object.keys(v1).length + Object.keys(v2).length;
-
-    return moduleCache.current;
+      setTotalIcons(allIcons.length);
+      return allIcons;
+    } catch (error) {
+      console.error("Failed to load icon modules:", error);
+      return [];
+    }
   }, []);
 
-  const loadIconsRange = useCallback(
-    async (indices: number[], modules: typeof moduleCache.current) => {
-      const { v1, v2 } = modules;
-      const v1Length = v1.length;
+  // Update filtering logic
+  useEffect(() => {
+    const filterIcons = async () => {
+      if (!searchQuery) {
+        setIsSearching(false);
+        const allIcons = await loadAllIconModules();
+        setFilteredIcons(allIcons);
+        setLoadedIcons(allIcons.slice(0, VIRTUALIZATION_CONFIG.INITIAL_CHUNK_SIZE));
+        return;
+      }
 
-      return indices
-        .map((i) => {
-          if (iconCache.current.has(i)) return iconCache.current.get(i)!;
+      setIsSearching(true);
+      
+      try {
+        const allIcons = await loadAllIconModules();
+        const filtered = allIcons.filter(
+          (icon) =>
+            icon.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            icon.keywords?.some((keyword) =>
+              keyword.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+        );
+        setFilteredIcons(filtered);
+        setLoadedIcons(filtered.slice(0, VIRTUALIZATION_CONFIG.INITIAL_CHUNK_SIZE));
+      } finally {
+        setTimeout(() => {
+          setIsSearching(false);
+        }, 300);
+      }
+    };
 
-          const isV1 = i < v1Length;
-          const mod = isV1 ? v1 : v2;
-          const idx = isV1 ? i : i - v1Length;
-          const entries = Object.entries(mod.module);
+    filterIcons();
+  }, [searchQuery, loadAllIconModules]);
 
-          if (idx >= entries.length) return null;
-
-          const [name, Icon] = entries[idx];
-          const icon: IconMetadata = {
-            name,
-            Icon: Icon as IconComponent,
-            keywords: (Icon as IconComponent).keywords || [],
-            version: isV1 ? "v1" : "v2",
-          };
-
-          iconCache.current.set(i, icon);
-          return icon;
-        })
-        .filter((icon): icon is IconMetadata => icon !== null);
-    },
-    []
-  );
-
-  const ensureIconsLoaded = useCallback(
-    async (startIndex: number, endIndex: number, prepend = false) => {
-      if (startIndex < 0) return;
-
-      const missingIndices = Array.from({ length: endIndex - startIndex })
-        .map((_, i) => startIndex + i)
-        .filter((i) => !iconCache.current.has(i));
-
-      if (!missingIndices.length) return;
+  const loadIconChunk = useCallback(
+    async (start: number, end: number, prepend = false) => {
+      if (start >= filteredIcons.length) return;
 
       setIsLoading(true);
       try {
-        const modules = await loadModules();
-        const newIcons = await loadIconsRange(missingIndices, modules);
-
-        if (newIcons.length) {
-          setLoadedIcons((prev) =>
-            prepend ? [...newIcons, ...prev] : [...prev, ...newIcons]
-          );
-        }
+        const chunk = filteredIcons.slice(start, end);
+        setLoadedIcons((current) =>
+          prepend ? [...chunk, ...current] : [...current, ...chunk]
+        );
       } finally {
         setIsLoading(false);
       }
     },
-    [loadModules, loadIconsRange]
+    [filteredIcons]
   );
 
-  const preloadRange = useCallback(
-    (start: number, end: number) => {
-      if (!isLoading) return ensureIconsLoaded(start, end, false);
-      return Promise.resolve();
-    },
-    [ensureIconsLoaded, isLoading]
-  );
+  const preloadRange = useCallback(async (start: number, end: number) => {
+    // Optional: Implement preloading logic if needed
+    return Promise.resolve();
+  }, []);
 
   return {
     loadedIcons,
+    filteredIcons,
     isLoading,
-    loadIconChunk: ensureIconsLoaded,
+    isSearching,
+    loadIconChunk,
     preloadRange,
-    totalIcons: totalIconsRef.current,
+    totalIcons,
   };
 };
