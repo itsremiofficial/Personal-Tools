@@ -8,7 +8,6 @@ const MainLayout = memo(() => {
   const [isSidebarReady, setIsSidebarReady] = useState(false);
 
   useEffect(() => {
-    // Check if the document is already loaded
     if (document.readyState === "complete") {
       setIsLoading(false);
     } else {
@@ -30,9 +29,7 @@ const MainLayout = memo(() => {
   return (
     <div className="flex relative">
       {isLoading && <PreLoader />}
-      <div ref={sidebarRef}>
-        <Sidebar />
-      </div>
+      <Sidebar ref={sidebarRef} />
       {isSidebarReady && (
         <main className="main-content flex flex-col min-h-screen ml-auto">
           <Outlet />

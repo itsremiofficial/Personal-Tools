@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback, useEffect } from "react";
+import React, { useMemo, useCallback, useEffect, forwardRef } from "react";
 import { useLocation } from "react-router-dom";
 import { NavItem } from "@/components/NavItem";
 import { useSidebar } from "@/hooks/useSidebar";
@@ -16,7 +16,7 @@ import { Logo } from "@/components";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { useSmoothCorners } from "@/utils/SmoothCorners";
 
-const Sidebar = () => {
+const Sidebar = forwardRef<HTMLElement>((props, ref) => {
   const { isDark, setDark } = useTheme();
   const { isOpen, isDelayed, toggleSidebar } = useSidebar();
   const { smoothCorners, updateProgress } = useSmoothCorners("3,3", "10,3");
@@ -130,6 +130,7 @@ const Sidebar = () => {
 
   return (
     <aside
+      ref={ref}
       className={cn(
         "group/sidebar sidebar relative z-50 !h-screen",
         !isOpen && "sidebar_opened"
@@ -246,6 +247,8 @@ const Sidebar = () => {
       </nav>
     </aside>
   );
-};
+});
+
+Sidebar.displayName = "Sidebar";
 
 export default React.memo(Sidebar);

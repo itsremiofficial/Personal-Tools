@@ -3,8 +3,8 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { generateColorVariants } from "@/hooks/colorVarientsGenerator";
 import { Button } from "./common/Button";
 import { Card, CardBody } from "./common/Card";
-import { IconCopy, IconTickCircle } from "./icons/version02";
-import { IconCheck } from "./icons/version01";
+import { IconCheck, IconCopy } from "./icons/version01";
+import { IconTickCircle } from "./icons/version02";
 
 export const ColorCodeBlock: React.FC<ColorCodeBlockProps> = ({
   variants,

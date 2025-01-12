@@ -1,11 +1,11 @@
-// generateIndex.mjs
 import fs from "fs";
 import path from "path";
 
-const componentsDir = path.resolve("src/components/icon/version02");
+const componentsDir = path.resolve("src/components/icons/version01/");
 const outputFile = path.resolve(componentsDir, "_index.tsx");
 
 fs.readdir(componentsDir, (err, files) => {
+  console.log(`path ${componentsDir}`);
   if (err) throw err;
 
   // Filter to only include .tsx files
@@ -17,7 +17,7 @@ fs.readdir(componentsDir, (err, files) => {
     })
     .join("\n");
 
-  const outputContent = `export type { IconProps } from "@/types";\n${componentImports}`;
+  const outputContent = `${componentImports}`;
 
   fs.writeFileSync(outputFile, outputContent, "utf8");
   console.log(`Successfully generated ${outputFile}`);
