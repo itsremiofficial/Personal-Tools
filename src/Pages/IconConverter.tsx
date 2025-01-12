@@ -320,13 +320,15 @@ const IconConverter: React.FC = () => {
                     name,
                     lineDuotoneSvg,
                     boldDuotoneSvg,
-                    boldSvg
+                    boldSvg,
+                    includeKeywords
                   )
                 : generateComponentCodeSync(
                     name,
                     lineDuotoneSvg,
                     boldDuotoneSvg,
-                    boldSvg
+                    boldSvg,
+                    includeKeywords
                   );
 
               return result;

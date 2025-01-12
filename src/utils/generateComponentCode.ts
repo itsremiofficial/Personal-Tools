@@ -14,10 +14,22 @@ const generateComponentTemplate = (
   lineDuotoneSvg: string,
   boldDuotoneSvg: string,
   boldSvg: string,
-  keywords: string[]
+  keywords: string[],
+  includeKeywords: boolean = false
 ): string => {
-  return `import { FC } from 'react';
+  const interfaceDeclaration = !includeKeywords
+    ? `
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+`
+    : "";
 
+  const baseTemplate = `import { FC } from 'react';
+${interfaceDeclaration}
 const Icon${name}: FC<IconProps> = ({ className, fill = false, duotone = true, width = '1.5' }) => {
   return (
     <>
@@ -30,19 +42,28 @@ const Icon${name}: FC<IconProps> = ({ className, fill = false, duotone = true, w
       )}
     </>
   );
-};
+};`;
+
+  if (includeKeywords) {
+    return `${baseTemplate}
 
 // Keywords for search and categorization
 (Icon${name} as IconComponent).keywords = ${JSON.stringify(keywords, null, 2)};
 
 export default Icon${name} as IconComponent;`;
+  }
+
+  return `${baseTemplate}
+
+export default Icon${name};`;
 };
 
 export const generateComponentCode = async (
   name: string,
   lineDuotoneSvg: string,
   boldDuotoneSvg: string,
-  boldSvg: string
+  boldSvg: string,
+  includeKeywords: boolean = false
 ): Promise<GeneratedResult> => {
   try {
     if (!name) {
@@ -67,19 +88,23 @@ export const generateComponentCode = async (
     const defaultName = name || "UnknownIcon";
     const fileName = `Icon${defaultName}.tsx`;
 
-    const words = extractComponentWords(name);
-    // Use batched keyword fetching
-    const keywordSets = await fetchKeywordsInBatches(words);
-    const keywords = [...words, ...keywordSets.flat()].filter(
-      (word, index, array) => array.indexOf(word) === index
-    );
+    const words = includeKeywords ? extractComponentWords(name) : [];
+    const keywordSets = includeKeywords
+      ? await fetchKeywordsInBatches(words)
+      : [];
+    const keywords = includeKeywords
+      ? [...words, ...keywordSets.flat()].filter(
+          (word, index, array) => array.indexOf(word) === index
+        )
+      : [];
 
     const output = generateComponentTemplate(
       name,
       lineDuotoneSvg,
       boldDuotoneSvg,
       boldSvg,
-      keywords
+      keywords,
+      includeKeywords
     );
 
     return {
@@ -108,7 +133,8 @@ export const generateComponentCodeSync = (
   name: string,
   lineDuotoneSvg: string,
   boldDuotoneSvg: string,
-  boldSvg: string
+  boldSvg: string,
+  includeKeywords: boolean = false
 ): GeneratedResult => {
   const defaultName = name || "UnknownIcon";
   const fileName = `Icon${defaultName}.tsx`;
@@ -119,7 +145,8 @@ export const generateComponentCodeSync = (
       lineDuotoneSvg,
       boldDuotoneSvg,
       boldSvg,
-      []
+      [],
+      includeKeywords
     );
 
     return {

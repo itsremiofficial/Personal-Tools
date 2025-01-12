@@ -18,7 +18,7 @@ interface TooltipProps {
 }
 
 const tooltipContentStyles = cn(
-  "z-50 overflow-hidden rounded-xl border px-3 py-2.5 text-sm shadow-md",
+  "z-[100] overflow-hidden rounded-xl border px-3 py-2.5 text-sm shadow-md",
   "bg-icu-900 text-icu-100 border-icu-800/50",
   "dark:bg-icu-1000 dark:text-icu-300 dark:border-icu-800/50",
   "animate-in fade-in-0 zoom-in-95",

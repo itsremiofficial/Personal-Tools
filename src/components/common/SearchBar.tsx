@@ -9,7 +9,7 @@ interface SearchBarProps {
   onSearch: (query: string) => void;
   isVisible: boolean;
   onToggleVisibility: (visible: boolean) => void;
-  isLoading?: boolean;  // Add this prop
+  isLoading?: boolean; // Add this prop
 }
 
 export const SearchBar: React.FC<SearchBarProps> = ({
@@ -17,7 +17,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   onSearch,
   isVisible,
   onToggleVisibility,
-  isLoading = false,  // Add default value
+  isLoading = false,
 }) => (
   <div className="grow w-full max-w-4/12 ">
     <form

@@ -1,4 +1,11 @@
-import { Suspense, useState, useCallback, useEffect, useRef } from "react";
+import {
+  Suspense,
+  useState,
+  useCallback,
+  useEffect,
+  useRef,
+  useMemo,
+} from "react";
 import { useIconLoader } from "@/hooks/useIconLoader";
 import { Header } from "@/components/common/Header";
 import { useVirtualizer } from "@tanstack/react-virtual";
@@ -14,7 +21,7 @@ interface ScrollState {
 }
 
 const IconsList = () => {
-  const [inputValue, setInputValue] = useState(""); // Add this line
+  const [inputValue, setInputValue] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [columns, setColumns] = useState(1);
   const [globalStyle, setGlobalStyle] = useState<IconStyle>("line");
@@ -25,9 +32,8 @@ const IconsList = () => {
   const {
     loadedIcons,
     isLoading,
-    isSearching, // Add this line
+    isSearching,
     loadIconChunk,
-    preloadRange,
     totalIcons,
     filteredIcons,
   } = useIconLoader(searchQuery);
@@ -76,20 +82,22 @@ const IconsList = () => {
     overscan: VIRTUALIZATION_CONFIG.OVERSCAN,
   });
 
-  const handleScroll = useCallback(async () => {
-    if (!parentRef.current || isLoading) return;
-
-    const { scrollTop, scrollHeight, clientHeight } = parentRef.current;
-    const remainingHeight = scrollHeight - scrollTop - clientHeight;
-
-    if (remainingHeight < VIRTUALIZATION_CONFIG.PREFETCH_THRESHOLD) {
-      const nextStart = loadedIcons.length;
-      const chunkSize = VIRTUALIZATION_CONFIG.CHUNK_SIZE * columns;
-      await loadIconChunk(nextStart, nextStart + chunkSize);
-    }
-
-    virtualizer.measure();
-  }, [columns, loadIconChunk, loadedIcons.length, virtualizer, isLoading]);
+  const handleScroll = useMemo(
+    () =>
+      debounce(() => {
+        if (!parentRef.current || isLoading) return;
+        const { scrollTop, scrollHeight, clientHeight } = parentRef.current;
+        const remainingHeight = scrollHeight - scrollTop - clientHeight;
+        if (remainingHeight < VIRTUALIZATION_CONFIG.PREFETCH_THRESHOLD) {
+          const nextStart = loadedIcons.length;
+          loadIconChunk(
+            nextStart,
+            nextStart + VIRTUALIZATION_CONFIG.CHUNK_SIZE * columns
+          );
+        }
+      }, 100),
+    [columns, loadIconChunk, loadedIcons.length, isLoading]
+  );
 
   // Force measure on mount and column change
   useEffect(() => {
