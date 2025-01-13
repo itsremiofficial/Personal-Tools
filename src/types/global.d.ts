@@ -1,3 +1,4 @@
+
 declare global {
   interface IconProps {
     className?: string;
@@ -123,7 +124,6 @@ declare global {
 
   interface ToggleSwitchProps {
     label: string;
-    className?: string;
     icon?: ReactNode;
     pressed: boolean;
     onPressedChange: (pressed: boolean) => void;
@@ -135,17 +135,20 @@ declare global {
     [key: string]: IconComponent;
   }
 
-  interface CustomStyles extends React.CSSProperties {
-    "--smooth-corners": string | MotionValue<string>;
-  }
-
   interface NavItemProps {
     path: string;
     label: string;
-    icon: React.FC<IconProps>;
+    icon: React.ComponentType<IconProps>;
     isActive: boolean;
     isOpen: boolean;
-    isDelayedClosed: boolean;
+    isDelayedClosed?: boolean;
+  }
+  interface Window {
+    __smoothCornersLoaded?: boolean;
+  }
+
+  interface CustomStyles extends React.CSSProperties {
+    "--smooth-corners": string | MotionValue<string>;
   }
 }
 
