@@ -66,7 +66,7 @@ declare global {
       bold: string[];
     };
   }
-
+  
   interface ResultsSectionProps {
     outputs: string[];
     logs: string[];
