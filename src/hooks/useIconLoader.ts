@@ -1,14 +1,11 @@
 import { useState, useCallback, useEffect, useRef } from "react";
-import { VIRTUALIZATION_CONFIG } from "@/constants/virtualization";
 
 export const useIconLoader = (searchQuery: string) => {
-  const [loadedIcons, setLoadedIcons] = useState<IconMetadata[]>([]);
   const [filteredIcons, setFilteredIcons] = useState<IconMetadata[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const [totalIcons, setTotalIcons] = useState(0);
   const cachedIcons = useRef<IconMetadata[]>([]);
-  const abortController = useRef<AbortController>();
 
   const loadAllIconModules = useCallback(async () => {
     if (cachedIcons.current.length > 0) return cachedIcons.current;
@@ -35,54 +32,39 @@ export const useIconLoader = (searchQuery: string) => {
     }
   }, []);
 
-  useEffect(() => {
-    abortController.current?.abort();
-    abortController.current = new AbortController();
-    const { signal } = abortController.current;
-
-    const filterIcons = async () => {
-      if (signal.aborted) return;
+  const filterIcons = useCallback(
+    async (query: string) => {
       setIsSearching(true);
-
-      try {
-        const allIcons = await loadAllIconModules();
-        if (signal.aborted) return;
-
-        const filtered = searchQuery
-          ? allIcons.filter(icon => {
-              const searchTerms = searchQuery.toLowerCase().split(/\s+/).filter(Boolean);
-              const searchableText = [
-                icon.name.toLowerCase(),
-                ...(icon.keywords?.map(k => k.toLowerCase()) || []),
-                // Add more searchable fields here if needed
-              ].join(' ');
-
-              // Match if all search terms are found in any searchable text
-              return searchTerms.every(term => {
-                // Allow for partial matches and handle special characters
-                const sanitizedTerm = term.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-                return new RegExp(sanitizedTerm, 'i').test(searchableText);
-              });
-            })
-          : allIcons;
-
-        setFilteredIcons(filtered);
-        setLoadedIcons(filtered.slice(0, VIRTUALIZATION_CONFIG.INITIAL_CHUNK_SIZE));
-      } finally {
-        !signal.aborted && setTimeout(() => setIsSearching(false), 300);
+      const allIcons = await loadAllIconModules();
+      let filtered = allIcons;
+      if (query) {
+        const searchTerms = query.toLowerCase().split(/\s+/).filter(Boolean);
+        filtered = allIcons.filter(icon => {
+          const searchableText = [
+            icon.name.toLowerCase(),
+            ...(icon.keywords?.map(k => k.toLowerCase()) || []),
+          ].join(' ');
+          return searchTerms.every(term => {
+            const sanitizedTerm = term.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
+            return new RegExp(sanitizedTerm, 'i').test(searchableText);
+          });
+        });
       }
-    };
+      setFilteredIcons(filtered);
+      setTimeout(() => setIsSearching(false), 200);
+    },
+    [loadAllIconModules]
+  );
 
-    filterIcons();
-    return () => abortController.current?.abort();
-  }, [searchQuery, loadAllIconModules]);
+  useEffect(() => {
+    setIsLoading(true);
+    filterIcons(searchQuery).finally(() => setIsLoading(false));
+  }, [searchQuery, filterIcons]);
 
-  // Simplified loadIconChunk
-  const loadIconChunk = useCallback((start: number, end: number, prepend = false) => {
-    if (start >= filteredIcons.length) return;
-    const chunk = filteredIcons.slice(start, end);
-    setLoadedIcons(current => prepend ? [...chunk, ...current] : [...current, ...chunk]);
-  }, [filteredIcons]);
+  const reloadIcons = useCallback(() => {
+    setIsLoading(true);
+    filterIcons(searchQuery).finally(() => setIsLoading(false));
+  }, [filterIcons, searchQuery]);
 
-  return { loadedIcons, filteredIcons, isLoading, isSearching, loadIconChunk, totalIcons };
+  return { filteredIcons, isLoading, isSearching, reloadIcons, totalIcons };
 };
