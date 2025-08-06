@@ -5,6 +5,7 @@ import { RouterProvider } from "react-router-dom";
 import router from "./router/routes";
 import { TrayProvider } from "@/components/context/TrayProvider";
 import { ToastContainer } from "./components/toast-container";
+import PreLoader from "./components/PreLoader";
 
 const root = document.getElementById("root");
 if (!root) throw new Error("Root element not found");
@@ -12,7 +13,7 @@ if (!root) throw new Error("Root element not found");
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
     <TrayProvider>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<PreLoader/>}>
         <ToastContainer />
         <RouterProvider router={router} />
       </Suspense>

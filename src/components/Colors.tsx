@@ -303,9 +303,7 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
         )}
       >
         <CardBody
-          className={cn(
-            "p-6 w-full rounded-3xl border flex flex-col gap-4 xl:min-w-2xl"
-          )}
+          className={cn("p-6 w-full rounded-3xl border flex flex-col gap-4")}
         >
           <h3 className="text-icu-1100 dark:text-icu-100">For Single Theme</h3>
           <div className="flex gap-4 w-full flex-col">
@@ -404,9 +402,7 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
             Copy All <IconCopy className="size-5" />
           </Button>
         </CardBody>
-        <CardBody
-          className={cn("w-full p-6 rounded-3xl flex flex-col gap-4")}
-        >
+        <CardBody className={cn("w-full p-6 rounded-3xl flex flex-col gap-4")}>
           <h3 className="text-icu-1100 dark:text-icu-100">
             For Mutiple Themes
           </h3>

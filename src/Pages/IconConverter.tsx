@@ -27,6 +27,7 @@ import {
   IconTrashBin2,
 } from "@/components/icons/version01";
 import { Button } from "@/components/common/Button";
+import { IconPenTool } from "@/components/icons/version02";
 
 const IconConverter: React.FC = () => {
   const [state, setState] = useState<IconConverterState>({
@@ -463,12 +464,12 @@ const IconConverter: React.FC = () => {
             "text-icu-1100 dark:text-icu-100"
           )}
         >
-          <IconPalette className="w-10 h-10 mx-3" fill />
+          <IconPenTool className="w-10 h-10 mx-3" fill />
           <div>
-            <h2 className="text-xl font-medium">Color Palette Creator Tool</h2>
+            <h2 className="text-xl font-medium">Svg to React Icon Converter</h2>
             <p className="text-sm text-icu-600">
-              This tool is to create color variables/palette for one theme or
-              multiple themes, choose wisely.
+              This tool is to create react component (.tsx) from 3 types of svg
+              icons twotone, bulk and bold.
             </p>
           </div>
         </Card>
