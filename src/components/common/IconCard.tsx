@@ -59,8 +59,8 @@ export const IconCard = memo(
       default: (
         <div
           className={cn(
-            "flex flex-col h-full rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm transition-all duration-200 overflow-hidden",
-            isHovered && "shadow-md border-gray-300 dark:border-gray-700",
+            "flex flex-col h-full rounded-3xl border border-icu-300 dark:border-gray-800 bg-white dark:bg-gray-900 transition-all duration-200 overflow-hidden",
+            isHovered && "border-gray-400 dark:border-gray-700",
             className
           )}
           onMouseEnter={() => setIsHovered(true)}
@@ -114,29 +114,17 @@ export const IconCard = memo(
 
             {/* Action buttons with improved hover effect */}
             <motion.div
-              className="absolute top-2 right-2 flex flex-col gap-2"
+              className="absolute top-3 right-3 flex flex-col gap-3"
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : 10 }}
               transition={{ duration: 0.2 }}
             >
-              <Button
-                onClick={() => onCopy(localStyle)}
-                size="icon-sm"
-                variant="ghost"
-                className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 rounded-full shadow-sm"
-                aria-label="Copy component"
-              >
-                <iv01.IconCopy className="h-3.5 w-3.5 text-gray-600 dark:text-gray-400" />
-              </Button>
-              <Button
-                onClick={() => onDownload(name, version)}
-                size="icon-sm"
-                variant="ghost"
-                className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 rounded-full shadow-sm"
-                aria-label="Download icon"
-              >
-                <iv01.IconDownloadMinimalistic className="h-3.5 w-3.5 text-gray-600 dark:text-gray-400" />
-              </Button>
+              <button onClick={() => onCopy(localStyle)}>
+                <iv01.IconCopy3 className="h-5 w-5 text-gray-600 dark:text-gray-400 cursor-pointer hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-200" />
+              </button>
+              <button onClick={() => onDownload(name, version)}>
+                <iv01.IconDownloadMinimalistic className="h-5 w-5 text-gray-600 dark:text-gray-400 cursor-pointer hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-200" />
+              </button>
             </motion.div>
           </div>
 
@@ -190,8 +178,8 @@ export const IconCard = memo(
       compact: (
         <div
           className={cn(
-            "flex h-full rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm transition-all duration-200 overflow-hidden",
-            isHovered && "shadow-md border-gray-300 dark:border-gray-700",
+            "flex h-full rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 transition-all duration-200 overflow-hidden",
+            isHovered && "border-gray-300 dark:border-gray-700",
             className
           )}
           onMouseEnter={() => setIsHovered(true)}
@@ -295,7 +283,7 @@ export const IconCard = memo(
                     onClick={() => onCopy(localStyle)}
                     size="icon-sm"
                     variant="ghost"
-                    className="h-7 w-7 bg-white/90 dark:bg-gray-800/90 hover:bg-white dark:hover:bg-gray-700 rounded-full shadow-sm"
+                    className="h-7 w-7 bg-white/90 dark:bg-gray-800/90 hover:bg-white dark:hover:bg-gray-700 rounded-full"
                     aria-label="Copy component"
                   >
                     <iv01.IconCopy className="h-3.5 w-3.5 text-gray-600 dark:text-gray-400" />
@@ -310,7 +298,7 @@ export const IconCard = memo(
                     onClick={() => onDownload(name, version)}
                     size="icon-sm"
                     variant="ghost"
-                    className="h-7 w-7 bg-white/90 dark:bg-gray-800/90 hover:bg-white dark:hover:bg-gray-700 rounded-full shadow-sm"
+                    className="h-7 w-7 bg-white/90 dark:bg-gray-800/90 hover:bg-white dark:hover:bg-gray-700 rounded-full"
                     aria-label="Download icon"
                   >
                     <iv01.IconDownloadMinimalistic className="h-3.5 w-3.5 text-gray-600 dark:text-gray-400" />
@@ -330,7 +318,7 @@ export const IconCard = memo(
             <div
               className={cn(
                 "flex flex-col items-center justify-center rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 aspect-square p-3 transition-all duration-200",
-                isHovered && "shadow-md border-gray-300 dark:border-gray-700",
+                isHovered && "border-gray-300 dark:border-gray-700",
                 className
               )}
               onMouseEnter={() => setIsHovered(true)}

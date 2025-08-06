@@ -50,7 +50,7 @@ const containerVariants = {
 };
 
 const DefaultView = () => {
-  const { openTray } = useContext(TrayContext) as TrayProviderProps;
+  const { openTray } = useContext(TrayContext) as TrayProviderProps; 
   const codeText = `export interface IconProps {
     className?: string;
     fill?: boolean;
@@ -59,9 +59,7 @@ const DefaultView = () => {
 }`;
   const handleCopy = () => {
     navigator.clipboard.writeText(codeText);
-    toast.success("Copied to clipboard!", {
-      className: "toast-success",
-    });
+    toast.success("Copied to clipboard!");
   };
 
   return (
@@ -82,12 +80,12 @@ const DefaultView = () => {
         <div className="pb-2 border-b mb-3 flex justify-between items-center border-icu-300 dark:border-icu-900/50">
           <span className="text-icu-900 dark:text-icu-400">Types</span>
           <Button
-            variant={"neutral"}
+            variant={"subtle"}
             size={"sm"}
             onClick={handleCopy}
             className="flex items-center gap-2 text-sm rounded-lg transition-colors"
           >
-            <IconCopy3 className="size-4" />
+            <IconCopy3 className="size-4" duotone={false} />
             Copy
           </Button>
         </div>

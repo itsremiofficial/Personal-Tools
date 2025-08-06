@@ -4,7 +4,6 @@ import * as iv02 from "@/components/icons/version02";
 import * as iv01 from "@/components/icons/version01";
 import { LoadingSpinner } from "./LoadingSpinner";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "./Button";
 
 interface SearchBarProps {
   searchQuery: string;
@@ -88,7 +87,13 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             {isLoading ? (
               <LoadingSpinner className="w-4 h-4 text-gray-400 dark:text-gray-500" />
             ) : (
-              <iv02.IconSearchStatus className="w-4 h-4 text-gray-400 dark:text-gray-500" />
+              <iv02.IconSearchStatus
+                duotone={variant === "embedded" && false}
+                className={cn(
+                  "w-4 h-4 text-gray-400 dark:text-gray-500",
+                  variant === "embedded" && "w-5.5 h-5.5"
+                )}
+              />
             )}
           </div>
 
@@ -101,16 +106,14 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                 transition={{ duration: 0.15 }}
                 className="absolute right-2 top-0 bottom-0 flex items-center"
               >
-                <Button
-                  type="button"
-                  variant="ghost"
-                  size="icon-sm"
-                  onClick={() => onSearch("")}
-                  className="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-400"
-                  aria-label="Clear search"
-                >
-                  <iv01.IconClose className="w-3 h-3" />
-                </Button>
+                {(variant === "minimal" || variant === "default") && (
+                  <button
+                    onClick={() => onSearch("")}
+                    className="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-400 cursor-pointer transition-colors duration-300"
+                  >
+                    <iv01.IconClose className="w-5 h-5" />
+                  </button>
+                )}
               </motion.div>
             )}
           </AnimatePresence>

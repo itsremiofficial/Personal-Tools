@@ -494,7 +494,7 @@ const IconConverter: React.FC = () => {
               </kbd>
               <Button
                 className="!p-1 rounded-xl"
-                variant={"neutral"}
+                variant={"subtle"}
                 size={"icon"}
                 onClick={() => {
                   openTray();
@@ -508,6 +508,7 @@ const IconConverter: React.FC = () => {
               <Toggle
                 label="Keywords"
                 size="lg"
+                className="h-12"
                 pressed={includeKeywords}
                 onPressedChange={setIncludeKeywords}
                 disabled={!isReady || isProcessing}

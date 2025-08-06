@@ -13,6 +13,10 @@ import { toast } from "sonner";
 import { IconCard } from "@/components/common/IconCard";
 import { AnimatePresence, motion } from "framer-motion";
 import { debounce } from "lodash";
+import { useClipboard } from "@/hooks/useClipboard";
+import { cn } from "@/hooks";
+import { Button } from "@/components/common/Button";
+import { IconCloseCircle, IconTrashBin } from "@/components/icons/version01";
 
 const PAGE_SIZE = 100;
 
@@ -53,7 +57,7 @@ const LoadingSkeleton = ({
         {Array.from({ length: 36 }).map((_, i) => (
           <div
             key={i}
-            className="aspect-square rounded-lg bg-gray-100 dark:bg-gray-800 animate-pulse"
+            className="aspect-square rounded-lg bg-gray-100 dark:bg-neu-800 animate-pulse"
           />
         ))}
       </div>
@@ -64,54 +68,37 @@ const LoadingSkeleton = ({
 };
 
 // Empty state component
-const EmptyState = ({ query }: { query: string }) => (
-  <div className="flex flex-col items-center justify-center py-12 px-4 text-center">
-    <div className="h-12 w-12 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mb-4">
-      <svg
-        className="h-6 w-6 text-gray-500 dark:text-gray-400"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-        />
-      </svg>
+const EmptyState = ({
+  query,
+  onClear,
+}: {
+  query: string;
+  onClear: () => void;
+}) => (
+  <div className="flex flex-col items-center justify-center py-12 px-4 text-center bg-icu-100 dark:bg-icu-1000 rounded-4xl">
+    <div className="h-20 w-20 rounded-full flex items-center justify-center mb-4">
+      <IconCloseCircle
+        fill
+        className={cn("w-20 h-20 text-gray-1000 dark:text-icu-400 ")}
+        width={1}
+      />
     </div>
     <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
       No icons found
     </h3>
     <p className="text-gray-600 dark:text-gray-400 max-w-md mb-4">
-      No results for "
-      <span className="font-medium text-gray-900 dark:text-gray-200">
-        {query}
+      No results found for{"  "}
+      <span className="font-medium text-gray-900 dark:text-gray-200 dark:bg-icu-900 p-1 rounded-md">
+        "{query}"
       </span>
-      ". Try adjusting your search terms.
     </p>
-    <button
-      onClick={() => window.history.back()}
+    <Button
+      onClick={onClear}
+      variant={"outline"}
       className="inline-flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
     >
-      <svg
-        className="mr-1 h-4 w-4"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M15 19l-7-7 7-7"
-        />
-      </svg>
-      Clear search
-    </button>
+      Clear search <IconTrashBin className="w-4.5 h-4.5" />
+    </Button>
   </div>
 );
 
@@ -142,6 +129,8 @@ const IconsList = () => {
   const [hasError, setHasError] = useState(false);
   const [viewMode, setViewMode] = useState<"grid" | "list" | "minimal">("grid");
 
+  const { copyToClipboard, copied } = useClipboard();
+
   const { filteredIcons, isLoading, isSearching, reloadIcons, totalIcons } =
     useIconLoader(searchQuery);
 
@@ -150,16 +139,14 @@ const IconsList = () => {
   // Fast copy handler for IconCard
   const handleCopy = useCallback((name: string, style: IconStyle) => {
     const componentCode = `<${name}${style === "line" ? "" : ` ${style === "bulk" ? "fill={true}" : "duotone={false} fill={true}"}`}/>`;
-    navigator.clipboard
-      .writeText(componentCode)
-      .then(() => toast.success(`${name} copied!`))
-      .catch(() => toast.error("Failed to copy"));
+
+    copyToClipboard(componentCode, name);
   }, []);
 
   // Download handler
   const handleDownload = useCallback(async (name: string, version: string) => {
     const toastId = toast.loading(`Preparing ${name} for download...`, {
-      description: "This may take a moment",
+      // description: "This may take a moment",
     });
     try {
       const cleanIconName = name.replace("Icon", "");
@@ -187,7 +174,7 @@ const IconsList = () => {
       URL.revokeObjectURL(url);
       toast.success(`${name} downloaded successfully!`, {
         id: toastId,
-        description: "File saved to your downloads folder",
+        // description: "File saved to your downloads folder",
       });
     } catch (err) {
       toast.error("Download failed", {
@@ -246,6 +233,11 @@ const IconsList = () => {
     [debouncedSearch]
   );
 
+  const clear = () => {
+    setInputValue("");
+    setSearchQuery("");
+    handleSearch("");
+  };
   const handleRetry = useCallback(() => {
     setHasError(false);
     reloadIcons();
@@ -254,7 +246,9 @@ const IconsList = () => {
   // Render IconGrid based on current view mode
   const renderIconGrid = () => {
     if (filteredIcons.length === 0) {
-      return searchQuery ? <EmptyState query={searchQuery} /> : null;
+      return searchQuery ? (
+        <EmptyState query={searchQuery} onClear={clear} />
+      ) : null;
     }
 
     const iconItems = filteredIcons.slice(0, visibleCount);
@@ -317,12 +311,12 @@ const IconsList = () => {
 
   // Main layout
   return (
-    <div className="min-h-screen w-full bg-gray-50 dark:bg-gray-950 transition-colors duration-200">
+    <div className="min-h-screen w-full bg-icu-200 dark:bg-icu-900 transition-colors duration-200">
       <Suspense fallback={<LoadingFallback />}>
         <div className="flex flex-col h-screen">
           {/* Header */}
-          <header className="sticky top-0 z-10 border-b border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm">
-            <div className="px-4 py-3 max-w-[2000px] mx-auto">
+          <header className="sticky top-0 z-10 px-3 sm:px-4">
+            <div className="px-4 py-3 max-w-[2000px] mx-auto border mt-2 rounded-2xl border-icu-300 dark:border-icu-800/80 bg-icu-100 dark:bg-icu-1100/50">
               <Header
                 count={totalIcons}
                 loadedCount={filteredIcons.length}
