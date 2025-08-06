@@ -23,6 +23,7 @@ import { Toggle } from "@/components/common/Toggle";
 import {
   IconDocumentText,
   IconInfoCircle,
+  IconPalette,
   IconTrashBin2,
 } from "@/components/icons/version01";
 import { Button } from "@/components/common/Button";
@@ -453,192 +454,211 @@ const IconConverter: React.FC = () => {
     <ErrorBoundary
       fallback={<div>Something went wrong. Please try again.</div>}
     >
-      <div className="relative flex flex-col justify-center gap-6 p-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <FileDropzone
-            onDrop={lineDuotoneHandler.handleFiles}
-            onReject={(rejections) =>
-              lineDuotoneHandler.handleRejected(rejections)
-            }
-            label="Line SVGs"
-            accept={{ "image/svg+xml": [".svg"] }}
-            disabled={isProcessing}
-          />
-          <FileDropzone
-            onDrop={boldDuotoneHandler.handleFiles}
-            onReject={(rejections) =>
-              boldDuotoneHandler.handleRejected(rejections)
-            }
-            label="Bulk SVGs"
-            accept={{ "image/svg+xml": [".svg"] }}
-            disabled={isProcessing}
-          />
-          <FileDropzone
-            onDrop={boldHandler.handleFiles}
-            onReject={(rejections) => boldHandler.handleRejected(rejections)}
-            label="Bold SVGs"
-            accept={{ "image/svg+xml": [".svg"] }}
-            disabled={isProcessing}
-          />
+      <div className="p-2">
+        <Card
+          className={cn(
+            "w-full px-4 py-6 rounded-3xl border flex gap-4 items-center",
+            "border-icu-300 bg-icu-100",
+            "dark:border-icu-800/70 dark:bg-icu-1000/60",
+            "text-icu-1100 dark:text-icu-100"
+          )}
+        >
+          <IconPalette className="w-10 h-10 mx-3" fill />
+          <div>
+            <h2 className="text-xl font-medium">Color Palette Creator Tool</h2>
+            <p className="text-sm text-icu-600">
+              This tool is to create color variables/palette for one theme or
+              multiple themes, choose wisely.
+            </p>
+          </div>
+        </Card>
+        <div className="relative flex flex-col justify-center gap-6 mt-2">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <FileDropzone
+              onDrop={lineDuotoneHandler.handleFiles}
+              onReject={(rejections) =>
+                lineDuotoneHandler.handleRejected(rejections)
+              }
+              label="Line SVGs"
+              accept={{ "image/svg+xml": [".svg"] }}
+              disabled={isProcessing}
+            />
+            <FileDropzone
+              onDrop={boldDuotoneHandler.handleFiles}
+              onReject={(rejections) =>
+                boldDuotoneHandler.handleRejected(rejections)
+              }
+              label="Bulk SVGs"
+              accept={{ "image/svg+xml": [".svg"] }}
+              disabled={isProcessing}
+            />
+            <FileDropzone
+              onDrop={boldHandler.handleFiles}
+              onReject={(rejections) => boldHandler.handleRejected(rejections)}
+              label="Bold SVGs"
+              accept={{ "image/svg+xml": [".svg"] }}
+              disabled={isProcessing}
+            />
+          </div>
+
+          <Card className={cn("p-6 border rounded-4xl flex flex-col gap-6")}>
+            <div className="flex items-center justify-between">
+              <label
+                htmlFor="iconPropsPath"
+                className="flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
+              >
+                Path for{" "}
+                <kbd className="px-2 rounded-lg py-1 dark:bg-icu-1000 dark:text-icu-500">
+                  &#60;IconProps&#62;
+                </kbd>
+                <Button
+                  className="!p-1 rounded-xl"
+                  variant={"subtle"}
+                  size={"icon"}
+                  onClick={() => {
+                    openTray();
+                  }}
+                >
+                  <IconInfoCircle className="size-8 p-1 rounded-xl cursor-pointer transition-colors duration-300" />
+                </Button>
+              </label>
+
+              <div className="flex items-center gap-4">
+                <Toggle
+                  label="Keywords"
+                  size="lg"
+                  className="h-12"
+                  pressed={includeKeywords}
+                  onPressedChange={setIncludeKeywords}
+                  disabled={!isReady || isProcessing}
+                  icon={
+                    includeKeywords ? (
+                      <IconDocumentText className="size-5" fill />
+                    ) : (
+                      <IconDocumentText className="size-5" />
+                    )
+                  }
+                />
+                <GenerateButton
+                  onClick={generateComponents}
+                  disabled={!isReady || isProcessing}
+                  loading={isProcessing}
+                  progress={generateProgress}
+                />
+              </div>
+            </div>
+            {(lineDuotoneHandler.files.length > 0 ||
+              boldDuotoneHandler.files.length > 0 ||
+              boldHandler.files.length > 0) && (
+              <>
+                {lineDuotoneHandler.files.length > 0 && (
+                  <div className="flex justify-center-center flex-col gap-2">
+                    <div className="flex items-end justify-between">
+                      <label
+                        htmlFor="bulkIconsList"
+                        className="pl-3 flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
+                      >
+                        Line Icon Files
+                        <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
+                          {lineDuotoneHandler.files.length}
+                        </kbd>
+                      </label>
+                      <Button
+                        onClick={() => clearType("lineDuotone")}
+                        variant="danger"
+                        className="h-fit gap-2 whitespace-nowrap"
+                        disabled={isProcessing}
+                      >
+                        Clear Line{" "}
+                        <IconTrashBin2 className="size-5" duotone={false} />
+                      </Button>
+                    </div>
+                    <FileList
+                      {...lineDuotoneHandler}
+                      type="lineDuotone"
+                      disabled={isProcessing}
+                      onClear={() => clearType("lineDuotone")}
+                    />
+                  </div>
+                )}
+
+                {boldDuotoneHandler.files.length > 0 && (
+                  <div className="flex justify-center-center flex-col gap-2">
+                    <div className="flex items-end justify-between">
+                      <label
+                        htmlFor="bulkIconsList"
+                        className="pl-3 flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
+                      >
+                        Bulk Icon Files
+                        <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
+                          {boldDuotoneHandler.files.length}
+                        </kbd>
+                      </label>
+                      <Button
+                        onClick={() => clearType("boldDuotone")}
+                        variant="danger"
+                        className="h-fit gap-2 whitespace-nowrap"
+                        disabled={isProcessing}
+                      >
+                        Clear Bulk{" "}
+                        <IconTrashBin2 className="size-5" duotone={false} />
+                      </Button>
+                    </div>
+                    <FileList
+                      {...boldDuotoneHandler}
+                      type="boldDuotone"
+                      disabled={isProcessing}
+                      onClear={() => clearType("boldDuotone")}
+                    />
+                  </div>
+                )}
+
+                {boldHandler.files.length > 0 && (
+                  <div className="flex justify-center-center flex-col gap-2">
+                    <div className="flex items-end justify-between">
+                      <label
+                        htmlFor="bulkIconsList"
+                        className="pl-3 flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
+                      >
+                        Bold Files
+                        <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
+                          {boldHandler.files.length}
+                        </kbd>
+                      </label>
+                      <Button
+                        onClick={() => clearType("bold")}
+                        variant="danger"
+                        className="h-fit gap-2 whitespace-nowrap"
+                        disabled={isProcessing}
+                      >
+                        Clear Bold
+                        <IconTrashBin2 className="size-5" duotone={false} />
+                      </Button>
+                    </div>
+                    <FileList
+                      {...boldHandler}
+                      type="bold"
+                      disabled={isProcessing}
+                      onClear={() => clearType("bold")}
+                    />
+                  </div>
+                )}
+              </>
+            )}
+          </Card>
+
+          {state.logs.length > 0 && (
+            <ResultsSection
+              {...state}
+              names={lineDuotoneHandler.names}
+              onClear={clearGenerated}
+              disabled={isProcessing}
+            />
+          )}
         </div>
 
-        <Card className={cn("p-6 border rounded-4xl flex flex-col gap-6")}>
-          <div className="flex items-center justify-between">
-            <label
-              htmlFor="iconPropsPath"
-              className="flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
-            >
-              Path for{" "}
-              <kbd className="px-2 rounded-lg py-1 dark:bg-icu-1000 dark:text-icu-500">
-                &#60;IconProps&#62;
-              </kbd>
-              <Button
-                className="!p-1 rounded-xl"
-                variant={"subtle"}
-                size={"icon"}
-                onClick={() => {
-                  openTray();
-                }}
-              >
-                <IconInfoCircle className="size-8 p-1 rounded-xl cursor-pointer transition-colors duration-300" />
-              </Button>
-            </label>
-
-            <div className="flex items-center gap-4">
-              <Toggle
-                label="Keywords"
-                size="lg"
-                className="h-12"
-                pressed={includeKeywords}
-                onPressedChange={setIncludeKeywords}
-                disabled={!isReady || isProcessing}
-                icon={
-                  includeKeywords ? (
-                    <IconDocumentText className="size-5" fill />
-                  ) : (
-                    <IconDocumentText className="size-5" />
-                  )
-                }
-              />
-              <GenerateButton
-                onClick={generateComponents}
-                disabled={!isReady || isProcessing}
-                loading={isProcessing}
-                progress={generateProgress}
-              />
-            </div>
-          </div>
-          {(lineDuotoneHandler.files.length > 0 ||
-            boldDuotoneHandler.files.length > 0 ||
-            boldHandler.files.length > 0) && (
-            <>
-              {lineDuotoneHandler.files.length > 0 && (
-                <div className="flex justify-center-center flex-col gap-2">
-                  <div className="flex items-end justify-between">
-                    <label
-                      htmlFor="bulkIconsList"
-                      className="pl-3 flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
-                    >
-                      Line Icon Files
-                      <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
-                        {lineDuotoneHandler.files.length}
-                      </kbd>
-                    </label>
-                    <Button
-                      onClick={() => clearType("lineDuotone")}
-                      variant="danger"
-                      className="h-fit gap-2 whitespace-nowrap"
-                      disabled={isProcessing}
-                    >
-                      Clear Line{" "}
-                      <IconTrashBin2 className="size-5" duotone={false} />
-                    </Button>
-                  </div>
-                  <FileList
-                    {...lineDuotoneHandler}
-                    type="lineDuotone"
-                    disabled={isProcessing}
-                    onClear={() => clearType("lineDuotone")}
-                  />
-                </div>
-              )}
-
-              {boldDuotoneHandler.files.length > 0 && (
-                <div className="flex justify-center-center flex-col gap-2">
-                  <div className="flex items-end justify-between">
-                    <label
-                      htmlFor="bulkIconsList"
-                      className="pl-3 flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
-                    >
-                      Bulk Icon Files
-                      <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
-                        {boldDuotoneHandler.files.length}
-                      </kbd>
-                    </label>
-                    <Button
-                      onClick={() => clearType("boldDuotone")}
-                      variant="danger"
-                      className="h-fit gap-2 whitespace-nowrap"
-                      disabled={isProcessing}
-                    >
-                      Clear Bulk{" "}
-                      <IconTrashBin2 className="size-5" duotone={false} />
-                    </Button>
-                  </div>
-                  <FileList
-                    {...boldDuotoneHandler}
-                    type="boldDuotone"
-                    disabled={isProcessing}
-                    onClear={() => clearType("boldDuotone")}
-                  />
-                </div>
-              )}
-
-              {boldHandler.files.length > 0 && (
-                <div className="flex justify-center-center flex-col gap-2">
-                  <div className="flex items-end justify-between">
-                    <label
-                      htmlFor="bulkIconsList"
-                      className="pl-3 flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
-                    >
-                      Bold Files
-                      <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
-                        {boldHandler.files.length}
-                      </kbd>
-                    </label>
-                    <Button
-                      onClick={() => clearType("bold")}
-                      variant="danger"
-                      className="h-fit gap-2 whitespace-nowrap"
-                      disabled={isProcessing}
-                    >
-                      Clear Bold
-                      <IconTrashBin2 className="size-5" duotone={false} />
-                    </Button>
-                  </div>
-                  <FileList
-                    {...boldHandler}
-                    type="bold"
-                    disabled={isProcessing}
-                    onClear={() => clearType("bold")}
-                  />
-                </div>
-              )}
-            </>
-          )}
-        </Card>
-
-        {state.logs.length > 0 && (
-          <ResultsSection
-            {...state}
-            names={lineDuotoneHandler.names}
-            onClear={clearGenerated}
-            disabled={isProcessing}
-          />
-        )}
+        <Tray />
       </div>
-
-      <Tray />
     </ErrorBoundary>
   );
 };
