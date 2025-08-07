@@ -6,6 +6,8 @@ import { Button } from "./Button";
 import { cn, useResizeObserver } from "@/hooks";
 import CodeHighlight from "./Code";
 import IconCopy3 from "../icons/version01/Copy3";
+import { useClipboard } from "@/hooks/useClipboard";
+import { IconCheck } from "../icons/version01";
 
 const backdropVariants = {
   initial: {
@@ -50,6 +52,8 @@ const containerVariants = {
 };
 
 const DefaultView = () => {
+  const { copyToClipboard, copied } = useClipboard();
+
   const { openTray } = useContext(TrayContext) as TrayProviderProps;
   const codeText = `export interface IconProps {
     className?: string;
@@ -57,18 +61,16 @@ const DefaultView = () => {
     duotone?: boolean;
     width?: string | number;
 }`;
+
   const handleCopy = () => {
-    navigator.clipboard.writeText(codeText);
-    toast.success("Copied to clipboard!", {
-      className: "toast-success",
-    });
+    copyToClipboard(codeText);
   };
 
   return (
     <div className="private-key__container">
       <div className="px-4">
         <div className="flex justify-between items-center my-4">
-          <h3 className="text-xl text-icu-800 dark:text-icu-400 font-bold">
+          <h3 className="text-xl text-icu-800 dark:text-icu-100 font-bold">
             Icon Props
           </h3>
         </div>
@@ -78,17 +80,26 @@ const DefaultView = () => {
         </p>
       </div>
 
-      <div className="p-4 rounded-3xl flex flex-col bg-icu-200 dark:bg-icu-1000/70">
-        <div className="pb-2 border-b mb-3 flex justify-between items-center border-icu-300 dark:border-icu-900/50">
+      <div className="p-4 rounded-3xl flex flex-col border border-icu-300 dark:border-icu-800/80 bg-icu-200 dark:bg-icu-1000/70">
+        <div className="pb-3 border-b mb-3 flex justify-between items-center border-icu-300 dark:border-icu-900/50">
           <span className="text-icu-900 dark:text-icu-400">Types</span>
           <Button
-            variant={"neutral"}
+            variant={"subtle"}
             size={"sm"}
             onClick={handleCopy}
             className="flex items-center gap-2 text-sm rounded-lg transition-colors"
           >
-            <IconCopy3 className="size-4" />
-            Copy
+            {copied ? (
+              <>
+                Copied
+                <IconCheck className="size-5" duotone={false} />
+              </>
+            ) : (
+              <>
+                Copy
+                <IconCopy3 className="size-4" duotone={false} />
+              </>
+            )}
           </Button>
         </div>
         <code className="whitespace-pre-wrap">

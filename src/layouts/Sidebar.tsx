@@ -146,7 +146,7 @@ const Sidebar = forwardRef<HTMLElement>((props, ref) => {
         <div
           className={cn(
             "!relative h-full rounded-3xl flex flex-col",
-            "bg-icu-100/60",
+            "bg-icu-100",
             "dark:bg-icu-1100/50"
           )}
         >

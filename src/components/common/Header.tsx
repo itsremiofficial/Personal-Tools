@@ -2,11 +2,8 @@ import React, { useEffect, useState } from "react";
 import { SearchBar } from "./SearchBar";
 import { Button } from "./Button";
 import { IconAltArrowDown, IconBackpack } from "../icons/version01";
-import { cn } from "@/hooks";
 import { Dropdown } from "./Select";
-import { LoadingSpinner } from "./LoadingSpinner";
 import { Tooltip } from "./Tooltip";
-import { motion, AnimatePresence } from "framer-motion";
 
 interface HeaderProps {
   count: number;
@@ -104,25 +101,25 @@ export const Header: React.FC<HeaderProps> = ({
   // Default header
   if (variant === "default") {
     return (
-      <div className="flex flex-col sm:flex-row w-full justify-between items-center gap-3">
-        <div className="flex items-center gap-3 w-full sm:w-auto">
+      <div className="flex flex-col sm:flex-row w-full justify-between items-center gap-3 ">
+        <div className="flex items-center gap-3 w-full sm:w-auto ">
           <div className="flex items-center gap-2">
             <h1 className="text-base sm:text-lg font-medium text-gray-900 dark:text-gray-50">
               Icons Library
             </h1>
-            <div className="inline-flex h-6 items-center rounded-full border border-gray-200 dark:border-gray-800 px-2.5 text-xs font-medium text-gray-600 dark:text-gray-400">
+            <div className="inline-flex h-6 w-22 justify-center items-center rounded-full border border-gray-200 dark:border-gray-800 px-2.5 text-xs font-medium text-gray-600 dark:text-gray-400">
               {loadedCount ?? count}/{count}
             </div>
-            {isLoading && (
-              <LoadingSpinner className="w-4 h-4 text-gray-400 dark:text-gray-500" />
-            )}
+          </div>
+          <div className="flex-1 sm:w-64 max-w-sm">
+            <SearchBar {...searchProps} variant="embedded" />
           </div>
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
           {/* View mode toggle */}
           {onViewModeChange && (
-            <div className="hidden sm:flex rounded-lg border border-gray-200 dark:border-gray-800 p-1 mr-1">
+            <div className="hidden sm:flex gap-1 rounded-lg border border-gray-200 dark:border-gray-800 dark:bg-icu-1000 p-1 mr-1">
               <Tooltip
                 trigger={
                   <Button
@@ -212,7 +209,7 @@ export const Header: React.FC<HeaderProps> = ({
               <Button
                 variant="outline"
                 size="sm"
-                className="h-9 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 gap-2"
+                className="h-9 border border-gray-200 dark:border-icu-800/70 bg-white dark:bg-icu-1000/70 text-gray-700 dark:text-gray-300 gap-2 rounded-lg"
               >
                 {styleItems.find((item) => item.isSelected)?.icon}
                 <span className="text-sm hidden sm:inline">
@@ -221,7 +218,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <IconAltArrowDown className="h-3.5 w-3.5 text-gray-400" />
               </Button>
             }
-            className="w-auto"
+            className="w-auto "
             items={styleItems}
             menuClasses={{
               content:
@@ -236,9 +233,6 @@ export const Header: React.FC<HeaderProps> = ({
               disabled: "opacity-50 cursor-not-allowed",
             }}
           />
-          <div className="flex-1 sm:w-64 max-w-sm">
-            <SearchBar {...searchProps} variant="default" />
-          </div>
         </div>
       </div>
     );

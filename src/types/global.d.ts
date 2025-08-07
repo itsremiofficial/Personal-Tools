@@ -1,4 +1,3 @@
-
 declare global {
   interface IconProps {
     className?: string;
@@ -66,7 +65,7 @@ declare global {
       bold: string[];
     };
   }
-  
+
   interface ResultsSectionProps {
     outputs: string[];
     logs: string[];
@@ -123,6 +122,7 @@ declare global {
   }
 
   interface ToggleSwitchProps {
+    className?: string;
     label: string;
     icon?: ReactNode;
     pressed: boolean;
