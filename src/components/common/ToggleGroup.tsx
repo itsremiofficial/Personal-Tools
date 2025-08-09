@@ -8,8 +8,8 @@ const toggleGroupVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gray-100 dark:bg-gray-800/50",
-        outline: "border border-gray-200 dark:border-gray-800",
+        default: "bg-icu-100 dark:bg-icu-900/80",
+        outline: "border border-icu-200 dark:border-icu-800",
         ghost: "bg-transparent",
       },
       size: {
@@ -91,22 +91,22 @@ const toggleGroupItemVariants = cva(
     variants: {
       variant: {
         default: [
-          "hover:bg-gray-200 hover:text-gray-900",
-          "data-[state=on]:bg-gray-800 data-[state=on]:text-gray-50",
-          "dark:hover:bg-gray-800 dark:hover:text-gray-200 dark:text-gray-400",
-          "dark:data-[state=on]:bg-gray-950 dark:data-[state=on]:text-gray-300 dark:data-[state=on]:font-bold",
+          "hover:bg-icu-200 hover:text-icu-900",
+          "data-[state=on]:bg-icu-1100 data-[state=on]:text-icu-100",
+          "dark:hover:bg-icu-1100 dark:hover:text-icu-200 dark:text-icu-400",
+          "dark:data-[state=on]:bg-icu-1100 dark:data-[state=on]:text-icu-300 dark:data-[state=on]:font-bold",
         ],
         outline: [
-          "hover:bg-gray-100 hover:text-gray-900",
-          "data-[state=on]:bg-gray-900 data-[state=on]:text-gray-50",
-          "dark:hover:bg-gray-800 dark:hover:text-gray-200",
-          "dark:data-[state=on]:bg-gray-100 dark:data-[state=on]:text-gray-900",
+          "hover:bg-icu-100 hover:text-icu-900",
+          "data-[state=on]:bg-icu-900 data-[state=on]:text-icu-50",
+          "dark:hover:bg-icu-800 dark:hover:text-icu-200",
+          "dark:data-[state=on]:bg-icu-100 dark:data-[state=on]:text-icu-900",
         ],
         ghost: [
-          "hover:bg-gray-100 hover:text-gray-900",
-          "data-[state=on]:bg-gray-100 data-[state=on]:text-gray-900",
-          "dark:hover:bg-gray-800 dark:hover:text-gray-200",
-          "dark:data-[state=on]:bg-gray-800 dark:data-[state=on]:text-gray-100",
+          "hover:bg-icu-100 hover:text-icu-900",
+          "data-[state=on]:bg-icu-100 data-[state=on]:text-icu-900",
+          "dark:hover:bg-icu-800 dark:hover:text-icu-200",
+          "dark:data-[state=on]:bg-icu-800 dark:data-[state=on]:text-icu-100",
         ],
       },
       size: {

@@ -17,6 +17,8 @@ import { useClipboard } from "@/hooks/useClipboard";
 import { cn } from "@/hooks";
 import { Button } from "@/components/common/Button";
 import { IconCloseCircle, IconTrashBin } from "@/components/icons/version01";
+import Spinner from "@/components/common/Spinner";
+import { LoadingSpinner } from "@/components/common/LoadingSpinner";
 
 const PAGE_SIZE = 100;
 
@@ -31,9 +33,9 @@ const LoadingSkeleton = ({
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-3 sm:gap-4 p-4">
         {Array.from({ length: 24 }).map((_, i) => (
           <div key={i} className="flex flex-col space-y-2">
-            <div className="aspect-square rounded-xl bg-gray-100 dark:bg-gray-800 animate-pulse" />
-            <div className="h-3.5 w-1/2 rounded-lg bg-gray-100 dark:bg-gray-800 animate-pulse" />
-            <div className="h-6 w-full rounded-lg bg-gray-100 dark:bg-gray-800 animate-pulse" />
+            <div className="aspect-square rounded-xl bg-icu-100 dark:bg-icu-800 animate-pulse" />
+            <div className="h-3.5 w-1/2 rounded-lg bg-icu-100 dark:bg-icu-800 animate-pulse" />
+            <div className="h-6 w-full rounded-lg bg-icu-100 dark:bg-icu-800 animate-pulse" />
           </div>
         ))}
       </div>
@@ -42,12 +44,12 @@ const LoadingSkeleton = ({
       <div className="space-y-2 p-4">
         {Array.from({ length: 10 }).map((_, i) => (
           <div key={i} className="flex items-center space-x-3">
-            <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-800 animate-pulse" />
+            <div className="w-12 h-12 rounded-lg bg-icu-100 dark:bg-icu-800 animate-pulse" />
             <div className="flex-1">
-              <div className="h-3.5 w-1/3 rounded-lg bg-gray-100 dark:bg-gray-800 animate-pulse mb-2" />
-              <div className="h-3 w-1/2 rounded-lg bg-gray-100 dark:bg-gray-800 animate-pulse" />
+              <div className="h-3.5 w-1/3 rounded-lg bg-icu-100 dark:bg-icu-800 animate-pulse mb-2" />
+              <div className="h-3 w-1/2 rounded-lg bg-icu-100 dark:bg-icu-800 animate-pulse" />
             </div>
-            <div className="w-24 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 animate-pulse" />
+            <div className="w-24 h-8 rounded-lg bg-icu-100 dark:bg-icu-800 animate-pulse" />
           </div>
         ))}
       </div>
@@ -57,7 +59,7 @@ const LoadingSkeleton = ({
         {Array.from({ length: 36 }).map((_, i) => (
           <div
             key={i}
-            className="aspect-square rounded-lg bg-gray-100 dark:bg-neu-800 animate-pulse"
+            className="aspect-square rounded-lg bg-icu-100 dark:bg-neu-800 animate-pulse"
           />
         ))}
       </div>
@@ -79,23 +81,23 @@ const EmptyState = ({
     <div className="h-20 w-20 rounded-full flex items-center justify-center mb-4">
       <IconCloseCircle
         fill
-        className={cn("w-20 h-20 text-gray-1000 dark:text-icu-400 ")}
+        className={cn("w-20 h-20 text-icu-1000 dark:text-icu-400 ")}
         width={1}
       />
     </div>
-    <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
+    <h3 className="text-lg font-medium text-icu-900 dark:text-icu-100 mb-2">
       No icons found
     </h3>
-    <p className="text-gray-600 dark:text-gray-400 max-w-md mb-4">
+    <p className="text-icu-600 dark:text-icu-400 max-w-md mb-4">
       No results found for{"  "}
-      <span className="font-medium text-gray-900 dark:text-gray-200 dark:bg-icu-900 p-1 rounded-md">
+      <span className="font-medium text-icu-900 dark:text-icu-200 dark:bg-icu-900 p-1 rounded-md">
         "{query}"
       </span>
     </p>
     <Button
       onClick={onClear}
       variant={"outline"}
-      className="inline-flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
+      className="inline-flex items-center text-sm text-icu-600 dark:text-icu-400 hover:text-icu-900 dark:hover:text-icu-200"
     >
       Clear search <IconTrashBin className="w-4.5 h-4.5" />
     </Button>
@@ -104,16 +106,16 @@ const EmptyState = ({
 
 // Enhanced loading state
 const LoadingFallback = () => (
-  <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-950 space-y-6">
+  <div className="flex flex-col items-center justify-center min-h-screen bg-icu-50 dark:bg-icu-950 space-y-6">
     <div className="relative flex items-center justify-center">
-      <div className="absolute inset-0 rounded-full border-2 border-gray-200 dark:border-gray-800 opacity-30" />
-      <div className="animate-spin h-10 w-10 rounded-full border-2 border-gray-300 dark:border-gray-700 border-t-gray-500 dark:border-t-gray-400" />
+      <div className="absolute inset-0 rounded-full border-2 border-icu-200 dark:border-icu-800 opacity-30" />
+      <div className="animate-spin h-10 w-10 rounded-full border-2 border-icu-300 dark:border-icu-700 border-t-icu-500 dark:border-t-icu-400" />
     </div>
     <div className="text-center space-y-1.5">
-      <h3 className="text-base font-medium text-gray-900 dark:text-gray-100">
+      <h3 className="text-base font-medium text-icu-900 dark:text-icu-100">
         Loading Icons
       </h3>
-      <p className="text-sm text-gray-500 dark:text-gray-400">
+      <p className="text-sm text-icu-500 dark:text-icu-400">
         Preparing your icon library...
       </p>
     </div>
@@ -253,60 +255,21 @@ const IconsList = () => {
 
     const iconItems = filteredIcons.slice(0, visibleCount);
 
-    switch (viewMode) {
-      case "grid":
-        return (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-2 sm:gap-3 md:gap-4">
-            {iconItems.map((icon) => (
-              <IconCard
-                key={`${icon.name}-${icon.version}`}
-                {...icon}
-                currentStyle={globalStyle}
-                onStyleChange={setGlobalStyle}
-                onCopy={(style) => handleCopy(icon.name, style)}
-                onDownload={() => handleDownload(icon.name, icon.version)}
-                variant="default"
-              />
-            ))}
-          </div>
-        );
-
-      case "list":
-        return (
-          <div className="space-y-2">
-            {iconItems.map((icon) => (
-              <IconCard
-                key={`list-${icon.name}-${icon.version}`}
-                {...icon}
-                currentStyle={globalStyle}
-                onStyleChange={setGlobalStyle}
-                onCopy={(style) => handleCopy(icon.name, style)}
-                onDownload={() => handleDownload(icon.name, icon.version)}
-                variant="compact"
-              />
-            ))}
-          </div>
-        );
-
-      case "minimal":
-        return (
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12 gap-2">
-            {iconItems.map((icon) => (
-              <IconCard
-                key={`min-${icon.name}-${icon.version}`}
-                {...icon}
-                currentStyle={globalStyle}
-                onStyleChange={setGlobalStyle}
-                onCopy={(style) => handleCopy(icon.name, style)}
-                onDownload={() => handleDownload(icon.name, icon.version)}
-                variant="minimal"
-              />
-            ))}
-          </div>
-        );
-      default:
-        return null;
-    }
+    return (
+      <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
+        {iconItems.map((icon) => (
+          <IconCard
+            key={`${icon.name}-${icon.version}`}
+            {...icon}
+            currentStyle={globalStyle}
+            onStyleChange={setGlobalStyle}
+            onCopy={(style) => handleCopy(icon.name, style)}
+            onDownload={() => handleDownload(icon.name, icon.version)}
+            variant="default"
+          />
+        ))}
+      </div>
+    );
   };
 
   // Main layout
@@ -316,7 +279,7 @@ const IconsList = () => {
         <div className="flex flex-col h-screen">
           {/* Header */}
           <header className="sticky top-0 z-10 px-3 sm:px-4">
-            <div className="px-4 py-3 max-w-[2000px] mx-auto border mt-2 rounded-2xl border-icu-300 dark:border-icu-800/80 bg-icu-100 dark:bg-icu-1100/50">
+            <div className="px-4 py-3 w-full mx-auto border mt-2 rounded-2xl border-icu-300 dark:border-icu-800/80 bg-icu-100 dark:bg-icu-1100/50">
               <Header
                 count={totalIcons}
                 loadedCount={filteredIcons.length}
@@ -330,9 +293,6 @@ const IconsList = () => {
                 }}
                 onStyleChange={setGlobalStyle}
                 currentStyle={globalStyle}
-                viewMode={viewMode}
-                onViewModeChange={setViewMode}
-                variant={viewMode === "minimal" ? "compact" : "default"}
               />
             </div>
           </header>
@@ -343,10 +303,10 @@ const IconsList = () => {
             className="flex-1 overflow-auto relative"
             style={{
               scrollbarWidth: "thin",
-              scrollbarColor: "rgb(156 163 175) transparent", // Updated to gray color
+              scrollbarColor: "rgb(156 163 175) transparent",
             }}
           >
-            <div className="px-3 sm:px-4 py-4 max-w-[2000px] mx-auto">
+            <div className="px-3 sm:px-4 py-4 w-full mx-auto">
               {isLoading && filteredIcons.length === 0 ? (
                 <LoadingSkeleton viewMode={viewMode} />
               ) : (
@@ -366,8 +326,8 @@ const IconsList = () => {
               {/* Loading indicator */}
               {visibleCount < filteredIcons.length && (
                 <div className="flex justify-center items-center py-6">
-                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-xs text-gray-600 dark:text-gray-400">
-                    <div className="h-1.5 w-1.5 rounded-full bg-gray-400 dark:bg-gray-500 animate-pulse" />
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-icu-100 dark:bg-icu-1100 text-xs text-icu-600 dark:text-white">
+                    <LoadingSpinner className="w-4 h-4 text-icu-600 dark:text-white" />
                     Loading more icons
                   </div>
                 </div>
@@ -377,7 +337,7 @@ const IconsList = () => {
               {visibleCount >= filteredIcons.length &&
                 filteredIcons.length > 0 && (
                   <div className="py-6 text-center">
-                    <div className="inline-block px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-full">
+                    <div className="inline-block px-3 py-1.5 text-xs text-icu-500 dark:text-icu-400 bg-icu-100 dark:bg-icu-800 rounded-full">
                       {filteredIcons.length} icons
                     </div>
                   </div>

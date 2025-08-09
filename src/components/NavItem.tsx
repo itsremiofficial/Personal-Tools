@@ -26,11 +26,10 @@ export const NavItem = React.memo(
           "transition-colors duration-300",
           "text-icu-800 hover:text-icu-900",
           "bg-icu-200 hover:bg-icu-400/60",
-          "dark:text-icu-700 dark:hover:text-icu-100",
+          "dark:text-icu-500 dark:hover:text-icu-100",
           "dark:bg-icu-800/40 dark:hover:bg-icu-800",
           !isOpen && "max-h-[75px] aspect-square",
-          isActive &&
-            "bg-icu-400/60 text-icu-900 dark:bg-icu-800 dark:text-icu-300"
+          isActive && "bg-icu-400 text-icu-1100 dark:bg-icu-800 dark:text-white"
         )}
         layout
         layoutDependency={isOpen}
@@ -45,7 +44,7 @@ export const NavItem = React.memo(
           <div className={cn(!isOpen ? "" : "w-1/8")}>
             <IconComponent
               fill={isActive}
-              duotone={false}
+              // duotone={false}
               className="w-7 h-7 !aspect-square"
             />
           </div>

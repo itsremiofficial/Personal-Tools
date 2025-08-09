@@ -15,7 +15,7 @@ const buttonVariants = cva(
         ghost:
           "bg-transparent hover:bg-gray-100 text-gray-700 hover:text-gray-900 active:bg-gray-200 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:active:bg-gray-700",
         subtle:
-          "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900 active:bg-gray-300 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-100 dark:active:bg-gray-600",
+          "bg-icu-300 text-gray-700 hover:bg-icu-400 hover:text-gray-900 active:bg-gray-300 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-100 dark:active:bg-gray-600",
         link: "bg-transparent underline-offset-4 hover:underline text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100",
         danger:
           "bg-red-100 text-red-600 hover:bg-red-200 hover:text-red-700 active:bg-red-300 dark:bg-red-900/20 dark:text-red-400 dark:hover:bg-red-900/30 dark:hover:text-red-300",

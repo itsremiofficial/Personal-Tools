@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { SearchBar } from "./SearchBar";
 import { Button } from "./Button";
-import { IconAltArrowDown, IconBackpack } from "../icons/version01";
-import { Dropdown } from "./Select";
-import { Tooltip } from "./Tooltip";
+import {
+  Icon4K,
+  IconAirbudsCaseMinimalistic,
+  IconBackpack,
+} from "../icons/version01";
+import { cn } from "@/hooks";
 
 interface HeaderProps {
   count: number;
@@ -18,9 +21,6 @@ interface HeaderProps {
   onStyleChange?: (style: IconStyle) => void;
   currentStyle?: IconStyle;
   isLoading: boolean;
-  variant?: "default" | "compact";
-  viewMode?: "grid" | "list" | "minimal";
-  onViewModeChange?: (mode: "grid" | "list" | "minimal") => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -30,9 +30,6 @@ export const Header: React.FC<HeaderProps> = ({
   onStyleChange,
   currentStyle = "line",
   isLoading,
-  variant = "default",
-  viewMode = "grid",
-  onViewModeChange,
 }) => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -49,31 +46,24 @@ export const Header: React.FC<HeaderProps> = ({
 
   const styleItems = [
     {
-      label: "Line Style",
+      label: "Line",
       onClick: () => onStyleChange?.("line"),
-      icon: <IconBackpack className="text-gray-700 dark:text-gray-300" />,
+      icon: <IconAirbudsCaseMinimalistic className="size-5" />,
       isSelected: currentStyle === "line",
-      shortcut: "⌘1",
     },
     {
-      label: "Bulk Style",
+      label: "Bulk",
       onClick: () => onStyleChange?.("bulk"),
-      icon: <IconBackpack fill className="text-gray-700 dark:text-gray-300" />,
+      icon: <IconAirbudsCaseMinimalistic fill className="size-5" />,
       isSelected: currentStyle === "bulk",
-      shortcut: "⌘2",
     },
     {
-      label: "Bold Style",
+      label: "Bold",
       onClick: () => onStyleChange?.("bold"),
       icon: (
-        <IconBackpack
-          fill
-          duotone={false}
-          className="text-gray-700 dark:text-gray-300"
-        />
+        <IconAirbudsCaseMinimalistic fill duotone={false} className="size-5" />
       ),
       isSelected: currentStyle === "bold",
-      shortcut: "⌘3",
     },
   ];
 
@@ -98,227 +88,45 @@ export const Header: React.FC<HeaderProps> = ({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onStyleChange]);
 
-  // Default header
-  if (variant === "default") {
-    return (
-      <div className="flex flex-col sm:flex-row w-full justify-between items-center gap-3 ">
-        <div className="flex items-center gap-3 w-full sm:w-auto ">
-          <div className="flex items-center gap-2">
-            <h1 className="text-base sm:text-lg font-medium text-gray-900 dark:text-gray-50">
-              Icons Library
-            </h1>
-            <div className="inline-flex h-6 w-22 justify-center items-center rounded-full border border-gray-200 dark:border-gray-800 px-2.5 text-xs font-medium text-gray-600 dark:text-gray-400">
-              {loadedCount ?? count}/{count}
-            </div>
-          </div>
-          <div className="flex-1 sm:w-64 max-w-sm">
-            <SearchBar {...searchProps} variant="embedded" />
-          </div>
-        </div>
-
-        <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
-          {/* View mode toggle */}
-          {onViewModeChange && (
-            <div className="hidden sm:flex gap-1 rounded-lg border border-gray-200 dark:border-gray-800 dark:bg-icu-1000 p-1 mr-1">
-              <Tooltip
-                trigger={
-                  <Button
-                    size="icon-sm"
-                    variant="ghost"
-                    isActive={viewMode === "grid"}
-                    onClick={() => onViewModeChange("grid")}
-                    className="rounded-md"
-                  >
-                    <svg
-                      className="h-4 w-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                      />
-                    </svg>
-                  </Button>
-                }
-                content="Grid View"
-                side="bottom"
-              />
-              <Tooltip
-                trigger={
-                  <Button
-                    size="icon-sm"
-                    variant="ghost"
-                    isActive={viewMode === "list"}
-                    onClick={() => onViewModeChange("list")}
-                    className="rounded-md"
-                  >
-                    <svg
-                      className="h-4 w-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M4 6h16M4 12h16M4 18h16"
-                      />
-                    </svg>
-                  </Button>
-                }
-                content="List View"
-                side="bottom"
-              />
-              <Tooltip
-                trigger={
-                  <Button
-                    size="icon-sm"
-                    variant="ghost"
-                    isActive={viewMode === "minimal"}
-                    onClick={() => onViewModeChange("minimal")}
-                    className="rounded-md"
-                  >
-                    <svg
-                      className="h-4 w-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M3 10h18m-18 4h18m-18-8h18M3 6h18M3 18h18M3 14h18"
-                      />
-                    </svg>
-                  </Button>
-                }
-                content="Minimal View"
-                side="bottom"
-              />
-            </div>
-          )}
-
-          <Dropdown
-            trigger={
-              <Button
-                variant="outline"
-                size="sm"
-                className="h-9 border border-gray-200 dark:border-icu-800/70 bg-white dark:bg-icu-1000/70 text-gray-700 dark:text-gray-300 gap-2 rounded-lg"
-              >
-                {styleItems.find((item) => item.isSelected)?.icon}
-                <span className="text-sm hidden sm:inline">
-                  {styleItems.find((item) => item.isSelected)?.label}
-                </span>
-                <IconAltArrowDown className="h-3.5 w-3.5 text-gray-400" />
-              </Button>
-            }
-            className="w-auto "
-            items={styleItems}
-            menuClasses={{
-              content:
-                "bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl shadow-md z-50",
-              item: "flex items-center text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-2",
-              shortcut: "ml-auto text-xs text-gray-500 dark:text-gray-500",
-            }}
-            optionClasses={{
-              selected:
-                "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100",
-              destructive: "text-red-600 dark:text-red-400",
-              disabled: "opacity-50 cursor-not-allowed",
-            }}
-          />
-        </div>
-      </div>
-    );
-  }
-
-  // Compact header
   return (
-    <div className="flex flex-col w-full gap-2">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-1.5">
-          <h1 className="text-sm font-medium text-gray-900 dark:text-gray-50">
-            Icons
+    <div className="flex flex-col sm:flex-row w-full justify-between items-center gap-3 ">
+      <div className="flex items-center gap-3 w-full">
+        <div className="flex items-center gap-2">
+          <h1 className="text-base sm:text-lg font-medium text-icu-900 dark:text-icu-100">
+            Icons Library
           </h1>
-          <div className="inline-flex h-5 items-center rounded-full border border-gray-200 dark:border-gray-800 px-2 text-xs text-gray-600 dark:text-gray-400">
+          <div className="inline-flex h-6 w-22 leading-none justify-center items-center rounded-full border border-icu-500 dark:border-icu-800 px-2.5 text-xs font-medium text-icu-800 dark:text-icu-400">
             {loadedCount ?? count}/{count}
           </div>
         </div>
-
-        <div className="flex items-center gap-2">
-          {onViewModeChange && (
-            <div className="flex rounded-md border border-gray-200 dark:border-gray-800 p-0.5 mr-1">
-              <Button
-                size="icon-sm"
-                variant="ghost"
-                isActive={viewMode === "grid"}
-                onClick={() => onViewModeChange("grid")}
-                className="h-6 w-6 rounded"
-              >
-                <svg
-                  className="h-3 w-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                  />
-                </svg>
-              </Button>
-              <Button
-                size="icon-sm"
-                variant="ghost"
-                isActive={viewMode === "minimal"}
-                onClick={() => onViewModeChange("minimal")}
-                className="h-6 w-6 rounded"
-              >
-                <svg
-                  className="h-3 w-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M3 10h18m-18 4h18m-18-8h18M3 6h18M3 18h18M3 14h18"
-                  />
-                </svg>
-              </Button>
-            </div>
-          )}
-
-          <Dropdown
-            trigger={
-              <Button variant="subtle" size="sm" className="h-7 py-0 text-xs">
-                {currentStyle}
-                <IconAltArrowDown className="h-3 w-3 ml-1 text-gray-400" />
-              </Button>
-            }
-            items={styleItems}
-            menuClasses={{
-              content:
-                "bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg shadow-md z-50",
-              item: "text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded p-1.5",
-              shortcut: "ml-auto text-xs text-gray-500 dark:text-gray-500",
-            }}
-          />
+        <div className="flex-1">
+          <SearchBar {...searchProps} variant="embedded" />
         </div>
       </div>
 
-      <div className="flex w-full">
-        <SearchBar {...searchProps} variant="minimal" className="flex-1" />
+      <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
+        {/* View mode toggle */}
+        <div className="hidden sm:flex items-center gap-1 rounded-lg border border-icu-400 dark:border-icu-800 dark:bg-icu-1100 p-1">
+          {styleItems.map(({ label, onClick, icon, isSelected }) => (
+            <Button
+              key={label}
+              size={isSelected ? "sm" : "icon"}
+              variant={isSelected ? "subtle" : "ghost"}
+              onClick={onClick}
+              // isActive={isSelected}
+              className={cn(
+                "rounded-md h-8",
+                "text-icu-600 hover:text-icu-1100",
+                "dark:text-icu-700 dark:hover:text-icu-100",
+                isSelected &&
+                  "pr-4 leading-none text-icu-1000 dark:text-icu-100"
+              )}
+            >
+              {icon}
+              {isSelected && label}
+            </Button>
+          ))}
+        </div>
       </div>
     </div>
   );

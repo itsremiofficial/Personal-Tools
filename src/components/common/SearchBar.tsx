@@ -38,23 +38,23 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   const variantClasses = {
     default: cn(
       "w-full h-10 pl-10 pr-10 rounded-xl border text-sm transition-colors",
-      "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700",
-      "placeholder:text-gray-500 dark:placeholder:text-gray-500",
-      "text-gray-900 dark:text-gray-300",
-      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 dark:focus-visible:ring-gray-600 focus-visible:border-gray-300 dark:focus-visible:border-gray-600"
+      "bg-white dark:bg-icu-900 border-icu-200 dark:border-icu-700",
+      "placeholder:text-icu-500 dark:placeholder:text-icu-500",
+      "text-icu-900 dark:text-icu-300",
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-icu-300 dark:focus-visible:ring-icu-600 focus-visible:border-icu-300 dark:focus-visible:border-icu-600"
     ),
     minimal: cn(
       "w-full h-9 pl-9 pr-9 rounded-lg text-sm transition-colors",
-      "bg-gray-50 dark:bg-gray-800 border-none",
-      "placeholder:text-gray-500 dark:placeholder:text-gray-500",
-      "text-gray-900 dark:text-gray-300",
-      "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-300 dark:focus-visible:ring-gray-700"
+      "bg-icu-50 dark:bg-icu-800 border-none",
+      "placeholder:text-icu-500 dark:placeholder:text-icu-500",
+      "text-icu-900 dark:text-icu-300",
+      "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-icu-300 dark:focus-visible:ring-icu-700"
     ),
     embedded: cn(
       "w-full h-10 pl-10 pr-10 rounded-lg text-sm transition-colors",
       "bg-transparent border-none",
-      "placeholder:text-gray-400 dark:placeholder:text-gray-500",
-      "text-gray-900 dark:text-gray-300",
+      "placeholder:text-icu-600 dark:placeholder:text-icu-500",
+      "text-icu-1100 dark:text-icu-300",
       "focus-visible:outline-none"
     ),
   };
@@ -85,12 +85,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           />
           <div className="absolute left-3 top-0 bottom-0 flex items-center pointer-events-none">
             {isLoading ? (
-              <LoadingSpinner className="w-4 h-4 text-gray-400 dark:text-gray-500" />
+              <LoadingSpinner className="w-4 h-4 text-icu-600 dark:text-icu-500" />
             ) : (
               <iv02.IconSearchStatus
                 duotone={variant === "embedded" && false}
                 className={cn(
-                  "w-4 h-4 text-gray-400 dark:text-gray-500",
+                  "w-4 h-4 text-icu-600 dark:text-icu-600",
                   variant === "embedded" && "w-5.5 h-5.5"
                 )}
               />
@@ -109,7 +109,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                 {(variant === "minimal" || variant === "default") && (
                   <button
                     onClick={() => onSearch("")}
-                    className="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-400 cursor-pointer transition-colors duration-300"
+                    className="text-icu-400 hover:text-icu-600 dark:text-icu-500 dark:hover:text-icu-400 cursor-pointer transition-colors duration-300"
                   >
                     <iv01.IconClose className="w-5 h-5" />
                   </button>
