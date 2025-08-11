@@ -480,7 +480,7 @@ const IconConverter: React.FC = () => {
               onReject={(rejections) =>
                 lineDuotoneHandler.handleRejected(rejections)
               }
-              label="Line SVGs"
+              label="Two Tone Line SVGs"
               accept={{ "image/svg+xml": [".svg"] }}
               disabled={isProcessing}
             />

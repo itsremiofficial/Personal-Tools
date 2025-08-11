@@ -110,7 +110,6 @@ const Sidebar = forwardRef<HTMLElement>((props, ref) => {
               animate={{
                 opacity: isOpen ? 1 : 0,
                 width: isOpen ? "auto" : 0,
-                // aspectRatio: isOpen ? "1" : "1/1",
               }}
               exit={{ opacity: 0, width: 0 }}
               transition={{
@@ -214,14 +213,14 @@ const Sidebar = forwardRef<HTMLElement>((props, ref) => {
 
             {/* Theme Toggle Section */}
             <div className="w-full p-2">
-              <div className="w-full flex flex-col items-center dark:border-icu-600/25 border border-icu-200 rounded-2xl p-2 pt-4">
+              <div className="w-full flex flex-col items-center dark:border-icu-700 border border-icu-500 rounded-2xl p-2 pt-4">
                 <span
                   className={cn(
-                    "uppercase text-xs mb-2 font-medium dark:text-icu-600 text-center",
+                    "uppercase text-xs mb-2 font-medium dark:text-icu-200 text-center",
                     isOpen && "self-start ml-2"
                   )}
                 >
-                  Theme Toggle
+                  Toggle Theme
                 </span>
                 <div className="flex flex-wrap w-full gap-2 transition-transform duration-700">
                   <ToggleItem

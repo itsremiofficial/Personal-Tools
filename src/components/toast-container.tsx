@@ -16,7 +16,7 @@ export const ToastContainer = () => {
       visibleToasts={1}
       toastOptions={{
         className: "my-toast",
-        duration: 40000,
+        duration: 3000,
       }}
     />
   );

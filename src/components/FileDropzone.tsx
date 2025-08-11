@@ -65,9 +65,9 @@ export const FileDropzone = React.memo(
         <div
           {...getRootProps()}
           className={cn(
-            "border-2 border-dashed p-6 pb-10 rounded-3xl cursor-pointer transition-colors duration-500 group/input",
-            "border-icu-300/70 hover:border-icu-400",
-            "dark:border-icu-800/70 dark:hover:border-icu-800",
+            "border-2 border-dashed p-6 pb-10 rounded-3xl cursor-pointer transition-colors duration-300 group/input",
+            "border-icu-500/70 hover:border-icu-600/50",
+            "dark:border-icu-700/70 dark:hover:border-icu-600/50",
             "hover:bg-icu-300/70",
             "dark:hover:bg-icu-800/40",
             isDragActive &&
@@ -85,7 +85,7 @@ export const FileDropzone = React.memo(
               "text-icu-600 group-hover/input:!text-icu-700",
               "dark:border-icu-800/70 group-hover/input:dark:border-icu-700/60",
               "dark:!text-icu-600/80 group-hover/input:dark:!text-icu-500",
-              "transition-colors duration-500",
+              "transition-colors duration-300",
               isDragActive &&
                 "!text-icu-700 border-icu-600/60 dark:!text-icu-500 dark:border-icu-700/60"
             )}
@@ -97,7 +97,7 @@ export const FileDropzone = React.memo(
               "flex gap-2 flex-col items-center justify-center text-center",
               "text-icu-700 group-hover/input:text-icu-900",
               "dark:text-icu-700 dark:group-hover/input:text-icu-500",
-              "transition-colors duration-500",
+              "transition-colors duration-300",
               isDragActive && "text-icu-900 dark:text-icu-500"
             )}
           >

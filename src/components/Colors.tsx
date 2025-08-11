@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { generateColorVariants } from "@/hooks/colorVarientsGenerator";
 import { Button } from "./common/Button";
 import { Card, CardBody } from "./common/Card";
-import { IconCheck, IconCopy, IconPalette } from "./icons/version01";
+import { IconCheck, IconCopy, IconCopy3, IconPalette } from "./icons/version01";
 
 export const ColorCodeBlock: React.FC<ColorCodeBlockProps> = ({
   variants,
@@ -363,12 +363,22 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
           )}
 
           <div className="flex flex-col gap-2 py-2">
-            <label
-              htmlFor="Color Variants"
-              className="text-icu-900 dark:text-icu-500"
-            >
-              Color Variants
-            </label>
+            <div className="flex items-center justify-between">
+              <label
+                htmlFor="Color Variants"
+                className="text-icu-900 dark:text-icu-500"
+              >
+                Color Variants
+              </label>
+              <Button
+                onClick={handleCopyAll}
+                variant={"subtle"}
+                size={"sm"}
+                className="w-max flex items-center"
+              >
+                Copy All <IconCopy3 className="size-5" />
+              </Button>
+            </div>
             <div className="flex gap-4">
               <ul className="grow space-y-2">
                 {colorVariants.slice(0, 7).map((variant, index) => (
@@ -397,10 +407,6 @@ const ColorVariants: React.FC<ColorVariantsProps> = ({
               </ul>
             </div>
           </div>
-
-          <Button onClick={handleCopyAll} size={"lg"} className="flex gap-2">
-            Copy All <IconCopy className="size-5" />
-          </Button>
         </CardBody>
         <CardBody className={cn("w-full p-6 rounded-3xl flex flex-col gap-4")}>
           <h3 className="text-icu-1100 dark:text-icu-100">

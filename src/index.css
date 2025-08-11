@@ -123,16 +123,16 @@
     @apply peer-checked:cursor-default peer-checked:pointer-events-none;
 
     /* radio colors */
-    @apply bg-icu-300 hover:bg-icu-300;
-    @apply text-icu-800 hover:text-icu-900;
-    @apply dark:text-icu-200 dark:hover:text-icu-100;
+    @apply bg-icu-300 hover:bg-icu-400;
+    @apply text-icu-1000 hover:text-icu-1100;
+    @apply dark:text-icu-100 dark:hover:text-icu-100;
     @apply dark:bg-icu-800/70 dark:hover:bg-icu-700/50;
 
     /* radio checked colors */
-    @apply peer-checked:bg-icu-300/50 peer-checked:hover:bg-icu-300/50;
+    @apply peer-checked:bg-icu-200 peer-checked:hover:bg-icu-200;
     @apply peer-checked:text-icu-600 peer-checked:hover:text-icu-600;
     @apply peer-checked:dark:bg-icu-900/90 peer-checked:dark:hover:bg-icu-900/90;
-    @apply peer-checked:dark:text-icu-700/70 peer-checked:dark:hover:text-icu-700/70;
+    @apply peer-checked:dark:text-icu-100/40 peer-checked:dark:hover:text-icu-100/40;
   }
   .masked {
     /* --smooth-corners: 10, 3; */

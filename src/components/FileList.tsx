@@ -10,7 +10,7 @@ export const FileList = React.memo(
       <div
         className={cn(
           "relative rounded-2xl overflow-hidden",
-          "border-2 border-dashed border-icu-300/70 dark:border-icu-800/40"
+          "border-2 border-dashed border-icu-500/70 dark:border-icu-800/40"
         )}
       >
         <div

@@ -147,7 +147,7 @@ const IconsList = () => {
 
   // Download handler
   const handleDownload = useCallback(async (name: string, version: string) => {
-    const toastId = toast.loading(`Preparing ${name} for download...`, {
+    const toastId = toast.loading(`Preparing ${name} for download`, {
       // description: "This may take a moment",
     });
     try {
