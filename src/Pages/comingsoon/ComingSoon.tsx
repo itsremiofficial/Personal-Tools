@@ -171,10 +171,10 @@ const ComingSoon: React.FC = () => {
         </div>
 
         <h1 className="w-full text-white leading-tight tracking-tight mb-6 sm:mb-8 animate-fadeIn px-4">
-          <span className="block font-press font-medium text-[clamp(1.5rem,2.5vw,3.75rem)] whitespace-nowrap text-center">
+          <span className="block font-press font-medium text-[clamp(1.5rem,2.5vw,5.75rem)] text-center">
             Portfolio in progress,
           </span>
-          <span className="block font-press text-[clamp(1.5rem,2vw,3.75rem)] whitespace-nowrap mt-4">
+          <span className="block font-press text-[clamp(1rem,2vw,2.75rem)] mt-4">
             One Pixel at a Time
           </span>
           <div className="mt-6 sm:mt-10 px-4">
