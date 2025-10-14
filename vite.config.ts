@@ -26,7 +26,7 @@ export default defineConfig({
       },
     },
   ],
-  base: "/Personal-Tools/",
+  base: "/",
   build: {
     sourcemap: true,
     rollupOptions: {
