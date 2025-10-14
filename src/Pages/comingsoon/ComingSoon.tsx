@@ -1,29 +1,5 @@
-import { Suspense } from "react";
-import ShaderComponent from "./shadersbg";
-
-// const ComingSoon = () => {
-//   return (
-//     <main className="w-screen h-screen bg-black text-white">
-//       <Suspense
-//         fallback={<div className="w-full h-full bg-[hsl(var(--background))]" />}
-//       >
-//         <ShaderComponent />
-
-//         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none">
-//           <h1 className="text-5xl md:text-8xl font-bold text-white mix-blend-overlay select-none">
-//             Cooking Portfolio
-//           </h1>
-//         </div>
-//       </Suspense>
-//     </main>
-//   );
-// };
-
-// export default ComingSoon;
-
 import React, { useState } from "react";
-import { IconInstagram, IconLink } from "@/components/icons/version02";
-import { IconCat } from "@/components/icons/version01";
+import { IconInstagram } from "@/components/icons/version02";
 import IconLinkedIn from "@/components/icons/Linkedin";
 
 type AvatarProps = {
@@ -102,7 +78,7 @@ const WaitlistForm: React.FC = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter Your Email"
-            className="flex-1 px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-icu-1100/50 border-2 border-icu-800 focus:border-accent outline-none text-white text-sm sm:text-base shadow-[0_0_15px_rgba(0,0,0,0.3)] backdrop-blur-md transition-all duration-300 font-space"
+            className="flex-1 px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-icu-1100/50 border border-icu-100 focus:border-accent outline-none text-white text-sm sm:text-base shadow-[0_0_15px_rgba(0,0,0,0.3)] backdrop-blur-md transition-all duration-300 font-space"
             required
           />
           <button
@@ -189,17 +165,17 @@ const ComingSoon: React.FC = () => {
       <div className="absolute inset-0 bg-icu-1000"></div>
       <GradientBars />
 
-      <div className="relative z-10 text-center w-full max-w-4xl mx-auto flex flex-col items-center justify-center min-h-screen py-8 sm:py-16 gap-8 sm:gap-16">
+      <div className="relative z-10 text-center w-full max-w-7xl mx-auto flex flex-col items-center justify-center min-h-screen py-8 sm:py-16 gap-8 sm:gap-16">
         <div className="mb-6 sm:mb-8">
           <TrustElements />
         </div>
 
         <h1 className="w-full text-white leading-tight tracking-tight mb-6 sm:mb-8 animate-fadeIn px-4">
-          <span className="block font-inter font-medium text-[clamp(1.5rem,6vw,3.75rem)] whitespace-nowrap">
-            Redefining Creativity,
+          <span className="block font-press font-medium text-[clamp(1.5rem,2.5vw,3.75rem)] whitespace-nowrap text-center">
+            Portfolio in progress,
           </span>
-          <span className="block font-instrument italic text-[clamp(1.5rem,6vw,3.75rem)] whitespace-nowrap">
-            One Pixel at a Time.
+          <span className="block font-press text-[clamp(1.5rem,2vw,3.75rem)] whitespace-nowrap mt-4">
+            One Pixel at a Time
           </span>
           <div className="mt-6 sm:mt-10 px-4">
             <p className="text-[clamp(1rem,3vw,1.5rem)] text-gray-400 leading-relaxed animate-fadeIn animation-delay-200 font-space">
