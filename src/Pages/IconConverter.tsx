@@ -4,10 +4,7 @@ import React, { useState, useCallback, useMemo, useContext } from "react";
 import { toast } from "sonner";
 import { useFileHandler } from "@/hooks/useFileHandler";
 import { generateComponentCode, replaceAttributes } from "@/utils";
-import {
-  TrayContext,
-  TrayProviderProps,
-} from "@/components/context/TrayProvider";
+import { TrayProviderProps } from "@/components/context/TrayProvider";
 import {
   ErrorBoundary,
   FileDropzone,
@@ -28,6 +25,7 @@ import {
 } from "@/components/icons/version01";
 import { Button } from "@/components/common/Button";
 import { IconPenTool } from "@/components/icons/version02";
+import { TrayContext } from "@/components/context/TrayContext";
 
 const IconConverter: React.FC = () => {
   const [state, setState] = useState<IconConverterState>({

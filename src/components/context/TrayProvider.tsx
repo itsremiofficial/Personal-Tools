@@ -4,6 +4,7 @@ import React, {
   useCallback,
   PropsWithChildren,
 } from "react";
+import { TrayContext } from "./TrayContext";
 
 export interface TrayProviderProps {
   open: boolean;
@@ -13,8 +14,6 @@ export interface TrayProviderProps {
   openTray: (view?: ViewType) => void;
   closeTray: () => void;
 }
-
-export const TrayContext = createContext<TrayProviderProps | null>(null);
 
 export const TrayProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [open, setOpen] = useState(false);

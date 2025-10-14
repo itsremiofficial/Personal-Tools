@@ -1,30 +1,45 @@
-import { createHashRouter } from "react-router-dom";
-import { lazy } from "react";
+// routes.tsx
+import React from "react";
+import { RouteObject, createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
+import ComingSoonLayout from "@/layouts/ComingSoonLayout";
+import {
+  ColorPalette,
+  ComingSoon,
+  IconConverter,
+  IconsList,
+} from "./lazyComponents";
 
-const IconsList = lazy(() => import("@/Pages/Icons"));
-const IconConverter = lazy(() => import("@/Pages/IconConverter"));
-const ColorPalette = lazy(() => import("@/Pages/ColorPalette"));
-
-const router = createHashRouter([
+const routes: RouteObject[] = [
   {
     path: "/",
-    element: <MainLayout />,
+    element: <ComingSoonLayout />,
     children: [
       {
         index: true,
-        element: <IconsList />,
-      },
-      {
-        path: "icon-converter",
-        element: <IconConverter />,
-      },
-      {
-        path: "color-palette-generator",
-        element: <ColorPalette />,
+        element: <ComingSoon />,
       },
     ],
   },
-]);
+  // {
+  //   path: "/tools",
+  //   element: <MainLayout />,
+  //   children: [
+  //     {
+  //       element: <IconsList />,
+  //     },
+  //     {
+  //       path: "icon-converter",
+  //       element: <IconConverter />,
+  //     },
+  //     {
+  //       path: "color-palette-generator",
+  //       element: <ColorPalette />,
+  //     },
+  //   ],
+  // },
+];
 
-export default router;
+// createBrowserRouter(routes) returns a Router instance — pass that to RouterProvider.
+export const router = createBrowserRouter(routes);
+export default routes;

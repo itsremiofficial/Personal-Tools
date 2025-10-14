@@ -3,10 +3,16 @@
 @variant dark (&:where(.dark, .dark *));
 @variant hover (&:hover);
 
+:root {
+  --sky-300: oklch(58.41% 0.201 26.027);
+}
+
 @theme inline {
   --font-display: "Inter", "sans-serif";
   --color-accent: oklch(62.73% 0.25 262.4);
   --color-accent-alt: oklch(55.88% 0.3 265.7);
+
+  --gray-300: 0, 0%, 70%;
 
   --color-bga: 55.88% 0.3 165.7;
 
@@ -21,6 +27,8 @@
   --color-icu-900: oklch(23.986% 0.03 257.678);
   --color-icu-1000: oklch(16.814% 0.023 257.526);
   --color-icu-1100: oklch(10.846% 0.016 260.566);
+  
+  --color-accent: oklch(58.41% 0.201 26.027);
 
   --ease-fluid: cubic-bezier(0.7, 0, 0.2, 1);
   --radius-4xl: 2.5rem;
