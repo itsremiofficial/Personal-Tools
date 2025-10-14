@@ -1,10 +1,9 @@
 import React, { useMemo, useCallback, useEffect, forwardRef } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { NavItem } from "@/components/NavItem";
 import { useSidebar } from "@/hooks/useSidebar";
 import {
   IconAltArrowRight,
-  IconLayersMinimalistic,
   IconMagicStick3,
   IconMoon,
   IconPalette,
@@ -31,7 +30,7 @@ const Sidebar = forwardRef<HTMLElement>((props, ref) => {
 
   const navItems = useMemo(
     () => [
-      { path: "/", label: "Icons", icon: IconLayer },
+      { path: "/icons", label: "Icons", icon: IconLayer },
       {
         path: "/color-palette-generator",
         label: "Color Generator",
@@ -176,7 +175,8 @@ const Sidebar = forwardRef<HTMLElement>((props, ref) => {
               className={cn("flex flex-col items-center gap-6 w-full relative")}
             >
               {/* HEADER LOGO */}
-              <div
+              <Link
+                to="/"
                 className={cn(
                   "flex justify-center",
                   "!transition-[width] duration-700 h-fit will-change-transform",
@@ -192,7 +192,7 @@ const Sidebar = forwardRef<HTMLElement>((props, ref) => {
                   )}
                   fill
                 />
-              </div>
+              </Link>
 
               <ul
                 className={cn(

@@ -1,9 +1,8 @@
-import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
-import { memo, useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, PropsWithChildren } from "react";
 import PreLoader from "@/components/PreLoader";
 
-const MainLayout = memo(() => {
+const MainLayout = ({ children }: PropsWithChildren) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isSidebarReady, setIsSidebarReady] = useState(false);
 
@@ -32,12 +31,12 @@ const MainLayout = memo(() => {
       <Sidebar ref={sidebarRef} />
       {isSidebarReady && (
         <main className="main-content flex flex-col min-h-screen ml-auto">
-          <Outlet />
+          {children}
         </main>
       )}
     </div>
   );
-});
+};
 
 MainLayout.displayName = "MainLayout";
 

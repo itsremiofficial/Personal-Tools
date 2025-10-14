@@ -1,8 +1,8 @@
-import { Outlet } from "react-router-dom";
-import { memo, useEffect, useState } from "react";
+import { PropsWithChildren, useEffect, useState } from "react";
 import PreLoader from "@/components/PreLoader";
+import App from "@/App";
 
-const ComingSoonLayout = memo(() => {
+const ComingSoonLayout = ({ children }: PropsWithChildren) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -19,16 +19,18 @@ const ComingSoonLayout = memo(() => {
   }, []);
 
   return (
-    <div className="flex relative">
-      {isLoading && <PreLoader />}
-      {!isLoading && (
-        <main className="flex flex-col h-screen w-screen ml-auto">
-          <Outlet />
-        </main>
-      )}
-    </div>
+    <App>
+      <div className="flex relative">
+        {isLoading && <PreLoader />}
+        {!isLoading && (
+          <main className="flex flex-col h-screen w-screen ml-auto">
+            {children}
+          </main>
+        )}
+      </div>
+    </App>
   );
-});
+};
 
 ComingSoonLayout.displayName = "ComingSoonLayout";
 

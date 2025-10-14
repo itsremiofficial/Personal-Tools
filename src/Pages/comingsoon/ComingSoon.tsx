@@ -198,13 +198,13 @@ const ComingSoon: React.FC = () => {
           <div className="uppercase text-icu-500 font-semibold">Follow</div>
           <div className="flex justify-center gap-6 bg-icu-1100/50 px-6 py-3 rounded-full border border-icu-1100 backdrop-blur-sm">
             <a
-              href="#"
+              href="https://www.instagram.com/itsremiofficial/"
               className="text-gray-500 hover:text-gray-300 transition-colors duration-300"
             >
               <IconInstagram fill className="w-6 h-6 sm:w-[22px] sm:h-[22px]" />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/itsremiofficial/"
               className="text-gray-500 hover:text-gray-300 transition-colors duration-300"
             >
               <IconLinkedIn fill className="w-6 h-6 sm:w-[22px] sm:h-[22px]" />
