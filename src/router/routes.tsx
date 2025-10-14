@@ -21,23 +21,23 @@ const routes: RouteObject[] = [
       },
     ],
   },
-  // {
-  //   path: "/tools",
-  //   element: <MainLayout />,
-  //   children: [
-  //     {
-  //       element: <IconsList />,
-  //     },
-  //     {
-  //       path: "icon-converter",
-  //       element: <IconConverter />,
-  //     },
-  //     {
-  //       path: "color-palette-generator",
-  //       element: <ColorPalette />,
-  //     },
-  //   ],
-  // },
+  {
+    path: "/tools",
+    element: <MainLayout />,
+    children: [
+      {
+        element: <IconsList />,
+      },
+      {
+        path: "icon-converter",
+        element: <IconConverter />,
+      },
+      {
+        path: "color-palette-generator",
+        element: <ColorPalette />,
+      },
+    ],
+  },
 ];
 
 // createBrowserRouter(routes) returns a Router instance — pass that to RouterProvider.

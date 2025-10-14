@@ -1,13 +1,13 @@
 import { useCallback, useContext, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { toast } from "sonner";
-import { TrayContext, TrayProviderProps } from "../context/TrayProvider";
+import { TrayProviderProps } from "../context/TrayProvider";
 import { Button } from "./Button";
 import { cn, useResizeObserver } from "@/hooks";
 import CodeHighlight from "./Code";
 import IconCopy3 from "../icons/version01/Copy3";
 import { useClipboard } from "@/hooks/useClipboard";
 import { IconCheck } from "../icons/version01";
+import { TrayContext } from "../context/TrayContext";
 
 const backdropVariants = {
   initial: {

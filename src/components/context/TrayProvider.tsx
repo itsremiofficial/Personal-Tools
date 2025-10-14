@@ -1,9 +1,9 @@
 import React, {
-  createContext,
   useState,
   useCallback,
   PropsWithChildren,
 } from "react";
+
 import { TrayContext } from "./TrayContext";
 
 export interface TrayProviderProps {
