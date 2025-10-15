@@ -196,7 +196,7 @@ const ComingSoon: React.FC = () => {
 
         <div className="flex justify-center flex-col space-y-2">
           <div className="uppercase text-icu-500 font-semibold">Follow</div>
-          <div className="flex justify-center gap-6 bg-icu-1100/50 px-6 py-3 rounded-full border border-icu-1100 backdrop-blur-sm">
+          <div className="flex justify-center gap-6 bg-icu-1100/50 px-6 py-3 rounded-full backdrop-blur-sm">
             <a
               href="https://www.instagram.com/itsremiofficial/"
               className="text-gray-500 hover:text-gray-300 transition-colors duration-300"
