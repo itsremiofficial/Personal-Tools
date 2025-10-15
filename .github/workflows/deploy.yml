@@ -13,6 +13,10 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -32,7 +36,7 @@ jobs:
         run: cp dist/index.html dist/404.html
 
       - name: Add CNAME file
-        run: echo "yourdomain.com" > dist/CNAME
+        run: echo "remidevigner.pro" > dist/CNAME
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
