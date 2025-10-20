@@ -256,6 +256,8 @@
     @apply !border-none !rounded-full !shadow-md !ease-fluid !ps-10 !pe-10 !flex !items-center;
     @apply !bg-emerald-50 !text-emerald-700 dark:!bg-red-500 dark:!text-red-400 dark:!shadow-icu-900/40;
   } */
+
+  
   ol:has(li.my-toast) {
     @apply !flex !justify-center;
   }
