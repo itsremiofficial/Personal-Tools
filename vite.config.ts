@@ -26,7 +26,7 @@ export default defineConfig({
       },
     },
   ],
-  base: "/",
+  base: "/Personal-Tools/",
   build: {
     outDir: "dist",
     sourcemap: true,

@@ -1,4 +1,3 @@
-import ComingSoonLayout from "@/layouts/ComingSoonLayout";
 import { createBrowserRouter } from "react-router-dom";
 import { routes } from "./routes";
 import MainLayout from "@/layouts/MainLayout";
@@ -6,16 +5,12 @@ import MainLayout from "@/layouts/MainLayout";
 const finalRoutes = routes.map((route) => {
   return {
     ...route,
-    element:
-      route.layout === "site" ? (
-        <ComingSoonLayout>{route.element}</ComingSoonLayout>
-      ) : (
-        <MainLayout>{route.element}</MainLayout>
-      ),
+    element: <MainLayout>{route.element}</MainLayout>,
   };
 });
 
 const router = createBrowserRouter(finalRoutes, {
+  basename: "/Personal-Tools/",
   future: {
     v7_skipActionErrorRevalidation: true,
     v7_startTransition: true,

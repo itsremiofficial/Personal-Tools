@@ -35,9 +35,6 @@ jobs:
       - name: Copy index.html to 404.html
         run: cp dist/index.html dist/404.html
 
-      - name: Add CNAME file
-        run: echo "remidevigner.pro" > dist/CNAME
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
