@@ -91,7 +91,7 @@
 }
 @layer base {
   body {
-    @apply bg-icu-200 dark:bg-icu-900 font-press;
+    @apply bg-icu-200 dark:bg-icu-900 font-inter;
   }
 
   /* .main-content {
