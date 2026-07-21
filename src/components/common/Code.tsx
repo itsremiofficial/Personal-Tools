@@ -1,17 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import hightlight from "highlight.js";
 import { PropsWithChildren, useEffect, useRef } from "react";
 
 const CodeHighlight = ({ children }: PropsWithChildren) => {
   const highlightElement = useRef<any>(null);
 
   useEffect(() => {
-    if (highlightElement?.current) {
-      hightlight.highlightElement(
-        highlightElement.current.querySelector("pre")
-      );
-    }
+    (async () => {
+      if (highlightElement?.current) {
+        const hljs = await import("highlight.js");
+        hljs.default.highlightElement(
+          highlightElement.current.querySelector("pre")
+        );
+      }
+    })();
   }, []);
 
   return (

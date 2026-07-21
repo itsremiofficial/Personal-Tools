@@ -26,7 +26,7 @@ export { default as IconAlarmTurnOff } from "./AlarmTurnOff";
 export { default as IconAlbum } from "./Album";
 export { default as IconAlignBottom } from "./AlignBottom";
 export { default as IconAlignHorizontalCenter } from "./AlignHorizontalCenter";
-export { default as IconAlignHorizontaSpacing } from "./AlignHorizontaSpacing";
+export { default as IconAlignHorizontalSpacing } from "./AlignHorizontalSpacing";
 export { default as IconAlignLeft } from "./AlignLeft";
 export { default as IconAlignRight } from "./AlignRight";
 export { default as IconAlignTop } from "./AlignTop";

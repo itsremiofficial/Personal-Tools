@@ -1,8 +1,9 @@
 import { useCallback, useContext, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { TrayProviderProps } from "../context/TrayProvider";
 import { Button } from "./Button";
-import { cn, useResizeObserver } from "@/hooks";
+import { cn } from "@/lib";
+import { useResizeObserver } from "@/hooks";
 import CodeHighlight from "./Code";
 import IconCopy3 from "../icons/version01/Copy3";
 import { useClipboard } from "@/hooks/useClipboard";
@@ -54,7 +55,7 @@ const containerVariants = {
 const DefaultView = () => {
   const { copyToClipboard, copied } = useClipboard();
 
-  const { openTray } = useContext(TrayContext) as TrayProviderProps;
+  const { openTray: _openTray } = useContext(TrayContext) as TrayProviderProps;
   const codeText = `export interface IconProps {
     className?: string;
     fill?: boolean;
@@ -69,20 +70,18 @@ const DefaultView = () => {
   return (
     <div className="private-key__container">
       <div className="px-4">
-        <div className="flex justify-between items-center my-4">
-          <h3 className="text-xl text-icu-800 dark:text-icu-100 font-bold">
-            Icon Props
-          </h3>
+        <div className="space-y-2 py-6">
+          <h3 className="text-xl text-primary font-bold">Icon Props</h3>
+          <p className="text-muted-foreground/70 text-sm">
+            Add below types in your type definitions and enter the relative (to
+            the icons folder) path of your types.
+          </p>
         </div>
-        <p className="text-icu-900 mb-4 dark:text-icu-600">
-          Add below types in your type definitions and enter the relative (to
-          the icons folder) path of your types.
-        </p>
       </div>
 
-      <div className="p-4 rounded-3xl flex flex-col border border-icu-300 dark:border-icu-800/80 bg-icu-200 dark:bg-icu-1000/70">
-        <div className="pb-3 border-b mb-3 flex justify-between items-center border-icu-300 dark:border-icu-900/50">
-          <span className="text-icu-900 dark:text-icu-400">Types</span>
+      <div className="rounded-3xl flex flex-col border border-border bg-background">
+        <div className="border-b flex justify-between items-center border-border p-4">
+          <span className="text-foreground">Types</span>
           <Button
             variant={"subtle"}
             size={"sm"}
@@ -102,7 +101,7 @@ const DefaultView = () => {
             )}
           </Button>
         </div>
-        <code className="whitespace-pre-wrap">
+        <code className="whitespace-pre-wrap px-4 py-4">
           <CodeHighlight>
             <pre>{codeText}</pre>
           </CodeHighlight>
@@ -225,7 +224,7 @@ const DefaultView = () => {
 
 const Tray = () => {
   const { open, closeTray, activeView } = useContext(
-    TrayContext
+    TrayContext,
   ) as TrayProviderProps;
 
   const views: Record<ViewType, JSX.Element> = {
@@ -244,7 +243,7 @@ const Tray = () => {
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [open]
+    [open],
   );
 
   const contentRef = useResizeObserver(onResize);
@@ -282,11 +281,11 @@ const Tray = () => {
                 exit="exit"
               >
                 <motion.div ref={contentRef} className="tray__content">
-                  <div className="bg-icu-100 dark:bg-icu-900 p-4 rounded-4xl relative">
+                  <div className="bg-card p-4 rounded-4xl relative">
                     <button
                       className={cn(
                         "absolute h-2 w-14 rounded-full left-1/2 transform -translate-x-1/2 top-2",
-                        "bg-icu-300 dark:bg-icu-800"
+                        "bg-muted-foreground/20",
                       )}
                       onClick={closeTray}
                     ></button>

@@ -18,7 +18,7 @@ export function useClipboard(options: UseClipboardOptions = {}) {
   const [isLoading, setIsLoading] = useState(false);
 
   const copyToClipboard = useCallback(
-    async (text: string, label: string = "Text", desc = false) => {
+    async (text: string, label: string = "Text", _desc = false) => {
       setIsLoading(true);
       setError(null);
 
@@ -46,7 +46,7 @@ export function useClipboard(options: UseClipboardOptions = {}) {
         setIsLoading(false);
       }
     },
-    [timeout, onSuccess, onError, toast],
+    [timeout, onSuccess, onError],
   );
 
   const reset = useCallback(() => {

@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
+import { loadAllIcons as loadAllIconsFromRegistry } from "@/components/icons";
 
 export const useIconLoader = (searchQuery: string) => {
   const [filteredIcons, setFilteredIcons] = useState<IconMetadata[]>([]);
@@ -10,20 +11,7 @@ export const useIconLoader = (searchQuery: string) => {
   const loadAllIconModules = useCallback(async () => {
     if (cachedIcons.current.length > 0) return cachedIcons.current;
     try {
-      const modules = await Promise.all([
-        import("@/components/icons/version01"),
-        import("@/components/icons/version02"),
-      ]);
-
-      cachedIcons.current = modules.flatMap((module, index) =>
-        Object.entries(module).map(([name, Icon]) => ({
-          name,
-          Icon: Icon as IconComponent,
-          keywords: (Icon as IconComponent).keywords || [],
-          version: `v${index + 1}`,
-        }))
-      );
-
+      cachedIcons.current = await loadAllIconsFromRegistry();
       setTotalIcons(cachedIcons.current.length);
       return cachedIcons.current;
     } catch (error) {

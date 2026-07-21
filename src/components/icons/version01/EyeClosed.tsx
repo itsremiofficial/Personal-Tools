@@ -4,7 +4,6 @@ const IconEyeClosed: FC<IconProps> = ({
   className,
   fill = false,
   duotone = true,
-  width = "1.5",
 }) => {
   return (
     <>

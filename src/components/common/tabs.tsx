@@ -14,7 +14,7 @@ import {
   type ReactNode,
 } from "react";
 import { EASE_OUT } from "@/lib/ease";
-import { cn } from "@/hooks";
+import { cn } from "@/lib";
 
 type Variant = "pill" | "underline" | "segment";
 
@@ -128,7 +128,7 @@ export function TabsTrigger({
         className={cn(
           "relative isolate px-3 pb-2.5 pt-1 -mb-px text-sm font-medium transition-colors min-h-[44px] inline-flex items-center",
           active
-            ? "text-foreground"
+            ? "text-primary"
             : "text-muted-foreground hover:text-foreground",
           className,
         )}

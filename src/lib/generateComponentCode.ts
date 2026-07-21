@@ -1,12 +1,4 @@
-import { fetchKeywordsInBatches } from "./keywordUtils";
-
-const extractComponentWords = (name: string): string[] => {
-  const words =
-    name
-      .match(/[A-Z][a-z]+|\d+[a-z]*|[a-z]+/g)
-      ?.map((word) => word.toLowerCase()) || [];
-  return [...new Set(words)];
-};
+import { generateLocalKeywords } from "./keywordUtils";
 
 const generateComponentTemplate = (
   name: string,
@@ -57,13 +49,13 @@ export default Icon${name} as IconComponent;`;
 export default Icon${name};`;
 };
 
-export const generateComponentCode = async (
+export const generateComponentCode = (
   name: string,
   lineDuotoneSvg: string,
   boldDuotoneSvg: string,
   boldSvg: string,
   includeKeywords: boolean = false
-): Promise<GeneratedResult> => {
+): GeneratedResult => {
   try {
     if (!name) {
       throw new Error("Component name is required");
@@ -87,15 +79,7 @@ export const generateComponentCode = async (
     const defaultName = name || "UnknownIcon";
     const fileName = `Icon${defaultName}.tsx`;
 
-    const words = includeKeywords ? extractComponentWords(name) : [];
-    const keywordSets = includeKeywords
-      ? await fetchKeywordsInBatches(words)
-      : [];
-    const keywords = includeKeywords
-      ? [...words, ...keywordSets.flat()].filter(
-          (word, index, array) => array.indexOf(word) === index
-        )
-      : [];
+    const keywords = includeKeywords ? generateLocalKeywords(name) : [];
 
     const output = generateComponentTemplate(
       name,
@@ -135,32 +119,11 @@ export const generateComponentCodeSync = (
   boldSvg: string,
   includeKeywords: boolean = false
 ): GeneratedResult => {
-  const defaultName = name || "UnknownIcon";
-  const fileName = `Icon${defaultName}.tsx`;
-
-  try {
-    const output = generateComponentTemplate(
-      name,
-      lineDuotoneSvg,
-      boldDuotoneSvg,
-      boldSvg,
-      [],
-      includeKeywords
-    );
-
-    return {
-      fileName: `Icon${name}.tsx`,
-      output,
-      success: true,
-      name,
-    };
-  } catch (error) {
-    return {
-      fileName,
-      output: "",
-      success: false,
-      error: error instanceof Error ? error.message : "Unknown error occurred",
-      name: defaultName,
-    };
-  }
+  return generateComponentCode(
+    name,
+    lineDuotoneSvg,
+    boldDuotoneSvg,
+    boldSvg,
+    includeKeywords
+  );
 };

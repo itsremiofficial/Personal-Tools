@@ -1,35 +1,25 @@
 import { TrayProvider } from "@/components/context/TrayProvider";
-import { ToastContainer } from "./components/toast-container";
+import { ToastContainer } from "./components/ToastContainer";
 import PreLoader from "./components/PreLoader";
 import "@/index.css";
-
-// const root = document.getElementById("root");
-// if (!root) throw new Error("Root element not found");
-
-// ReactDOM.createRoot(root).render(
-//   <React.StrictMode>
-//     <TrayProvider>
-//       <Suspense fallback={<PreLoader />}>
-//         <ToastContainer />
-//         <RouterProvider router={router} />
-//       </Suspense>
-//     </TrayProvider>
-//   </React.StrictMode>
-// );
 
 import React, { Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
+import { ErrorBoundary } from "react-error-boundary";
 import router from "./router";
+import ErrorPage from "@/Pages/ErrorPage";
 
 const root = createRoot(document.getElementById("root")!);
 root.render(
   <React.StrictMode>
-    <TrayProvider>
-      <Suspense fallback={<PreLoader />}>
+    <ErrorBoundary fallback={<ErrorPage />}>
+      <TrayProvider>
         <ToastContainer />
-        <RouterProvider router={router} />
-      </Suspense>
-    </TrayProvider>
+        <Suspense fallback={<PreLoader />}>
+          <RouterProvider router={router} />
+        </Suspense>
+      </TrayProvider>
+    </ErrorBoundary>
   </React.StrictMode>,
 );

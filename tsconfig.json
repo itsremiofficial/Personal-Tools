@@ -18,12 +18,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
-      "@common/*": ["./src/components/common/*"],
-      "@icons/*": ["src/components/icons/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@utils/*": ["src/lib/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@types/*": ["./src/types/*"]
+      "@hooks/*": ["./src/hooks/*"]
     },
     "composite": true,
     "declaration": true,

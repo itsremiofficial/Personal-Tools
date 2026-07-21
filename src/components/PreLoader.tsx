@@ -2,7 +2,7 @@ import { memo } from "react";
 
 const PreLoader = memo(() => {
   return (
-    <div className="fixed inset-0 z-[60] bg-icu-200/80 dark:bg-icu-1100/80 backdrop-blur-sm grid place-content-center transition-all duration-300">
+    <div role="status" aria-label="Loading application" aria-live="polite" className="fixed inset-0 z-[60] bg-muted/80 backdrop-blur-sm grid place-content-center transition-all duration-300">
       <div className="relative flex items-center justify-center">
         <div className="absolute animate-ping w-16 h-16 rounded-full bg-red-500/20"></div>
         <svg

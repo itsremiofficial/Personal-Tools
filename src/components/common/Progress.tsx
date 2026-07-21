@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
-import { cn } from "@/hooks";
+import { cn } from "@/lib";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const progressVariants = cva(
@@ -9,12 +9,12 @@ const progressVariants = cva(
     variants: {
       variant: {
         primary: "bg-blue-600 dark:bg-blue-500",
-        secondary: "bg-icu-400 dark:bg-icu-600",
+        secondary: "bg-muted-foreground/30",
         success: "bg-emerald-500 dark:bg-emerald-400",
         danger: "bg-rose-500 dark:bg-rose-400",
         warning: "bg-amber-500 dark:bg-amber-400",
-        dark: "bg-icu-900 dark:bg-icu-400",
-        neutral: "bg-icu-500 dark:bg-icu-600",
+        dark: "bg-foreground/20",
+        neutral: "bg-muted-foreground/30",
       },
     },
     defaultVariants: {
@@ -27,12 +27,12 @@ const rootVariants = cva("relative h-2 w-full overflow-hidden rounded-full", {
   variants: {
     variant: {
       primary: "bg-blue-200/70 dark:bg-blue-800/70",
-      secondary: "bg-icu-200/50 dark:bg-icu-800/50",
+      secondary: "bg-muted/50",
       success: "bg-emerald-100 dark:bg-emerald-900/30",
       danger: "bg-rose-100 dark:bg-rose-900/30",
       warning: "bg-amber-100 dark:bg-amber-900/30",
-      dark: "bg-icu-200 dark:bg-icu-800",
-      neutral: "bg-icu-200/40 dark:bg-icu-800/40",
+      dark: "bg-muted",
+      neutral: "bg-muted/40",
     },
   },
   defaultVariants: {

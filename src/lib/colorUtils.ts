@@ -1,28 +1,4 @@
 // Color space conversion utilities
-const sRGBToLinear = (value: number): number => {
-  const v = value / 255;
-  return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
-};
-
-const linearToOKLab = (
-  r: number,
-  g: number,
-  b: number
-): [number, number, number] => {
-  const l = 0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b;
-  const m = 0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b;
-  const s = 0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b;
-
-  const l_ = Math.cbrt(l);
-  const m_ = Math.cbrt(m);
-  const s_ = Math.cbrt(s);
-
-  return [
-    0.2104542553 * l_ + 0.793617785 * m_ - 0.0040720468 * s_,
-    1.9779984951 * l_ - 2.428592205 * m_ + 0.4505937099 * s_,
-    0.0259040371 * l_ + 0.7827717662 * m_ - 0.808675766 * s_,
-  ];
-};
 
 // Add new conversion functions
 const sRGBtoLinearRGB = (color: number): number => {
@@ -119,7 +95,6 @@ export const adjustOklch = (
   // Define fixed ranges for consistent scaling
   const maxLightness = 99.5;
   const minLightness = 0.5;
-  const range = maxLightness - minLightness;
 
   let newL: number;
   let newC: number;
@@ -148,6 +123,10 @@ export const adjustOklch = (
 
   return `oklch(${newL.toFixed(3)}% ${newC.toFixed(3)} ${okH.toFixed(3)})`;
 };
+
+export function isValidHex(hex: string): boolean {
+  return /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$/.test(hex);
+}
 
 export const adjustRGB = (
   r: number,

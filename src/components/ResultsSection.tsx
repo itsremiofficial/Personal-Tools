@@ -1,8 +1,7 @@
 import React, { useState, useCallback } from "react";
-import { saveAs } from "file-saver";
-import JSZip from "jszip";
 import { toast } from "sonner";
-import { cn } from "@/hooks";
+import { downloadAllAsZip, downloadSingleFile } from "@/lib/downloadUtils";
+import { cn } from "@/lib";
 import { Button } from "./common/Button";
 import { Progress } from "./common/Progress";
 import {
@@ -22,7 +21,7 @@ const MissingFilesSection = ({
 
     return (
       <div className="mb-6">
-        <div className="text-base font-medium dark:text-icu-400 mb-3">
+        <div className="text-base font-medium text-muted-foreground mb-3">
           Missing in {type}:
         </div>
         <div className="space-y-2">
@@ -47,13 +46,12 @@ const MissingFilesSection = ({
     <div
       className={cn(
         "p-6 border rounded-4xl flex flex-col",
-        "border-icu-300 bg-icu-100",
-        "dark:border-icu-800/70 dark:bg-icu-1000/40"
+        "border-border bg-muted"
       )}
     >
       <div className="flex items-center gap-2 mb-8">
         <h3 className="text-lg font-medium">Missing Files</h3>
-        <span className="text-icu-500">({totalMissing})</span>
+        <span className="text-muted-foreground">({totalMissing})</span>
       </div>
 
       {renderMissingFiles(missingFiles.lineDuotone, "Line Duotone Svgs")}
@@ -80,46 +78,28 @@ export const ResultsSection = React.memo(
 
     const handleDownload = async (output: string, fileName: string) => {
       if (disabled) return;
-      const blob = new Blob([output], { type: "text/plain;charset=utf-8" });
-      saveAs(blob, `${fileName}.tsx`);
+      await downloadSingleFile(output, fileName);
     };
 
     const handleDownloadAll = useCallback(async () => {
       if (disabled) return;
 
-      // Start zipping
       setDownloadState({ status: "zipping", progress: 0 });
-      const zip = new JSZip();
-
-      // Add files with progress
-      outputs.forEach((output, index) => {
-        zip.file(`${names[index]}.tsx`, output);
-        setDownloadState((prev) => ({
-          status: "zipping",
-          progress: Math.min(((index + 1) / outputs.length) * 100, 10),
-        }));
-      });
 
       try {
-        // Generate zip with progress
-        const content = await zip.generateAsync(
-          {
-            type: "blob",
-            compression: "DEFLATE",
+        await downloadAllAsZip(
+          outputs,
+          names,
+          (percent) => {
+            setDownloadState({ status: "zipping", progress: percent });
           },
-          (metadata) => {
-            setDownloadState({
-              status: "downloading",
-              progress: metadata.percent,
-            });
+          (percent) => {
+            setDownloadState({ status: "downloading", progress: percent });
           }
         );
 
-        // Save file
-        const downloadPath = await saveAs(content, "generated-icons.zip");
         setDownloadState({ status: "complete", progress: 100 });
 
-        // Reset after delay
         setTimeout(() => {
           setDownloadState({ status: "idle", progress: 0 });
         }, 3000);
@@ -143,7 +123,7 @@ export const ResultsSection = React.memo(
             <>
               <Progress
                 root="w-full h-4 bg-white/20"
-                indicator="bg-icu-100"
+                indicator="bg-muted"
                 value={Math.round(downloadState.progress)}
               />
               {Math.round(downloadState.progress)}%
@@ -166,12 +146,6 @@ export const ResultsSection = React.memo(
             </>
           );
       }
-    };
-
-    const getLogStatus = (log: string) => {
-      if (log.startsWith("Success:")) return "success";
-      if (log.startsWith("Missing:")) return "warning";
-      return "error";
     };
 
     const getLogStyles = (status: "success" | "warning" | "error") => {
@@ -197,12 +171,13 @@ export const ResultsSection = React.memo(
       }
     };
 
-    // Update log display text for each file type
-    const getFileTypeLabel = (log: string): string => {
-      if (log.includes("(Line Duotone Icon)")) return "Line Duotone";
-      if (log.includes("(Bold Duotone Icon)")) return "Bold Duotone";
-      if (log.includes("(Bold Icon)")) return "Bold";
-      return "";
+    const getTypeLabel = (type: LogEntry['type']): string => {
+      switch (type) {
+        case 'lineDuotone': return "Line Duotone";
+        case 'boldDuotone': return "Bold Duotone";
+        case 'bold': return "Bold";
+        default: return "";
+      }
     };
 
     const getStatusBadge = (status: string) => {
@@ -230,13 +205,12 @@ export const ResultsSection = React.memo(
         <div
           className={cn(
             "p-6 border rounded-4xl flex flex-col gap-2",
-            "border-icu-300 bg-icu-100",
-            "dark:border-icu-800/70 dark:bg-icu-1000/40",
+            "border-border bg-muted",
             disabled && "opacity-50 pointer-events-none"
           )}
         >
           <div className="flex items-end justify-between">
-            <h2 className="pl-3 flex items-center gap-2 font-medium dark:text-icu-500">
+            <h2 className="pl-3 flex items-center gap-2 font-medium text-muted-foreground">
               Generated Components
             </h2>
             <div className="flex gap-4">
@@ -265,7 +239,7 @@ export const ResultsSection = React.memo(
             <div
               className={cn(
                 "grow border border-dashed flex py-4 px-4 rounded-2xl gap-6 overflow-auto",
-                "border-icu-300/70 dark:border-icu-800/40"
+                "border-border/70"
               )}
             >
               {outputs.map((output, index) => (
@@ -289,43 +263,39 @@ export const ResultsSection = React.memo(
         <div
           className={cn(
             "p-6 border rounded-4xl flex flex-col gap-4",
-            "border-icu-300 bg-icu-100",
-            "dark:border-icu-800/70 dark:bg-icu-1000/40"
+            "border-border bg-muted"
           )}
         >
           <label
             className={cn(
               "pl-4 rounded-full uppercase text-sm tracking-widest font-bold text-center w-max leading-none",
-              "text-icu-700 border-icu-400",
-              "dark:text-icu-600 dark:border-icu-800"
+              "text-foreground border-border"
             )}
           >
             Logs
-            <kbd className="px-2 rounded-md py-1 dark:bg-icu-1000 dark:text-icu-500">
+            <kbd className="px-2 rounded-md py-1 bg-card text-muted-foreground">
               {logs.length}
             </kbd>
           </label>
           <div
             className={cn(
               "flex flex-col gap-2 p-4 rounded-3xl",
-              "bg-icu-200 dark:bg-icu-1000"
+              "bg-muted"
             )}
           >
             <div className="max-h-72 overflow-y-auto">
               {logs.map((log, index) => {
-                const status = getLogStatus(log);
-                const styles = getLogStyles(status);
-                const fileType = getFileTypeLabel(log);
-                const logText = log.replace(/^(Success|Failed|Missing): /, "");
+                const styles = getLogStyles(log.status);
+                const typeLabel = getTypeLabel(log.type);
 
                 return (
                   <div key={index} className="flex items-center gap-3">
-                    {getStatusBadge(status)}
+                    {getStatusBadge(log.status)}
                     <span className={styles.text}>
-                      {logText}
-                      {fileType && (
+                      {log.message}
+                      {typeLabel && (
                         <span className="ml-2 text-xs opacity-75">
-                          [{fileType}]
+                          [{typeLabel}]
                         </span>
                       )}
                     </span>

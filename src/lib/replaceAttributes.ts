@@ -28,7 +28,7 @@ export const replaceAttributes = (
   // Handle fill attributes based on value
   processedSvg = processedSvg.replace(
     /fill=["']([^"']+)["']/g,
-    (match, fillValue) => {
+    (_match, fillValue) => {
       // If fill has a color value (starts with #), replace with currentColor
       if (fillValue.startsWith('#')) {
         return 'fill="currentColor"';

@@ -3,32 +3,32 @@ import { Link, useLocation } from "react-router-dom";
 import { NavItem } from "@/components/NavItem";
 import { useSidebar } from "@/hooks/useSidebar";
 import {
-  IconAltArrowRight,
   IconMagicStick3,
   IconMoon,
   IconPalette,
   IconSun,
 } from "@/components/icons/version01";
-import { cn } from "@/hooks";
+import { cn } from "@/lib";
 import { useTheme } from "@/hooks/useTheme";
 import { Logo } from "@/components";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { IconLayer } from "@/components/icons/version02";
-import { Tabs, TabsList, TabsTrigger } from "@/components/common/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components";
 
 const labelTransition = {
-  width: { duration: 0.5, ease: [0.7, 0, 0.2, 1] },
+  width: { duration: 0.5, ease: [0.7, 0, 0.2, 1] as const },
   opacity: { duration: 0.2 },
 };
 
 const Sidebar = forwardRef<HTMLElement>((_props, ref) => {
   const { isDark, setDark } = useTheme();
-  const { isOpen, toggleSidebar } = useSidebar();
+  // TODO: destructure toggleSidebar when the collapse toggle button is restored
+  const { isOpen } = useSidebar();
   const location = useLocation();
 
   const navItems = useMemo(
     () => [
-      { path: "/icons", label: "Icons", icon: IconLayer },
+      { path: "/", label: "Icons", icon: IconLayer },
       {
         path: "/color-palette-generator",
         label: "Color Generator",
@@ -45,10 +45,9 @@ const Sidebar = forwardRef<HTMLElement>((_props, ref) => {
 
   const getIsActive = useCallback(
     (path: string) => {
-      if (path === "/") {
-        return location.pathname === path || location.hash === "#/";
-      }
-      return location.pathname === path || location.hash === `#${path}`;
+      if (location.pathname === path) return true;
+      if (path === "/" && location.pathname === "/icons") return true;
+      return location.hash === `#${path}`;
     },
     [location],
   );
@@ -106,37 +105,7 @@ const Sidebar = forwardRef<HTMLElement>((_props, ref) => {
             </div>
 
             <div className="mt-auto px-2 pb-2 w-full">
-              {/* <div
-                className={cn(
-                  "flex items-center justify-between cursor-pointer",
-                  "rounded-full p-2.5 border border-border",
-                  "transition-colors",
-                  "bg-sidebar text-muted-foreground/60 hover:text-muted-foreground",
-                )}
-                onClick={toggleSidebar}
-              >
-                <motion.span
-                  animate={{
-                    display: isOpen ? "block" : "none",
-                  }}
-                  transition={{ duration: 0.7, ease: [0.7, 0, 0.2, 1] }}
-                >
-                  Collapse
-                </motion.span>
-                <motion.div
-                  animate={{
-                    rotate: isOpen ? 180 : 0,
-                  }}
-                  transition={{ duration: 0.7, ease: [0.7, 0, 0.2, 1] }}
-                  className="mr-1"
-                >
-                  <IconAltArrowRight
-                    width={2.5}
-                    duotone={false}
-                    className="size-4 stroke-2"
-                  />
-                </motion.div>
-              </div> */}
+              {/* Sidebar collapse toggle — re-enable when ready */}
               <div className="mb-2">
                 <div className="flex items-center gap-2 px-1 mb-2 mt-4">
                   <span className="text-[11px] font-medium uppercase tracking-widest text-sidebar-foreground/50">
@@ -207,4 +176,4 @@ const Sidebar = forwardRef<HTMLElement>((_props, ref) => {
 
 Sidebar.displayName = "Sidebar";
 
-export default React.memo(Sidebar);
+export default Sidebar;

@@ -3,28 +3,28 @@
 import React, { useState, useCallback, useMemo, useContext } from "react";
 import { toast } from "sonner";
 import { useFileHandler } from "@/hooks/useFileHandler";
-import { generateComponentCode, replaceAttributes } from "@/lib";
+import { generateComponentCode, replaceAttributes, validateFiles } from "@/lib";
 import { TrayProviderProps } from "@/components/context/TrayProvider";
+import { ErrorBoundary } from "react-error-boundary";
 import {
-  ErrorBoundary,
   FileDropzone,
   FileList,
   GenerateButton,
   ResultsSection,
+  Tray,
+  Card,
+  Toggle,
+  Button,
 } from "@/components";
-import { cn } from "@/hooks";
-import Tray from "@/components/common/TrayDrawer";
-import { generateComponentCodeSync } from "@/lib/generateComponentCode";
-import { Card } from "@/components/common/Card";
-import { Toggle } from "@/components/common/Toggle";
+import { cn } from "@/lib";
 import {
   IconDocumentText,
   IconInfoCircle,
   IconTrashBin2,
 } from "@/components/icons/version01";
-import { Button } from "@/components/common/Button";
 import { IconPenTool } from "@/components/icons/version02";
 import { TrayContext } from "@/components/context/TrayContext";
+import PageHeader from "@/components/PageHeader";
 
 const IconConverter: React.FC = () => {
   const [state, setState] = useState<IconConverterState>({
@@ -38,7 +38,6 @@ const IconConverter: React.FC = () => {
     },
   });
   const [isProcessing, setIsProcessing] = useState(false);
-  const [_iconPropsPath, setIconPropsPath] = useState("");
   const [generateProgress, setGenerateProgress] = useState(0);
   const [includeKeywords, setIncludeKeywords] = useState(false);
 
@@ -117,21 +116,36 @@ const IconConverter: React.FC = () => {
       );
 
       // Create logs including missing files
-      const logs = [
+      const logs: LogEntry[] = [
         // Successful generations
-        ...successfulResults.map((r) => `Success: ${r.name}.tsx`),
+        ...successfulResults.map((r) => ({
+          message: `${r.name}.tsx`,
+          type: null as null,
+          status: "success" as const,
+        })),
         // Failed generations
-        ...failedResults.map((r) => `Failed: ${r.name}.tsx`),
+        ...failedResults.map((r) => ({
+          message: `${r.name}.tsx`,
+          type: null as null,
+          status: "error" as const,
+        })),
         // Missing stroke files
-        ...(unmatched?.lineDuotone.map(
-          (name) => `Missing: ${name}.svg (Line Icon)`,
-        ) || []),
+        ...(unmatched?.lineDuotone.map((name) => ({
+          message: `${name}.svg`,
+          type: "lineDuotone" as const,
+          status: "warning" as const,
+        })) || []),
         // Missing duotone files
-        ...(unmatched?.boldDuotone.map(
-          (name) => `Missing: ${name}.svg (Bulk Icon)`,
-        ) || []),
-        ...(unmatched?.bold.map((name) => `Missing: ${name}.svg (Bold Icon)`) ||
-          []),
+        ...(unmatched?.boldDuotone.map((name) => ({
+          message: `${name}.svg`,
+          type: "boldDuotone" as const,
+          status: "warning" as const,
+        })) || []),
+        ...(unmatched?.bold.map((name) => ({
+          message: `${name}.svg`,
+          type: "bold" as const,
+          status: "warning" as const,
+        })) || []),
       ];
 
       setState((_prev) => ({
@@ -197,66 +211,6 @@ const IconConverter: React.FC = () => {
     return results;
   };
 
-  // Add new validation function
-  const validateFileMatches = useCallback(() => {
-    // Convert to lowercase and remove special characters for comparison
-    const normalizeFileName = (name: string) =>
-      name.toLowerCase().replace(/[^a-z0-9]/g, "");
-
-    const lineDuotoneFiles = new Map(
-      lineDuotoneHandler.names.map((name, i) => [
-        normalizeFileName(name),
-        { name, index: i },
-      ]),
-    );
-
-    const boldDuotoneFiles = new Map(
-      boldDuotoneHandler.names.map((name, i) => [
-        normalizeFileName(name),
-        { name, index: i },
-      ]),
-    );
-
-    const boldFiles = new Map(
-      boldHandler.names.map((name, i) => [
-        normalizeFileName(name),
-        { name, index: i },
-      ]),
-    );
-
-    // Find matching pairs
-    const matchedSets = Array.from(lineDuotoneFiles.keys())
-      .filter((key) => boldDuotoneFiles.has(key) && boldFiles.has(key))
-      .map((key) => ({
-        name: lineDuotoneFiles.get(key)!.name,
-        lineDuotoneIndex: lineDuotoneFiles.get(key)!.index,
-        boldDuotoneIndex: boldDuotoneFiles.get(key)!.index,
-        boldIndex: boldFiles.get(key)!.index,
-      }));
-
-    // Find missing files
-    const missingInBoldDuotone = Array.from(lineDuotoneFiles.keys())
-      .filter((key) => !boldDuotoneFiles.has(key))
-      .map((key) => lineDuotoneFiles.get(key)!.name);
-
-    const missingInBold = Array.from(boldDuotoneFiles.keys())
-      .filter((key) => !boldFiles.has(key))
-      .map((key) => boldDuotoneFiles.get(key)!.name);
-
-    return {
-      matchedSets,
-      unmatched: {
-        lineDuotone: missingInBoldDuotone,
-        boldDuotone: missingInBold,
-        bold: Array.from(boldFiles.keys())
-          .filter(
-            (key) => !lineDuotoneFiles.has(key) || !boldDuotoneFiles.has(key),
-          )
-          .map((key) => boldFiles.get(key)!.name),
-      },
-    };
-  }, [lineDuotoneHandler.names, boldDuotoneHandler.names, boldHandler.names]);
-
   // Update generate components to use matching pairs
   const generateComponents = useCallback(async () => {
     setIsProcessing(true);
@@ -273,7 +227,11 @@ const IconConverter: React.FC = () => {
       }
 
       // Get matched and unmatched files
-      const { matchedSets, unmatched } = validateFileMatches();
+      const { matchedSets, unmatched } = validateFiles(
+        lineDuotoneHandler.names,
+        boldDuotoneHandler.names,
+        boldHandler.names,
+      );
 
       // Show only the count in toast
       if (
@@ -303,35 +261,24 @@ const IconConverter: React.FC = () => {
       // Process only matched files
       const tasks = matchedSets.map(
         ({ name, lineDuotoneIndex, boldDuotoneIndex, boldIndex }) =>
-          async (): Promise<GeneratedResult> => {
+          (): GeneratedResult => {
             try {
-              const lineDuotoneSvg = await replaceAttributes(
+              const lineDuotoneSvg = replaceAttributes(
                 lineDuotoneHandler.svgs[lineDuotoneIndex],
                 true,
               );
-              const boldDuotoneSvg = await replaceAttributes(
+              const boldDuotoneSvg = replaceAttributes(
                 boldDuotoneHandler.svgs[boldDuotoneIndex],
               );
-              const boldSvg = await replaceAttributes(
-                boldHandler.svgs[boldIndex],
-              );
+              const boldSvg = replaceAttributes(boldHandler.svgs[boldIndex]);
 
-              // Use generateComponentCode or generateComponentCodeSync based on includeKeywords
-              const result = includeKeywords
-                ? await generateComponentCode(
-                    name,
-                    lineDuotoneSvg,
-                    boldDuotoneSvg,
-                    boldSvg,
-                    includeKeywords,
-                  )
-                : generateComponentCodeSync(
-                    name,
-                    lineDuotoneSvg,
-                    boldDuotoneSvg,
-                    boldSvg,
-                    includeKeywords,
-                  );
+              const result = generateComponentCode(
+                name,
+                lineDuotoneSvg,
+                boldDuotoneSvg,
+                boldSvg,
+                includeKeywords,
+              );
 
               return result;
             } catch (error) {
@@ -367,35 +314,16 @@ const IconConverter: React.FC = () => {
     }
   }, [
     lineDuotoneHandler.svgs,
+    lineDuotoneHandler.names,
     boldDuotoneHandler.svgs,
+    boldDuotoneHandler.names,
     boldHandler.svgs,
+    boldHandler.names,
     handleError,
-    validateFileMatches,
     createErrorResult,
     includeKeywords,
     updateStateWithResults,
   ]);
-
-  const clearAll = useCallback(() => {
-    setState({
-      outputs: [],
-      logs: [],
-      error: null,
-      missingFiles: {
-        lineDuotone: [],
-        boldDuotone: [],
-        bold: [],
-      },
-    });
-
-    lineDuotoneHandler.clearFiles();
-    boldDuotoneHandler.clearFiles();
-    boldHandler.clearFiles();
-    setIconPropsPath("");
-    setGenerateProgress(0);
-
-    toast.success("All files cleared successfully");
-  }, [lineDuotoneHandler, boldDuotoneHandler, boldHandler]);
 
   const clearType = useCallback(
     (type: "lineDuotone" | "boldDuotone" | "bold") => {
@@ -450,26 +378,17 @@ const IconConverter: React.FC = () => {
 
   return (
     <ErrorBoundary
-      fallback={<div>Something went wrong. Please try again.</div>}
+      fallbackRender={({ error }) => (
+        <div>Something went wrong: {error.message}</div>
+      )}
     >
       <div className="p-2">
-        <Card
-          className={cn(
-            "w-full px-4 py-6 rounded-3xl border flex gap-4 items-center",
-            "border-icu-300 bg-icu-100",
-            "dark:border-icu-800/70 dark:bg-icu-1000/60",
-            "text-icu-1100 dark:text-icu-100",
-          )}
-        >
-          <IconPenTool className="w-10 h-10 mx-3" fill />
-          <div>
-            <h2 className="text-xl font-medium">Svg to React Icon Converter</h2>
-            <p className="text-sm text-icu-600">
-              This tool is to create react component (.tsx) from 3 types of svg
-              icons twotone, bulk and bold.
-            </p>
-          </div>
-        </Card>
+        <PageHeader
+          title="Svg to React Icon Converter"
+          description="This tool is to create react component (.tsx) from 3 types of svg
+              icons twotone, bulk and bold."
+          icon={IconPenTool}
+        />
         <div className="relative flex flex-col justify-center gap-6 mt-2">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <FileDropzone
@@ -503,10 +422,10 @@ const IconConverter: React.FC = () => {
             <div className="flex items-center justify-between">
               <label
                 htmlFor="iconPropsPath"
-                className="flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
+                className="flex items-center gap-2 font-medium text-foreground"
               >
                 Path for{" "}
-                <kbd className="px-2 rounded-lg py-1 dark:bg-icu-1000 dark:text-icu-500">
+                <kbd className="px-2 rounded-lg py-1 dark:bg-muted dark:text-muted-foreground">
                   &#60;IconProps&#62;
                 </kbd>
                 <Button
@@ -554,10 +473,10 @@ const IconConverter: React.FC = () => {
                     <div className="flex items-end justify-between">
                       <label
                         htmlFor="bulkIconsList"
-                        className="pl-3 flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
+                        className="pl-3 flex items-center gap-2 font-medium text-foreground"
                       >
                         Line Icon Files
-                        <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
+                        <kbd className="px-2 rounded-lg dark:bg-muted dark:text-muted-foreground">
                           {lineDuotoneHandler.files.length}
                         </kbd>
                       </label>
@@ -585,10 +504,10 @@ const IconConverter: React.FC = () => {
                     <div className="flex items-end justify-between">
                       <label
                         htmlFor="bulkIconsList"
-                        className="pl-3 flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
+                        className="pl-3 flex items-center gap-2 font-medium text-foreground"
                       >
                         Bulk Icon Files
-                        <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
+                        <kbd className="px-2 rounded-lg dark:bg-muted dark:text-muted-foreground">
                           {boldDuotoneHandler.files.length}
                         </kbd>
                       </label>
@@ -616,10 +535,10 @@ const IconConverter: React.FC = () => {
                     <div className="flex items-end justify-between">
                       <label
                         htmlFor="bulkIconsList"
-                        className="pl-3 flex items-center gap-2 font-medium text-icu-900 dark:text-icu-500"
+                        className="pl-3 flex items-center gap-2 font-medium text-foreground"
                       >
                         Bold Files
-                        <kbd className="px-2 rounded-lg dark:bg-icu-1000 dark:text-icu-500">
+                        <kbd className="px-2 rounded-lg dark:bg-muted dark:text-muted-foreground">
                           {boldHandler.files.length}
                         </kbd>
                       </label>

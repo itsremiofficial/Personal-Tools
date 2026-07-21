@@ -1,4 +1,4 @@
-import { cn } from "@/hooks";
+import { cn } from "@/lib";
 import * as React from "react";
 
 type CardProps = React.HTMLAttributes<HTMLDivElement>;
@@ -8,14 +8,12 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     <div
       ref={ref}
       className={cn(
-        "rounded-4xl backdrop-blur-3xl",
-        "border-icu-300 bg-icu-100/70 ",
-        "dark:border-icu-800/70 dark:bg-icu-1000/70",
-        className
+        "rounded-4xl bg-card/50 border border-border/50",
+        className,
       )}
       {...props}
     />
-  )
+  ),
 );
 Card.displayName = "Card";
 
@@ -28,7 +26,7 @@ const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
       className={cn("flex flex-col space-y-1.5 p-6", className)}
       {...props}
     />
-  )
+  ),
 );
 CardHeader.displayName = "CardHeader";
 
@@ -40,7 +38,7 @@ const CardTitle = React.forwardRef<HTMLHeadingElement, CardTitleProps>(
       className={cn("leading-none tracking-wide mb-0", className)}
       {...props}
     />
-  )
+  ),
 );
 CardTitle.displayName = "CardTitle";
 
@@ -61,7 +59,7 @@ type CardContentProps = React.HTMLAttributes<HTMLDivElement>;
 const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
   ({ className, ...props }, ref) => (
     <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
-  )
+  ),
 );
 CardContent.displayName = "CardContent";
 
@@ -73,24 +71,15 @@ const CardFooter = React.forwardRef<HTMLDivElement, CardFooterProps>(
       className={cn("flex items-center p-6 pt-0", className)}
       {...props}
     />
-  )
+  ),
 );
 CardFooter.displayName = "CardFooter";
 
 type CardBodyProps = React.HTMLAttributes<HTMLDivElement>;
 const CardBody = React.forwardRef<HTMLDivElement, CardBodyProps>(
   ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn(
-        "border backdrop-blur-3xl",
-        "border-icu-100",
-        "dark:border-icu-900",
-        className
-      )}
-      {...props}
-    />
-  )
+    <div ref={ref} className={cn(className)} {...props} />
+  ),
 );
 CardBody.displayName = "CardBody";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDropzone } from "react-dropzone";
-import { cn } from "@/hooks";
+import { cn } from "@/lib";
 import { Card } from "./common/Card";
 import { toast } from "sonner";
 import { IconCloudUpload } from "./icons/version01";
@@ -15,10 +15,10 @@ export const FileDropzone = React.memo(
     className,
   }: FileDropzoneProps) => {
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
-      onDrop: (acceptedFiles, rejectedFiles) => {
+      onDrop: (acceptedFiles, _rejectedFiles) => {
         // Check for folders (size 0 and type '')
         const folders = acceptedFiles.filter(
-          (file) => file.size === 0 || !file.type
+          (file) => file.size === 0 || !file.type,
         );
         if (folders.length > 0) {
           toast.error("Folders are not allowed. Please upload SVG files only.");
@@ -36,7 +36,7 @@ export const FileDropzone = React.memo(
           const error = rejection.errors[0];
           if (error.code === "file-invalid-type") {
             toast.error(
-              `"${rejection.file.name}" is not allowed. Please upload SVG files only.`
+              `"${rejection.file.name}" is not allowed. Please upload SVG files only.`,
             );
           } else {
             toast.error(`Error: ${error.message}`);
@@ -66,28 +66,24 @@ export const FileDropzone = React.memo(
           {...getRootProps()}
           className={cn(
             "border-2 border-dashed p-6 pb-10 rounded-3xl cursor-pointer transition-colors duration-300 group/input",
-            "border-icu-500/70 hover:border-icu-600/50",
-            "dark:border-icu-700/70 dark:hover:border-icu-600/50",
-            "hover:bg-icu-300/70",
-            "dark:hover:bg-icu-800/40",
+            "border-border/70 hover:border-muted-foreground/50",
+            "hover:bg-muted/70",
             isDragActive &&
-              "border-icu-400 bg-icu-300/70 dark:border-icu-800 dark:bg-icu-800/40",
+              "border-border bg-accent/70",
             disabled && "cursor-not-allowed opacity-50",
             !disabled && "cursor-pointer",
-            className
+            className,
           )}
         >
           <input {...getInputProps()} className="hidden" />
           <label
             className={cn(
               "px-3 py-1 rounded-full text-sm border tracking-widest",
-              "border-icu-400 group-hover/input:border-icu-600/60",
-              "text-icu-600 group-hover/input:!text-icu-700",
-              "dark:border-icu-800/70 group-hover/input:dark:border-icu-700/60",
-              "dark:!text-icu-600/80 group-hover/input:dark:!text-icu-500",
+              "border-border group-hover/input:border-muted-foreground/60",
+              "text-muted-foreground group-hover/input:!text-foreground",
               "transition-colors duration-300",
               isDragActive &&
-                "!text-icu-700 border-icu-600/60 dark:!text-icu-500 dark:border-icu-700/60"
+                "!text-foreground border-muted-foreground/60",
             )}
           >
             {label}
@@ -95,22 +91,21 @@ export const FileDropzone = React.memo(
           <div
             className={cn(
               "flex gap-2 flex-col items-center justify-center text-center",
-              "text-icu-700 group-hover/input:text-icu-900",
-              "dark:text-icu-700 dark:group-hover/input:text-icu-500",
+              "text-foreground group-hover/input:text-foreground",
               "transition-colors duration-300",
-              isDragActive && "text-icu-900 dark:text-icu-500"
+              isDragActive && "text-foreground",
             )}
           >
             <IconCloudUpload className="size-14" />
             <p>Drag and drop files here, or click to select files</p>
-            <p className="text-sm text-icu-600 dark:text-icu-500">
+            <p className="text-sm text-muted-foreground">
               Supports SVG files only
             </p>
           </div>
         </div>
       </Card>
     );
-  }
+  },
 );
 
 FileDropzone.displayName = "FileDropzone";

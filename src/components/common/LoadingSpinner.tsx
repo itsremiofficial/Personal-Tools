@@ -1,4 +1,4 @@
-import { cn } from "@/hooks";
+import { cn } from "@/lib";
 
 interface LoadingSpinnerProps {
   className?: string;
@@ -6,7 +6,7 @@ interface LoadingSpinnerProps {
 
 export const LoadingSpinner = ({ className }: LoadingSpinnerProps) => (
   <svg
-    className={cn("animate-spin text-icu-500 dark:text-icu-700", className)}
+    className={cn("animate-spin text-muted-foreground", className)}
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"

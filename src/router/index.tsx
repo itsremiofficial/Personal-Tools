@@ -3,14 +3,16 @@ import { routes } from "./routes";
 import MainLayout from "@/layouts/MainLayout";
 
 const finalRoutes = routes.map((route) => {
+  const { errorElement: ee, ...rest } = route;
   return {
-    ...route,
+    ...rest,
     element: <MainLayout>{route.element}</MainLayout>,
+    ...(ee ? { errorElement: <MainLayout>{ee}</MainLayout> } : {}),
   };
 });
 
 const router = createBrowserRouter(finalRoutes, {
-  basename: "/Personal-Tools/",
+  basename: import.meta.env.VITE_BASE_URL || "/Personal-Tools/",
   future: {
     v7_skipActionErrorRevalidation: true,
     v7_startTransition: true,

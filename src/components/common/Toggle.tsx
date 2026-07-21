@@ -3,7 +3,7 @@
 import * as React from "react";
 import * as TogglePrimitive from "@radix-ui/react-toggle";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/hooks";
+import { cn } from "@/lib";
 
 const toggleVariants = cva(
   [
@@ -15,7 +15,7 @@ const toggleVariants = cva(
     variants: {
       variant: {
         default:
-          "text-icu-800 hover:text-icu-1100 bg-icu-300/50 hover:bg-icu-400/70 dark:text-icu-500 dark:hover:text-icu-400 dark:bg-icu-900/70 dark:hover:bg-icu-1000/50",
+          "text-muted-foreground hover:text-foreground bg-accent/50 hover:bg-accent/70",
         outline: "border bg-transparent shadow-sm hover:bg-accent",
       },
       size: {
@@ -62,10 +62,8 @@ export const Toggle = React.memo(
       disabled={disabled}
       className={cn(
         "border cursor-pointer rounded-xl !leading-relaxed flex gap-2 select-none",
-        "bg-transparent text-icu-800 border-icu-500 hover:bg-icu-200",
-        "data-[state=on]:bg-icu-300 data-[state=on]:border-icu-300 data-[state=on]:text-icu-1000",
-        "dark:hover:bg-icu-900 dark:border-icu-800 dark:text-icu-500",
-        "dark:data-[state=on]:bg-icu-1100 dark:data-[state=on]:border-icu-1100 dark:data-[state=on]:text-icu-500/80",
+        "bg-transparent text-muted-foreground border-border hover:bg-muted",
+        "data-[state=on]:bg-accent data-[state=on]:border-border data-[state=on]:text-foreground",
         className
       )}
     >

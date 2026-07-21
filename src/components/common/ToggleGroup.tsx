@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
-import { cn } from "@/hooks";
+import { cn } from "@/lib";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const toggleGroupVariants = cva(
@@ -8,8 +8,8 @@ const toggleGroupVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-icu-100 dark:bg-icu-900/80",
-        outline: "border border-icu-200 dark:border-icu-800",
+        default: "bg-muted",
+        outline: "border border-border",
         ghost: "bg-transparent",
       },
       size: {
@@ -91,22 +91,16 @@ const toggleGroupItemVariants = cva(
     variants: {
       variant: {
         default: [
-          "hover:bg-icu-200 hover:text-icu-900",
-          "data-[state=on]:bg-icu-1100 data-[state=on]:text-icu-100",
-          "dark:hover:bg-icu-1100 dark:hover:text-icu-200 dark:text-icu-400",
-          "dark:data-[state=on]:bg-icu-1100 dark:data-[state=on]:text-icu-300 dark:data-[state=on]:font-bold",
+          "hover:bg-muted hover:text-foreground",
+          "data-[state=on]:bg-foreground data-[state=on]:text-background",
         ],
         outline: [
-          "hover:bg-icu-100 hover:text-icu-900",
-          "data-[state=on]:bg-icu-900 data-[state=on]:text-icu-50",
-          "dark:hover:bg-icu-800 dark:hover:text-icu-200",
-          "dark:data-[state=on]:bg-icu-100 dark:data-[state=on]:text-icu-900",
+          "hover:bg-muted hover:text-foreground",
+          "data-[state=on]:bg-accent data-[state=on]:text-accent-foreground",
         ],
         ghost: [
-          "hover:bg-icu-100 hover:text-icu-900",
-          "data-[state=on]:bg-icu-100 data-[state=on]:text-icu-900",
-          "dark:hover:bg-icu-800 dark:hover:text-icu-200",
-          "dark:data-[state=on]:bg-icu-800 dark:data-[state=on]:text-icu-100",
+          "hover:bg-muted hover:text-foreground",
+          "data-[state=on]:bg-muted data-[state=on]:text-foreground",
         ],
       },
       size: {

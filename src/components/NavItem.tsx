@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { cn } from "@/hooks";
+import { motion } from "motion/react";
+import { cn } from "@/lib";
 
 const labelTransition = {
-  width: { duration: 0.5, ease: [0.7, 0, 0.2, 1] },
+  width: { duration: 0.5, ease: [0.7, 0, 0.2, 1] as const },
   opacity: { duration: 0.2 },
 };
 

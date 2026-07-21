@@ -4,5 +4,30 @@ export { Logo } from "./Logo";
 export { GenerateButton } from "./GenerateButton";
 export { FileList } from "./FileList";
 export { FileDropzone } from "./FileDropzone";
-export { ErrorBoundary } from "./ErrorBoundary";
 export { default as ColorVariants } from "./Colors";
+
+export { Button, buttonVariants } from "./common/Button";
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardBody,
+  CardContent,
+} from "./common/Card";
+export { Tabs, TabsList, TabsTrigger, TabsContent } from "./common/tabs";
+export { Toggle, toggleVariants } from "./common/Toggle";
+export { Tooltip } from "./common/Tooltip";
+export { Input } from "./common/Input";
+export { Dropdown } from "./common/Select";
+export { Progress } from "./common/Progress";
+export { LoadingSpinner } from "./common/LoadingSpinner";
+export { SearchBar } from "./common/SearchBar";
+export { ToggleGroup, ToggleGroupItem } from "./common/ToggleGroup";
+export { Header } from "./common/Header";
+export { IconCard } from "./common/IconCard";
+export { BackgroundGradientAnimation } from "./common/BgTransition";
+export { default as CodeHighlight } from "./common/Code";
+export { default as Spinner } from "./common/Spinner";
+export { default as Tray } from "./common/TrayDrawer";

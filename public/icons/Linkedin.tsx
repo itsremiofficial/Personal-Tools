@@ -1,11 +1,5 @@
 import type { FC } from "react";
 
-export interface IconProps {
-  className?: string;
-  fill?: boolean;
-  duotone?: boolean;
-  width?: string | number;
-}
 const IconLinkedIn: FC<IconProps> = ({
   className,
   fill = false,

@@ -1,4 +1,4 @@
-import { cn } from "@/hooks";
+import { cn } from "@/lib";
 
 interface SpinnerProps {
   className?: string;

@@ -1,7 +1,7 @@
 import { sanitizeFileName } from "@/lib";
 import { useState, useCallback } from "react";
 import { FileRejection } from "react-dropzone";
-import cleanupSvg from "./cleanupSvg";
+import cleanupSvg from "@/lib/cleanupSvg";
 import { toast } from "sonner";
 
 export interface FileHandlerState {

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -104,7 +105,7 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-press: "Inter", "sans-serif", -apple-system, BlinkMacSystemFont,
+  --font-inter: "Inter", "sans-serif", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
     "Helvetica Neue", serif;
 
@@ -114,17 +115,7 @@
 
   --color-bga: 55.88% 0.3 165.7;
 
-  --color-icu-100: oklch(95.9% 0.004 286.32);
-  --color-icu-200: oklch(91.98% 0.0098 252.82);
-  --color-icu-300: oklch(87.83% 0.0148 264.49);
-  --color-icu-400: oklch(82.71% 0.019 258.36);
-  --color-icu-500: oklch(77.307% 0.02 261.746);
-  --color-icu-600: oklch(57.726% 0.034 260.621);
-  --color-icu-700: oklch(41.702% 0.043 258.795);
-  --color-icu-800: oklch(32.32% 0.038 258.867);
-  --color-icu-900: oklch(23.986% 0.03 257.678);
-  --color-icu-1000: oklch(16.814% 0.023 257.526);
-  --color-icu-1100: oklch(10.846% 0.016 260.566);
+
 
   --ease-fluid: cubic-bezier(0.7, 0, 0.2, 1);
   --radius-4xl: 2.5rem;
@@ -135,47 +126,45 @@
   --animate-bg3: moveInCircle 40s linear infinite;
   --animate-bg4: moveHorizontal 40s ease infinite;
   --animate-bg5: moveInCircle 20s ease infinite;
-
-  /* Define the keyframes */
-  @keyframes moveHorizontal {
-    0% {
-      transform: translateX(-50%) translateY(-10%);
-    }
-    50% {
-      transform: translateX(50%) translateY(10%);
-    }
-    100% {
-      transform: translateX(-50%) translateY(-10%);
-    }
+}
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
   }
-
-  @keyframes moveInCircle {
-    0% {
-      transform: rotate(0deg);
-    }
-    50% {
-      transform: rotate(180deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  50% {
+    transform: translateX(50%) translateY(10%);
   }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+}
 
-  @keyframes moveVertical {
-    0% {
-      transform: translateY(-50%);
-    }
-    50% {
-      transform: translateY(50%);
-    }
-    100% {
-      transform: translateY(-50%);
-    }
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
   }
 }
 @layer base {
   body {
-    @apply bg-background font-press;
+    @apply bg-background font-inter;
   }
 
   .main-content {
@@ -210,8 +199,7 @@
     border-radius: 1rem;
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
-    @apply bg-icu-200 text-icu-800;
-    @apply dark:bg-icu-900 dark:text-icu-700/70;
+    @apply bg-background;
   }
   .mockup-code pre span {
     content: attr(data-prefix);
@@ -258,7 +246,7 @@
     top: 0;
     left: 0;
     z-index: 1;
-    @apply dark:bg-icu-1000/50 bg-icu-600/50;
+    @apply bg-background/50 backdrop-blur-xs;
   }
 
   .tray__content {
@@ -290,7 +278,7 @@
   /* TOASTS */
   /* .my-toast {
     @apply !border-none !rounded-full !shadow-md !ease-fluid !ps-10 !pe-10 !flex !items-center;
-    @apply !bg-emerald-50 !text-emerald-700 dark:!bg-red-500 dark:!text-red-400 dark:!shadow-icu-900/40;
+    @apply !bg-emerald-50 !text-emerald-700 dark:!bg-red-500 dark:!text-red-400 dark:!shadow-foreground/40;
   } */
 
   ol:has(li.my-toast) {
@@ -299,7 +287,7 @@
   [data-expanded="true"].my-toast,
   [data-type="success"].my-toast {
     @apply !border-none !rounded-full !shadow-none !ease-fluid !py-3 !px-6 !flex !items-center !justify-center !w-max;
-    @apply !bg-emerald-50 !text-emerald-700 dark:!bg-emerald-950 dark:!text-emerald-300 dark:!shadow-icu-900;
+    @apply !bg-emerald-50 !text-emerald-700 dark:!bg-emerald-950 dark:!text-emerald-300 dark:!shadow-foreground;
   }
 
   /* CODE HIGHLIGHTER */
@@ -311,11 +299,11 @@
   .hljs,
   .hljs-tag,
   .hljs-subst {
-    @apply text-icu-900 dark:text-icu-400;
+    @apply text-foreground;
   }
   .hljs-strong,
   .hljs-emphasis {
-    @apply text-icu-100;
+    @apply text-muted-foreground;
   }
 
   .hljs-bullet,

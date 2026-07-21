@@ -1,6 +1,6 @@
 import React from "react";
-import { AiBeautifyIcon } from "hugeicons-react";
-import { cn } from "@/hooks";
+import { IconMagicStick3 } from "@/components/icons/version01";
+import { cn } from "@/lib";
 import { Button } from "./common/Button";
 import { Progress } from "./common/Progress";
 
@@ -25,13 +25,13 @@ export const GenerateButton = React.memo(
           <>
             <Progress
               root="w-full h-4 bg-white/20"
-              indicator="bg-icu-100"
+              indicator="bg-muted"
               value={progress}
             />
           </>
         ) : (
           <>
-            Generate <AiBeautifyIcon className="size-5 ml-1" />
+            Generate <IconMagicStick3 className="size-5 ml-1" />
           </>
         )}
       </Button>

@@ -11,7 +11,7 @@ declare global {
     keywords?: string[];
   };
 
-  type IconStyle = "line" | "bulk" | "bold";
+  type IconStyle = "line-solid" | "line" | "bulk" | "bold";
 
   interface IconMetadata {
     name: string;
@@ -55,9 +55,15 @@ declare global {
     name: string;
   }
 
+  interface LogEntry {
+    message: string;
+    type: "lineDuotone" | "boldDuotone" | "bold" | null;
+    status: "success" | "warning" | "error";
+  }
+
   interface IconConverterState {
     outputs: string[];
-    logs: string[];
+    logs: LogEntry[];
     error: string | null;
     missingFiles: {
       lineDuotone: string[];
@@ -68,7 +74,7 @@ declare global {
 
   interface ResultsSectionProps {
     outputs: string[];
-    logs: string[];
+    logs: LogEntry[];
     error: string | null;
     names: string[];
     onClear: () => void;

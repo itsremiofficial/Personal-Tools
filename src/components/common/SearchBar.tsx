@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { cn } from "@/hooks";
+import { cn } from "@/lib";
 import * as iv02 from "@/components/icons/version02";
 import * as iv01 from "@/components/icons/version01";
 import { LoadingSpinner } from "./LoadingSpinner";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 
 interface SearchBarProps {
   searchQuery: string;
@@ -37,25 +37,25 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 
   const variantClasses = {
     default: cn(
-      "w-full h-10 pl-10 pr-10 rounded-xl border text-sm transition-colors",
-      "bg-white dark:bg-icu-900 border-icu-200 dark:border-icu-700",
-      "placeholder:text-icu-500 dark:placeholder:text-icu-500",
-      "text-icu-900 dark:text-icu-300",
-      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-icu-300 dark:focus-visible:ring-icu-600 focus-visible:border-icu-300 dark:focus-visible:border-icu-600"
+      "w-full h-14 pl-12 pr-10 text-sm transition-colors border border-border rounded-full",
+      "bg-background",
+      "placeholder:text-muted-foreground",
+      "text-foreground",
+      "focus-visible:outline-none focus-visible:ring focus-visible:ring-ring focus-visible:border-ring",
     ),
     minimal: cn(
       "w-full h-9 pl-9 pr-9 rounded-lg text-sm transition-colors",
-      "bg-icu-50 dark:bg-icu-800 border-none",
-      "placeholder:text-icu-500 dark:placeholder:text-icu-500",
-      "text-icu-900 dark:text-icu-300",
-      "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-icu-300 dark:focus-visible:ring-icu-700"
+      "bg-muted border-none",
+      "placeholder:text-muted-foreground",
+      "text-foreground",
+      "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
     ),
     embedded: cn(
-      "w-full h-10 pl-10 pr-10 rounded-lg text-sm transition-colors",
-      "bg-transparent border-none",
-      "placeholder:text-icu-600 dark:placeholder:text-icu-500",
-      "text-icu-1100 dark:text-icu-300",
-      "focus-visible:outline-none"
+      "w-full h-14 pl-10 pr-10 text-sm transition-colors border-b border-border/40",
+      "bg-transparent",
+      "placeholder:text-muted-foreground",
+      "text-foreground",
+      "focus-visible:outline-none",
     ),
   };
 
@@ -65,7 +65,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         className={cn(
           "relative w-full transition-opacity duration-200",
           isVisible ? "opacity-100" : "hidden sm:block opacity-90",
-          isFocused && "opacity-100"
+          isFocused && "opacity-100",
         )}
         onSubmit={(e) => {
           e.preventDefault();
@@ -78,20 +78,21 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             className={variantClasses[variant]}
             autoFocus={isVisible}
             placeholder={placeholder}
+            aria-label={placeholder}
             value={searchQuery}
             onChange={(e) => onSearch(e.target.value.toLowerCase())}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
           />
-          <div className="absolute left-3 top-0 bottom-0 flex items-center pointer-events-none">
+          <div className="absolute left-2 top-0 bottom-0 flex items-center pointer-events-none">
             {isLoading ? (
-              <LoadingSpinner className="w-4 h-4 text-icu-600 dark:text-icu-500" />
+              <LoadingSpinner className="size-5 text-muted-foreground" />
             ) : (
               <iv02.IconSearchStatus
                 duotone={variant === "embedded" && false}
                 className={cn(
-                  "w-4 h-4 text-icu-600 dark:text-icu-600",
-                  variant === "embedded" && "w-5.5 h-5.5"
+                  "size-5 text-muted-foreground",
+                  variant === "embedded" && "size-5.5",
                 )}
               />
             )}
@@ -109,7 +110,8 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                 {(variant === "minimal" || variant === "default") && (
                   <button
                     onClick={() => onSearch("")}
-                    className="text-icu-400 hover:text-icu-600 dark:text-icu-500 dark:hover:text-icu-400 cursor-pointer transition-colors duration-300"
+                    aria-label="Clear search"
+                    className="text-muted-foreground hover:text-foreground cursor-pointer transition-colors duration-300"
                   >
                     <iv01.IconClose className="w-5 h-5" />
                   </button>

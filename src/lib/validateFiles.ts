@@ -1,12 +1,15 @@
-interface FileSet {
+const normalizeFileName = (name: string) =>
+  name.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+export interface ValidatedSet {
   name: string;
   lineDuotoneIndex: number;
   boldDuotoneIndex: number;
   boldIndex: number;
 }
 
-interface ValidationResult {
-  matchedSets: FileSet[];
+export interface ValidationResult {
+  matchedSets: ValidatedSet[];
   unmatched: {
     lineDuotone: string[];
     boldDuotone: string[];
@@ -17,81 +20,56 @@ interface ValidationResult {
 export const validateFiles = (
   lineDuotoneNames: string[],
   boldDuotoneNames: string[],
-  boldNames: string[]
+  boldNames: string[],
 ): ValidationResult => {
-  const normalizeFileName = (name: string) =>
-    name.toLowerCase().replace(/[^a-z0-9]/g, "");
-
-  // Create maps with both normalized and original names
-  const lineDuotoneMap = new Map(
-    lineDuotoneNames.map(name => [normalizeFileName(name), name])
-  );
-  const boldDuotoneMap = new Map(
-    boldDuotoneNames.map(name => [normalizeFileName(name), name])
-  );
-  const boldMap = new Map(
-    boldNames.map(name => [normalizeFileName(name), name])
+  const lineDuotoneFiles = new Map(
+    lineDuotoneNames.map((name, i) => [
+      normalizeFileName(name),
+      { name, index: i },
+    ]),
   );
 
-  // First find complete matches (files that exist in all three types)
-  const completeMatches = new Set(
-    Array.from(lineDuotoneMap.keys())
-      .filter(normalizedName => 
-        boldDuotoneMap.has(normalizedName) && 
-        boldMap.has(normalizedName)
-      )
+  const boldDuotoneFiles = new Map(
+    boldDuotoneNames.map((name, i) => [
+      normalizeFileName(name),
+      { name, index: i },
+    ]),
   );
 
-  // Create matchedSets for component generation
-  const matchedSets = Array.from(completeMatches).map(normalizedName => ({
-    name: lineDuotoneMap.get(normalizedName)!,
-    lineDuotoneIndex: lineDuotoneNames.findIndex(n => normalizeFileName(n) === normalizedName),
-    boldDuotoneIndex: boldDuotoneNames.findIndex(n => normalizeFileName(n) === normalizedName),
-    boldIndex: boldNames.findIndex(n => normalizeFileName(n) === normalizedName),
-  }));
+  const boldFiles = new Map(
+    boldNames.map((name, i) => [
+      normalizeFileName(name),
+      { name, index: i },
+    ]),
+  );
 
-  // Get all unique file names across all types
-  const allNames = new Set([
-    ...lineDuotoneMap.keys(),
-    ...boldDuotoneMap.keys(),
-    ...boldMap.keys()
-  ]);
+  const matchedSets = Array.from(lineDuotoneFiles.keys())
+    .filter((key) => boldDuotoneFiles.has(key) && boldFiles.has(key))
+    .map((key) => ({
+      name: lineDuotoneFiles.get(key)!.name,
+      lineDuotoneIndex: lineDuotoneFiles.get(key)!.index,
+      boldDuotoneIndex: boldDuotoneFiles.get(key)!.index,
+      boldIndex: boldFiles.get(key)!.index,
+    }));
 
-  // Find missing files for each type (files that exist in other types but not in this one)
-  const unmatched = {
-    lineDuotone: Array.from(allNames)
-      .filter(normalizedName => 
-        !lineDuotoneMap.has(normalizedName) && 
-        (boldDuotoneMap.has(normalizedName) || boldMap.has(normalizedName))
-      )
-      .map(normalizedName => 
-        boldDuotoneMap.get(normalizedName) || 
-        boldMap.get(normalizedName) || 
-        normalizedName
-      ),
+  const missingInBoldDuotone = Array.from(lineDuotoneFiles.keys())
+    .filter((key) => !boldDuotoneFiles.has(key))
+    .map((key) => lineDuotoneFiles.get(key)!.name);
 
-    boldDuotone: Array.from(allNames)
-      .filter(normalizedName => 
-        !boldDuotoneMap.has(normalizedName) && 
-        (lineDuotoneMap.has(normalizedName) || boldMap.has(normalizedName))
-      )
-      .map(normalizedName => 
-        lineDuotoneMap.get(normalizedName) || 
-        boldMap.get(normalizedName) || 
-        normalizedName
-      ),
+  const missingInBold = Array.from(boldDuotoneFiles.keys())
+    .filter((key) => !boldFiles.has(key))
+    .map((key) => boldDuotoneFiles.get(key)!.name);
 
-    bold: Array.from(allNames)
-      .filter(normalizedName => 
-        !boldMap.has(normalizedName) && 
-        (lineDuotoneMap.has(normalizedName) || boldDuotoneMap.has(normalizedName))
-      )
-      .map(normalizedName => 
-        lineDuotoneMap.get(normalizedName) || 
-        boldDuotoneMap.get(normalizedName) || 
-        normalizedName
-      ),
+  return {
+    matchedSets,
+    unmatched: {
+      lineDuotone: missingInBoldDuotone,
+      boldDuotone: missingInBold,
+      bold: Array.from(boldFiles.keys())
+        .filter(
+          (key) => !lineDuotoneFiles.has(key) || !boldDuotoneFiles.has(key),
+        )
+        .map((key) => boldFiles.get(key)!.name),
+    },
   };
-
-  return { matchedSets, unmatched };
 };

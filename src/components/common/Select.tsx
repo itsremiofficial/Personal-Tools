@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
-import { cn } from "@/hooks";
+import { cn } from "@/lib";
 import { IconAltArrowRight } from "../icons/version01";
 
 // Types
@@ -57,7 +57,7 @@ const {
   SubContent: PrimitiveSubContent,
   Content: PrimitiveContent,
   Item: PrimitiveItem,
-  Separator: PrimitiveSeparator,
+  Separator: _PrimitiveSeparator,
 } = DropdownMenuPrimitive;
 
 // Enhanced Components
@@ -102,7 +102,7 @@ const DropdownMenuItem = React.forwardRef<
         menuItemStyles,
         variant === "destructive" &&
           (optionClasses?.destructive || "text-destructive"),
-        isSelected && (optionClasses?.selected || "bg-icu-900 text-icu-300"),
+        isSelected && (optionClasses?.selected || "bg-accent text-accent-foreground"),
         menuClasses?.item,
         className
       )}

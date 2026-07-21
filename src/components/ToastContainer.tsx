@@ -9,7 +9,7 @@ export const ToastContainer = () => {
 
   return (
     <Toaster
-      theme={isDark ? "light" : "dark"}
+      theme={isDark ? "dark" : "light"}
       richColors
       expand={false}
       position="top-center"

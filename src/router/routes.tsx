@@ -1,24 +1,30 @@
 import { ColorPalette, IconConverter, IconsList } from "./lazyComponents";
+import ErrorPage from "@/Pages/ErrorPage";
+
+const errorElement = <ErrorPage />;
 
 const routes = [
   {
     path: "/",
     element: <IconsList />,
-    layout: "dash",
-  },
-  {
-    path: "/icons",
-    element: <IconsList />,
+    errorElement,
     layout: "dash",
   },
   {
     path: "/icon-converter",
     element: <IconConverter />,
+    errorElement,
     layout: "dash",
   },
   {
     path: "/color-palette-generator",
     element: <ColorPalette />,
+    errorElement,
+    layout: "dash",
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
     layout: "dash",
   },
 ];

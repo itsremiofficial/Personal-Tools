@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-const IconAlignHorizontaSpacing: FC<IconProps> = ({
+const IconAlignHorizontalSpacing: FC<IconProps> = ({
   className,
   fill = false,
   duotone = true,
@@ -84,7 +84,7 @@ const IconAlignHorizontaSpacing: FC<IconProps> = ({
 };
 
 // Keywords for search and categorization
-(IconAlignHorizontaSpacing as IconComponent).keywords = [
+(IconAlignHorizontalSpacing as IconComponent).keywords = [
   "align",
   "horizonta",
   "spacing",
@@ -117,4 +117,4 @@ const IconAlignHorizontaSpacing: FC<IconProps> = ({
   "disengagement",
 ];
 
-export default IconAlignHorizontaSpacing as IconComponent;
+export default IconAlignHorizontalSpacing as IconComponent;
