@@ -1,5 +1,5 @@
 import { ColorVariants } from "@/components";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const ColorPalette = () => {
   const [colorVariantCount, setColorVariantCount] = useState(1);

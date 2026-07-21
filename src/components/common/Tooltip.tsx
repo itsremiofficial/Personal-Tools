@@ -11,14 +11,14 @@ const tooltipVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-white text-gray-950 border-gray-200 dark:bg-gray-900 dark:text-gray-50 dark:border-gray-800",
+          "bg-white text-foreground bg-background/70 border-border backdrop-blur-lg",
         invert:
           "bg-gray-900 text-gray-50 border-gray-800 dark:bg-gray-50 dark:text-gray-900 dark:border-gray-200",
         muted:
           "bg-gray-100 text-gray-900 border-gray-200 dark:bg-gray-800 dark:text-gray-50 dark:border-gray-700",
       },
       size: {
-        default: "rounded-lg",
+        default: "rounded-3xl",
         sm: "rounded-md py-1 px-2 text-xs",
         lg: "rounded-xl py-2 px-4",
       },
@@ -27,7 +27,7 @@ const tooltipVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
 interface TooltipProps extends React.PropsWithChildren {
@@ -69,7 +69,7 @@ export const Tooltip = React.memo(
         align,
         ...props
       },
-      ref
+      ref,
     ) => (
       <TooltipPrimitive.Provider delayDuration={delayDuration}>
         <TooltipPrimitive.Root {...props}>
@@ -90,8 +90,8 @@ export const Tooltip = React.memo(
           </TooltipPrimitive.Content>
         </TooltipPrimitive.Root>
       </TooltipPrimitive.Provider>
-    )
-  )
+    ),
+  ),
 );
 
 Tooltip.displayName = "Tooltip";

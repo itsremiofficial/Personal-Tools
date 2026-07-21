@@ -21,7 +21,7 @@
       "@common/*": ["./src/components/common/*"],
       "@icons/*": ["src/components/icons/*"],
       "@pages/*": ["./src/pages/*"],
-      "@utils/*": ["./src/utils/*"],
+      "@utils/*": ["src/lib/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@types/*": ["./src/types/*"]
     },

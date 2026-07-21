@@ -1,20 +1,8 @@
-import { useState, useEffect, useCallback, useTransition } from 'react';
+import { useState, useCallback, useTransition } from "react";
 
 export const useSidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const [isDelayed, setIsDelayed] = useState(false);
   const [isPending, startTransition] = useTransition();
-
-  useEffect(() => {
-    if (!isOpen) {
-      const timer = setTimeout(() => {
-        setIsDelayed(true);
-      }, 500);
-      return () => clearTimeout(timer);
-    } else {
-      setIsDelayed(false);
-    }
-  }, [isOpen]);
 
   const toggleSidebar = useCallback(() => {
     startTransition(() => {
@@ -22,5 +10,5 @@ export const useSidebar = () => {
     });
   }, []);
 
-  return { isOpen, isDelayed, isPending, toggleSidebar };
+  return { isOpen, isPending, toggleSidebar };
 };

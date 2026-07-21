@@ -157,7 +157,7 @@ const IconsList = () => {
         : `${import.meta.env.BASE_URL}/`;
       const formattedVersion = version.replace(
         /^v(\d+)$/,
-        (_, num) => `version${num.padStart(2, "0")}`
+        (_, num) => `version${num.padStart(2, "0")}`,
       );
       const iconUrl = `${baseUrl}icons/${formattedVersion}/${cleanIconName}.tsx`;
       const response = await fetch(iconUrl);
@@ -196,7 +196,7 @@ const IconsList = () => {
         visibleCount < filteredIcons.length
       ) {
         setVisibleCount((prev) =>
-          Math.min(prev + PAGE_SIZE, filteredIcons.length)
+          Math.min(prev + PAGE_SIZE, filteredIcons.length),
         );
       }
     };
@@ -218,7 +218,7 @@ const IconsList = () => {
       debounce((query: string) => {
         setSearchQuery(query);
       }, 250),
-    []
+    [],
   );
 
   useEffect(() => {
@@ -232,7 +232,7 @@ const IconsList = () => {
       setInputValue(query);
       debouncedSearch(query);
     },
-    [debouncedSearch]
+    [debouncedSearch],
   );
 
   const clear = () => {
@@ -274,12 +274,12 @@ const IconsList = () => {
 
   // Main layout
   return (
-    <div className="min-h-screen w-full bg-icu-200 dark:bg-icu-900 transition-colors duration-200">
+    <div className="min-h-screen w-full transition-colors duration-200">
       <Suspense fallback={<LoadingFallback />}>
         <div className="flex flex-col h-screen">
           {/* Header */}
-          <header className="sticky top-0 z-10 px-3 sm:px-4">
-            <div className="px-4 py-3 w-full mx-auto border mt-2 rounded-2xl border-icu-300 dark:border-icu-800/80 bg-icu-100 dark:bg-icu-1100/50">
+          <header className="sticky top-0 z-10 px-2">
+            <div className="px-4 py-2 w-full mx-auto bg-border/40 mt-2 rounded-2xl">
               <Header
                 count={totalIcons}
                 loadedCount={filteredIcons.length}

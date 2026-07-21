@@ -30,7 +30,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
       {isLoading && <PreLoader />}
       <Sidebar ref={sidebarRef} />
       {isSidebarReady && (
-        <main className="main-content flex flex-col min-h-screen ml-auto">
+        <main className="main-content bg-card/50 rounded-3xl flex flex-col min-h-screen ml-auto">
           {children}
         </main>
       )}

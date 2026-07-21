@@ -1,4 +1,4 @@
-import { sanitizeFileName } from "@/utils";
+import { sanitizeFileName } from "@/lib";
 import { useState, useCallback } from "react";
 import { FileRejection } from "react-dropzone";
 import cleanupSvg from "./cleanupSvg";
@@ -30,7 +30,7 @@ export type FileHandlerType = {
 };
 
 export const useFileHandler = (
-  type: "lineDuotone" | "boldDuotone" | "bold"
+  type: "lineDuotone" | "boldDuotone" | "bold",
 ): FileHandlerType => {
   const [state, setState] = useState<FileHandlerState>({
     files: [],
@@ -75,27 +75,27 @@ export const useFileHandler = (
                 console.error(
                   `Error processing ${type} file:`,
                   file.name,
-                  error
+                  error,
                 );
                 return null;
               }
             })
             .filter(
               (
-                item
+                item,
               ): item is { file: File; name: string; originalName: string } => {
                 if (!item) {
                   return false;
                 }
                 // Additional validation
                 const isValid = Boolean(
-                  item.name && item.file && item.originalName
+                  item.name && item.file && item.originalName,
                 );
                 if (!isValid) {
                   console.warn("Invalid file entry:", item);
                 }
                 return isValid;
-              }
+              },
             );
 
           // Sort files by name
@@ -176,7 +176,7 @@ export const useFileHandler = (
         }
       });
     },
-    [type]
+    [type],
   );
 
   const actions: FileHandlerActions = {
@@ -185,21 +185,21 @@ export const useFileHandler = (
         try {
           // Validate files before processing
           const invalidFiles = acceptedFiles.filter(
-            (file) => !file.type.includes("svg")
+            (file) => !file.type.includes("svg"),
           );
 
           if (invalidFiles.length > 0) {
             toast.error(
               `Invalid file type${
                 invalidFiles.length > 1 ? "s" : ""
-              }. Please upload SVG files only.`
+              }. Please upload SVG files only.`,
             );
             return;
           }
 
           // Sort and merge with existing files
           const sortedNewFiles = [...acceptedFiles].sort((a, b) =>
-            sanitizeFileName(a.name).localeCompare(sanitizeFileName(b.name))
+            sanitizeFileName(a.name).localeCompare(sanitizeFileName(b.name)),
           );
 
           // Process files
@@ -209,7 +209,7 @@ export const useFileHandler = (
           console.error("File handling error:", error);
         }
       },
-      [processFiles]
+      [processFiles],
     ),
 
     handleRejected: useCallback((rejections: FileRejection[]) => {
@@ -223,7 +223,7 @@ export const useFileHandler = (
         toast.error(
           `${rejections.length} file${
             rejections.length > 1 ? "s" : ""
-          } rejected. Only SVG files are allowed.`
+          } rejected. Only SVG files are allowed.`,
         );
       }
     }, []),

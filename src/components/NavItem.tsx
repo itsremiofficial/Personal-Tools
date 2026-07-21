@@ -1,67 +1,53 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { motion, useAnimation } from "framer-motion";
-import { useSmoothCorners } from "@/utils/SmoothCorners";
+import { motion } from "framer-motion";
 import { cn } from "@/hooks";
+
+const labelTransition = {
+  width: { duration: 0.5, ease: [0.7, 0, 0.2, 1] },
+  opacity: { duration: 0.2 },
+};
 
 export const NavItem = React.memo(
   ({ path, label, icon: IconComponent, isActive, isOpen }: NavItemProps) => {
-    const { smoothCorners, updateProgress } = useSmoothCorners("3,3", "10,3");
-    const controls = useAnimation();
-
-    useEffect(() => {
-      controls.start({ opacity: isOpen ? 1 : 0 });
-      updateProgress(isOpen ? 1 : 0);
-    }, [isOpen, controls, updateProgress]);
-
     return (
-      <motion.div
-        style={
-          {
-            "--smooth-corners": smoothCorners,
-          } as CustomStyles
-        }
-        className={cn(
-          "masked overflow-hidden rounded-2xl tracking-wide font-semibold will-change-transform select-none",
-          "transition-colors duration-300",
-          "text-icu-800 hover:text-icu-900",
-          "bg-icu-200 hover:bg-icu-400/60",
-          "dark:text-icu-500 dark:hover:text-icu-100",
-          "dark:bg-icu-800/40 dark:hover:bg-icu-800",
-          !isOpen && "max-h-[75px] aspect-square",
-          isActive && "bg-icu-400 text-icu-1100 dark:bg-icu-800 dark:text-white"
-        )}
-        layout
-        layoutDependency={isOpen}
-      >
+      <li>
         <Link
           className={cn(
-            "px-4 py-6 flex items-center  gap-3",
-            !isOpen && "!items-center h-full"
+            "relative flex items-center gap-3 rounded-xl",
+            "select-none",
+            "transition-colors",
+            !isOpen && "justify-center",
+            isOpen ? "p-3" : "p-3",
+            "bg-muted/40 text-muted-foreground hover:bg-muted hover:text-foreground",
+            isActive && "bg-sidebar-accent text-sidebar-accent-foreground",
           )}
           to={path}
         >
-          <div className={cn(!isOpen ? "" : "w-1/8")}>
-            <IconComponent
-              fill={isActive}
-              // duotone={false}
-              className="w-7 h-7 !aspect-square"
-            />
-          </div>
+          <div
+            className={cn(
+              "absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 rounded-r-full",
+              "transition-all duration-300",
+              isActive ? "h-1/2 bg-sidebar-accent-foreground/30" : "h-0",
+            )}
+          />
+          <IconComponent fill={isActive} className="size-5 shrink-0" />
           <motion.div
-            animate={{ opacity: isOpen ? 1 : 0, width: isOpen ? "auto" : 0 }}
-            transition={{
-              opacity: { duration: 0.7, ease: [0.7, 0, 0.2, 1] },
-              width: { duration: 0.7, ease: [0.7, 0, 0.2, 1] },
+            initial={false}
+            animate={{
+              width: isOpen ? "auto" : 0,
+              opacity: isOpen ? 1 : 0,
+              display: isOpen ? "block" : "none",
             }}
-            className={cn("whitespace-nowrap")}
+            transition={labelTransition}
+            className="overflow-hidden whitespace-nowrap text-sm"
           >
             {label}
           </motion.div>
         </Link>
-      </motion.div>
+      </li>
     );
-  }
+  },
 );
 
 NavItem.displayName = "NavItem";

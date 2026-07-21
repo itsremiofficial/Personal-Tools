@@ -3,7 +3,7 @@
 import React, { useState, useCallback, useMemo, useContext } from "react";
 import { toast } from "sonner";
 import { useFileHandler } from "@/hooks/useFileHandler";
-import { generateComponentCode, replaceAttributes } from "@/utils";
+import { generateComponentCode, replaceAttributes } from "@/lib";
 import { TrayProviderProps } from "@/components/context/TrayProvider";
 import {
   ErrorBoundary,
@@ -14,13 +14,12 @@ import {
 } from "@/components";
 import { cn } from "@/hooks";
 import Tray from "@/components/common/TrayDrawer";
-import { generateComponentCodeSync } from "@/utils/generateComponentCode";
+import { generateComponentCodeSync } from "@/lib/generateComponentCode";
 import { Card } from "@/components/common/Card";
 import { Toggle } from "@/components/common/Toggle";
 import {
   IconDocumentText,
   IconInfoCircle,
-  IconPalette,
   IconTrashBin2,
 } from "@/components/icons/version01";
 import { Button } from "@/components/common/Button";
@@ -39,7 +38,7 @@ const IconConverter: React.FC = () => {
     },
   });
   const [isProcessing, setIsProcessing] = useState(false);
-  const [iconPropsPath, setIconPropsPath] = useState("");
+  const [_iconPropsPath, setIconPropsPath] = useState("");
   const [generateProgress, setGenerateProgress] = useState(0);
   const [includeKeywords, setIncludeKeywords] = useState(false);
 
@@ -58,7 +57,7 @@ const IconConverter: React.FC = () => {
       boldDuotoneHandler.files.length,
       boldHandler.files.length,
       isProcessing,
-    ]
+    ],
   );
 
   const createErrorResult = useCallback(
@@ -71,22 +70,25 @@ const IconConverter: React.FC = () => {
         name,
       };
     },
-    []
+    [],
   );
 
-  const handleError = useCallback((error: Error, name?: string) => {
-    const errorMessage = name
-      ? `Failed to generate: ${name}.tsx (${error.message})`
-      : error.message;
+  const handleError = useCallback(
+    (error: Error, name?: string) => {
+      const errorMessage = name
+        ? `Failed to generate: ${name}.tsx (${error.message})`
+        : error.message;
 
-    if (name) {
-      toast.error(errorMessage, {
-        id: `error-${name}`,
-      });
-    }
+      if (name) {
+        toast.error(errorMessage, {
+          id: `error-${name}`,
+        });
+      }
 
-    return createErrorResult(error, name);
-  }, []);
+      return createErrorResult(error, name);
+    },
+    [createErrorResult],
+  );
 
   const updateStateWithResults = useCallback(
     (
@@ -95,7 +97,7 @@ const IconConverter: React.FC = () => {
         lineDuotone: string[];
         boldDuotone: string[];
         bold: string[];
-      }
+      },
     ) => {
       const successfulResults = results.filter((r) => r.success);
       const failedResults = results.filter((r) => !r.success);
@@ -111,7 +113,7 @@ const IconConverter: React.FC = () => {
           acc[key].push(result.name);
           return acc;
         },
-        {} as Record<string, string[]>
+        {} as Record<string, string[]>,
       );
 
       // Create logs including missing files
@@ -122,17 +124,17 @@ const IconConverter: React.FC = () => {
         ...failedResults.map((r) => `Failed: ${r.name}.tsx`),
         // Missing stroke files
         ...(unmatched?.lineDuotone.map(
-          (name) => `Missing: ${name}.svg (Line Icon)`
+          (name) => `Missing: ${name}.svg (Line Icon)`,
         ) || []),
         // Missing duotone files
         ...(unmatched?.boldDuotone.map(
-          (name) => `Missing: ${name}.svg (Bulk Icon)`
+          (name) => `Missing: ${name}.svg (Bulk Icon)`,
         ) || []),
         ...(unmatched?.bold.map((name) => `Missing: ${name}.svg (Bold Icon)`) ||
           []),
       ];
 
-      setState((prev) => ({
+      setState((_prev) => ({
         outputs: successfulResults.map((r) => r.output as string),
         logs,
         error:
@@ -166,11 +168,11 @@ const IconConverter: React.FC = () => {
         });
       } else if (successfulResults.length > 0) {
         toast.success(
-          `Successfully generated ${successfulResults.length} components`
+          `Successfully generated ${successfulResults.length} components`,
         );
       }
     },
-    []
+    [],
   );
 
   // Add batch processing size
@@ -205,21 +207,21 @@ const IconConverter: React.FC = () => {
       lineDuotoneHandler.names.map((name, i) => [
         normalizeFileName(name),
         { name, index: i },
-      ])
+      ]),
     );
 
     const boldDuotoneFiles = new Map(
       boldDuotoneHandler.names.map((name, i) => [
         normalizeFileName(name),
         { name, index: i },
-      ])
+      ]),
     );
 
     const boldFiles = new Map(
       boldHandler.names.map((name, i) => [
         normalizeFileName(name),
         { name, index: i },
-      ])
+      ]),
     );
 
     // Find matching pairs
@@ -248,7 +250,7 @@ const IconConverter: React.FC = () => {
         boldDuotone: missingInBold,
         bold: Array.from(boldFiles.keys())
           .filter(
-            (key) => !lineDuotoneFiles.has(key) || !boldDuotoneFiles.has(key)
+            (key) => !lineDuotoneFiles.has(key) || !boldDuotoneFiles.has(key),
           )
           .map((key) => boldFiles.get(key)!.name),
       },
@@ -305,13 +307,13 @@ const IconConverter: React.FC = () => {
             try {
               const lineDuotoneSvg = await replaceAttributes(
                 lineDuotoneHandler.svgs[lineDuotoneIndex],
-                true
+                true,
               );
               const boldDuotoneSvg = await replaceAttributes(
-                boldDuotoneHandler.svgs[boldDuotoneIndex]
+                boldDuotoneHandler.svgs[boldDuotoneIndex],
               );
               const boldSvg = await replaceAttributes(
-                boldHandler.svgs[boldIndex]
+                boldHandler.svgs[boldIndex],
               );
 
               // Use generateComponentCode or generateComponentCodeSync based on includeKeywords
@@ -321,14 +323,14 @@ const IconConverter: React.FC = () => {
                     lineDuotoneSvg,
                     boldDuotoneSvg,
                     boldSvg,
-                    includeKeywords
+                    includeKeywords,
                   )
                 : generateComponentCodeSync(
                     name,
                     lineDuotoneSvg,
                     boldDuotoneSvg,
                     boldSvg,
-                    includeKeywords
+                    includeKeywords,
                   );
 
               return result;
@@ -336,15 +338,15 @@ const IconConverter: React.FC = () => {
               console.error(`Error generating component for ${name}:`, error);
               return handleError(
                 error instanceof Error ? error : new Error("Unknown error"),
-                name
+                name,
               );
             }
-          }
+          },
       );
 
       const results = await processInBatches(
         tasks.map((t) => t()),
-        BATCH_SIZE
+        BATCH_SIZE,
       );
 
       // Update results first
@@ -364,17 +366,14 @@ const IconConverter: React.FC = () => {
       setIsProcessing(false);
     }
   }, [
-    lineDuotoneHandler.names,
     lineDuotoneHandler.svgs,
-    boldDuotoneHandler.names,
     boldDuotoneHandler.svgs,
-    boldHandler.names,
     boldHandler.svgs,
     handleError,
-    iconPropsPath,
     validateFileMatches,
     createErrorResult,
     includeKeywords,
+    updateStateWithResults,
   ]);
 
   const clearAll = useCallback(() => {
@@ -428,7 +427,7 @@ const IconConverter: React.FC = () => {
           break;
       }
     },
-    [lineDuotoneHandler, boldDuotoneHandler, boldHandler]
+    [lineDuotoneHandler, boldDuotoneHandler, boldHandler],
   );
 
   const clearGenerated = useCallback(() => {
@@ -459,7 +458,7 @@ const IconConverter: React.FC = () => {
             "w-full px-4 py-6 rounded-3xl border flex gap-4 items-center",
             "border-icu-300 bg-icu-100",
             "dark:border-icu-800/70 dark:bg-icu-1000/60",
-            "text-icu-1100 dark:text-icu-100"
+            "text-icu-1100 dark:text-icu-100",
           )}
         >
           <IconPenTool className="w-10 h-10 mx-3" fill />

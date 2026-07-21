@@ -1,7 +1,6 @@
 import { memo, useState, useEffect } from "react";
 import { cn } from "@/hooks";
-import { Button } from "./Button";
-import { ToggleGroup, ToggleGroupItem } from "./ToggleGroup";
+import { Tabs, TabsList, TabsTrigger } from "./tabs";
 import * as iv01 from "@/components/icons/version01";
 import { Tooltip } from "./Tooltip";
 import { motion } from "framer-motion";
@@ -38,7 +37,7 @@ export const IconCard = memo(
     onCopy,
     onDownload,
     version,
-    className, 
+    className,
   }: IconCardProps) => {
     // Local style state for this specific icon
     const [localStyle, setLocalStyle] = useState<IconStyle>(currentStyle);
@@ -57,23 +56,23 @@ export const IconCard = memo(
     return (
       <div
         className={cn(
-          "flex flex-col h-full rounded-3xl flex-[1_1_0%] nth-last-of-type-[-n+5]:flex-[0_0_auto] min-w-52 border border-icu-300 dark:border-icu-800 transition-all duration-200 overflow-hidden",
-          isHovered && "border-icu-400 dark:border-icu-700",
-          className
+          "bg-muted/20 p-2 flex flex-col h-full rounded-3xl flex-[1_1_0%] nth-last-of-type-[-n+5]:flex-[0_0_auto] min-w-52 transition-all duration-200 overflow-hidden",
+          className,
         )}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         {/* Icon Preview Area */}
         <div className="relative">
-          <div className="p-3 sm:p-4 flex items-center justify-center bg-icu-100 dark:bg-icu-1100 rounded-t-xl">
+          <div className="p-3 sm:p-4 flex items-center justify-center rounded-t-xl">
             <Tooltip
               side="top"
               sideOffset={5}
+              className="p-4"
               trigger={
                 <div className="w-full h-full min-h-24 flex items-center justify-center">
                   <Icon
-                    className="w-10 h-10 sm:w-12 sm:h-12 text-icu-900 dark:text-icu-100 transition-all duration-200 transform"
+                    className="w-10 h-10 sm:w-12 sm:h-12 text-foreground transition-all duration-200 transform"
                     style={{
                       transform: isHovered ? "scale(1.1)" : "scale(1)",
                     }}
@@ -85,19 +84,20 @@ export const IconCard = memo(
               }
               content={
                 <div className="max-w-xs">
-                  <p className="text-sm font-medium mb-2">
-                    {formatIconName(name)}
+                  <p className="text-sm mb-4">
+                    {formatIconName(name)}{" "}
+                    <span className="text-foreground/30">- Keywords</span>
                   </p>
                   <div className="flex flex-wrap gap-1.5">
                     {((Icon as IconComponent).keywords || []).map(
                       (keyword: string, index: number) => (
                         <span
                           key={index}
-                          className="px-2 py-0.5 text-xs bg-icu-100 dark:bg-icu-800 text-icu-600 dark:text-icu-400 rounded-full"
+                          className="px-2 py-1 text-[10px] bg-muted/60 rounded-full leading-none capitalize text-foreground/70"
                         >
                           {keyword}
                         </span>
-                      )
+                      ),
                     )}
                     {(!Icon.keywords || Icon.keywords.length === 0) && (
                       <span className="text-xs text-icu-500">No keywords</span>
@@ -116,61 +116,47 @@ export const IconCard = memo(
             transition={{ duration: 0.2 }}
           >
             <button onClick={() => onCopy(localStyle)}>
-              <iv01.IconCopy3 className="h-5 w-5 text-icu-600 dark:text-icu-400 cursor-pointer hover:text-icu-800 dark:hover:text-icu-200 transition-colors duration-200" />
+              <iv01.IconCopy3 className="h-5 w-5 text-foreground/50 hover:text-foreground cursor-pointer transition-colors" />
             </button>
             <button onClick={() => onDownload(name, version)}>
-              <iv01.IconDownloadMinimalistic className="h-5 w-5 text-icu-600 dark:text-icu-400 cursor-pointer hover:text-icu-800 dark:hover:text-icu-200 transition-colors duration-200" />
+              <iv01.IconDownloadMinimalistic className="h-5 w-5 cursor-pointer text-foreground/50 hover:text-foreground transition-colors" />
             </button>
           </motion.div>
         </div>
 
         {/* Info and style selector */}
-        <div className="p-3 space-y-2 flex-grow flex flex-col bg-icu-400 dark:bg-icu-1000/70">
+        <div className="space-y-2 flex-grow flex flex-col">
           <h3
-            className="text-xs font-medium truncate text-icu-1100 dark:text-white tracking-wide"
+            className="text-sm font-medium truncate text-foreground text-center tracking-wide"
             title={formatIconName(name)}
           >
             {formatIconName(name)}
           </h3>
 
           <div className="mt-auto pt-1">
-            <ToggleGroup
-              type="single"
+            <Tabs
               value={localStyle}
-              onValueChange={(value: string) =>
-                value && handleLocalStyleChange(value as IconStyle)
-              }
-              variant="default"
-              size="sm"
-              className="flex w-full rounded-lg overflow-hidden p-1 gap-1"
+              onValueChange={(v) => v && handleLocalStyleChange(v as IconStyle)}
+              variant="pill"
+              className="w-full border border-border/70 p-1 rounded-full"
             >
-              <ToggleGroupItem
-                className="flex-1 text-xs leading-none"
-                value="line"
-                aria-label="Line style"
-              >
-                Line
-              </ToggleGroupItem>
-              <ToggleGroupItem
-                className="flex-1 text-xs leading-none"
-                value="bulk"
-                aria-label="Bulk style"
-              >
-                Bulk
-              </ToggleGroupItem>
-              <ToggleGroupItem
-                className="flex-1 text-xs leading-none"
-                value="bold"
-                aria-label="Bold style"
-              >
-                Bold
-              </ToggleGroupItem>
-            </ToggleGroup>
+              <TabsList className="w-full">
+                <TabsTrigger value="line" className="flex-1 text-xs py-2 px-4">
+                  Line
+                </TabsTrigger>
+                <TabsTrigger value="bulk" className="flex-1 text-xs py-2 px-4">
+                  Bulk
+                </TabsTrigger>
+                <TabsTrigger value="bold" className="flex-1 text-xs py-2 px-4">
+                  Bold
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
           </div>
         </div>
       </div>
     );
-  }
+  },
 );
 
 IconCard.displayName = "IconCard";

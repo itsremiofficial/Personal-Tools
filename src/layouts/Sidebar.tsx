@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback, useEffect, forwardRef } from "react";
+import React, { useMemo, useCallback, forwardRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { NavItem } from "@/components/NavItem";
 import { useSidebar } from "@/hooks/useSidebar";
@@ -12,20 +12,18 @@ import {
 import { cn } from "@/hooks";
 import { useTheme } from "@/hooks/useTheme";
 import { Logo } from "@/components";
-import { motion, AnimatePresence, useAnimation } from "framer-motion";
-import { useSmoothCorners } from "@/utils/SmoothCorners";
+import { motion } from "framer-motion";
 import { IconLayer } from "@/components/icons/version02";
+import { Tabs, TabsList, TabsTrigger } from "@/components/common/tabs";
 
-const Sidebar = forwardRef<HTMLElement>((props, ref) => {
+const labelTransition = {
+  width: { duration: 0.5, ease: [0.7, 0, 0.2, 1] },
+  opacity: { duration: 0.2 },
+};
+
+const Sidebar = forwardRef<HTMLElement>((_props, ref) => {
   const { isDark, setDark } = useTheme();
-  const { isOpen, isDelayed, toggleSidebar } = useSidebar();
-  const { smoothCorners, updateProgress } = useSmoothCorners("3,3", "10,3");
-  const controls = useAnimation();
-
-  useEffect(() => {
-    controls.start({ opacity: isOpen ? 1 : 0 });
-    updateProgress(isOpen ? 1 : 0);
-  }, [isOpen, controls, updateProgress]);
+  const { isOpen, toggleSidebar } = useSidebar();
   const location = useLocation();
 
   const navItems = useMemo(
@@ -42,7 +40,7 @@ const Sidebar = forwardRef<HTMLElement>((props, ref) => {
         icon: IconMagicStick3,
       },
     ],
-    []
+    [],
   );
 
   const getIsActive = useCallback(
@@ -52,194 +50,152 @@ const Sidebar = forwardRef<HTMLElement>((props, ref) => {
       }
       return location.pathname === path || location.hash === `#${path}`;
     },
-    [location]
+    [location],
   );
-
-  function ToggleItem({
-    id,
-    label,
-    isActive,
-    onChange,
-    IconComponent,
-    isOpen,
-  }: {
-    id: string;
-    label: string;
-    isActive: boolean;
-    onChange: () => void;
-    IconComponent: React.FC<IconProps>;
-    isOpen: boolean;
-  }) {
-    return (
-      <span className="grow">
-        <input
-          className="peer hidden"
-          type="radio"
-          value={label.toLowerCase()}
-          name="theme"
-          checked={isActive}
-          onChange={onChange}
-          id={id}
-        />
-        <motion.label
-          htmlFor={id}
-          style={
-            {
-              "--smooth-corners": smoothCorners,
-            } as CustomStyles
-          }
-          className={cn(
-            "form-radiobtn py-4 px-3 py-3flex items-center masked",
-            isOpen && "px-5 gap-1 max-h-16"
-          )}
-          layout
-          layoutDependency={isOpen}
-        >
-          <IconComponent
-            fill={isActive}
-            className={`!h-fit transform-[width] duration-500 ease-fluid ${
-              isOpen ? "w-5" : "w-6"
-            }`}
-          />
-          <AnimatePresence mode="wait">
-            <motion.div
-              layout
-              layoutDependency={isOpen}
-              initial={{ opacity: 0, width: 0 }}
-              animate={{
-                opacity: isOpen ? 1 : 0,
-                width: isOpen ? "auto" : 0,
-              }}
-              exit={{ opacity: 0, width: 0 }}
-              transition={{
-                type: "spring",
-                damping: 25,
-                stiffness: 200,
-                opacity: { duration: 0.2 },
-              }}
-              className={cn("whitespace-nowrap overflow-hidden")}
-            >
-              {label}
-            </motion.div>
-          </AnimatePresence>
-        </motion.label>
-      </span>
-    );
-  }
 
   return (
     <aside
       ref={ref}
       className={cn(
-        "group/sidebar sidebar relative z-50 !h-screen",
-        !isOpen && "sidebar_opened"
+        "group/sidebar sidebar relative z-50 h-screen",
+        !isOpen && "sidebar_opened",
       )}
     >
       <nav
         className={cn(
-          "fixed p-2 min-h-screen h-full transition-all duration-700 ease-fluid",
-          isOpen ? "w-[280px]" : "w-[110px]"
+          "fixed min-h-screen h-full transition-[width] duration-700 ease-fluid",
+          "shadow-sm",
+          isOpen ? "w-[240px]" : "w-20",
         )}
       >
-        <div
-          className={cn(
-            "!relative h-full rounded-3xl flex flex-col",
-            "bg-icu-100",
-            "dark:bg-icu-1100/50"
-          )}
-        >
-          <div
-            className={cn(
-              "absolute -right-3.5 top-10 w-max h-max cursor-pointer p-1.5 z-100",
-              "backdrop-blur-3xl rounded-full",
-              "transition-colors duration-300",
-              "text-icu-600 hover:text-secondary",
-              "dark:text-icu-600 dark:hover:text-primary-700",
-              "bg-icu-100 dark:bg-icu-1100"
-            )}
-            onClick={toggleSidebar}
-          >
-            <IconAltArrowRight
-              width="2.5"
-              duotone={false}
-              className={cn(
-                "transition-transform duration-700 ease-fluid",
-                "size-5 rotate-0 stroke-2",
-                isOpen && "rotate-180"
-              )}
-            />
-          </div>
-
-          <div className="grow flex flex-col items-center justify-between">
-            <div
-              className={cn("flex flex-col items-center gap-6 w-full relative")}
-            >
-              {/* HEADER LOGO */}
+        <div className="relative h-full flex flex-col">
+          <div className="grow flex flex-col">
+            <div className="flex flex-col items-center gap-6 w-full pt-4">
               <Link
                 to="/"
                 className={cn(
-                  "flex justify-center",
-                  "!transition-[width] duration-700 h-fit will-change-transform",
-                  "text-primary-700 w-24",
-                  isOpen && "w-40"
+                  "flex justify-center transition-[width] duration-700 ease-fluid",
+                  "text-sidebar-foreground",
+                  isOpen ? "w-36" : "w-20",
                 )}
               >
                 <Logo
                   className={cn(
-                    "!transition-[width] duration-700 h-fit",
-                    "text-icu-700 w-14 py-7",
-                    isOpen && "w-20"
+                    "transition-all duration-700 ease-fluid",
+                    "text-sidebar-foreground",
+                    isOpen ? "w-16" : "w-10",
                   )}
                   fill
                 />
               </Link>
 
-              <ul
-                className={cn(
-                  "h-full relative flex flex-col justify-center mt-4 perfect-scrollbar px-4 w-full gap-3"
-                )}
-              >
+              <div className="w-full px-4">
+                <div className="h-px bg-sidebar-border/50" />
+              </div>
+
+              <ul className="flex flex-col w-full gap-2 px-3 overflow-y-auto">
                 {navItems.map((item) => (
                   <NavItem
                     key={item.path}
                     {...item}
                     isActive={getIsActive(item.path)}
                     isOpen={isOpen}
-                    isDelayedClosed={isDelayed}
                   />
                 ))}
               </ul>
             </div>
 
-            {/* Theme Toggle Section */}
-            <div className="w-full p-2">
-              <div className="w-full flex flex-col items-center dark:border-icu-700 border border-icu-500 rounded-2xl p-2 pt-4">
-                <span
-                  className={cn(
-                    "uppercase text-xs mb-2 font-medium dark:text-icu-200 text-center",
-                    isOpen && "self-start ml-2"
-                  )}
+            <div className="mt-auto px-2 pb-2 w-full">
+              {/* <div
+                className={cn(
+                  "flex items-center justify-between cursor-pointer",
+                  "rounded-full p-2.5 border border-border",
+                  "transition-colors",
+                  "bg-sidebar text-muted-foreground/60 hover:text-muted-foreground",
+                )}
+                onClick={toggleSidebar}
+              >
+                <motion.span
+                  animate={{
+                    display: isOpen ? "block" : "none",
+                  }}
+                  transition={{ duration: 0.7, ease: [0.7, 0, 0.2, 1] }}
                 >
-                  Toggle Theme
-                </span>
-                <div className="flex flex-wrap w-full gap-2 transition-transform duration-700">
-                  <ToggleItem
-                    id="dark-mode"
-                    label="Dark"
-                    isActive={isDark}
-                    onChange={() => setDark(true)}
-                    IconComponent={IconMoon}
-                    isOpen={isOpen}
+                  Collapse
+                </motion.span>
+                <motion.div
+                  animate={{
+                    rotate: isOpen ? 180 : 0,
+                  }}
+                  transition={{ duration: 0.7, ease: [0.7, 0, 0.2, 1] }}
+                  className="mr-1"
+                >
+                  <IconAltArrowRight
+                    width={2.5}
+                    duotone={false}
+                    className="size-4 stroke-2"
                   />
-                  <ToggleItem
-                    id="light-mode"
-                    label="Light"
-                    isActive={!isDark}
-                    onChange={() => setDark(false)}
-                    IconComponent={IconSun}
-                    isOpen={isOpen}
+                </motion.div>
+              </div> */}
+              <div className="mb-2">
+                <div className="flex items-center gap-2 px-1 mb-2 mt-4">
+                  <span className="text-[11px] font-medium uppercase tracking-widest text-sidebar-foreground/50">
+                    Theme
+                  </span>
+                  <div
+                    className={cn(
+                      "h-px bg-sidebar-border/50 transition-opacity duration-500",
+                      isOpen ? "flex-1" : "hidden",
+                    )}
                   />
                 </div>
+                <Tabs
+                  value={isDark ? "dark" : "light"}
+                  onValueChange={(v) => setDark(v === "dark")}
+                  variant="pill"
+                  className="w-full bg-none"
+                >
+                  <TabsList className="border border-border justify-between w-full p-2">
+                    <TabsTrigger
+                      value="dark"
+                      indicatorClassName="bg-sidebar-primary/15 rounded-md"
+                      className={`text-foreground ${isOpen ? "px-5 py-3.5 gap-1.5" : "px-1.5"}`}
+                    >
+                      <IconMoon fill={isDark} className="w-5 h-5 shrink-0" />
+                      <motion.div
+                        initial={false}
+                        animate={{
+                          width: isOpen ? "auto" : 0,
+                          opacity: isOpen ? 1 : 0,
+                          display: isOpen ? "block" : "none",
+                        }}
+                        transition={labelTransition}
+                        className="overflow-hidden whitespace-nowrap text-sm"
+                      >
+                        Dark
+                      </motion.div>
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="light"
+                      indicatorClassName="bg-sidebar-primary/15 rounded-md"
+                      className={`text-foreground ${isOpen ? "px-5 py-3.5 gap-1.5" : "px-1.5"}`}
+                    >
+                      <IconSun fill={!isDark} className="w-5 h-5 shrink-0" />
+                      <motion.div
+                        initial={false}
+                        animate={{
+                          width: isOpen ? "auto" : 0,
+                          opacity: isOpen ? 1 : 0,
+                          display: isOpen ? "block" : "none",
+                        }}
+                        transition={labelTransition}
+                        className="overflow-hidden whitespace-nowrap text-sm"
+                      >
+                        Light
+                      </motion.div>
+                    </TabsTrigger>
+                  </TabsList>
+                </Tabs>
               </div>
             </div>
           </div>

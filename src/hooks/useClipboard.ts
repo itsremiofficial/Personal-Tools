@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { copyToClipboard as copyUtil } from "@/utils/copyToClipboard";
+import { copyToClipboard as copyUtil } from "@/lib/copyToClipboard";
 import { toast } from "sonner";
 
 interface UseClipboardOptions {
@@ -46,7 +46,7 @@ export function useClipboard(options: UseClipboardOptions = {}) {
         setIsLoading(false);
       }
     },
-    [timeout, onSuccess, onError, toast]
+    [timeout, onSuccess, onError, toast],
   );
 
   const reset = useCallback(() => {

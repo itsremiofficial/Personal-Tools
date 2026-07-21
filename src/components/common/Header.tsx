@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { SearchBar } from "./SearchBar";
-import { Button } from "./Button";
-import {
-  Icon4K,
-  IconAirbudsCaseMinimalistic,
-  IconBackpack,
-} from "../icons/version01";
-import { cn } from "@/hooks";
+import { IconAirbudsCaseMinimalistic } from "../icons/version01";
+import { Tabs, TabsList, TabsTrigger } from "./tabs";
 
 interface HeaderProps {
   count: number;
@@ -106,26 +101,25 @@ export const Header: React.FC<HeaderProps> = ({
 
       <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
         {/* View mode toggle */}
-        <div className="hidden sm:flex items-center gap-1 rounded-lg border border-icu-400 dark:border-icu-800 dark:bg-icu-1100 p-1">
-          {styleItems.map(({ label, onClick, icon, isSelected }) => (
-            <Button
-              key={label}
-              size={isSelected ? "sm" : "icon"}
-              variant={isSelected ? "subtle" : "ghost"}
-              onClick={onClick}
-              // isActive={isSelected}
-              className={cn(
-                "rounded-md h-8",
-                "text-icu-600 hover:text-icu-1100",
-                "dark:text-icu-700 dark:hover:text-icu-100",
-                isSelected &&
-                  "pr-4 leading-none text-icu-1000 dark:text-icu-100"
-              )}
-            >
-              {icon}
-              {isSelected && label}
-            </Button>
-          ))}
+        <div className="hidden sm:block">
+          <Tabs
+            value={currentStyle}
+            onValueChange={(v) => onStyleChange?.(v as IconStyle)}
+            variant="pill"
+          >
+            <TabsList className="border border-border">
+              {styleItems.map(({ label, icon }) => (
+                <TabsTrigger
+                  key={label.toLowerCase()}
+                  value={label.toLowerCase()}
+                  className="gap-1.5 py-2 pl-3 pr-4"
+                >
+                  {icon}
+                  <span className="text-sm">{label}</span>
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </Tabs>
         </div>
       </div>
     </div>

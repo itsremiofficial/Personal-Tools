@@ -141,14 +141,6 @@ declare global {
     icon: React.ComponentType<IconProps>;
     isActive: boolean;
     isOpen: boolean;
-    isDelayedClosed?: boolean;
-  }
-  interface Window {
-    __smoothCornersLoaded?: boolean;
-  }
-
-  interface CustomStyles extends React.CSSProperties {
-    "--smooth-corners": string | MotionValue<string>;
   }
 }
 
