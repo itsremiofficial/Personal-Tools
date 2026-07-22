@@ -25,26 +25,6 @@ declare global {
     children?: React.ReactNode;
   }
 
-  type ColorFormat = "hex" | "rgb" | "oklch";
-
-  type ColorVariant = {
-    value: string;
-    label: string;
-    hex: string;
-    rgb: string;
-    oklch: string;
-  };
-
-  interface ColorVariantsProps {
-    baseColor: string;
-    colorName: string;
-  }
-
-  interface ColorFormatSelectorProps {
-    selectedFormat: ColorFormat;
-    onChange: (format: ColorFormat) => void;
-  }
-
   type ViewType = "default" | "forward" | "secret" | "remove";
 
   interface GeneratedResult {
@@ -117,14 +97,6 @@ declare global {
     accept: Record<string, string[]>;
     disabled?: boolean;
     className?: string;
-  }
-
-  interface ColorCodeBlockProps {
-    variants: ColorVariant[];
-    colorFormat: "hex" | "rgb" | "oklch";
-    colorName: string;
-    className: string;
-    variableName: string;
   }
 
   interface ToggleSwitchProps {

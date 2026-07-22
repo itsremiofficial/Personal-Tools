@@ -5,7 +5,6 @@ import { useSidebar } from "@/hooks/useSidebar";
 import {
   IconMagicStick3,
   IconMoon,
-  IconPalette,
   IconSun,
 } from "@/components/icons/version01";
 import { cn } from "@/lib";
@@ -29,11 +28,6 @@ const Sidebar = forwardRef<HTMLElement>((_props, ref) => {
   const navItems = useMemo(
     () => [
       { path: "/", label: "Icons", icon: IconLayer },
-      {
-        path: "/color-palette-generator",
-        label: "Color Generator",
-        icon: IconPalette,
-      },
       {
         path: "/icon-converter",
         label: "Icon Converter",
@@ -124,7 +118,7 @@ const Sidebar = forwardRef<HTMLElement>((_props, ref) => {
                   variant="pill"
                   className="w-full bg-none"
                 >
-                  <TabsList className="border border-border justify-between w-full p-2">
+                  <TabsList className="border border-border justify-between w-full p-1">
                     <TabsTrigger
                       value="dark"
                       indicatorClassName="bg-sidebar-primary/15 rounded-md"

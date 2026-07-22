@@ -4,7 +4,6 @@ export { Logo } from "./Logo";
 export { GenerateButton } from "./GenerateButton";
 export { FileList } from "./FileList";
 export { FileDropzone } from "./FileDropzone";
-export { default as ColorVariants } from "./Colors";
 
 export { Button, buttonVariants } from "./common/Button";
 export {
@@ -27,6 +26,7 @@ export { SearchBar } from "./common/SearchBar";
 export { ToggleGroup, ToggleGroupItem } from "./common/ToggleGroup";
 export { Header } from "./common/Header";
 export { IconCard } from "./common/IconCard";
+export { StatefulButton } from "./common/StatefulButton";
 export { BackgroundGradientAnimation } from "./common/BgTransition";
 export { default as CodeHighlight } from "./common/Code";
 export { default as Spinner } from "./common/Spinner";

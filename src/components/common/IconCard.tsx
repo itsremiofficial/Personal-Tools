@@ -1,9 +1,9 @@
-import { memo, useState, useEffect } from "react";
+import { memo, useState } from "react";
 import { cn } from "@/lib";
 import * as iv01 from "@/components/icons/version01";
 import { Tooltip } from "./Tooltip";
-import { motion } from "motion/react";
-import { Button } from "./Button";
+import { AnimatePresence, motion } from "motion/react";
+import { StatefulButton } from "./StatefulButton";
 
 const formatIconName = (name: string): string => {
   const nameWithoutIcon = name.replace(/^Icon/, "");
@@ -52,18 +52,30 @@ export const IconCard = memo(
             sideOffset={5}
             className="p-4"
             trigger={
-              <div className="w-full h-full min-h-24 flex items-center justify-center">
-                <Icon
-                  className="w-10 h-10 sm:w-12 sm:h-12 text-foreground transition-all duration-200 transform"
-                  style={{
-                    transform: isHovered ? "scale(1.1)" : "scale(1)",
-                  }}
-                  fill={currentStyle === "bulk" || currentStyle === "bold"}
-                  duotone={
-                    currentStyle !== "bold" && currentStyle !== "line-solid"
-                  }
-                  width={1.2}
-                />
+              <div className="w-full h-full min-h-24 relative flex items-center justify-center">
+                <AnimatePresence>
+                  <motion.div
+                    key={currentStyle}
+                    initial={{ opacity: 0, scale: 0.6, rotate: -10 }}
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                      rotate: 0,
+                    }}
+                    exit={{ opacity: 0, scale: 1.3, rotate: 10 }}
+                    transition={{ duration: 0.18, ease: "easeInOut" }}
+                    className="absolute inset-0 flex items-center justify-center"
+                  >
+                    <Icon
+                      className="w-10 h-10 sm:w-12 sm:h-12 text-foreground"
+                      fill={currentStyle === "bulk" || currentStyle === "bold"}
+                      duotone={
+                        currentStyle !== "bold" && currentStyle !== "line-solid"
+                      }
+                      width={1.2}
+                    />
+                  </motion.div>
+                </AnimatePresence>
               </div>
             }
             content={
@@ -94,7 +106,7 @@ export const IconCard = memo(
           />
         </div>
 
-        <div className="space-y-2 flex-grow flex flex-col">
+        <div className="space-y-2 grow flex flex-col">
           <h3
             className="text-sm font-medium truncate text-foreground text-center tracking-wide"
             title={formatIconName(name)}
@@ -102,27 +114,36 @@ export const IconCard = memo(
             {formatIconName(name)}
           </h3>
 
-          <div className="mt-auto flex items-center justify-between gap-1 pt-1 px-1.5 pb-1.5 border border-border rounded-full">
-            <Button
-              variant={"default"}
-              onClick={() => onCopy(currentStyle)}
+          <div className="mt-auto flex items-center justify-between gap-1 p-1 border border-border rounded-full">
+            <StatefulButton
+              variant="default"
+              idleIcon={<iv01.IconCopy3 duotone={false} className="size-4" />}
+              idleLabel="Copy"
+              loadingLabel="Copying"
+              doneLabel="Copied"
+              doneClassName="text-green-400"
+              onAction={() => onCopy(currentStyle)}
+              minWidth="7ch"
               aria-label={`Copy ${formatIconName(name)}`}
               className={cn(actionBtn, "flex-1")}
-            >
-              <iv01.IconCopy3 duotone={false} className="size-4" />
-              Copy
-            </Button>
-            <Button
-              onClick={() => onDownload(name, version)}
+            />
+            <StatefulButton
+              variant="default"
+              idleIcon={
+                <iv01.IconDownloadMinimalistic
+                  duotone={false}
+                  className="size-4"
+                />
+              }
+              idleLabel="Download"
+              loadingLabel="Downloading"
+              doneLabel="Downloaded"
+              doneClassName="text-green-400"
+              onAction={() => onDownload(name, version)}
+              minWidth="10ch"
               aria-label={`Download ${formatIconName(name)}`}
               className={cn(actionBtn, "flex-1")}
-            >
-              <iv01.IconDownloadMinimalistic
-                duotone={false}
-                className="size-4"
-              />
-              Download
-            </Button>
+            />
           </div>
         </div>
       </div>
