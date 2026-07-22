@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 export const useTheme = () => {
   const userSet = useRef(localStorage.getItem("isDark") !== null);
 
-  const [isDark, setIsDark] = useState(() => {
+  const [isDark, setIsDark] = useState<boolean>(() => {
     const stored = localStorage.getItem("isDark");
     if (stored !== null) {
       return JSON.parse(stored);
