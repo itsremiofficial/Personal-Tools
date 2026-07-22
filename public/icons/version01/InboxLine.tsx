@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconInboxLine: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,28 +109,4 @@ const IconInboxLine: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconInboxLine as IconComponent).keywords = [
-  "inbox",
-  "line",
-  "mailbox",
-  "letterbox",
-  "email",
-  "binder",
-  "workbook",
-  "cassette",
-  "compartment",
-  "rack",
-  "lockbox",
-  "outline",
-  "dividing line",
-  "agate line",
-  "delineate",
-  "telephone line",
-  "draw",
-  "transmission line",
-  "credit line",
-  "phone line",
-];
-
-export default IconInboxLine as IconComponent;
+export default IconInboxLine;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUmbrella: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,18 +87,4 @@ const IconUmbrella: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUmbrella as IconComponent).keywords = [
-  "umbrella",
-  "comprehensive",
-  "sunshade",
-  "parasol",
-  "bag",
-  "cover",
-  "rooftop",
-  "roof",
-  "ceiling",
-  "blanket",
-];
-
-export default IconUmbrella as IconComponent;
+export default IconUmbrella;

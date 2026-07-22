@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSaveAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconSaveAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSaveAdd as IconComponent).keywords = [
-  "save",
-  "add",
-  "save up",
-  "lay aside",
-  "carry through",
-  "redeem",
-  "keep",
-  "deliver",
-  "relieve",
-  "spare",
-  "pull through",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconSaveAdd as IconComponent;
+export default IconSaveAdd;

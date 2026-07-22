@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRulerCrossPen: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,38 +109,4 @@ const IconRulerCrossPen: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRulerCrossPen as IconComponent).keywords = [
-  "ruler",
-  "cross",
-  "pen",
-  "rule",
-  "ndp",
-  "head",
-  "roi",
-  "officer",
-  "leadership",
-  "boss",
-  "leader",
-  "administrator",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-  "playpen",
-  "penitentiary",
-  "compose",
-  "indite",
-  "write",
-  "paddock",
-  "corral",
-  "basin",
-  "sty",
-];
-
-export default IconRulerCrossPen as IconComponent;
+export default IconRulerCrossPen;

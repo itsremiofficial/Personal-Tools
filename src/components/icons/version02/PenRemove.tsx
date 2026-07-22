@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPenRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -118,28 +125,4 @@ const IconPenRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPenRemove as IconComponent).keywords = [
-  "pen",
-  "remove",
-  "playpen",
-  "penitentiary",
-  "compose",
-  "indite",
-  "write",
-  "paddock",
-  "corral",
-  "basin",
-  "sty",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconPenRemove as IconComponent;
+export default IconPenRemove;

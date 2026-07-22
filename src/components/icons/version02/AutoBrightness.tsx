@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAutoBrightness: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,28 +93,4 @@ const IconAutoBrightness: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAutoBrightness as IconComponent).keywords = [
-  "auto",
-  "brightness",
-  "automobile",
-  "motorcar",
-  "car",
-  "machine",
-  "headlight",
-  "automotive",
-  "vehicle",
-  "vehicular",
-  "motoring",
-  "luminousness",
-  "luminosity",
-  "luminance",
-  "cleverness",
-  "smartness",
-  "light",
-  "splendor",
-  "brilliance",
-  "sheen",
-];
-
-export default IconAutoBrightness as IconComponent;
+export default IconAutoBrightness;

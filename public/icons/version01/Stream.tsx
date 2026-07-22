@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStream: FC<IconProps> = ({
   className,
   fill = false,
@@ -81,18 +88,4 @@ const IconStream: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStream as IconComponent).keywords = [
-  "stream",
-  "watercourse",
-  "rain cats and dogs",
-  "rain buckets",
-  "current",
-  "flow",
-  "pour",
-  "pelt",
-  "swarm",
-  "well out",
-];
-
-export default IconStream as IconComponent;
+export default IconStream;

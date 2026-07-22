@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconOutgoingCallRounded: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,38 +85,4 @@ const IconOutgoingCallRounded: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconOutgoingCallRounded as IconComponent).keywords = [
-  "outgoing",
-  "call",
-  "rounded",
-  "extrovertish",
-  "extroverted",
-  "extroversive",
-  "sociable",
-  "outward",
-  "past",
-  "preceding",
-  "out",
-  "forthcoming",
-  "phone call",
-  "telephone call",
-  "call in",
-  "telephone",
-  "phone",
-  "call up",
-  "send for",
-  "call option",
-  "margin call",
-  "ringed",
-  "ring-shaped",
-  "annulate",
-  "annular",
-  "circular",
-  "rotund",
-  "bowfront",
-  "prolate",
-  "domed",
-];
-
-export default IconOutgoingCallRounded as IconComponent;
+export default IconOutgoingCallRounded;

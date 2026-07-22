@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPrevious: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,18 +82,4 @@ const IconPrevious: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPrevious as IconComponent).keywords = [
-  "previous",
-  "preceding",
-  "early",
-  "premature",
-  "former",
-  "past",
-  "old",
-  "late",
-  "foregoing",
-  "antecedent",
-];
-
-export default IconPrevious as IconComponent;
+export default IconPrevious;

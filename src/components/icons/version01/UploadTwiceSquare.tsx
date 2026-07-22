@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUploadTwiceSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,38 +99,4 @@ const IconUploadTwiceSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUploadTwiceSquare as IconComponent).keywords = [
-  "upload",
-  "twice",
-  "square",
-  "download",
-  "loader",
-  "reload",
-  "uplink",
-  "send",
-  "sending",
-  "charging",
-  "recharge",
-  "rechargeable",
-  "double",
-  "doubly",
-  "twofold",
-  "two-fold",
-  "two",
-  "dual",
-  "two-tier",
-  "two-pronged",
-  "half",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconUploadTwiceSquare as IconComponent;
+export default IconUploadTwiceSquare;

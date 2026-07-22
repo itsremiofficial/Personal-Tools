@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDonut: FC<IconProps> = ({
   className,
   fill = false,
@@ -197,18 +204,4 @@ const IconDonut: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDonut as IconComponent).keywords = [
-  "donut",
-  "doughnut",
-  "sinker",
-  "jelly",
-  "bagel",
-  "pillow",
-  "cushion",
-  "slap",
-  "doughnuts",
-  "cruller",
-];
-
-export default IconDonut as IconComponent;
+export default IconDonut;

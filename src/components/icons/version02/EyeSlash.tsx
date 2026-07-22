@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEyeSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -129,28 +136,4 @@ const IconEyeSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEyeSlash as IconComponent).keywords = [
-  "eye",
-  "slash",
-  "optic",
-  "heart",
-  "eyeball",
-  "oculus",
-  "peeper",
-  "middle",
-  "center",
-  "centre",
-  "ocular",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconEyeSlash as IconComponent;
+export default IconEyeSlash;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVolumeCross: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,28 +94,4 @@ const IconVolumeCross: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVolumeCross as IconComponent).keywords = [
-  "volume",
-  "cross",
-  "loudness",
-  "book",
-  "mass",
-  "bulk",
-  "intensity",
-  "quantum",
-  "weight",
-  "density",
-  "potentiometer",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-];
-
-export default IconVolumeCross as IconComponent;
+export default IconVolumeCross;

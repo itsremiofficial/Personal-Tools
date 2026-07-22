@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLockSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,28 +114,4 @@ const IconLockSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLockSlash as IconComponent).keywords = [
-  "lock",
-  "slash",
-  "interlock",
-  "lock in",
-  "mesh",
-  "interlace",
-  "whorl",
-  "lock away",
-  "curl",
-  "ringlet",
-  "put away",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconLockSlash as IconComponent;
+export default IconLockSlash;

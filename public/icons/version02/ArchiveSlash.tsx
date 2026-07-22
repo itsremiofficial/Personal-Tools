@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconArchiveSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconArchiveSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconArchiveSlash as IconComponent).keywords = [
-  "archive",
-  "slash",
-  "file away",
-  "archival",
-  "file",
-  "record-keeping",
-  "registry",
-  "record",
-  "photo",
-  "filer",
-  "filename",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconArchiveSlash as IconComponent;
+export default IconArchiveSlash;

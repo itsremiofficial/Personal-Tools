@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMaximize2: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,28 +105,4 @@ const IconMaximize2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMaximize2 as IconComponent).keywords = [
-  "maximize",
-  "2",
-  "max",
-  "maximum",
-  "maximal",
-  "optimum",
-  "broaden",
-  "optimal",
-  "maximisation",
-  "maximise",
-  "optimizing",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconMaximize2 as IconComponent;
+export default IconMaximize2;

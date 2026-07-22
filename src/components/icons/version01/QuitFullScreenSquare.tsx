@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconQuitFullScreenSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,48 +107,4 @@ const IconQuitFullScreenSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconQuitFullScreenSquare as IconComponent).keywords = [
-  "quit",
-  "full",
-  "screen",
-  "square",
-  "rid",
-  "leave",
-  "relinquish",
-  "give up",
-  "step down",
-  "discontinue",
-  "throw in the towel",
-  "chuck up the sponge",
-  "lay off",
-  "filled",
-  "brimming",
-  "brimful",
-  "overfull",
-  "high",
-  "brimfull",
-  "overflowing",
-  "replete",
-  "overladen",
-  "screen door",
-  "cover",
-  "screen out",
-  "sieve",
-  "shield",
-  "silver screen",
-  "sort",
-  "test",
-  "block out",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconQuitFullScreenSquare as IconComponent;
+export default IconQuitFullScreenSquare;

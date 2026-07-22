@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSuitcaseLines: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,28 +106,4 @@ const IconSuitcaseLines: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSuitcaseLines as IconComponent).keywords = [
-  "suitcase",
-  "lines",
-  "bag",
-  "grip",
-  "traveling bag",
-  "valise",
-  "luggage",
-  "pack",
-  "backpack",
-  "briefcase",
-  "baggage",
-  "outline",
-  "dividing line",
-  "agate line",
-  "delineate",
-  "telephone line",
-  "draw",
-  "transmission line",
-  "credit line",
-  "phone line",
-];
-
-export default IconSuitcaseLines as IconComponent;
+export default IconSuitcaseLines;

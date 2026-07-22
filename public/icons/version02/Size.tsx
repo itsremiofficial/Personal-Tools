@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSize: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,18 +82,4 @@ const IconSize: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSize as IconComponent).keywords = [
-  "size",
-  "size of it",
-  "endowment",
-  "staffing",
-  "turnover",
-  "membership",
-  "headcount",
-  "workforce",
-  "manpower",
-  "gage",
-];
-
-export default IconSize as IconComponent;
+export default IconSize;

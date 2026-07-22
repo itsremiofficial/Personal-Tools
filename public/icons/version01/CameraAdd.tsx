@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCameraAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,28 +103,4 @@ const IconCameraAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCameraAdd as IconComponent).keywords = [
-  "camera",
-  "add",
-  "photographic camera",
-  "television camera",
-  "photography",
-  "photographer",
-  "photographing",
-  "photograph",
-  "photo",
-  "imaging",
-  "photographic",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconCameraAdd as IconComponent;
+export default IconCameraAdd;

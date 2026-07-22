@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconToggleOn: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconToggleOn: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconToggleOn as IconComponent).keywords = [
-  "toggle",
-  "on",
-  "on-off switch",
-  "toggle switch",
-  "lever",
-  "cycle",
-  "switch",
-  "button",
-  "switching",
-  "rotate",
-  "rotation",
-  "bps",
-  "add",
-  "nso",
-  "our",
-  "bsi",
-  "nbs",
-  "opti",
-  "sno",
-  "weap",
-];
-
-export default IconToggleOn as IconComponent;
+export default IconToggleOn;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTraffic: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,18 +82,4 @@ const IconTraffic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTraffic as IconComponent).keywords = [
-  "traffic",
-  "dealings",
-  "transportation",
-  "road",
-  "crossing",
-  "carriageway",
-  "driving",
-  "vehicle",
-  "highway",
-  "vehicular",
-];
-
-export default IconTraffic as IconComponent;
+export default IconTraffic;

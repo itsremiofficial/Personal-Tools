@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCircleTopUp: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,38 +85,4 @@ const IconCircleTopUp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCircleTopUp as IconComponent).keywords = [
-  "circle",
-  "top",
-  "up",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-  "upper side",
-  "upside",
-  "elevation",
-  "uppermost",
-  "height",
-  "pinnacle",
-  "peak",
-  "upper",
-  "topmost",
-  "upbound",
-  "upwardly",
-  "ascending",
-  "upward",
-  "upwards",
-  "rising",
-  "astir",
-  "ahead",
-  "awake",
-];
-
-export default IconCircleTopUp as IconComponent;
+export default IconCircleTopUp;

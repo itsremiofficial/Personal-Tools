@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCivicCvc: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,28 +87,4 @@ const IconCivicCvc: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCivicCvc as IconComponent).keywords = [
-  "civic",
-  "cvc",
-  "civil",
-  "citizenship",
-  "citizenry",
-  "citizen",
-  "bourgeois",
-  "national",
-  "communal",
-  "municipal",
-  "political",
-  "ccv",
-  "vcc",
-  "iaq",
-  "hvac",
-  "cmc",
-  "cac",
-  "bvc",
-  "insertion",
-  "indirect",
-];
-
-export default IconCivicCvc as IconComponent;
+export default IconCivicCvc;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAsteroid: FC<IconProps> = ({
   className,
   fill = false,
@@ -105,18 +112,4 @@ const IconAsteroid: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAsteroid as IconComponent).keywords = [
-  "asteroid",
-  "angulate",
-  "angular",
-  "minor planet",
-  "planetoid",
-  "star-shaped",
-  "hyalitis",
-  "meteor",
-  "planet",
-  "ceres",
-];
-
-export default IconAsteroid as IconComponent;
+export default IconAsteroid;

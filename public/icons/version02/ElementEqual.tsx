@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconElementEqual: FC<IconProps> = ({
   className,
   fill = false,
@@ -120,28 +127,4 @@ const IconElementEqual: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconElementEqual as IconComponent).keywords = [
-  "element",
-  "equal",
-  "chemical element",
-  "ingredient",
-  "component",
-  "constituent",
-  "factor",
-  "elemental",
-  "stone",
-  "facet",
-  "nutrient",
-  "equivalent",
-  "same",
-  "coequal",
-  "compeer",
-  "coordinate",
-  "equalize",
-  "even",
-  "be",
-  "tied",
-];
-
-export default IconElementEqual as IconComponent;
+export default IconElementEqual;

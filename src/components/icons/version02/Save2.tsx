@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSave2: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,28 +89,4 @@ const IconSave2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSave2 as IconComponent).keywords = [
-  "save",
-  "2",
-  "save up",
-  "lay aside",
-  "carry through",
-  "redeem",
-  "keep",
-  "deliver",
-  "relieve",
-  "spare",
-  "pull through",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconSave2 as IconComponent;
+export default IconSave2;

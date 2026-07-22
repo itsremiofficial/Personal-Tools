@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconXrpXrp: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,7 +85,4 @@ const IconXrpXrp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconXrpXrp as IconComponent).keywords = ["xrp"];
-
-export default IconXrpXrp as IconComponent;
+export default IconXrpXrp;

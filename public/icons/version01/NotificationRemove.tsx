@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNotificationRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,28 +84,4 @@ const IconNotificationRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNotificationRemove as IconComponent).keywords = [
-  "notification",
-  "remove",
-  "apprisal",
-  "notice",
-  "telling",
-  "presentment",
-  "notifying",
-  "notifier",
-  "notify",
-  "denunciation",
-  "announcement",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconNotificationRemove as IconComponent;
+export default IconNotificationRemove;

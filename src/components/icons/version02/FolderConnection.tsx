@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFolderConnection: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,28 +104,4 @@ const IconFolderConnection: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFolderConnection as IconComponent).keywords = [
-  "folder",
-  "connection",
-  "booklet",
-  "pamphlet",
-  "brochure",
-  "leaflet",
-  "toolkit",
-  "pack",
-  "package",
-  "kit",
-  "shirt",
-  "connexion",
-  "connectedness",
-  "connective",
-  "joining",
-  "connector",
-  "link",
-  "connecter",
-  "association",
-  "connecting",
-];
-
-export default IconFolderConnection as IconComponent;
+export default IconFolderConnection;

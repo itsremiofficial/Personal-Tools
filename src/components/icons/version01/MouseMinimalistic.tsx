@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMouseMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,28 +77,4 @@ const IconMouseMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMouseMinimalistic as IconComponent).keywords = [
-  "mouse",
-  "minimalistic",
-  "creep",
-  "pussyfoot",
-  "sneak",
-  "steal",
-  "murine",
-  "rodent",
-  "rat",
-  "weasel",
-  "frog",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconMouseMinimalistic as IconComponent;
+export default IconMouseMinimalistic;

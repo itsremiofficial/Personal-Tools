@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconListCheckMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,38 +95,4 @@ const IconListCheckMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconListCheckMinimalistic as IconComponent).keywords = [
-  "list",
-  "check",
-  "minimalistic",
-  "tilt",
-  "inclination",
-  "lean",
-  "leaning",
-  "name",
-  "number",
-  "sheet",
-  "heel",
-  "table",
-  "match",
-  "hitch",
-  "check out",
-  "curb",
-  "check into",
-  "checkout",
-  "turn back",
-  "arrest",
-  "hold",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconListCheckMinimalistic as IconComponent;
+export default IconListCheckMinimalistic;

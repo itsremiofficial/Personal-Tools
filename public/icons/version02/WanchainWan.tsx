@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWanchainWan: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,19 +107,4 @@ const IconWanchainWan: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWanchainWan as IconComponent).keywords = [
-  "wanchain",
-  "wan",
-  "pallid",
-  "weak",
-  "pale",
-  "unanimated",
-  "colourless",
-  "colorless",
-  "wide area network",
-  "sallow",
-  "ashy",
-];
-
-export default IconWanchainWan as IconComponent;
+export default IconWanchainWan;

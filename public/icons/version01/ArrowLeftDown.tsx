@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconArrowLeftDown: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,38 +77,4 @@ const IconArrowLeftDown: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconArrowLeftDown as IconComponent).keywords = [
-  "arrow",
-  "left",
-  "down",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-  "left-hand",
-  "left-handed",
-  "left over",
-  "near",
-  "leftover",
-  "nigh",
-  "remaining",
-  "leftfield",
-  "odd",
-  "downwards",
-  "downward",
-  "downbound",
-  "falling",
-  "fallen",
-  "pull down",
-  "downwardly",
-  "declining",
-  "descending",
-];
-
-export default IconArrowLeftDown as IconComponent;
+export default IconArrowLeftDown;

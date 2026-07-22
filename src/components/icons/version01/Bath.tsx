@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBath: FC<IconProps> = ({
   className,
   fill = false,
@@ -108,18 +115,4 @@ const IconBath: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBath as IconComponent).keywords = [
-  "bath",
-  "bathtub",
-  "tub",
-  "bathroom",
-  "bathwater",
-  "balneary",
-  "hamam",
-  "bathhouse",
-  "wash",
-  "washing",
-];
-
-export default IconBath as IconComponent;
+export default IconBath;

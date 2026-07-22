@@ -26,6 +26,7 @@ export { SearchBar } from "./common/SearchBar";
 export { ToggleGroup, ToggleGroupItem } from "./common/ToggleGroup";
 export { Header } from "./common/Header";
 export { IconCard } from "./common/IconCard";
+export { RangeSlider } from "./common/RangeSlider";
 export { StatefulButton } from "./common/StatefulButton";
 export { BackgroundGradientAnimation } from "./common/BgTransition";
 export { default as CodeHighlight } from "./common/Code";

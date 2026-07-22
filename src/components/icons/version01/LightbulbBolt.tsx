@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLightbulbBolt: FC<IconProps> = ({
   className,
   fill = false,
@@ -81,28 +88,4 @@ const IconLightbulbBolt: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLightbulbBolt as IconComponent).keywords = [
-  "lightbulb",
-  "bolt",
-  "incandescent lamp",
-  "electric light",
-  "light bulb",
-  "bulb",
-  "electric-light bulb",
-  "lamp",
-  "lampshade",
-  "lightswitch",
-  "bulbs",
-  "deadbolt",
-  "thunderbolt",
-  "run out",
-  "slap",
-  "smack",
-  "bang",
-  "gobble",
-  "go off",
-  "absquatulate",
-];
-
-export default IconLightbulbBolt as IconComponent;
+export default IconLightbulbBolt;

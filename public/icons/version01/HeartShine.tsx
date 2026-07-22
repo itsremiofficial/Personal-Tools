@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHeartShine: FC<IconProps> = ({
   className,
   fill = false,
@@ -138,28 +145,4 @@ const IconHeartShine: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHeartShine as IconComponent).keywords = [
-  "heart",
-  "shine",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-  "refulgency",
-  "refulgence",
-  "effulgence",
-  "glow",
-  "radiance",
-  "glisten",
-  "gleam",
-  "glitter",
-  "glint",
-];
-
-export default IconHeartShine as IconComponent;
+export default IconHeartShine;

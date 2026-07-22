@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFigma: FC<IconProps> = ({
   className,
   fill = false,
@@ -124,18 +131,4 @@ const IconFigma: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFigma as IconComponent).keywords = [
-  "figma",
-  "nendoroid",
-  "kubrick",
-  "marvel legends",
-  "marvel universe",
-  "shinkansen henkei robo shinkalion",
-  "dinozaurs",
-  "dc universe classics",
-  "batman unlimited",
-  "hikarian",
-];
-
-export default IconFigma as IconComponent;
+export default IconFigma;

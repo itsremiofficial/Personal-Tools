@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMoonSleep: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,28 +90,4 @@ const IconMoonSleep: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMoonSleep as IconComponent).keywords = [
-  "moon",
-  "sleep",
-  "lunar month",
-  "moonlight",
-  "synodic month",
-  "lunation",
-  "daydream",
-  "moonshine",
-  "moon around",
-  "moon on",
-  "satellite",
-  "nap",
-  "slumber",
-  "rest",
-  "quietus",
-  "kip",
-  "eternal sleep",
-  "eternal rest",
-  "snooze",
-  "doze",
-];
-
-export default IconMoonSleep as IconComponent;
+export default IconMoonSleep;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCosmetic: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,18 +107,4 @@ const IconCosmetic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCosmetic as IconComponent).keywords = [
-  "cosmetic",
-  "decorative",
-  "ornamental",
-  "esthetic",
-  "esthetical",
-  "aesthetical",
-  "aesthetic",
-  "enhancive",
-  "nonfunctional",
-  "makeup",
-];
-
-export default IconCosmetic as IconComponent;
+export default IconCosmetic;

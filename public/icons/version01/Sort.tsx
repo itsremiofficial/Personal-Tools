@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSort: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,18 +92,4 @@ const IconSort: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSort as IconComponent).keywords = [
-  "sort",
-  "classify",
-  "assort",
-  "class",
-  "form",
-  "kind",
-  "sort out",
-  "variety",
-  "separate",
-  "screen",
-];
-
-export default IconSort as IconComponent;
+export default IconSort;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAquarius: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,18 +89,4 @@ const IconAquarius: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAquarius as IconComponent).keywords = [
-  "aquarius",
-  "aquarius the water bearer",
-  "pisces",
-  "aquarium",
-  "aquarian",
-  "capricorn",
-  "scorpio",
-  "gemini",
-  "virgo",
-  "sagittarius",
-];
-
-export default IconAquarius as IconComponent;
+export default IconAquarius;

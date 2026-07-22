@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSunrise: FC<IconProps> = ({
   className,
   fill = false,
@@ -161,18 +168,4 @@ const IconSunrise: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSunrise as IconComponent).keywords = [
-  "sunrise",
-  "sunup",
-  "first light",
-  "cockcrow",
-  "dayspring",
-  "dawning",
-  "daybreak",
-  "dawn",
-  "break of day",
-  "morning",
-];
-
-export default IconSunrise as IconComponent;
+export default IconSunrise;

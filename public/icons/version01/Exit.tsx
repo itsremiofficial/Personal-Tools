@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconExit: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,18 +89,4 @@ const IconExit: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconExit as IconComponent).keywords = [
-  "exit",
-  "departure",
-  "go out",
-  "get out",
-  "leave",
-  "release",
-  "expiration",
-  "expire",
-  "pass away",
-  "die",
-];
-
-export default IconExit as IconComponent;
+export default IconExit;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAtom: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,18 +97,4 @@ const IconAtom: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAtom as IconComponent).keywords = [
-  "atom",
-  "mote",
-  "molecule",
-  "speck",
-  "particle",
-  "atomic",
-  "nuclear",
-  "supercell",
-  "scintilla",
-  "iota",
-];
-
-export default IconAtom as IconComponent;
+export default IconAtom;

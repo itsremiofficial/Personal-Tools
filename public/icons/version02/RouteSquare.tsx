@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRouteSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,28 +90,4 @@ const IconRouteSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRouteSquare as IconComponent).keywords = [
-  "route",
-  "square",
-  "path",
-  "road",
-  "itinerary",
-  "roadmap",
-  "way",
-  "thoroughfare",
-  "travel",
-  "tour",
-  "trajectory",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconRouteSquare as IconComponent;
+export default IconRouteSquare;

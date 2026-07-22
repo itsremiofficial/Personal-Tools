@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCode2: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,28 +94,4 @@ const IconCode2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCode2 as IconComponent).keywords = [
-  "code",
-  "2",
-  "encode",
-  "cypher",
-  "encipher",
-  "cipher",
-  "encrypt",
-  "computer code",
-  "codification",
-  "inscribe",
-  "write in code",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconCode2 as IconComponent;
+export default IconCode2;

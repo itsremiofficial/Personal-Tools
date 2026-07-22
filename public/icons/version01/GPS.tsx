@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGPS: FC<IconProps> = ({
   className,
   fill = false,
@@ -117,7 +124,4 @@ const IconGPS: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGPS as IconComponent).keywords = [];
-
-export default IconGPS as IconComponent;
+export default IconGPS;

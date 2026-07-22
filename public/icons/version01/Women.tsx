@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWomen: FC<IconProps> = ({
   className,
   fill = false,
@@ -68,18 +75,4 @@ const IconWomen: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWomen as IconComponent).keywords = [
-  "women",
-  "female",
-  "females",
-  "femmes",
-  "mujeres",
-  "wives",
-  "girls",
-  "ladies",
-  "womenfolk",
-  "mothers",
-];
-
-export default IconWomen as IconComponent;
+export default IconWomen;

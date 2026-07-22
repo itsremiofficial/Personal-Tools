@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconListUpMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,38 +103,4 @@ const IconListUpMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconListUpMinimalistic as IconComponent).keywords = [
-  "list",
-  "up",
-  "minimalistic",
-  "tilt",
-  "inclination",
-  "lean",
-  "leaning",
-  "name",
-  "number",
-  "sheet",
-  "heel",
-  "table",
-  "upbound",
-  "upwardly",
-  "ascending",
-  "upward",
-  "upwards",
-  "rising",
-  "astir",
-  "ahead",
-  "awake",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconListUpMinimalistic as IconComponent;
+export default IconListUpMinimalistic;

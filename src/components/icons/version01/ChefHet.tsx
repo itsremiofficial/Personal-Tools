@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChefHet: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconChefHet: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChefHet as IconComponent).keywords = [
-  "chef",
-  "het",
-  "kitchen",
-  "cuisine",
-  "cooking",
-  "cook",
-  "baker",
-  "kitchener",
-  "cookie",
-  "enchilada",
-  "stove",
-  "het up",
-  "heated",
-  "hot",
-  "heated up",
-  "this",
-  "the",
-  "em",
-  "volk",
-  "boek",
-];
-
-export default IconChefHet as IconComponent;
+export default IconChefHet;

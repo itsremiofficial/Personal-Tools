@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHashtagChat: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,28 +86,4 @@ const IconHashtagChat: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHashtagChat as IconComponent).keywords = [
-  "hashtag",
-  "chat",
-  "slashtag",
-  "bashtag",
-  "hashtagger",
-  "hashflag",
-  "tag cloud",
-  "tweet",
-  "label cloud",
-  "entity tag",
-  "fragment",
-  "confabulate",
-  "confab",
-  "confabulation",
-  "chitchat",
-  "natter",
-  "gossip",
-  "visit",
-  "chatter",
-  "claver",
-];
-
-export default IconHashtagChat as IconComponent;
+export default IconHashtagChat;

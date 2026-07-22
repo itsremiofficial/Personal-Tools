@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTrashBinMinimalistic2: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,48 +86,4 @@ const IconTrashBinMinimalistic2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTrashBinMinimalistic2 as IconComponent).keywords = [
-  "trash",
-  "bin",
-  "minimalistic",
-  "2",
-  "junk",
-  "rubbish",
-  "scum",
-  "trumpery",
-  "folderol",
-  "scrap",
-  "tear apart",
-  "wish-wash",
-  "tripe",
-  "binful",
-  "aba transit number",
-  "bank identification number",
-  "box",
-  "shelf",
-  "locker",
-  "drawer",
-  "coffer",
-  "dumpster",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconTrashBinMinimalistic2 as IconComponent;
+export default IconTrashBinMinimalistic2;

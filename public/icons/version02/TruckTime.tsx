@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTruckTime: FC<IconProps> = ({
   className,
   fill = false,
@@ -144,28 +151,4 @@ const IconTruckTime: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTruckTime as IconComponent).keywords = [
-  "truck",
-  "time",
-  "hand truck",
-  "motortruck",
-  "tractor-trailer",
-  "lorry",
-  "semi-trailer",
-  "flatbed",
-  "van",
-  "truckload",
-  "cartage",
-  "fourth dimension",
-  "clock",
-  "meter",
-  "clip",
-  "sentence",
-  "clock time",
-  "prison term",
-  "space-time",
-  "momentum",
-];
-
-export default IconTruckTime as IconComponent;
+export default IconTruckTime;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSearchNormal: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconSearchNormal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSearchNormal as IconComponent).keywords = [
-  "search",
-  "normal",
-  "seek",
-  "look for",
-  "explore",
-  "lookup",
-  "research",
-  "look",
-  "hunting",
-  "hunt",
-  "seeking",
-  "typical",
-  "natural",
-  "mean",
-  "rule",
-  "modal",
-  "pattern",
-  "convention",
-  "regular",
-  "average",
-];
-
-export default IconSearchNormal as IconComponent;
+export default IconSearchNormal;

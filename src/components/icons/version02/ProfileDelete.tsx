@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconProfileDelete: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconProfileDelete: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconProfileDelete as IconComponent).keywords = [
-  "profile",
-  "delete",
-  "outline",
-  "image",
-  "description",
-  "img",
-  "sketch",
-  "contour",
-  "structure",
-  "effigy",
-  "template",
-  "erase",
-  "cancel",
-  "blue-pencil",
-  "deletion",
-  "expunge",
-  "efface",
-  "remove",
-  "erasure",
-  "removing",
-];
-
-export default IconProfileDelete as IconComponent;
+export default IconProfileDelete;

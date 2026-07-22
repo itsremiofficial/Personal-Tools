@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudCross: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,28 +109,4 @@ const IconCloudCross: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudCross as IconComponent).keywords = [
-  "cloud",
-  "cross",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-];
-
-export default IconCloudCross as IconComponent;
+export default IconCloudCross;

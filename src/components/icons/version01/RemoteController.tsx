@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRemoteController: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,28 +107,4 @@ const IconRemoteController: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRemoteController as IconComponent).keywords = [
-  "remote",
-  "controller",
-  "distant",
-  "far",
-  "outside",
-  "removed",
-  "unlikely",
-  "inaccessible",
-  "unaccessible",
-  "backwoods",
-  "outback",
-  "control",
-  "accountant",
-  "comptroller",
-  "conductor",
-  "inspector",
-  "scrutineer",
-  "controlling",
-  "monitor",
-  "checker",
-];
-
-export default IconRemoteController as IconComponent;
+export default IconRemoteController;

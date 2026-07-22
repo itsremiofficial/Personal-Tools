@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGrammerly: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,7 +78,4 @@ const IconGrammerly: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGrammerly as IconComponent).keywords = ["grammerly"];
-
-export default IconGrammerly as IconComponent;
+export default IconGrammerly;

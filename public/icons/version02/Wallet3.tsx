@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWallet3: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,28 +109,4 @@ const IconWallet3: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWallet3 as IconComponent).keywords = [
-  "wallet",
-  "3",
-  "billfold",
-  "notecase",
-  "portfolio",
-  "paper",
-  "book",
-  "paperwork",
-  "briefcase",
-  "suitcase",
-  "cash",
-  "omega",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-];
-
-export default IconWallet3 as IconComponent;
+export default IconWallet3;

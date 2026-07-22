@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGhost: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,18 +90,4 @@ const IconGhost: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGhost as IconComponent).keywords = [
-  "ghost",
-  "wraith",
-  "specter",
-  "spectre",
-  "spook",
-  "haunt",
-  "obsess",
-  "ghostwrite",
-  "touch",
-  "ghostwriter",
-];
-
-export default IconGhost as IconComponent;
+export default IconGhost;

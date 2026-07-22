@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCardholder: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,18 +100,4 @@ const IconCardholder: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCardholder as IconComponent).keywords = [
-  "cardholder",
-  "registrant",
-  "proprietor",
-  "patentee",
-  "licensee",
-  "owner",
-  "permittee",
-  "custodian",
-  "landlord",
-  "ownership",
-];
-
-export default IconCardholder as IconComponent;
+export default IconCardholder;

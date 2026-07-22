@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTruckRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -153,28 +160,4 @@ const IconTruckRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTruckRemove as IconComponent).keywords = [
-  "truck",
-  "remove",
-  "hand truck",
-  "motortruck",
-  "tractor-trailer",
-  "lorry",
-  "semi-trailer",
-  "flatbed",
-  "van",
-  "truckload",
-  "cartage",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconTruckRemove as IconComponent;
+export default IconTruckRemove;

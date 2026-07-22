@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGamepadOld: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,28 +113,4 @@ const IconGamepadOld: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGamepadOld as IconComponent).keywords = [
-  "gamepad",
-  "old",
-  "joypad",
-  "thumbstick",
-  "d-pad",
-  "tv game",
-  "fighting stick",
-  "button masher",
-  "fire button",
-  "hat switch",
-  "gameboard",
-  "oldish",
-  "elderly",
-  "aged",
-  "senile",
-  "senior",
-  "aging",
-  "senescent",
-  "doddering",
-  "antediluvian",
-];
-
-export default IconGamepadOld as IconComponent;
+export default IconGamepadOld;

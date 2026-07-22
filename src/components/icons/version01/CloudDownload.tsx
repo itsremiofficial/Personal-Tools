@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudDownload: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,28 +86,4 @@ const IconCloudDownload: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudDownload as IconComponent).keywords = [
-  "cloud",
-  "download",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "uploaded",
-  "uploading",
-  "upload",
-  "downlink",
-  "softcopy",
-  "printable",
-  "refresh",
-  "transfer",
-  "discovery",
-];
-
-export default IconCloudDownload as IconComponent;
+export default IconCloudDownload;

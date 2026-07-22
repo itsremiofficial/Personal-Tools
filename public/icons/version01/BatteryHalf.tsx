@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBatteryHalf: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconBatteryHalf: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBatteryHalf as IconComponent).keywords = [
-  "battery",
-  "half",
-  "bombardment",
-  "stamp battery",
-  "barrage",
-  "shelling",
-  "assault and battery",
-  "assault",
-  "barrage fire",
-  "electric battery",
-  "alternator",
-  "fractional",
-  "one-half",
-  "uncomplete",
-  "incomplete",
-  "halving",
-  "halve",
-  "halved",
-  "moiety",
-  "semi-finished",
-];
-
-export default IconBatteryHalf as IconComponent;
+export default IconBatteryHalf;

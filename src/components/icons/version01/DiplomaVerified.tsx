@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDiplomaVerified: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,28 +113,4 @@ const IconDiplomaVerified: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDiplomaVerified as IconComponent).keywords = [
-  "diploma",
-  "verified",
-  "sheepskin",
-  "degree",
-  "graduation",
-  "postgraduate",
-  "graduate",
-  "university",
-  "graduated",
-  "educated",
-  "baccalaureate",
-  "proven",
-  "corroborated",
-  "supported",
-  "proved",
-  "substantiated",
-  "validated",
-  "verification",
-  "attested",
-  "verifiable",
-];
-
-export default IconDiplomaVerified as IconComponent;
+export default IconDiplomaVerified;

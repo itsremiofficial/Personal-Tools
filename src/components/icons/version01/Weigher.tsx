@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWeigher: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,18 +93,4 @@ const IconWeigher: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWeigher as IconComponent).keywords = [
-  "weigher",
-  "weighter",
-  "weighmaster",
-  "weighman",
-  "check weigher",
-  "hefter",
-  "weightlifter",
-  "heaver",
-  "pounder",
-  "weight-watcher",
-];
-
-export default IconWeigher as IconComponent;
+export default IconWeigher;

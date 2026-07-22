@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMonitor: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,18 +86,4 @@ const IconMonitor: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMonitor as IconComponent).keywords = [
-  "monitor",
-  "ride herd on",
-  "supervise",
-  "proctor",
-  "reminder",
-  "admonisher",
-  "varan",
-  "monitor lizard",
-  "supervised",
-  "manage",
-];
-
-export default IconMonitor as IconComponent;
+export default IconMonitor;

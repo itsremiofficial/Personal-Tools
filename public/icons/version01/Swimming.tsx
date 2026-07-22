@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSwimming: FC<IconProps> = ({
   className,
   fill = false,
@@ -111,18 +118,4 @@ const IconSwimming: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSwimming as IconComponent).keywords = [
-  "swimming",
-  "watery",
-  "horizontal",
-  "liquid",
-  "tearful",
-  "naiant",
-  "natation",
-  "aquatics",
-  "sai",
-  "sail",
-];
-
-export default IconSwimming as IconComponent;
+export default IconSwimming;

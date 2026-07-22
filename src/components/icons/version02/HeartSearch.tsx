@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHeartSearch: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,28 +89,4 @@ const IconHeartSearch: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHeartSearch as IconComponent).keywords = [
-  "heart",
-  "search",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-  "seek",
-  "look for",
-  "explore",
-  "lookup",
-  "research",
-  "look",
-  "hunting",
-  "hunt",
-  "seeking",
-];
-
-export default IconHeartSearch as IconComponent;
+export default IconHeartSearch;

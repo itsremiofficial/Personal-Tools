@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUnread: FC<IconProps> = ({
   className,
   fill = false,
@@ -65,18 +72,4 @@ const IconUnread: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUnread as IconComponent).keywords = [
-  "unread",
-  "uninformed",
-  "unused",
-  "unutilized",
-  "unspent",
-  "unencumbered",
-  "unwatched",
-  "unplayed",
-  "unsent",
-  "unreviewed",
-];
-
-export default IconUnread as IconComponent;
+export default IconUnread;

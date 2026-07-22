@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const Icon4K: FC<IconProps> = ({
   className,
   fill = false,
@@ -74,7 +81,4 @@ const Icon4K: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(Icon4K as IconComponent).keywords = ["4", "dh", "f4f"];
-
-export default Icon4K as IconComponent;
+export default Icon4K;

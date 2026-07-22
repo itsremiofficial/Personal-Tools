@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMapArrowSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,38 +78,4 @@ const IconMapArrowSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMapArrowSquare as IconComponent).keywords = [
-  "map",
-  "arrow",
-  "square",
-  "map out",
-  "correspondence",
-  "represent",
-  "chart",
-  "cartography",
-  "cartographic",
-  "topography",
-  "plan",
-  "charting",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconMapArrowSquare as IconComponent;
+export default IconMapArrowSquare;

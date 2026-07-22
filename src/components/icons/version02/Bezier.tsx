@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBezier: FC<IconProps> = ({
   className,
   fill = false,
@@ -153,18 +160,4 @@ const IconBezier: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBezier as IconComponent).keywords = [
-  "bezier",
-  "nurbs",
-  "polyline",
-  "spline",
-  "ellipse",
-  "polygon",
-  "polylines",
-  "keyframes",
-  "xform",
-  "keyframe",
-];
-
-export default IconBezier as IconComponent;
+export default IconBezier;

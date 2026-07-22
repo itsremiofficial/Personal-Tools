@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconReceiptDiscount: FC<IconProps> = ({
   className,
   fill = false,
@@ -112,28 +119,4 @@ const IconReceiptDiscount: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconReceiptDiscount as IconComponent).keywords = [
-  "receipt",
-  "discount",
-  "receiving",
-  "reception",
-  "acknowledge",
-  "recipient",
-  "receptor",
-  "granting",
-  "receive",
-  "grant",
-  "remitting",
-  "bank discount",
-  "discount rate",
-  "rebate",
-  "deduction",
-  "dismiss",
-  "brush aside",
-  "brush off",
-  "ignore",
-  "disregard",
-];
-
-export default IconReceiptDiscount as IconComponent;
+export default IconReceiptDiscount;

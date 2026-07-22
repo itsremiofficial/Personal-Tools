@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState, useCallback, useMemo, useContext } from "react";
+import { motion } from "motion/react";
 import { toast } from "sonner";
 import { useFileHandler } from "@/hooks/useFileHandler";
 import { generateComponentCode, replaceAttributes, validateFiles } from "@/lib";
@@ -13,14 +14,15 @@ import {
   ResultsSection,
   Tray,
   Card,
-  Toggle,
   Button,
 } from "@/components";
 import { cn } from "@/lib";
 import {
-  IconDocumentText,
   IconInfoCircle,
   IconTrashBin2,
+  IconCloudUpload,
+  IconLinkCircle,
+  IconCode,
 } from "@/components/icons/version01";
 import { IconPenTool } from "@/components/icons/version02";
 import { TrayContext } from "@/components/context/TrayContext";
@@ -39,7 +41,6 @@ const IconConverter: React.FC = () => {
   });
   const [isProcessing, setIsProcessing] = useState(false);
   const [generateProgress, setGenerateProgress] = useState(0);
-  const [includeKeywords, setIncludeKeywords] = useState(false);
 
   const lineDuotoneHandler = useFileHandler("lineDuotone");
   const boldDuotoneHandler = useFileHandler("boldDuotone");
@@ -277,7 +278,6 @@ const IconConverter: React.FC = () => {
                 lineDuotoneSvg,
                 boldDuotoneSvg,
                 boldSvg,
-                includeKeywords,
               );
 
               return result;
@@ -321,7 +321,6 @@ const IconConverter: React.FC = () => {
     boldHandler.names,
     handleError,
     createErrorResult,
-    includeKeywords,
     updateStateWithResults,
   ]);
 
@@ -390,6 +389,93 @@ const IconConverter: React.FC = () => {
           icon={IconPenTool}
         />
         <div className="relative flex flex-col justify-center gap-6 mt-2">
+          <Card className="p-5 md:p-6 bg-muted/20 rounded-3xl overflow-hidden">
+            <div className="flex items-center gap-2 mb-3 text-[11px] font-semibold text-muted-foreground tracking-[0.15em] uppercase">
+              <IconInfoCircle className="size-3.5" />
+              How it works
+            </div>
+            <p className="text-xs text-muted-foreground mb-5 leading-relaxed">
+              Each icon has{" "}
+              <strong className="text-foreground font-medium">
+                3 visual styles
+              </strong>{" "}
+              (stroke, filled+duotone, solid). Upload all 3 for each icon — this
+              tool bundles them into a single React component you can toggle at
+              runtime via{" "}
+              <code className="px-1 py-0.5 rounded bg-muted text-foreground/80 text-[11px]">
+                fill
+              </code>{" "}
+              &amp;{" "}
+              <code className="px-1 py-0.5 rounded bg-muted text-foreground/80 text-[11px]">
+                duotone
+              </code>{" "}
+              props.
+            </p>
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 relative items-start"
+            >
+              <div className="hidden md:block absolute top-[52px] left-[calc(16.67%+24px)] w-[calc(33.33%-48px)] h-px bg-gradient-to-r from-border/40 via-border/60 to-border/40" />
+              <div className="hidden md:block absolute top-[52px] left-[calc(50%+24px)] w-[calc(33.33%-48px)] h-px bg-gradient-to-r from-border/40 via-border/60 to-border/40" />
+              {[
+                {
+                  icon: IconCloudUpload,
+                  num: 1,
+                  label: "Upload",
+                  desc: "3 files per icon",
+                  sub: "Drop SVGs into Line, Bulk & Bold columns",
+                },
+                {
+                  icon: IconLinkCircle,
+                  num: 2,
+                  label: "Match",
+                  desc: "Linked by filename",
+                  sub: "Same name across columns = same icon. Missing variants are flagged",
+                },
+                {
+                  icon: IconCode,
+                  num: 3,
+                  label: "Generate",
+                  desc: "1 .tsx per icon",
+                  sub: "All 3 styles inside — switch via fill & duotone props",
+                },
+              ].map((step) => (
+                <motion.div
+                  key={step.num}
+                  variants={{
+                    hidden: { opacity: 0, y: 12 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                  className="flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-3 px-2 md:px-4"
+                >
+                  <div className="relative shrink-0">
+                    <div className="size-16 md:size-20 rounded-2xl bg-gradient-to-b from-foreground/8 to-foreground/4 flex items-center justify-center border border-border/20">
+                      <step.icon className="size-7 md:size-8 text-foreground/60" />
+                    </div>
+                    <div className="absolute -top-1.5 -right-1.5 size-5 rounded-full bg-foreground/10 border border-border/30 flex items-center justify-center">
+                      <span className="text-[10px] font-bold text-foreground/60">
+                        {step.num}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col md:items-center min-w-0">
+                    <span className="font-semibold text-foreground text-sm">
+                      {step.label}
+                    </span>
+                    <span className="text-xs font-medium text-foreground/70 mt-0.5">
+                      {step.desc}
+                    </span>
+                    <span className="text-[11px] text-muted-foreground leading-tight mt-0.5">
+                      {step.sub}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </Card>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <FileDropzone
               onDrop={lineDuotoneHandler.handleFiles}
@@ -418,7 +504,9 @@ const IconConverter: React.FC = () => {
             />
           </div>
 
-          <Card className={cn("p-6 border rounded-4xl flex flex-col gap-6")}>
+          <Card
+            className={cn("p-6 bg-muted/20 rounded-3xl flex flex-col gap-6")}
+          >
             <div className="flex items-center justify-between">
               <label
                 htmlFor="iconPropsPath"
@@ -441,21 +529,6 @@ const IconConverter: React.FC = () => {
               </label>
 
               <div className="flex items-center gap-4">
-                <Toggle
-                  label="Keywords"
-                  size="lg"
-                  className="h-12"
-                  pressed={includeKeywords}
-                  onPressedChange={setIncludeKeywords}
-                  disabled={!isReady || isProcessing}
-                  icon={
-                    includeKeywords ? (
-                      <IconDocumentText className="size-5" fill />
-                    ) : (
-                      <IconDocumentText className="size-5" />
-                    )
-                  }
-                />
                 <GenerateButton
                   onClick={generateComponents}
                   disabled={!isReady || isProcessing}
@@ -483,7 +556,7 @@ const IconConverter: React.FC = () => {
                       <Button
                         onClick={() => clearType("lineDuotone")}
                         variant="danger"
-                        className="h-fit gap-2 whitespace-nowrap"
+                        className="h-fit gap-2 whitespace-nowrap rounded-full"
                         disabled={isProcessing}
                       >
                         Clear Line{" "}
@@ -514,7 +587,7 @@ const IconConverter: React.FC = () => {
                       <Button
                         onClick={() => clearType("boldDuotone")}
                         variant="danger"
-                        className="h-fit gap-2 whitespace-nowrap"
+                        className="h-fit gap-2 whitespace-nowrap rounded-full"
                         disabled={isProcessing}
                       >
                         Clear Bulk{" "}
@@ -545,7 +618,7 @@ const IconConverter: React.FC = () => {
                       <Button
                         onClick={() => clearType("bold")}
                         variant="danger"
-                        className="h-fit gap-2 whitespace-nowrap"
+                        className="h-fit gap-2 whitespace-nowrap rounded-full"
                         disabled={isProcessing}
                       >
                         Clear Bold

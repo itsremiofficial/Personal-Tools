@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRadialBlur: FC<IconProps> = ({
   className,
   fill = false,
@@ -166,28 +173,4 @@ const IconRadialBlur: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRadialBlur as IconComponent).keywords = [
-  "radial",
-  "blur",
-  "stellate",
-  "symmetric",
-  "symmetrical",
-  "radial tire",
-  "radial ply tire",
-  "cross-sectional",
-  "radar",
-  "cross",
-  "radio",
-  "blear",
-  "smutch",
-  "smudge",
-  "glaze over",
-  "smear",
-  "confuse",
-  "obscure",
-  "slur",
-  "fuzz",
-];
-
-export default IconRadialBlur as IconComponent;
+export default IconRadialBlur;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCartCheck: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,28 +105,4 @@ const IconCartCheck: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCartCheck as IconComponent).keywords = [
-  "cart",
-  "check",
-  "handcart",
-  "pushcart",
-  "go-cart",
-  "haul",
-  "drag",
-  "dray",
-  "wheelbarrow",
-  "wagon",
-  "bandwagon",
-  "match",
-  "hitch",
-  "check out",
-  "curb",
-  "check into",
-  "checkout",
-  "turn back",
-  "arrest",
-  "hold",
-];
-
-export default IconCartCheck as IconComponent;
+export default IconCartCheck;

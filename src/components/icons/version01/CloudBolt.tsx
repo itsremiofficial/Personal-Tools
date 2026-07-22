@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudBolt: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconCloudBolt: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudBolt as IconComponent).keywords = [
-  "cloud",
-  "bolt",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "deadbolt",
-  "thunderbolt",
-  "run out",
-  "slap",
-  "smack",
-  "bang",
-  "gobble",
-  "go off",
-  "absquatulate",
-];
-
-export default IconCloudBolt as IconComponent;
+export default IconCloudBolt;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconJarOfPills2: FC<IconProps> = ({
   className,
   fill = false,
@@ -138,48 +145,4 @@ const IconJarOfPills2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconJarOfPills2 as IconComponent).keywords = [
-  "jar",
-  "of",
-  "pills",
-  "2",
-  "collide",
-  "clash",
-  "jounce",
-  "jolt",
-  "shake up",
-  "bump around",
-  "flagon",
-  "jug",
-  "bottle",
-  "bsf",
-  "fos",
-  "fso",
-  "office",
-  "osb",
-  "tso",
-  "tsos",
-  "cup of tea",
-  "flight of fancy",
-  "tablet",
-  "lozenge",
-  "anovulatory drug",
-  "birth control pill",
-  "contraceptive pill",
-  "oral contraceptive",
-  "oral contraceptive pill",
-  "antibilious",
-  "aspirins",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconJarOfPills2 as IconComponent;
+export default IconJarOfPills2;

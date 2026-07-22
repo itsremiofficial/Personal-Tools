@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconKickScooter: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconKickScooter: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconKickScooter as IconComponent).keywords = [
-  "kick",
-  "scooter",
-  "bang",
-  "recoil",
-  "squawk",
-  "thrill",
-  "boot",
-  "kick back",
-  "plain",
-  "complain",
-  "gripe",
-  "motor scooter",
-  "scoter",
-  "motorcycle",
-  "sidecar",
-  "motorbike",
-  "bike",
-  "wagon",
-  "moped",
-  "tricycle",
-];
-
-export default IconKickScooter as IconComponent;
+export default IconKickScooter;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRecord: FC<IconProps> = ({
   className,
   fill = false,
@@ -68,18 +75,4 @@ const IconRecord: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRecord as IconComponent).keywords = [
-  "record",
-  "phonograph record",
-  "book",
-  "register",
-  "read",
-  "disk",
-  "disc",
-  "show",
-  "memorialize",
-  "commemorate",
-];
-
-export default IconRecord as IconComponent;
+export default IconRecord;

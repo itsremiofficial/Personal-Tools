@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRollingPin: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,28 +87,4 @@ const IconRollingPin: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRollingPin as IconComponent).keywords = [
-  "rolling",
-  "pin",
-  "billowing",
-  "tumbling",
-  "reverberant",
-  "wheeling",
-  "peal",
-  "ringing",
-  "pealing",
-  "moving",
-  "resonant",
-  "peg",
-  "pin down",
-  "tholepin",
-  "trap",
-  "pivot",
-  "flag",
-  "oarlock",
-  "rowlock",
-  "pin up",
-];
-
-export default IconRollingPin as IconComponent;
+export default IconRollingPin;

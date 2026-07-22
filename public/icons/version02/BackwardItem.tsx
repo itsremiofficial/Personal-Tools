@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBackwardItem: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconBackwardItem: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBackwardItem as IconComponent).keywords = [
-  "backward",
-  "item",
-  "rearward",
-  "back",
-  "rearwards",
-  "retral",
-  "reversed",
-  "reverse",
-  "retrograde",
-  "inverse",
-  "reversive",
-  "point",
-  "particular",
-  "token",
-  "detail",
-  "object",
-  "thing",
-  "concept",
-  "notion",
-  "status",
-];
-
-export default IconBackwardItem as IconComponent;
+export default IconBackwardItem;

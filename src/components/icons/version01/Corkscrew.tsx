@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCorkscrew: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,18 +86,4 @@ const IconCorkscrew: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCorkscrew as IconComponent).keywords = [
-  "corkscrew",
-  "spiral",
-  "bottle screw",
-  "opener",
-  "hairpin",
-  "wineglass",
-  "helicoidal",
-  "cork",
-  "bottle",
-  "decanter",
-];
-
-export default IconCorkscrew as IconComponent;
+export default IconCorkscrew;

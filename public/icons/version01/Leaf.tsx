@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLeaf: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,18 +107,4 @@ const IconLeaf: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLeaf as IconComponent).keywords = [
-  "leaf",
-  "foliage",
-  "thumb",
-  "riffle",
-  "flick",
-  "flip",
-  "folio",
-  "riff",
-  "leaflet",
-  "midrib",
-];
-
-export default IconLeaf as IconComponent;
+export default IconLeaf;

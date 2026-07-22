@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCalculatorMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconCalculatorMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCalculatorMinimalistic as IconComponent).keywords = [
-  "calculator",
-  "minimalistic",
-  "computer",
-  "figurer",
-  "reckoner",
-  "estimator",
-  "calculating machine",
-  "computing",
-  "spreadsheet",
-  "computation",
-  "calculating",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconCalculatorMinimalistic as IconComponent;
+export default IconCalculatorMinimalistic;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBanknote2: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,28 +109,4 @@ const IconBanknote2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBanknote2 as IconComponent).keywords = [
-  "banknote",
-  "2",
-  "bank note",
-  "note",
-  "greenback",
-  "bill",
-  "bank bill",
-  "federal reserve note",
-  "government note",
-  "currency",
-  "cash",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconBanknote2 as IconComponent;
+export default IconBanknote2;

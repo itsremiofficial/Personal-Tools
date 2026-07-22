@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCpu: FC<IconProps> = ({
   className,
   fill = false,
@@ -219,18 +226,4 @@ const IconCpu: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCpu as IconComponent).keywords = [
-  "cpu",
-  "central processing unit",
-  "mainframe",
-  "processor",
-  "central processor",
-  "eeprom",
-  "upc",
-  "uct",
-  "ucp",
-  "utilization",
-];
-
-export default IconCpu as IconComponent;
+export default IconCpu;

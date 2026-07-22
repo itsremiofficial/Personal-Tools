@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSticker: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,18 +82,4 @@ const IconSticker: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSticker as IconComponent).keywords = [
-  "sticker",
-  "label",
-  "gummed label",
-  "sticky",
-  "bonding",
-  "paster",
-  "adhesive",
-  "tab",
-  "decal",
-  "thumbnail",
-];
-
-export default IconSticker as IconComponent;
+export default IconSticker;

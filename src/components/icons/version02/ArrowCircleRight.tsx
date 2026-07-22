@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconArrowCircleRight: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,38 +79,4 @@ const IconArrowCircleRight: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconArrowCircleRight as IconComponent).keywords = [
-  "arrow",
-  "circle",
-  "right",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-  "straight",
-  "precise",
-  "right on",
-  "accurate",
-  "decently",
-  "satisfactory",
-  "exact",
-  "powerful",
-  "opportune",
-];
-
-export default IconArrowCircleRight as IconComponent;
+export default IconArrowCircleRight;

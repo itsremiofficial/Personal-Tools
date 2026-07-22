@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLovely: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,18 +82,4 @@ const IconLovely: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLovely as IconComponent).keywords = [
-  "lovely",
-  "beautiful",
-  "adorable",
-  "lovable",
-  "endearing",
-  "cover girl",
-  "pin-up",
-  "nice-looking",
-  "pretty",
-  "pulchritudinous",
-];
-
-export default IconLovely as IconComponent;
+export default IconLovely;

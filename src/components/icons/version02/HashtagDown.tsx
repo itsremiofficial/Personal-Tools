@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHashtagDown: FC<IconProps> = ({
   className,
   fill = false,
@@ -121,28 +128,4 @@ const IconHashtagDown: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHashtagDown as IconComponent).keywords = [
-  "hashtag",
-  "down",
-  "slashtag",
-  "bashtag",
-  "hashtagger",
-  "hashflag",
-  "tag cloud",
-  "tweet",
-  "label cloud",
-  "entity tag",
-  "fragment",
-  "downwards",
-  "downward",
-  "downbound",
-  "falling",
-  "fallen",
-  "pull down",
-  "downwardly",
-  "declining",
-  "descending",
-];
-
-export default IconHashtagDown as IconComponent;
+export default IconHashtagDown;

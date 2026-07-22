@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFilterRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,28 +100,4 @@ const IconFilterRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFilterRemove as IconComponent).keywords = [
-  "filter",
-  "remove",
-  "filtrate",
-  "filter out",
-  "percolate",
-  "permeate",
-  "trickle",
-  "sink in",
-  "strain",
-  "dribble",
-  "separate out",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconFilterRemove as IconComponent;
+export default IconFilterRemove;

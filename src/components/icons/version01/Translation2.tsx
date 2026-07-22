@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTranslation2: FC<IconProps> = ({
   className,
   fill = false,
@@ -113,28 +120,4 @@ const IconTranslation2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTranslation2 as IconComponent).keywords = [
-  "translation",
-  "2",
-  "version",
-  "transformation",
-  "rendering",
-  "displacement",
-  "interlingual rendition",
-  "traduction",
-  "translate",
-  "sic",
-  "translator",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconTranslation2 as IconComponent;
+export default IconTranslation2;

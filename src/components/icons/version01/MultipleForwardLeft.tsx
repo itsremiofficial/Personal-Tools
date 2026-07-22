@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMultipleForwardLeft: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,38 +86,4 @@ const IconMultipleForwardLeft: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMultipleForwardLeft as IconComponent).keywords = [
-  "multiple",
-  "forward",
-  "left",
-  "manifold",
-  "twofold",
-  "duple",
-  "dual",
-  "double",
-  "bigeminal",
-  "triune",
-  "triple",
-  "ternary",
-  "frontwards",
-  "ahead",
-  "frontward",
-  "forrader",
-  "front",
-  "forth",
-  "onwards",
-  "onward",
-  "advancing",
-  "left-hand",
-  "left-handed",
-  "left over",
-  "near",
-  "leftover",
-  "nigh",
-  "remaining",
-  "leftfield",
-  "odd",
-];
-
-export default IconMultipleForwardLeft as IconComponent;
+export default IconMultipleForwardLeft;

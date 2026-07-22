@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTablet: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,18 +77,4 @@ const IconTablet: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTablet as IconComponent).keywords = [
-  "tablet",
-  "lozenge",
-  "pad",
-  "pill",
-  "pad of paper",
-  "disk",
-  "tag",
-  "monument",
-  "keyboard",
-  "plaque",
-];
-
-export default IconTablet as IconComponent;
+export default IconTablet;

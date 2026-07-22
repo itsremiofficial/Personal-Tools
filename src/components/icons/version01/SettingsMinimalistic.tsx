@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSettingsMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,28 +80,4 @@ const IconSettingsMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSettingsMinimalistic as IconComponent).keywords = [
-  "settings",
-  "minimalistic",
-  "scene",
-  "stage setting",
-  "mise en scene",
-  "scope",
-  "background",
-  "mount",
-  "place setting",
-  "accommodations",
-  "adjust",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconSettingsMinimalistic as IconComponent;
+export default IconSettingsMinimalistic;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGooglePlay: FC<IconProps> = ({
   className,
   fill = false,
@@ -116,28 +123,4 @@ const IconGooglePlay: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGooglePlay as IconComponent).keywords = [
-  "google",
-  "play",
-  "valley",
-  "adsense",
-  "adwords",
-  "googe",
-  "goole",
-  "wikipedia",
-  "yahoo",
-  "youtube",
-  "bing",
-  "frolic",
-  "fun",
-  "gambol",
-  "caper",
-  "romp",
-  "toy",
-  "make-believe",
-  "pretend",
-  "dally",
-];
-
-export default IconGooglePlay as IconComponent;
+export default IconGooglePlay;

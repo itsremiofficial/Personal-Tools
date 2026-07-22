@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVideoPlay: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,28 +113,4 @@ const IconVideoPlay: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVideoPlay as IconComponent).keywords = [
-  "video",
-  "play",
-  "tv",
-  "television",
-  "picture",
-  "telecasting",
-  "televised",
-  "videotaping",
-  "videotaped",
-  "taping",
-  "videotape",
-  "frolic",
-  "fun",
-  "gambol",
-  "caper",
-  "romp",
-  "toy",
-  "make-believe",
-  "pretend",
-  "dally",
-];
-
-export default IconVideoPlay as IconComponent;
+export default IconVideoPlay;

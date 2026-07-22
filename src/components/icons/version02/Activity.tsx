@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconActivity: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,18 +78,4 @@ const IconActivity: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconActivity as IconComponent).keywords = [
-  "activity",
-  "activeness",
-  "action",
-  "bodily process",
-  "radioactivity",
-  "bodily function",
-  "body process",
-  "natural action",
-  "natural process",
-  "functioning",
-];
-
-export default IconActivity as IconComponent;
+export default IconActivity;

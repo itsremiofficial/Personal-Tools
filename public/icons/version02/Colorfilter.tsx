@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconColorfilter: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,7 +98,4 @@ const IconColorfilter: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconColorfilter as IconComponent).keywords = ["colorfilter"];
-
-export default IconColorfilter as IconComponent;
+export default IconColorfilter;

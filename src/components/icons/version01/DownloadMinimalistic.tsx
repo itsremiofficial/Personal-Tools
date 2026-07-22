@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDownloadMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,28 +86,4 @@ const IconDownloadMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDownloadMinimalistic as IconComponent).keywords = [
-  "download",
-  "minimalistic",
-  "uploaded",
-  "uploading",
-  "upload",
-  "downlink",
-  "softcopy",
-  "printable",
-  "refresh",
-  "transfer",
-  "discovery",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconDownloadMinimalistic as IconComponent;
+export default IconDownloadMinimalistic;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWind2: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,28 +101,4 @@ const IconWind2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWind2 as IconComponent).keywords = [
-  "wind",
-  "2",
-  "wind up",
-  "tip",
-  "steer",
-  "hoist",
-  "roll",
-  "lead",
-  "wrap",
-  "meander",
-  "curve",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconWind2 as IconComponent;
+export default IconWind2;

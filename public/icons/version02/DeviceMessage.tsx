@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDeviceMessage: FC<IconProps> = ({
   className,
   fill = false,
@@ -136,28 +143,4 @@ const IconDeviceMessage: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDeviceMessage as IconComponent).keywords = [
-  "device",
-  "message",
-  "twist",
-  "gimmick",
-  "contrivance",
-  "machinery",
-  "apparatus",
-  "contraption",
-  "mechanism",
-  "machine",
-  "charger",
-  "subject matter",
-  "substance",
-  "content",
-  "file",
-  "communiqué",
-  "transmission",
-  "communication",
-  "news",
-  "advertisement",
-];
-
-export default IconDeviceMessage as IconComponent;
+export default IconDeviceMessage;

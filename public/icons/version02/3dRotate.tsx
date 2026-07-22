@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const Icon3dRotate: FC<IconProps> = ({
   className,
   fill = false,
@@ -120,28 +127,4 @@ const Icon3dRotate: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(Icon3dRotate as IconComponent).keywords = [
-  "3d",
-  "rotate",
-  "3-d",
-  "three-d",
-  "postage",
-  "qsar",
-  "abit",
-  "abstinent",
-  "amityville",
-  "arist",
-  "barque",
-  "go around",
-  "revolve",
-  "rotation",
-  "rotational",
-  "slue",
-  "turn",
-  "tilt",
-  "spinning",
-  "counterclockwise",
-];
-
-export default Icon3dRotate as IconComponent;
+export default Icon3dRotate;

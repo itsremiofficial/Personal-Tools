@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconOvenMittsMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,38 +80,4 @@ const IconOvenMittsMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconOvenMittsMinimalistic as IconComponent).keywords = [
-  "oven",
-  "mitts",
-  "minimalistic",
-  "cooking",
-  "baked",
-  "baking",
-  "baker",
-  "cooker",
-  "greenhouse",
-  "stove",
-  "fur",
-  "furnace",
-  "glove",
-  "hook",
-  "mauler",
-  "hand",
-  "paw",
-  "manus",
-  "baseball mitt",
-  "baseball glove",
-  "gloves",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconOvenMittsMinimalistic as IconComponent;
+export default IconOvenMittsMinimalistic;

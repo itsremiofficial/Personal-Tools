@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFolderAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,28 +77,4 @@ const IconFolderAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFolderAdd as IconComponent).keywords = [
-  "folder",
-  "add",
-  "booklet",
-  "pamphlet",
-  "brochure",
-  "leaflet",
-  "toolkit",
-  "pack",
-  "package",
-  "kit",
-  "shirt",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconFolderAdd as IconComponent;
+export default IconFolderAdd;

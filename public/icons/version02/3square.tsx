@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const Icon3square: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,7 +98,4 @@ const Icon3square: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(Icon3square as IconComponent).keywords = ["3square"];
-
-export default Icon3square as IconComponent;
+export default Icon3square;

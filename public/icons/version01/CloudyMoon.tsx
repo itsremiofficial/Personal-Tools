@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudyMoon: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconCloudyMoon: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudyMoon as IconComponent).keywords = [
-  "cloudy",
-  "moon",
-  "cloudlike",
-  "clouded",
-  "brumous",
-  "nebulous",
-  "misty",
-  "hazy",
-  "nebulose",
-  "foggy",
-  "murky",
-  "lunar month",
-  "moonlight",
-  "synodic month",
-  "lunation",
-  "daydream",
-  "moonshine",
-  "moon around",
-  "moon on",
-  "satellite",
-];
-
-export default IconCloudyMoon as IconComponent;
+export default IconCloudyMoon;

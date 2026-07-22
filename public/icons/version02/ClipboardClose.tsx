@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconClipboardClose: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,28 +105,4 @@ const IconClipboardClose: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconClipboardClose as IconComponent).keywords = [
-  "clipboard",
-  "close",
-  "flipchart",
-  "notebook",
-  "pad",
-  "notepad",
-  "whiteboard",
-  "pasteboard",
-  "chalkboard",
-  "sketchpad",
-  "copy",
-  "confining",
-  "restrained",
-  "end",
-  "terminus",
-  "finis",
-  "conclusion",
-  "ending",
-  "finish",
-  "shut",
-];
-
-export default IconClipboardClose as IconComponent;
+export default IconClipboardClose;

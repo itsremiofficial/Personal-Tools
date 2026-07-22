@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSkirt: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,18 +93,4 @@ const IconSkirt: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSkirt as IconComponent).keywords = [
-  "skirt",
-  "surround",
-  "parry",
-  "doll",
-  "duck",
-  "hedge",
-  "border",
-  "sidestep",
-  "fudge",
-  "wench",
-];
-
-export default IconSkirt as IconComponent;
+export default IconSkirt;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGhostSmile: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,28 +87,4 @@ const IconGhostSmile: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGhostSmile as IconComponent).keywords = [
-  "ghost",
-  "smile",
-  "wraith",
-  "specter",
-  "spectre",
-  "spook",
-  "haunt",
-  "obsess",
-  "ghostwrite",
-  "touch",
-  "ghostwriter",
-  "grin",
-  "grinning",
-  "smirk",
-  "laughter",
-  "laugh",
-  "laughing",
-  "cheer",
-  "kidding",
-  "happiness",
-];
-
-export default IconGhostSmile as IconComponent;
+export default IconGhostSmile;

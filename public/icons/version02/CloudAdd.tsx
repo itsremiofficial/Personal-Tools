@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,28 +100,4 @@ const IconCloudAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudAdd as IconComponent).keywords = [
-  "cloud",
-  "add",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconCloudAdd as IconComponent;
+export default IconCloudAdd;

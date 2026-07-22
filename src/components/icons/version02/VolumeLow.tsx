@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVolumeLow: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,28 +84,4 @@ const IconVolumeLow: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVolumeLow as IconComponent).keywords = [
-  "volume",
-  "low",
-  "loudness",
-  "book",
-  "mass",
-  "bulk",
-  "intensity",
-  "quantum",
-  "weight",
-  "density",
-  "potentiometer",
-  "ebb",
-  "underslung",
-  "first gear",
-  "low gear",
-  "blue",
-  "under",
-  "crushed",
-  "broken",
-  "nether",
-];
-
-export default IconVolumeLow as IconComponent;
+export default IconVolumeLow;

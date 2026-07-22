@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPersonalcard: FC<IconProps> = ({
   className,
   fill = false,
@@ -116,7 +123,4 @@ const IconPersonalcard: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPersonalcard as IconComponent).keywords = ["personalcard"];
-
-export default IconPersonalcard as IconComponent;
+export default IconPersonalcard;

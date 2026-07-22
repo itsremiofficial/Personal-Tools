@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRoundDoubleAltArrowLeft: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,58 +91,4 @@ const IconRoundDoubleAltArrowLeft: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRoundDoubleAltArrowLeft as IconComponent).keywords = [
-  "round",
-  "double",
-  "alt",
-  "arrow",
-  "left",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-  "twofold",
-  "duple",
-  "twice",
-  "dual",
-  "reduplicate",
-  "doubly",
-  "multiple",
-  "double up",
-  "forked",
-  "elevation",
-  "el",
-  "altitude",
-  "backspace",
-  "esc",
-  "shadow",
-  "ctrl",
-  "variation",
-  "variant",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-  "left-hand",
-  "left-handed",
-  "left over",
-  "near",
-  "leftover",
-  "nigh",
-  "remaining",
-  "leftfield",
-  "odd",
-];
-
-export default IconRoundDoubleAltArrowLeft as IconComponent;
+export default IconRoundDoubleAltArrowLeft;

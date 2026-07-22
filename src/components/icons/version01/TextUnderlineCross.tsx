@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTextUnderlineCross: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,38 +89,4 @@ const IconTextUnderlineCross: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTextUnderlineCross as IconComponent).keywords = [
-  "text",
-  "underline",
-  "cross",
-  "schoolbook",
-  "textbook",
-  "school text",
-  "text edition",
-  "textual matter",
-  "writing",
-  "letter",
-  "paragraph",
-  "manuscript",
-  "underscore",
-  "emphasize",
-  "highlighting",
-  "highlight",
-  "highlights",
-  "outline",
-  "note",
-  "accentuate",
-  "draw",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-];
-
-export default IconTextUnderlineCross as IconComponent;
+export default IconTextUnderlineCross;

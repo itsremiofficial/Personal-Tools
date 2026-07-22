@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShieldWarning: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconShieldWarning: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShieldWarning as IconComponent).keywords = [
-  "shield",
-  "warning",
-  "buckler",
-  "screen",
-  "harbor",
-  "harbour",
-  "armoured",
-  "armor",
-  "breastplate",
-  "ribbon",
-  "visor",
-  "cautionary",
-  "exemplary",
-  "dissuasive",
-  "monitory",
-  "admonition",
-  "admonitory",
-  "word of advice",
-  "cautioning",
-  "cautioned",
-];
-
-export default IconShieldWarning as IconComponent;
+export default IconShieldWarning;

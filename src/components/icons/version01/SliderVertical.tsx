@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSliderVertical: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,28 +93,4 @@ const IconSliderVertical: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSliderVertical as IconComponent).keywords = [
-  "slider",
-  "vertical",
-  "luger",
-  "pseudemys scripta",
-  "yellow-bellied terrapin",
-  "bushing",
-  "skid",
-  "glider",
-  "scroll",
-  "scrollbar",
-  "track",
-  "perpendicular",
-  "plumb",
-  "upright",
-  "stand-up",
-  "standing",
-  "straight",
-  "rearing",
-  "erect",
-  "erectile",
-];
-
-export default IconSliderVertical as IconComponent;
+export default IconSliderVertical;

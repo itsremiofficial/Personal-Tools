@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTrellis: FC<IconProps> = ({
   className,
   fill = false,
@@ -132,18 +139,4 @@ const IconTrellis: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTrellis as IconComponent).keywords = [
-  "trellis",
-  "treillage",
-  "espalier",
-  "lattice",
-  "pergola",
-  "trelliswork",
-  "vining",
-  "clematis",
-  "vine",
-  "viney",
-];
-
-export default IconTrellis as IconComponent;
+export default IconTrellis;

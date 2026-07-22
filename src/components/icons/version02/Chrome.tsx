@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChrome: FC<IconProps> = ({
   className,
   fill = false,
@@ -105,18 +112,4 @@ const IconChrome: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChrome as IconComponent).keywords = [
-  "chrome",
-  "chromium-plate",
-  "chrome-plated",
-  "vanadium",
-  "plated",
-  "spinel",
-  "magnesite",
-  "cobalt",
-  "molybdenum",
-  "chromium",
-];
-
-export default IconChrome as IconComponent;
+export default IconChrome;

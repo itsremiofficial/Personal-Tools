@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRecoveryConvert: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,28 +114,4 @@ const IconRecoveryConvert: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRecoveryConvert as IconComponent).keywords = [
-  "recovery",
-  "convert",
-  "recuperation",
-  "convalescence",
-  "retrieval",
-  "regaining",
-  "retrieve",
-  "recover",
-  "rehabilitate",
-  "reclaim",
-  "regain",
-  "change over",
-  "change",
-  "exchange",
-  "turn",
-  "win over",
-  "convince",
-  "commute",
-  "transformation",
-  "alter",
-];
-
-export default IconRecoveryConvert as IconComponent;
+export default IconRecoveryConvert;

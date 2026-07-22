@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMicroscope: FC<IconProps> = ({
   className,
   fill = false,
@@ -113,18 +120,4 @@ const IconMicroscope: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMicroscope as IconComponent).keywords = [
-  "microscope",
-  "microscopy",
-  "microscopic",
-  "focus",
-  "spotlight",
-  "lubricating",
-  "magnification",
-  "scope",
-  "magnifier",
-  "macroscope",
-];
-
-export default IconMicroscope as IconComponent;
+export default IconMicroscope;

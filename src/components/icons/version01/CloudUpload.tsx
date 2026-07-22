@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudUpload: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,28 +86,4 @@ const IconCloudUpload: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudUpload as IconComponent).keywords = [
-  "cloud",
-  "upload",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "download",
-  "loader",
-  "reload",
-  "uplink",
-  "send",
-  "sending",
-  "charging",
-  "recharge",
-  "rechargeable",
-];
-
-export default IconCloudUpload as IconComponent;
+export default IconCloudUpload;

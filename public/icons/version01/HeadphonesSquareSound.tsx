@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHeadphonesSquareSound: FC<IconProps> = ({
   className,
   fill = false,
@@ -123,38 +130,4 @@ const IconHeadphonesSquareSound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHeadphonesSquareSound as IconComponent).keywords = [
-  "headphones",
-  "square",
-  "sound",
-  "earpiece",
-  "earphone",
-  "phone",
-  "earphones",
-  "headset",
-  "phones",
-  "canceling",
-  "handsets",
-  "headsets",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "healthy",
-  "strong",
-  "intelligent",
-  "good",
-  "dependable",
-  "sensible",
-  "levelheaded",
-  "substantial",
-  "well-grounded",
-];
-
-export default IconHeadphonesSquareSound as IconComponent;
+export default IconHeadphonesSquareSound;

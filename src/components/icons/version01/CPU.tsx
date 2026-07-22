@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCPU: FC<IconProps> = ({
   className,
   fill = false,
@@ -159,7 +166,4 @@ const IconCPU: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCPU as IconComponent).keywords = [];
-
-export default IconCPU as IconComponent;
+export default IconCPU;

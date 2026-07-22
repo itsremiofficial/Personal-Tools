@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDirectboxReceive: FC<IconProps> = ({
   className,
   fill = false,
@@ -115,19 +122,4 @@ const IconDirectboxReceive: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDirectboxReceive as IconComponent).keywords = [
-  "directbox",
-  "receive",
-  "invite",
-  "take in",
-  "obtain",
-  "get",
-  "have",
-  "meet",
-  "undergo",
-  "find",
-  "encounter",
-];
-
-export default IconDirectboxReceive as IconComponent;
+export default IconDirectboxReceive;

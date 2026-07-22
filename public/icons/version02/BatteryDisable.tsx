@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBatteryDisable: FC<IconProps> = ({
   className,
   fill = false,
@@ -103,28 +110,4 @@ const IconBatteryDisable: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBatteryDisable as IconComponent).keywords = [
-  "battery",
-  "disable",
-  "bombardment",
-  "stamp battery",
-  "barrage",
-  "shelling",
-  "assault and battery",
-  "assault",
-  "barrage fire",
-  "electric battery",
-  "alternator",
-  "incapacitate",
-  "handicap",
-  "disenable",
-  "invalid",
-  "maim",
-  "idle",
-  "inactivity",
-  "inactivate",
-  "quiesce",
-];
-
-export default IconBatteryDisable as IconComponent;
+export default IconBatteryDisable;

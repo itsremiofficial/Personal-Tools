@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChatRoundMoney: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,38 +77,4 @@ const IconChatRoundMoney: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChatRoundMoney as IconComponent).keywords = [
-  "chat",
-  "round",
-  "money",
-  "confabulate",
-  "confab",
-  "confabulation",
-  "chitchat",
-  "natter",
-  "gossip",
-  "visit",
-  "chatter",
-  "claver",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-  "rich",
-  "monied",
-  "wealthy",
-  "affluent",
-  "loaded",
-  "flush",
-  "muni",
-  "finance",
-  "financing",
-];
-
-export default IconChatRoundMoney as IconComponent;
+export default IconChatRoundMoney;

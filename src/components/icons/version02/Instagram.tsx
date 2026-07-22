@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconInstagram: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,18 +90,4 @@ const IconInstagram: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconInstagram as IconComponent).keywords = [
-  "instagram",
-  "insta",
-  "instaverse",
-  "snapchat",
-  "finstagram",
-  "photosharing",
-  "snapchatter",
-  "photoblogging",
-  "imgurian",
-  "rinsta",
-];
-
-export default IconInstagram as IconComponent;
+export default IconInstagram;

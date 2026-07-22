@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSearchFavorite: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,28 +94,4 @@ const IconSearchFavorite: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSearchFavorite as IconComponent).keywords = [
-  "search",
-  "favorite",
-  "seek",
-  "look for",
-  "explore",
-  "lookup",
-  "research",
-  "look",
-  "hunting",
-  "hunt",
-  "seeking",
-  "favored",
-  "favourite",
-  "preferred",
-  "popular",
-  "loved",
-  "deary",
-  "darling",
-  "dearie",
-  "front-runner",
-];
-
-export default IconSearchFavorite as IconComponent;
+export default IconSearchFavorite;

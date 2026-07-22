@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloseCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconCloseCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloseCircle as IconComponent).keywords = [
-  "close",
-  "circle",
-  "confining",
-  "restrained",
-  "end",
-  "terminus",
-  "finis",
-  "conclusion",
-  "ending",
-  "finish",
-  "shut",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconCloseCircle as IconComponent;
+export default IconCloseCircle;

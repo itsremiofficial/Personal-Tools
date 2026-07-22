@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCallDroppedRounded: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,38 +85,4 @@ const IconCallDroppedRounded: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCallDroppedRounded as IconComponent).keywords = [
-  "call",
-  "dropped",
-  "rounded",
-  "phone call",
-  "telephone call",
-  "call in",
-  "telephone",
-  "phone",
-  "call up",
-  "send for",
-  "call option",
-  "margin call",
-  "born",
-  "downing",
-  "fall",
-  "down",
-  "downed",
-  "fallen",
-  "toppling",
-  "shrank",
-  "shrunk",
-  "ringed",
-  "ring-shaped",
-  "annulate",
-  "annular",
-  "circular",
-  "rotund",
-  "bowfront",
-  "prolate",
-  "domed",
-];
-
-export default IconCallDroppedRounded as IconComponent;
+export default IconCallDroppedRounded;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBubble: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,18 +96,4 @@ const IconBubble: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBubble as IconComponent).keywords = [
-  "bubble",
-  "guggle",
-  "ripple",
-  "burble",
-  "gurgle",
-  "belch",
-  "burp",
-  "eruct",
-  "babble",
-  "foam",
-];
-
-export default IconBubble as IconComponent;
+export default IconBubble;

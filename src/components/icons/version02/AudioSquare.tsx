@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAudioSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconAudioSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAudioSquare as IconComponent).keywords = [
-  "audio",
-  "square",
-  "audio frequency",
-  "sound",
-  "aural",
-  "audiological",
-  "auditory",
-  "sonic",
-  "audible",
-  "graphics",
-  "resounding",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconAudioSquare as IconComponent;
+export default IconAudioSquare;

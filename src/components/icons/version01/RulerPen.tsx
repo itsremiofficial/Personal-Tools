@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRulerPen: FC<IconProps> = ({
   className,
   fill = false,
@@ -112,28 +119,4 @@ const IconRulerPen: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRulerPen as IconComponent).keywords = [
-  "ruler",
-  "pen",
-  "rule",
-  "ndp",
-  "head",
-  "roi",
-  "officer",
-  "leadership",
-  "boss",
-  "leader",
-  "administrator",
-  "playpen",
-  "penitentiary",
-  "compose",
-  "indite",
-  "write",
-  "paddock",
-  "corral",
-  "basin",
-  "sty",
-];
-
-export default IconRulerPen as IconComponent;
+export default IconRulerPen;

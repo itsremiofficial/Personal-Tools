@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,18 +93,4 @@ const IconSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSlash as IconComponent).keywords = [
-  "slash",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconSlash as IconComponent;
+export default IconSlash;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStarFallMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,38 +97,4 @@ const IconStarFallMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStarFallMinimalistic as IconComponent).keywords = [
-  "star",
-  "fall",
-  "minimalistic",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-  "come down",
-  "decline",
-  "descend",
-  "descent",
-  "downfall",
-  "devolve",
-  "tumble",
-  "decrease",
-  "downslope",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconStarFallMinimalistic as IconComponent;
+export default IconStarFallMinimalistic;

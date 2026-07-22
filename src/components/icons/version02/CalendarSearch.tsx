@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCalendarSearch: FC<IconProps> = ({
   className,
   fill = false,
@@ -135,28 +142,4 @@ const IconCalendarSearch: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCalendarSearch as IconComponent).keywords = [
-  "calendar",
-  "search",
-  "timeline",
-  "chronology",
-  "rota",
-  "scheduling",
-  "timetable",
-  "program",
-  "time-scale",
-  "timeframe",
-  "timescale",
-  "seek",
-  "look for",
-  "explore",
-  "lookup",
-  "research",
-  "look",
-  "hunting",
-  "hunt",
-  "seeking",
-];
-
-export default IconCalendarSearch as IconComponent;
+export default IconCalendarSearch;

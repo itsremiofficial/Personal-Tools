@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCrop: FC<IconProps> = ({
   className,
   fill = false,
@@ -108,18 +115,4 @@ const IconCrop: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCrop as IconComponent).keywords = [
-  "crop",
-  "harvest",
-  "cultivate",
-  "pasture",
-  "prune",
-  "range",
-  "snip",
-  "dress",
-  "lop",
-  "graze",
-];
-
-export default IconCrop as IconComponent;
+export default IconCrop;

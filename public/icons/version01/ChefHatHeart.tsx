@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChefHatHeart: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,38 +90,4 @@ const IconChefHatHeart: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChefHatHeart as IconComponent).keywords = [
-  "chef",
-  "hat",
-  "heart",
-  "kitchen",
-  "cuisine",
-  "cooking",
-  "cook",
-  "baker",
-  "kitchener",
-  "cookie",
-  "enchilada",
-  "stove",
-  "chapeau",
-  "lid",
-  "fedora",
-  "beret",
-  "sombrero",
-  "beanie",
-  "headdress",
-  "bonnet",
-  "cap",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-];
-
-export default IconChefHatHeart as IconComponent;
+export default IconChefHatHeart;

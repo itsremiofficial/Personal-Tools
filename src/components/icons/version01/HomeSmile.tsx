@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHomeSmile: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,28 +77,4 @@ const IconHomeSmile: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHomeSmile as IconComponent).keywords = [
-  "home",
-  "smile",
-  "domicile",
-  "habitation",
-  "domestic",
-  "dwelling",
-  "nursing home",
-  "rest home",
-  "house",
-  "dwelling house",
-  "household",
-  "grin",
-  "grinning",
-  "smirk",
-  "laughter",
-  "laugh",
-  "laughing",
-  "cheer",
-  "kidding",
-  "happiness",
-];
-
-export default IconHomeSmile as IconComponent;
+export default IconHomeSmile;

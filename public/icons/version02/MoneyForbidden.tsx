@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMoneyForbidden: FC<IconProps> = ({
   className,
   fill = false,
@@ -118,28 +125,4 @@ const IconMoneyForbidden: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMoneyForbidden as IconComponent).keywords = [
-  "money",
-  "forbidden",
-  "rich",
-  "monied",
-  "wealthy",
-  "affluent",
-  "loaded",
-  "flush",
-  "muni",
-  "finance",
-  "financing",
-  "prohibited",
-  "impermissible",
-  "taboo",
-  "tabu",
-  "out",
-  "proscribed",
-  "banned",
-  "off-limits",
-  "not",
-];
-
-export default IconMoneyForbidden as IconComponent;
+export default IconMoneyForbidden;

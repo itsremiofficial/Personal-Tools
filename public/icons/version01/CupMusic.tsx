@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCupMusic: FC<IconProps> = ({
   className,
   fill = false,
@@ -152,28 +159,4 @@ const IconCupMusic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCupMusic as IconComponent).keywords = [
-  "cup",
-  "music",
-  "loving cup",
-  "cupful",
-  "transfuse",
-  "chalice",
-  "goblet",
-  "bottle",
-  "jar",
-  "pot",
-  "bowl",
-  "sheet music",
-  "euphony",
-  "medicine",
-  "melody",
-  "symphony",
-  "orchestra",
-  "musician",
-  "song",
-  "singing",
-];
-
-export default IconCupMusic as IconComponent;
+export default IconCupMusic;

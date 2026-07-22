@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBoneCrack: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconBoneCrack: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBoneCrack as IconComponent).keywords = [
-  "bone",
-  "crack",
-  "osseous tissue",
-  "bony",
-  "pearl",
-  "ivory",
-  "debone",
-  "boney",
-  "off-white",
-  "cram",
-  "get up",
-  "snap",
-  "fracture",
-  "chip",
-  "gap",
-  "break",
-  "whirl",
-  "collapse",
-  "fling",
-  "scissure",
-];
-
-export default IconBoneCrack as IconComponent;
+export default IconBoneCrack;

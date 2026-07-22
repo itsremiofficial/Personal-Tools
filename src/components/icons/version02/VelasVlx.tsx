@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVelasVlx: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,24 +84,4 @@ const IconVelasVlx: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVelasVlx as IconComponent).keywords = [
-  "velas",
-  "vlx",
-  "antlia",
-  "argo",
-  "carina",
-  "centaurus",
-  "puppis",
-  "external storage",
-  "parhelia",
-  "insp",
-  "tyan",
-  "ixia",
-  "fortran compiler",
-  "xli",
-  "junos",
-  "agentry",
-];
-
-export default IconVelasVlx as IconComponent;
+export default IconVelasVlx;

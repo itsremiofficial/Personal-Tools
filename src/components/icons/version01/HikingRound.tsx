@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHikingRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,28 +111,4 @@ const IconHikingRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHikingRound as IconComponent).keywords = [
-  "hiking",
-  "round",
-  "boost",
-  "hike up",
-  "rise",
-  "tramp",
-  "raise",
-  "pedestrian",
-  "walks",
-  "walking",
-  "walk",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconHikingRound as IconComponent;
+export default IconHikingRound;

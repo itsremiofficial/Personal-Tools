@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBluetoothRectangle: FC<IconProps> = ({
   className,
   fill = false,
@@ -81,28 +88,4 @@ const IconBluetoothRectangle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBluetoothRectangle as IconComponent).keywords = [
-  "bluetooth",
-  "rectangle",
-  "teeth",
-  "tooth",
-  "handsfree",
-  "wireless",
-  "ipod",
-  "wifi",
-  "stereo",
-  "speakerphone",
-  "headset",
-  "rectangular",
-  "rect",
-  "badge",
-  "box",
-  "square",
-  "trapezoid",
-  "triangle",
-  "ellipse",
-  "hexagon",
-];
-
-export default IconBluetoothRectangle as IconComponent;
+export default IconBluetoothRectangle;

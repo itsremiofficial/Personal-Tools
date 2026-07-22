@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRewind10SecondsBack: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,39 +100,4 @@ const IconRewind10SecondsBack: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRewind10SecondsBack as IconComponent).keywords = [
-  "rewind",
-  "10",
-  "seconds",
-  "back",
-  "rollback",
-  "regress",
-  "backtrack",
-  "retrogressive",
-  "backward",
-  "rewrite",
-  "reverse",
-  "retract",
-  "11",
-  "26",
-  "tenner",
-  "sec",
-  "moment",
-  "instant",
-  "intermediate",
-  "endorsement",
-  "endorse",
-  "indorse",
-  "forward",
-  "rearward",
-  "rearwards",
-  "backwards",
-  "back up",
-  "backmost",
-  "rearmost",
-  "hindermost",
-  "support",
-];
-
-export default IconRewind10SecondsBack as IconComponent;
+export default IconRewind10SecondsBack;

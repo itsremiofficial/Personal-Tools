@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBagMusic2: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,38 +95,4 @@ const IconBagMusic2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBagMusic2 as IconComponent).keywords = [
-  "bag",
-  "music",
-  "2",
-  "purse",
-  "pocketbook",
-  "handbag",
-  "pocket",
-  "bagful",
-  "suitcase",
-  "dish",
-  "grip",
-  "cup of tea",
-  "sheet music",
-  "euphony",
-  "medicine",
-  "melody",
-  "symphony",
-  "orchestra",
-  "musician",
-  "song",
-  "singing",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconBagMusic2 as IconComponent;
+export default IconBagMusic2;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVideoSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -116,28 +123,4 @@ const IconVideoSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVideoSlash as IconComponent).keywords = [
-  "video",
-  "slash",
-  "tv",
-  "television",
-  "picture",
-  "telecasting",
-  "televised",
-  "videotaping",
-  "videotaped",
-  "taping",
-  "videotape",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconVideoSlash as IconComponent;
+export default IconVideoSlash;

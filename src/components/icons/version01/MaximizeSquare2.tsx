@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMaximizeSquare2: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,38 +97,4 @@ const IconMaximizeSquare2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMaximizeSquare2 as IconComponent).keywords = [
-  "maximize",
-  "square",
-  "2",
-  "max",
-  "maximum",
-  "maximal",
-  "optimum",
-  "broaden",
-  "optimal",
-  "maximisation",
-  "maximise",
-  "optimizing",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconMaximizeSquare2 as IconComponent;
+export default IconMaximizeSquare2;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCalculator: FC<IconProps> = ({
   className,
   fill = false,
@@ -135,18 +142,4 @@ const IconCalculator: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCalculator as IconComponent).keywords = [
-  "calculator",
-  "computer",
-  "figurer",
-  "reckoner",
-  "estimator",
-  "calculating machine",
-  "computing",
-  "spreadsheet",
-  "computation",
-  "calculating",
-];
-
-export default IconCalculator as IconComponent;
+export default IconCalculator;

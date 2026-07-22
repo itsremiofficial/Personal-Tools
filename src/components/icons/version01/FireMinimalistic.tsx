@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFireMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -61,28 +68,4 @@ const IconFireMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFireMinimalistic as IconComponent).keywords = [
-  "fire",
-  "minimalistic",
-  "fuel",
-  "flame",
-  "blast",
-  "flaming",
-  "burn down",
-  "burn",
-  "kindle",
-  "enkindle",
-  "sack",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconFireMinimalistic as IconComponent;
+export default IconFireMinimalistic;

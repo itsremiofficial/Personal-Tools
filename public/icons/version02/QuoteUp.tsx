@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconQuoteUp: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconQuoteUp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconQuoteUp as IconComponent).keywords = [
-  "quote",
-  "up",
-  "quotation",
-  "cite",
-  "quotation mark",
-  "inverted comma",
-  "cited",
-  "phrase",
-  "naming",
-  "recite",
-  "read",
-  "upbound",
-  "upwardly",
-  "ascending",
-  "upward",
-  "upwards",
-  "rising",
-  "astir",
-  "ahead",
-  "awake",
-];
-
-export default IconQuoteUp as IconComponent;
+export default IconQuoteUp;

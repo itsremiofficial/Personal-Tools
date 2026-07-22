@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconReceiptAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,28 +103,4 @@ const IconReceiptAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconReceiptAdd as IconComponent).keywords = [
-  "receipt",
-  "add",
-  "receiving",
-  "reception",
-  "acknowledge",
-  "recipient",
-  "receptor",
-  "granting",
-  "receive",
-  "grant",
-  "remitting",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconReceiptAdd as IconComponent;
+export default IconReceiptAdd;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSuspensionCross: FC<IconProps> = ({
   className,
   fill = false,
@@ -146,28 +153,4 @@ const IconSuspensionCross: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSuspensionCross as IconComponent).keywords = [
-  "suspension",
-  "cross",
-  "hiatus",
-  "pause",
-  "reprieve",
-  "interruption",
-  "respite",
-  "abatement",
-  "break",
-  "dangling",
-  "hanging",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-];
-
-export default IconSuspensionCross as IconComponent;
+export default IconSuspensionCross;

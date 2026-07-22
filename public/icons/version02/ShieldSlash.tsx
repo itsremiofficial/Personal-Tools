@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShieldSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconShieldSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShieldSlash as IconComponent).keywords = [
-  "shield",
-  "slash",
-  "buckler",
-  "screen",
-  "harbor",
-  "harbour",
-  "armoured",
-  "armor",
-  "breastplate",
-  "ribbon",
-  "visor",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconShieldSlash as IconComponent;
+export default IconShieldSlash;

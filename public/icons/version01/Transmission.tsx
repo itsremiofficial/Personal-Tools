@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTransmission: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,18 +105,4 @@ const IconTransmission: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTransmission as IconComponent).keywords = [
-  "transmission",
-  "transmittal",
-  "transmitting",
-  "transmittance",
-  "infection",
-  "contagion",
-  "transmitted",
-  "transmitter",
-  "transmit",
-  "message",
-];
-
-export default IconTransmission as IconComponent;
+export default IconTransmission;

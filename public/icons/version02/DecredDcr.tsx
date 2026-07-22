@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDecredDcr: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,19 +89,4 @@ const IconDecredDcr: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDecredDcr as IconComponent).keywords = [
-  "decred",
-  "dcr",
-  "rcd",
-  "crd",
-  "cid",
-  "crb",
-  "drc",
-  "rct",
-  "acb",
-  "rcu",
-  "rsd",
-];
-
-export default IconDecredDcr as IconComponent;
+export default IconDecredDcr;

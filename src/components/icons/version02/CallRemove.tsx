@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCallRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconCallRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCallRemove as IconComponent).keywords = [
-  "call",
-  "remove",
-  "phone call",
-  "telephone call",
-  "call in",
-  "telephone",
-  "phone",
-  "call up",
-  "send for",
-  "call option",
-  "margin call",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconCallRemove as IconComponent;
+export default IconCallRemove;

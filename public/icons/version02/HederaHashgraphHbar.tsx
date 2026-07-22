@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHederaHashgraphHbar: FC<IconProps> = ({
   className,
   fill = false,
@@ -117,38 +124,4 @@ const IconHederaHashgraphHbar: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHederaHashgraphHbar as IconComponent).keywords = [
-  "hedera",
-  "hashgraph",
-  "hbar",
-  "genus hedera",
-  "kalmia",
-  "serpens",
-  "monstera",
-  "linaria",
-  "cineraria",
-  "stonecrop",
-  "rubus",
-  "salix",
-  "ethereum",
-  "avalanche",
-  "bitcoin",
-  "eos.io",
-  "tezos",
-  "augur",
-  "counterparty",
-  "stacks blockchain",
-  "algorand",
-  "h.q.",
-  "h.c.",
-  "p.r.b.",
-  "c.b.",
-  "l. b.",
-  "h.r.h.",
-  "hts.",
-  "bargraph",
-  "nbsp",
-];
-
-export default IconHederaHashgraphHbar as IconComponent;
+export default IconHederaHashgraphHbar;

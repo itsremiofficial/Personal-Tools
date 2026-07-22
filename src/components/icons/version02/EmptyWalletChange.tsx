@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEmptyWalletChange: FC<IconProps> = ({
   className,
   fill = false,
@@ -142,38 +149,4 @@ const IconEmptyWalletChange: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEmptyWalletChange as IconComponent).keywords = [
-  "empty",
-  "wallet",
-  "change",
-  "lifeless",
-  "void",
-  "vacuous",
-  "vacant",
-  "empty-handed",
-  "meaningless",
-  "unfilled",
-  "bare",
-  "clean",
-  "billfold",
-  "notecase",
-  "portfolio",
-  "paper",
-  "book",
-  "paperwork",
-  "briefcase",
-  "suitcase",
-  "cash",
-  "alteration",
-  "alter",
-  "convert",
-  "interchange",
-  "vary",
-  "modification",
-  "variety",
-  "transfer",
-  "exchange",
-];
-
-export default IconEmptyWalletChange as IconComponent;
+export default IconEmptyWalletChange;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconScroll: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,18 +92,4 @@ const IconScroll: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconScroll as IconComponent).keywords = [
-  "scroll",
-  "coil",
-  "roll",
-  "whorl",
-  "curlicue",
-  "gyre",
-  "curl",
-  "ringlet",
-  "scrollbar",
-  "tape",
-];
-
-export default IconScroll as IconComponent;
+export default IconScroll;

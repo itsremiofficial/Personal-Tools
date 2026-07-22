@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconKeyboard: FC<IconProps> = ({
   className,
   fill = false,
@@ -160,18 +167,4 @@ const IconKeyboard: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconKeyboard as IconComponent).keywords = [
-  "keyboard",
-  "keypad",
-  "computer",
-  "typing",
-  "touch-tone",
-  "keyword",
-  "tablet",
-  "shortcut",
-  "portable",
-  "backlit",
-];
-
-export default IconKeyboard as IconComponent;
+export default IconKeyboard;

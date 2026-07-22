@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFileSmile: FC<IconProps> = ({
   className,
   fill = false,
@@ -110,28 +117,4 @@ const IconFileSmile: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFileSmile as IconComponent).keywords = [
-  "file",
-  "smile",
-  "register",
-  "single file",
-  "indian file",
-  "charge",
-  "file away",
-  "lodge",
-  "file cabinet",
-  "filing cabinet",
-  "data file",
-  "grin",
-  "grinning",
-  "smirk",
-  "laughter",
-  "laugh",
-  "laughing",
-  "cheer",
-  "kidding",
-  "happiness",
-];
-
-export default IconFileSmile as IconComponent;
+export default IconFileSmile;

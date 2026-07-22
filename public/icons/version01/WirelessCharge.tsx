@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWirelessCharge: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconWirelessCharge: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWirelessCharge as IconComponent).keywords = [
-  "wireless",
-  "charge",
-  "radio",
-  "radiocommunication",
-  "tuner",
-  "radio receiver",
-  "radio set",
-  "receiving set",
-  "wirelessly",
-  "cordless",
-  "unwired",
-  "consign",
-  "commission",
-  "mission",
-  "appoint",
-  "billing",
-  "guardianship",
-  "tutelage",
-  "institutionalize",
-  "send",
-];
-
-export default IconWirelessCharge as IconComponent;
+export default IconWirelessCharge;

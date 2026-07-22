@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPassport: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,18 +103,4 @@ const IconPassport: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPassport as IconComponent).keywords = [
-  "passport",
-  "pass",
-  "e-passport",
-  "laissez-passer",
-  "carnet",
-  "ticket",
-  "travel",
-  "document",
-  "authorisation",
-  "booklet",
-];
-
-export default IconPassport as IconComponent;
+export default IconPassport;

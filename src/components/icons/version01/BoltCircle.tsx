@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBoltCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -69,28 +76,4 @@ const IconBoltCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBoltCircle as IconComponent).keywords = [
-  "bolt",
-  "circle",
-  "deadbolt",
-  "thunderbolt",
-  "run out",
-  "slap",
-  "smack",
-  "bang",
-  "gobble",
-  "go off",
-  "absquatulate",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconBoltCircle as IconComponent;
+export default IconBoltCircle;

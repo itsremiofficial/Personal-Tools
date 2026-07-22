@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHashtagSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,28 +105,4 @@ const IconHashtagSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHashtagSquare as IconComponent).keywords = [
-  "hashtag",
-  "square",
-  "slashtag",
-  "bashtag",
-  "hashtagger",
-  "hashflag",
-  "tag cloud",
-  "tweet",
-  "label cloud",
-  "entity tag",
-  "fragment",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconHashtagSquare as IconComponent;
+export default IconHashtagSquare;

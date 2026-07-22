@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconToPIP: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,18 +91,4 @@ const IconToPIP: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconToPIP as IconComponent).keywords = [
-  "to",
-  "square-toed",
-  "pointed-toe",
-  "pointy-toed",
-  "squared-toe",
-  "eap",
-  "pae",
-  "efp",
-  "css",
-  "tcs",
-];
-
-export default IconToPIP as IconComponent;
+export default IconToPIP;

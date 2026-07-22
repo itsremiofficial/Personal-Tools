@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTeacher: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,18 +90,4 @@ const IconTeacher: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTeacher as IconComponent).keywords = [
-  "teacher",
-  "instructor",
-  "schoolmaster",
-  "schoolteacher",
-  "educator",
-  "pedagogue",
-  "professor",
-  "professorial",
-  "faculty",
-  "lecturer",
-];
-
-export default IconTeacher as IconComponent;
+export default IconTeacher;

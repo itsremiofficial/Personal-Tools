@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHeartPulse2: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,38 +78,4 @@ const IconHeartPulse2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHeartPulse2 as IconComponent).keywords = [
-  "heart",
-  "pulse",
-  "2",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-  "heartbeat",
-  "pulsation",
-  "heart rate",
-  "pulsate",
-  "throb",
-  "beat",
-  "impulse",
-  "oximetry",
-  "oximeter",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconHeartPulse2 as IconComponent;
+export default IconHeartPulse2;

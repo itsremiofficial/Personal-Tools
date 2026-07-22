@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBellOff: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,28 +93,4 @@ const IconBellOff: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBellOff as IconComponent).keywords = [
-  "bell",
-  "off",
-  "gong",
-  "chime",
-  "campana",
-  "doorbell",
-  "buzzer",
-  "alexander bell",
-  "alexander graham bell",
-  "bell shape",
-  "ringer",
-  "away",
-  "cancelled",
-  "forth",
-  "inactive",
-  "disconnected",
-  "unsatisfactory",
-  "soured",
-  "sour",
-  "off-duty",
-];
-
-export default IconBellOff as IconComponent;
+export default IconBellOff;

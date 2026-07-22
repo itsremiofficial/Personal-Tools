@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLamp: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,18 +86,4 @@ const IconLamp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLamp as IconComponent).keywords = [
-  "lamp",
-  "bulb",
-  "flashlight",
-  "lamppost",
-  "lantern",
-  "lighting",
-  "dimmer",
-  "searchlight",
-  "wick",
-  "lighter",
-];
-
-export default IconLamp as IconComponent;
+export default IconLamp;

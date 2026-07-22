@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStacksStx: FC<IconProps> = ({
   className,
   fill = false,
@@ -121,28 +128,4 @@ const IconStacksStx: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStacksStx as IconComponent).keywords = [
-  "stacks",
-  "stx",
-  "piles",
-  "heaps",
-  "dozens",
-  "tons",
-  "oodles",
-  "loads",
-  "lashings",
-  "lots",
-  "gobs",
-  "soh",
-  "etx",
-  "ttx",
-  "started",
-  "used",
-  "acth",
-  "albumin",
-  "calmodulin",
-  "cea",
-];
-
-export default IconStacksStx as IconComponent;
+export default IconStacksStx;

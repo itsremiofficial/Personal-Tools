@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRowVertical: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconRowVertical: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRowVertical as IconComponent).keywords = [
-  "row",
-  "vertical",
-  "course",
-  "run-in",
-  "words",
-  "dustup",
-  "quarrel",
-  "wrangle",
-  "heading",
-  "file",
-  "series",
-  "perpendicular",
-  "plumb",
-  "upright",
-  "stand-up",
-  "standing",
-  "straight",
-  "rearing",
-  "erect",
-  "erectile",
-];
-
-export default IconRowVertical as IconComponent;
+export default IconRowVertical;

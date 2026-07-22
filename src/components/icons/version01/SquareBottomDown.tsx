@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSquareBottomDown: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,38 +85,4 @@ const IconSquareBottomDown: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSquareBottomDown as IconComponent).keywords = [
-  "square",
-  "bottom",
-  "down",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "ass",
-  "bed",
-  "backside",
-  "underside",
-  "undersurface",
-  "penetrate",
-  "derriere",
-  "fathom",
-  "seat",
-  "downwards",
-  "downward",
-  "downbound",
-  "falling",
-  "fallen",
-  "pull down",
-  "downwardly",
-  "declining",
-  "descending",
-];
-
-export default IconSquareBottomDown as IconComponent;
+export default IconSquareBottomDown;

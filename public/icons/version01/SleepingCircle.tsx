@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSleepingCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -128,28 +135,4 @@ const IconSleepingCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSleepingCircle as IconComponent).keywords = [
-  "sleeping",
-  "circle",
-  "asleep",
-  "slumbering",
-  "dormant",
-  "dormancy",
-  "quiescence",
-  "quiescency",
-  "unerect",
-  "slumber",
-  "sleeper",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconSleepingCircle as IconComponent;
+export default IconSleepingCircle;

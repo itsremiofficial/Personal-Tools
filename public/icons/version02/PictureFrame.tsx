@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPictureFrame: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,28 +106,4 @@ const IconPictureFrame: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPictureFrame as IconComponent).keywords = [
-  "picture",
-  "frame",
-  "impression",
-  "image",
-  "painting",
-  "depict",
-  "motion picture",
-  "movie",
-  "depiction",
-  "moving picture",
-  "picture show",
-  "build",
-  "put",
-  "compose",
-  "form",
-  "draw up",
-  "set up",
-  "shape",
-  "border",
-  "outline",
-];
-
-export default IconPictureFrame as IconComponent;
+export default IconPictureFrame;

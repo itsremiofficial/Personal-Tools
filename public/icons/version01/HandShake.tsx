@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHandShake: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,28 +106,4 @@ const IconHandShake: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHandShake as IconComponent).keywords = [
-  "hand",
-  "shake",
-  "manus",
-  "paw",
-  "hired hand",
-  "mitt",
-  "mauler",
-  "hook",
-  "reach",
-  "handwriting",
-  "script",
-  "shake off",
-  "shake up",
-  "judder",
-  "wag",
-  "waggle",
-  "didder",
-  "tremble",
-  "stir",
-  "shiver",
-];
-
-export default IconHandShake as IconComponent;
+export default IconHandShake;

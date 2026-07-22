@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconApple: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,18 +101,4 @@ const IconApple: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconApple as IconComponent).keywords = [
-  "apple",
-  "malus pumila",
-  "orchard apple tree",
-  "pomme",
-  "potato",
-  "tator",
-  "fruit",
-  "vegetable",
-  "tree",
-  "russet",
-];
-
-export default IconApple as IconComponent;
+export default IconApple;

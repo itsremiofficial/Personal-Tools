@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCrown: FC<IconProps> = ({
   className,
   fill = false,
@@ -67,18 +74,4 @@ const IconCrown: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCrown as IconComponent).keywords = [
-  "crown",
-  "diadem",
-  "coronate",
-  "pate",
-  "tip",
-  "crest",
-  "summit",
-  "top",
-  "peak",
-  "treetop",
-];
-
-export default IconCrown as IconComponent;
+export default IconCrown;

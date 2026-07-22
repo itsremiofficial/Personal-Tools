@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTShirt: FC<IconProps> = ({
   className,
   fill = false,
@@ -64,18 +71,4 @@ const IconTShirt: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTShirt as IconComponent).keywords = [
-  "shirt",
-  "sweater",
-  "jacket",
-  "blouse",
-  "t-shirt",
-  "suit",
-  "skirt",
-  "hoodie",
-  "collar",
-  "nightgown",
-];
-
-export default IconTShirt as IconComponent;
+export default IconTShirt;

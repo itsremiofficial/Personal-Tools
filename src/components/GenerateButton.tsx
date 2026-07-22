@@ -17,15 +17,15 @@ export const GenerateButton = React.memo(
         disabled={disabled || loading}
         size="lg"
         className={cn(
-          "self-center relative w-54 gap-1.5 !px-4",
-          loading && "!px-4 !py-6"
+          "self-center rounded-full relative w-54 gap-1.5 px-4",
+          loading && "px-4 py-6",
         )}
       >
         {loading ? (
           <>
             <Progress
               root="w-full h-4 bg-white/20"
-              indicator="bg-muted"
+              indicator="bg-primary"
               value={progress}
             />
           </>
@@ -36,7 +36,7 @@ export const GenerateButton = React.memo(
         )}
       </Button>
     </div>
-  )
+  ),
 );
 
 GenerateButton.displayName = "GenerateButton";

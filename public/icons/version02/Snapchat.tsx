@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSnapchat: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,18 +89,4 @@ const IconSnapchat: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSnapchat as IconComponent).keywords = [
-  "snapchat",
-  "snapchatter",
-  "instagram",
-  "whatsapp",
-  "insta",
-  "tinder",
-  "facetime",
-  "skype",
-  "instaverse",
-  "tiktok",
-];
-
-export default IconSnapchat as IconComponent;
+export default IconSnapchat;

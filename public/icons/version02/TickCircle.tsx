@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTickCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconTickCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTickCircle as IconComponent).keywords = [
-  "tick",
-  "circle",
-  "click",
-  "ticktock",
-  "beat",
-  "ticktack",
-  "retick",
-  "ixodid",
-  "acarid",
-  "spinose",
-  "gene",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconTickCircle as IconComponent;
+export default IconTickCircle;

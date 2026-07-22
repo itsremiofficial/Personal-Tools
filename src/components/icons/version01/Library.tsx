@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLibrary: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,18 +99,4 @@ const IconLibrary: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLibrary as IconComponent).keywords = [
-  "library",
-  "depository library",
-  "program library",
-  "librarianship",
-  "librarian",
-  "bookstore",
-  "catalogue",
-  "bookselling",
-  "bookshop",
-  "bibliotheca",
-];
-
-export default IconLibrary as IconComponent;
+export default IconLibrary;

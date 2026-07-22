@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHikingMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,28 +100,4 @@ const IconHikingMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHikingMinimalistic as IconComponent).keywords = [
-  "hiking",
-  "minimalistic",
-  "boost",
-  "hike up",
-  "rise",
-  "tramp",
-  "raise",
-  "pedestrian",
-  "walks",
-  "walking",
-  "walk",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconHikingMinimalistic as IconComponent;
+export default IconHikingMinimalistic;

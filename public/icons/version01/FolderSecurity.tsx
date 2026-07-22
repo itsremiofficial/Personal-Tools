@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFolderSecurity: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,28 +85,4 @@ const IconFolderSecurity: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFolderSecurity as IconComponent).keywords = [
-  "folder",
-  "security",
-  "booklet",
-  "pamphlet",
-  "brochure",
-  "leaflet",
-  "toolkit",
-  "pack",
-  "package",
-  "kit",
-  "shirt",
-  "surety",
-  "protection",
-  "certificate",
-  "security system",
-  "security measures",
-  "confidentiality",
-  "safe",
-  "secure",
-  "peace",
-];
-
-export default IconFolderSecurity as IconComponent;
+export default IconFolderSecurity;

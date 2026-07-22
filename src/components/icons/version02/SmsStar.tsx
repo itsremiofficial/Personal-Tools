@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSmsStar: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,28 +96,4 @@ const IconSmsStar: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSmsStar as IconComponent).keywords = [
-  "sms",
-  "star",
-  "ms",
-  "master of science",
-  "samarium",
-  "atomic number 62",
-  "mms",
-  "isa",
-  "scm",
-  "hsd",
-  "cms",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-];
-
-export default IconSmsStar as IconComponent;
+export default IconSmsStar;

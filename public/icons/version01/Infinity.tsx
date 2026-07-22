@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconInfinity: FC<IconProps> = ({
   className,
   fill = false,
@@ -66,18 +73,4 @@ const IconInfinity: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconInfinity as IconComponent).keywords = [
-  "infinity",
-  "eternity",
-  "forever",
-  "infinite",
-  "everlasting",
-  "void",
-  "plenty",
-  "publishing",
-  "denumerable",
-  "probe",
-];
-
-export default IconInfinity as IconComponent;
+export default IconInfinity;

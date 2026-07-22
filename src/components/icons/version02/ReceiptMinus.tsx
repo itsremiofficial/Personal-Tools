@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconReceiptMinus: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,28 +95,4 @@ const IconReceiptMinus: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconReceiptMinus as IconComponent).keywords = [
-  "receipt",
-  "minus",
-  "receiving",
-  "reception",
-  "acknowledge",
-  "recipient",
-  "receptor",
-  "granting",
-  "receive",
-  "grant",
-  "remitting",
-  "subtraction",
-  "negative",
-  "disadvantageous",
-  "harmful",
-  "sans",
-  "min",
-  "least",
-  "unary",
-  "nec",
-];
-
-export default IconReceiptMinus as IconComponent;
+export default IconReceiptMinus;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAndroid: FC<IconProps> = ({
   className,
   fill = false,
@@ -157,18 +164,4 @@ const IconAndroid: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAndroid as IconComponent).keywords = [
-  "android",
-  "humanoid",
-  "mechanical man",
-  "droid",
-  "robot",
-  "iphone",
-  "ipad",
-  "gynoid",
-  "samsung",
-  "smartphone",
-];
-
-export default IconAndroid as IconComponent;
+export default IconAndroid;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFaceScanCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -150,38 +157,4 @@ const IconFaceScanCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFaceScanCircle as IconComponent).keywords = [
-  "face",
-  "scan",
-  "circle",
-  "cheek",
-  "nerve",
-  "facial expression",
-  "grimace",
-  "fount",
-  "brass",
-  "overlook",
-  "aspect",
-  "front",
-  "read",
-  "run down",
-  "glance over",
-  "skim",
-  "rake",
-  "examine",
-  "inspect",
-  "finding",
-  "scrutinize",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconFaceScanCircle as IconComponent;
+export default IconFaceScanCircle;

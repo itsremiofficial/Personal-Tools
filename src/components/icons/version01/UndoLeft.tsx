@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUndoLeft: FC<IconProps> = ({
   className,
   fill = false,
@@ -74,28 +81,4 @@ const IconUndoLeft: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUndoLeft as IconComponent).keywords = [
-  "undo",
-  "left",
-  "unmake",
-  "dispose",
-  "rescind",
-  "disconnect",
-  "vacate",
-  "revoke",
-  "rid",
-  "annul",
-  "repeal",
-  "left-hand",
-  "left-handed",
-  "left over",
-  "near",
-  "leftover",
-  "nigh",
-  "remaining",
-  "leftfield",
-  "odd",
-];
-
-export default IconUndoLeft as IconComponent;
+export default IconUndoLeft;

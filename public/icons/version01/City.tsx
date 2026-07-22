@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCity: FC<IconProps> = ({
   className,
   fill = false,
@@ -105,18 +112,4 @@ const IconCity: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCity as IconComponent).keywords = [
-  "city",
-  "metropolis",
-  "urban center",
-  "conurbation",
-  "urban",
-  "town",
-  "urbanization",
-  "midtown",
-  "downtown",
-  "village",
-];
-
-export default IconCity as IconComponent;
+export default IconCity;

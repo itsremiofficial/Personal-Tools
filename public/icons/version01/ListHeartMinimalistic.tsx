@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconListHeartMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,38 +97,4 @@ const IconListHeartMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconListHeartMinimalistic as IconComponent).keywords = [
-  "list",
-  "heart",
-  "minimalistic",
-  "tilt",
-  "inclination",
-  "lean",
-  "leaning",
-  "name",
-  "number",
-  "sheet",
-  "heel",
-  "table",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconListHeartMinimalistic as IconComponent;
+export default IconListHeartMinimalistic;

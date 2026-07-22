@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHeadphonesRoundSound: FC<IconProps> = ({
   className,
   fill = false,
@@ -123,38 +130,4 @@ const IconHeadphonesRoundSound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHeadphonesRoundSound as IconComponent).keywords = [
-  "headphones",
-  "round",
-  "sound",
-  "earpiece",
-  "earphone",
-  "phone",
-  "earphones",
-  "headset",
-  "phones",
-  "canceling",
-  "handsets",
-  "headsets",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-  "healthy",
-  "strong",
-  "intelligent",
-  "good",
-  "dependable",
-  "sensible",
-  "levelheaded",
-  "substantial",
-  "well-grounded",
-];
-
-export default IconHeadphonesRoundSound as IconComponent;
+export default IconHeadphonesRoundSound;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHierarchySquare2: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,38 +107,4 @@ const IconHierarchySquare2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHierarchySquare2 as IconComponent).keywords = [
-  "hierarchy",
-  "square",
-  "2",
-  "power structure",
-  "pecking order",
-  "hierarchical",
-  "seniority",
-  "class",
-  "leadership",
-  "high-ranking",
-  "affiliated",
-  "authority",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconHierarchySquare2 as IconComponent;
+export default IconHierarchySquare2;

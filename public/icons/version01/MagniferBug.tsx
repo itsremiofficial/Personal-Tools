@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMagniferBug: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,19 +98,4 @@ const IconMagniferBug: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMagniferBug as IconComponent).keywords = [
-  "magnifer",
-  "bug",
-  "hemipteran",
-  "hemipteron",
-  "badger",
-  "germ",
-  "microbe",
-  "tap",
-  "tease",
-  "beleaguer",
-  "harass",
-];
-
-export default IconMagniferBug as IconComponent;
+export default IconMagniferBug;

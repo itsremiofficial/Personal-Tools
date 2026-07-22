@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTagHorizontal: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconTagHorizontal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTagHorizontal as IconComponent).keywords = [
-  "tag",
-  "horizontal",
-  "label",
-  "mark",
-  "trail",
-  "chase",
-  "go after",
-  "tag end",
-  "dog",
-  "shred",
-  "chase after",
-  "level",
-  "flat",
-  "crosswise",
-  "swimming",
-  "naiant",
-  "cross-sectional",
-  "transverse",
-  "transversal",
-  "landscape",
-];
-
-export default IconTagHorizontal as IconComponent;
+export default IconTagHorizontal;

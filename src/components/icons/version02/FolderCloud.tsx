@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFolderCloud: FC<IconProps> = ({
   className,
   fill = false,
@@ -81,28 +88,4 @@ const IconFolderCloud: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFolderCloud as IconComponent).keywords = [
-  "folder",
-  "cloud",
-  "booklet",
-  "pamphlet",
-  "brochure",
-  "leaflet",
-  "toolkit",
-  "pack",
-  "package",
-  "kit",
-  "shirt",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-];
-
-export default IconFolderCloud as IconComponent;
+export default IconFolderCloud;

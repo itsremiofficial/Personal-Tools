@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTurntableMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconTurntableMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTurntableMinimalistic as IconComponent).keywords = [
-  "turntable",
-  "minimalistic",
-  "lazy susan",
-  "rotary",
-  "revolving",
-  "gateway",
-  "hub",
-  "carousel",
-  "shelf",
-  "plateau",
-  "sinker",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconTurntableMinimalistic as IconComponent;
+export default IconTurntableMinimalistic;

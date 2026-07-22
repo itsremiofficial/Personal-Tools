@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPrinter: FC<IconProps> = ({
   className,
   fill = false,
@@ -118,18 +125,4 @@ const IconPrinter: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPrinter as IconComponent).keywords = [
-  "printer",
-  "pressman",
-  "printing machine",
-  "printout",
-  "copier",
-  "printing",
-  "impression",
-  "print",
-  "ink",
-  "typesetting",
-];
-
-export default IconPrinter as IconComponent;
+export default IconPrinter;

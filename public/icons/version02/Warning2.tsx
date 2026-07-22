@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWarning2: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,28 +90,4 @@ const IconWarning2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWarning2 as IconComponent).keywords = [
-  "warning",
-  "2",
-  "cautionary",
-  "exemplary",
-  "dissuasive",
-  "monitory",
-  "admonition",
-  "admonitory",
-  "word of advice",
-  "cautioning",
-  "cautioned",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconWarning2 as IconComponent;
+export default IconWarning2;

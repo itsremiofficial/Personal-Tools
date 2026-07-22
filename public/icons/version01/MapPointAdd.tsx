@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMapPointAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,38 +77,4 @@ const IconMapPointAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMapPointAdd as IconComponent).keywords = [
-  "map",
-  "point",
-  "add",
-  "map out",
-  "correspondence",
-  "represent",
-  "chart",
-  "cartography",
-  "cartographic",
-  "topography",
-  "plan",
-  "charting",
-  "item",
-  "betoken",
-  "indicate",
-  "bespeak",
-  "period",
-  "point in time",
-  "show",
-  "stage",
-  "detail",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconMapPointAdd as IconComponent;
+export default IconMapPointAdd;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMoreCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconMoreCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMoreCircle as IconComponent).keywords = [
-  "more",
-  "circle",
-  "additional",
-  "further",
-  "added",
-  "more than",
-  "to a greater extent",
-  "maximum",
-  "farther",
-  "anymore",
-  "better",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconMoreCircle as IconComponent;
+export default IconMoreCircle;

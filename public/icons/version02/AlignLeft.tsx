@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAlignLeft: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconAlignLeft: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAlignLeft as IconComponent).keywords = [
-  "align",
-  "left",
-  "line up",
-  "adjust",
-  "coordinate",
-  "aline",
-  "array",
-  "alignment",
-  "link",
-  "combine",
-  "integrate",
-  "left-hand",
-  "left-handed",
-  "left over",
-  "near",
-  "leftover",
-  "nigh",
-  "remaining",
-  "leftfield",
-  "odd",
-];
-
-export default IconAlignLeft as IconComponent;
+export default IconAlignLeft;

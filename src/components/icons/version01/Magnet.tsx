@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMagnet: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,18 +91,4 @@ const IconMagnet: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMagnet as IconComponent).keywords = [
-  "magnet",
-  "magnetic",
-  "lodestone",
-  "draw",
-  "mag",
-  "pole",
-  "trap",
-  "swipe",
-  "braid",
-  "sucker",
-];
-
-export default IconMagnet as IconComponent;
+export default IconMagnet;

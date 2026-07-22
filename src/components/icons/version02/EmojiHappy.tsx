@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEmojiHappy: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,28 +105,4 @@ const IconEmojiHappy: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEmojiHappy as IconComponent).keywords = [
-  "emoji",
-  "happy",
-  "emoticon",
-  "reaction",
-  "react",
-  "emote",
-  "smiley",
-  "sticker",
-  "emojipasta",
-  "reaction gif",
-  "hashflag",
-  "pleased",
-  "blissful",
-  "content",
-  "glad",
-  "contented",
-  "joyful",
-  "euphoric",
-  "joyous",
-  "fortunate",
-];
-
-export default IconEmojiHappy as IconComponent;
+export default IconEmojiHappy;

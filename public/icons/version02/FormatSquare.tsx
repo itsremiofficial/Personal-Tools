@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFormatSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,28 +111,4 @@ const IconFormatSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFormatSquare as IconComponent).keywords = [
-  "format",
-  "square",
-  "initialize",
-  "arrange",
-  "data format",
-  "data formatting",
-  "edition",
-  "file",
-  "print",
-  "reporting",
-  "notation",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconFormatSquare as IconComponent;
+export default IconFormatSquare;

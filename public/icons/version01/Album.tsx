@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAlbum: FC<IconProps> = ({
   className,
   fill = false,
@@ -109,18 +116,4 @@ const IconAlbum: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAlbum as IconComponent).keywords = [
-  "album",
-  "record album",
-  "register",
-  "essay",
-  "yearbook",
-  "catalog",
-  "roster",
-  "catalogue",
-  "gallery",
-  "scrapbook",
-];
-
-export default IconAlbum as IconComponent;
+export default IconAlbum;

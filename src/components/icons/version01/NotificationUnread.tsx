@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNotificationUnread: FC<IconProps> = ({
   className,
   fill = false,
@@ -74,28 +81,4 @@ const IconNotificationUnread: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNotificationUnread as IconComponent).keywords = [
-  "notification",
-  "unread",
-  "apprisal",
-  "notice",
-  "telling",
-  "presentment",
-  "notifying",
-  "notifier",
-  "notify",
-  "denunciation",
-  "announcement",
-  "uninformed",
-  "unused",
-  "unutilized",
-  "unspent",
-  "unencumbered",
-  "unwatched",
-  "unplayed",
-  "unsent",
-  "unreviewed",
-];
-
-export default IconNotificationUnread as IconComponent;
+export default IconNotificationUnread;

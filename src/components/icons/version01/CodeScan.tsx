@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCodeScan: FC<IconProps> = ({
   className,
   fill = false,
@@ -157,28 +164,4 @@ const IconCodeScan: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCodeScan as IconComponent).keywords = [
-  "code",
-  "scan",
-  "encode",
-  "cypher",
-  "encipher",
-  "cipher",
-  "encrypt",
-  "computer code",
-  "codification",
-  "inscribe",
-  "write in code",
-  "read",
-  "run down",
-  "glance over",
-  "skim",
-  "rake",
-  "examine",
-  "inspect",
-  "finding",
-  "scrutinize",
-];
-
-export default IconCodeScan as IconComponent;
+export default IconCodeScan;

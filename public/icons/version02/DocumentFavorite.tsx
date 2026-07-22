@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDocumentFavorite: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,28 +93,4 @@ const IconDocumentFavorite: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDocumentFavorite as IconComponent).keywords = [
-  "document",
-  "favorite",
-  "papers",
-  "text file",
-  "written document",
-  "documentation",
-  "backgrounder",
-  "workbook",
-  "dossier",
-  "handbook",
-  "listing",
-  "favored",
-  "favourite",
-  "preferred",
-  "popular",
-  "loved",
-  "deary",
-  "darling",
-  "dearie",
-  "front-runner",
-];
-
-export default IconDocumentFavorite as IconComponent;
+export default IconDocumentFavorite;

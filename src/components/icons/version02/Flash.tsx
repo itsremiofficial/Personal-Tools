@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -113,18 +120,4 @@ const IconFlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFlash as IconComponent).keywords = [
-  "flash",
-  "twinkle",
-  "twinkling",
-  "glint",
-  "flare",
-  "blink",
-  "wink",
-  "scud",
-  "trice",
-  "loud",
-];
-
-export default IconFlash as IconComponent;
+export default IconFlash;

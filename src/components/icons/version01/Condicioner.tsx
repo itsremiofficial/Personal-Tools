@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCondicioner: FC<IconProps> = ({
   className,
   fill = false,
@@ -133,7 +140,4 @@ const IconCondicioner: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCondicioner as IconComponent).keywords = ["condicioner"];
-
-export default IconCondicioner as IconComponent;
+export default IconCondicioner;

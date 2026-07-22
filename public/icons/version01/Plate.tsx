@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPlate: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,18 +102,4 @@ const IconPlate: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPlate as IconComponent).keywords = [
-  "plate",
-  "scale",
-  "home",
-  "catcher",
-  "photographic plate",
-  "shell",
-  "collection plate",
-  "home plate",
-  "dish",
-  "platter",
-];
-
-export default IconPlate as IconComponent;
+export default IconPlate;

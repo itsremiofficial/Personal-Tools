@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconForbidden: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,18 +90,4 @@ const IconForbidden: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconForbidden as IconComponent).keywords = [
-  "forbidden",
-  "prohibited",
-  "impermissible",
-  "taboo",
-  "tabu",
-  "out",
-  "proscribed",
-  "banned",
-  "off-limits",
-  "not",
-];
-
-export default IconForbidden as IconComponent;
+export default IconForbidden;

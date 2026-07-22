@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSmartVacuumCleaner2: FC<IconProps> = ({
   className,
   fill = false,
@@ -108,48 +115,4 @@ const IconSmartVacuumCleaner2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSmartVacuumCleaner2 as IconComponent).keywords = [
-  "smart",
-  "vacuum",
-  "cleaner",
-  "2",
-  "hurt",
-  "ache",
-  "raffish",
-  "rakish",
-  "snappy",
-  "cagy",
-  "impertinent",
-  "dashing",
-  "impudent",
-  "vacuity",
-  "vacuum-clean",
-  "vacuum cleaner",
-  "hoover",
-  "void",
-  "emptiness",
-  "vacancy",
-  "vacant",
-  "empty",
-  "dry cleaner",
-  "cleanser",
-  "cleansing agent",
-  "wiper",
-  "screen",
-  "filtering",
-  "filter",
-  "cleansing",
-  "sanitation",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconSmartVacuumCleaner2 as IconComponent;
+export default IconSmartVacuumCleaner2;

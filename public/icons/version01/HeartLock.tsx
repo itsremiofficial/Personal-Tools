@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHeartLock: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,28 +89,4 @@ const IconHeartLock: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHeartLock as IconComponent).keywords = [
-  "heart",
-  "lock",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-  "interlock",
-  "lock in",
-  "mesh",
-  "interlace",
-  "whorl",
-  "lock away",
-  "curl",
-  "ringlet",
-  "put away",
-];
-
-export default IconHeartLock as IconComponent;
+export default IconHeartLock;

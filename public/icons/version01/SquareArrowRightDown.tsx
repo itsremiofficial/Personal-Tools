@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSquareArrowRightDown: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,48 +78,4 @@ const IconSquareArrowRightDown: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSquareArrowRightDown as IconComponent).keywords = [
-  "square",
-  "arrow",
-  "right",
-  "down",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-  "straight",
-  "precise",
-  "right on",
-  "accurate",
-  "decently",
-  "satisfactory",
-  "exact",
-  "powerful",
-  "opportune",
-  "downwards",
-  "downward",
-  "downbound",
-  "falling",
-  "fallen",
-  "pull down",
-  "downwardly",
-  "declining",
-  "descending",
-];
-
-export default IconSquareArrowRightDown as IconComponent;
+export default IconSquareArrowRightDown;

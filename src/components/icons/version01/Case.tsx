@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCase: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,18 +95,4 @@ const IconCase: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCase as IconComponent).keywords = [
-  "case",
-  "event",
-  "cause",
-  "subject",
-  "example",
-  "eccentric",
-  "showcase",
-  "type",
-  "instance",
-  "character",
-];
-
-export default IconCase as IconComponent;
+export default IconCase;

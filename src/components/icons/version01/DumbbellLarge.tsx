@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDumbbellLarge: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,28 +86,4 @@ const IconDumbbellLarge: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDumbbellLarge as IconComponent).keywords = [
-  "dumbbell",
-  "large",
-  "dope",
-  "boob",
-  "booby",
-  "dummy",
-  "pinhead",
-  "jerk",
-  "jackass",
-  "arsehole",
-  "sucker",
-  "great",
-  "large-scale",
-  "vast",
-  "larger-than-life",
-  "colossal",
-  "huge",
-  "prodigious",
-  "humongous",
-  "massive",
-];
-
-export default IconDumbbellLarge as IconComponent;
+export default IconDumbbellLarge;

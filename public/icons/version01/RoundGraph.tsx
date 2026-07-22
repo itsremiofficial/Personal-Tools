@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRoundGraph: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,28 +91,4 @@ const IconRoundGraph: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRoundGraph as IconComponent).keywords = [
-  "round",
-  "graph",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-  "graphical record",
-  "diagram",
-  "flowchart",
-  "figure",
-  "graphical",
-  "chart",
-  "map",
-  "design",
-  "graphically",
-];
-
-export default IconRoundGraph as IconComponent;
+export default IconRoundGraph;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEmojiFunnyCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -101,38 +108,4 @@ const IconEmojiFunnyCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEmojiFunnyCircle as IconComponent).keywords = [
-  "emoji",
-  "funny",
-  "circle",
-  "emoticon",
-  "reaction",
-  "react",
-  "emote",
-  "smiley",
-  "sticker",
-  "emojipasta",
-  "reaction gif",
-  "hashflag",
-  "humorous",
-  "comical",
-  "amusing",
-  "humourous",
-  "comically",
-  "risible",
-  "laughable",
-  "mirthful",
-  "comic",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconEmojiFunnyCircle as IconComponent;
+export default IconEmojiFunnyCircle;

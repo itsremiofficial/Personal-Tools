@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMouseCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,28 +107,4 @@ const IconMouseCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMouseCircle as IconComponent).keywords = [
-  "mouse",
-  "circle",
-  "creep",
-  "pussyfoot",
-  "sneak",
-  "steal",
-  "murine",
-  "rodent",
-  "rat",
-  "weasel",
-  "frog",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconMouseCircle as IconComponent;
+export default IconMouseCircle;

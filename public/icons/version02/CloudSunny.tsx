@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudSunny: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,28 +100,4 @@ const IconCloudSunny: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudSunny as IconComponent).keywords = [
-  "cloud",
-  "sunny",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "sunshiny",
-  "shining",
-  "shiny",
-  "bright",
-  "clear",
-  "cheerful",
-  "cheery",
-  "gay",
-  "sunshine",
-];
-
-export default IconCloudSunny as IconComponent;
+export default IconCloudSunny;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNext: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,18 +82,4 @@ const IconNext: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNext as IconComponent).keywords = [
-  "next",
-  "adjacent",
-  "following",
-  "succeeding",
-  "side by side",
-  "incoming",
-  "future",
-  "close",
-  "proximate",
-  "here",
-];
-
-export default IconNext as IconComponent;
+export default IconNext;

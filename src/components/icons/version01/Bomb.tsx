@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBomb: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,18 +95,4 @@ const IconBomb: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBomb as IconComponent).keywords = [
-  "bomb",
-  "bombard",
-  "bomb calorimeter",
-  "flunk",
-  "dud",
-  "fail",
-  "turkey",
-  "flush it",
-  "warhead",
-  "nuke",
-];
-
-export default IconBomb as IconComponent;
+export default IconBomb;

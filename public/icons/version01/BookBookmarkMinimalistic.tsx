@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBookBookmarkMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,38 +103,4 @@ const IconBookBookmarkMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBookBookmarkMinimalistic as IconComponent).keywords = [
-  "book",
-  "bookmark",
-  "minimalistic",
-  "daybook",
-  "record",
-  "script",
-  "playscript",
-  "ledger",
-  "account book",
-  "volume",
-  "reserve",
-  "hold",
-  "bookmarker",
-  "marking",
-  "caller",
-  "dialing",
-  "dialer",
-  "maker",
-  "add",
-  "marker",
-  "make",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconBookBookmarkMinimalistic as IconComponent;
+export default IconBookBookmarkMinimalistic;

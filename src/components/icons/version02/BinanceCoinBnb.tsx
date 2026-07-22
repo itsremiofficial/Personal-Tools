@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBinanceCoinBnb: FC<IconProps> = ({
   className,
   fill = false,
@@ -130,34 +137,4 @@ const IconBinanceCoinBnb: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBinanceCoinBnb as IconComponent).keywords = [
-  "binance",
-  "coin",
-  "bnb",
-  "osaka exchange",
-  "moscow exchange",
-  "betfair",
-  "betdaq",
-  "tokyo commodity exchange",
-  "btcc",
-  "mirae asset securities",
-  "guotai junan securities",
-  "bitmex",
-  "mint",
-  "strike",
-  "coinage",
-  "euro",
-  "bullion",
-  "voucher",
-  "currency",
-  "money",
-  "suite",
-  "bank",
-  "gnh",
-  "nbb",
-  "published",
-  "used",
-];
-
-export default IconBinanceCoinBnb as IconComponent;
+export default IconBinanceCoinBnb;

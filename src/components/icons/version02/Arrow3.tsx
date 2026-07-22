@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconArrow3: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconArrow3: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconArrow3 as IconComponent).keywords = [
-  "arrow",
-  "3",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-  "omega",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-];
-
-export default IconArrow3 as IconComponent;
+export default IconArrow3;

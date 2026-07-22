@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShuffle: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,18 +114,4 @@ const IconShuffle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShuffle as IconComponent).keywords = [
-  "shuffle",
-  "scuffle",
-  "make",
-  "mix",
-  "shamble",
-  "shambling",
-  "ruffle",
-  "reshuffle",
-  "move",
-  "realignment",
-];
-
-export default IconShuffle as IconComponent;
+export default IconShuffle;

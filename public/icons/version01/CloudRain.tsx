@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudRain: FC<IconProps> = ({
   className,
   fill = false,
@@ -117,28 +124,4 @@ const IconCloudRain: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudRain as IconComponent).keywords = [
-  "cloud",
-  "rain",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "rainwater",
-  "rain down",
-  "rainfall",
-  "pelting",
-  "flurry",
-  "shower",
-  "downpour",
-  "rainy",
-  "rainstorm",
-];
-
-export default IconCloudRain as IconComponent;
+export default IconCloudRain;

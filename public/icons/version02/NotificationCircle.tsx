@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNotificationCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconNotificationCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNotificationCircle as IconComponent).keywords = [
-  "notification",
-  "circle",
-  "apprisal",
-  "notice",
-  "telling",
-  "presentment",
-  "notifying",
-  "notifier",
-  "notify",
-  "denunciation",
-  "announcement",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconNotificationCircle as IconComponent;
+export default IconNotificationCircle;

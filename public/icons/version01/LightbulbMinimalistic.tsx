@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLightbulbMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,28 +84,4 @@ const IconLightbulbMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLightbulbMinimalistic as IconComponent).keywords = [
-  "lightbulb",
-  "minimalistic",
-  "incandescent lamp",
-  "electric light",
-  "light bulb",
-  "bulb",
-  "electric-light bulb",
-  "lamp",
-  "lampshade",
-  "lightswitch",
-  "bulbs",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconLightbulbMinimalistic as IconComponent;
+export default IconLightbulbMinimalistic;

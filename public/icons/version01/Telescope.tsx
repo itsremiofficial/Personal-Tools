@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTelescope: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,18 +90,4 @@ const IconTelescope: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTelescope as IconComponent).keywords = [
-  "telescope",
-  "scope",
-  "cassegrain",
-  "binoculars",
-  "periscope",
-  "gemini",
-  "glass",
-  "window",
-  "sniper",
-  "seat",
-];
-
-export default IconTelescope as IconComponent;
+export default IconTelescope;

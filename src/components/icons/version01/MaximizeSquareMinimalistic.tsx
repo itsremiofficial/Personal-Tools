@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMaximizeSquareMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,38 +80,4 @@ const IconMaximizeSquareMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMaximizeSquareMinimalistic as IconComponent).keywords = [
-  "maximize",
-  "square",
-  "minimalistic",
-  "max",
-  "maximum",
-  "maximal",
-  "optimum",
-  "broaden",
-  "optimal",
-  "maximisation",
-  "maximise",
-  "optimizing",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconMaximizeSquareMinimalistic as IconComponent;
+export default IconMaximizeSquareMinimalistic;

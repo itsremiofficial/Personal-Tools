@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDesigntools: FC<IconProps> = ({
   className,
   fill = false,
@@ -146,7 +153,4 @@ const IconDesigntools: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDesigntools as IconComponent).keywords = ["designtools"];
-
-export default IconDesigntools as IconComponent;
+export default IconDesigntools;

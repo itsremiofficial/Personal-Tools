@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPaypal: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,18 +85,4 @@ const IconPaypal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPaypal as IconComponent).keywords = [
-  "paypal",
-  "ebay",
-  "mastercard",
-  "payment",
-  "fedex",
-  "cheque",
-  "shiping",
-  "acct",
-  "debit",
-  "amazon",
-];
-
-export default IconPaypal as IconComponent;
+export default IconPaypal;

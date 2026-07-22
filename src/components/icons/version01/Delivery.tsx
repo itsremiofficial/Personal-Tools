@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDelivery: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,18 +77,4 @@ const IconDelivery: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDelivery as IconComponent).keywords = [
-  "delivery",
-  "deliverance",
-  "bringing",
-  "rescue",
-  "saving",
-  "speech",
-  "livery",
-  "pitch",
-  "legal transfer",
-  "manner of speaking",
-];
-
-export default IconDelivery as IconComponent;
+export default IconDelivery;

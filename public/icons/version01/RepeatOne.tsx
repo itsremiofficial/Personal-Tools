@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRepeatOne: FC<IconProps> = ({
   className,
   fill = false,
@@ -76,27 +83,4 @@ const IconRepeatOne: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRepeatOne as IconComponent).keywords = [
-  "repeat",
-  "one",
-  "restate",
-  "reiterate",
-  "ingeminate",
-  "reprise",
-  "repetition",
-  "retell",
-  "recur",
-  "recapitulate",
-  "duplicate",
-  "combined",
-  "united",
-  "same",
-  "unity",
-  "unitary",
-  "cardinal",
-  "one and only",
-  "extraordinary",
-];
-
-export default IconRepeatOne as IconComponent;
+export default IconRepeatOne;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAlarmTurnOff: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,38 +111,4 @@ const IconAlarmTurnOff: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAlarmTurnOff as IconComponent).keywords = [
-  "alarm",
-  "turn",
-  "off",
-  "alarum",
-  "alarm system",
-  "alert",
-  "consternation",
-  "alarm clock",
-  "horrify",
-  "appall",
-  "dismay",
-  "appal",
-  "reverse",
-  "turn to",
-  "bend",
-  "move around",
-  "crook",
-  "turn into",
-  "twist",
-  "grow",
-  "wrick",
-  "away",
-  "cancelled",
-  "forth",
-  "inactive",
-  "disconnected",
-  "unsatisfactory",
-  "soured",
-  "sour",
-  "off-duty",
-];
-
-export default IconAlarmTurnOff as IconComponent;
+export default IconAlarmTurnOff;

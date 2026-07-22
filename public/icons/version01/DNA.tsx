@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDNA: FC<IconProps> = ({
   className,
   fill = false,
@@ -133,7 +140,4 @@ const IconDNA: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDNA as IconComponent).keywords = [];
-
-export default IconDNA as IconComponent;
+export default IconDNA;

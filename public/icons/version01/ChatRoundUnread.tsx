@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChatRoundUnread: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,38 +79,4 @@ const IconChatRoundUnread: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChatRoundUnread as IconComponent).keywords = [
-  "chat",
-  "round",
-  "unread",
-  "confabulate",
-  "confab",
-  "confabulation",
-  "chitchat",
-  "natter",
-  "gossip",
-  "visit",
-  "chatter",
-  "claver",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-  "uninformed",
-  "unused",
-  "unutilized",
-  "unspent",
-  "unencumbered",
-  "unwatched",
-  "unplayed",
-  "unsent",
-  "unreviewed",
-];
-
-export default IconChatRoundUnread as IconComponent;
+export default IconChatRoundUnread;

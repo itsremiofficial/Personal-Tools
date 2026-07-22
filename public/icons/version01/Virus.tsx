@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVirus: FC<IconProps> = ({
   className,
   fill = false,
@@ -231,18 +238,4 @@ const IconVirus: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVirus as IconComponent).keywords = [
-  "virus",
-  "virology",
-  "viral",
-  "pathogen",
-  "hiv",
-  "hbv",
-  "hpv",
-  "poliovirus",
-  "plague",
-  "influenza",
-];
-
-export default IconVirus as IconComponent;
+export default IconVirus;

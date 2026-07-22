@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMagicpen: FC<IconProps> = ({
   className,
   fill = false,
@@ -120,7 +127,4 @@ const IconMagicpen: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMagicpen as IconComponent).keywords = ["magicpen"];
-
-export default IconMagicpen as IconComponent;
+export default IconMagicpen;

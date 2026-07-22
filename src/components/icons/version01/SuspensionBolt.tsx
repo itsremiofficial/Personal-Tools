@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSuspensionBolt: FC<IconProps> = ({
   className,
   fill = false,
@@ -134,28 +141,4 @@ const IconSuspensionBolt: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSuspensionBolt as IconComponent).keywords = [
-  "suspension",
-  "bolt",
-  "hiatus",
-  "pause",
-  "reprieve",
-  "interruption",
-  "respite",
-  "abatement",
-  "break",
-  "dangling",
-  "hanging",
-  "deadbolt",
-  "thunderbolt",
-  "run out",
-  "slap",
-  "smack",
-  "bang",
-  "gobble",
-  "go off",
-  "absquatulate",
-];
-
-export default IconSuspensionBolt as IconComponent;
+export default IconSuspensionBolt;

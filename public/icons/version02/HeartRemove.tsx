@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHeartRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,28 +99,4 @@ const IconHeartRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHeartRemove as IconComponent).keywords = [
-  "heart",
-  "remove",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconHeartRemove as IconComponent;
+export default IconHeartRemove;

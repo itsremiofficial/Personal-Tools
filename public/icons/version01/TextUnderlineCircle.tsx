@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTextUnderlineCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,38 +89,4 @@ const IconTextUnderlineCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTextUnderlineCircle as IconComponent).keywords = [
-  "text",
-  "underline",
-  "circle",
-  "schoolbook",
-  "textbook",
-  "school text",
-  "text edition",
-  "textual matter",
-  "writing",
-  "letter",
-  "paragraph",
-  "manuscript",
-  "underscore",
-  "emphasize",
-  "highlighting",
-  "highlight",
-  "highlights",
-  "outline",
-  "note",
-  "accentuate",
-  "draw",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconTextUnderlineCircle as IconComponent;
+export default IconTextUnderlineCircle;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHeartSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,28 +90,4 @@ const IconHeartSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHeartSlash as IconComponent).keywords = [
-  "heart",
-  "slash",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconHeartSlash as IconComponent;
+export default IconHeartSlash;

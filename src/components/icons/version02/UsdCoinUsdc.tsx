@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUsdCoinUsdc: FC<IconProps> = ({
   className,
   fill = false,
@@ -115,29 +122,4 @@ const IconUsdCoinUsdc: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUsdCoinUsdc as IconComponent).keywords = [
-  "usd",
-  "coin",
-  "usdc",
-  "shu",
-  "cad",
-  "aud",
-  "dollar",
-  "000",
-  "department",
-  "amount",
-  "american",
-  "australian",
-  "mint",
-  "strike",
-  "coinage",
-  "euro",
-  "bullion",
-  "voucher",
-  "currency",
-  "money",
-  "suite",
-];
-
-export default IconUsdCoinUsdc as IconComponent;
+export default IconUsdCoinUsdc;

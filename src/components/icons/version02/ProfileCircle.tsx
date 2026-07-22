@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconProfileCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,28 +94,4 @@ const IconProfileCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconProfileCircle as IconComponent).keywords = [
-  "profile",
-  "circle",
-  "outline",
-  "image",
-  "description",
-  "img",
-  "sketch",
-  "contour",
-  "structure",
-  "effigy",
-  "template",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconProfileCircle as IconComponent;
+export default IconProfileCircle;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconArrowRight: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,28 +80,4 @@ const IconArrowRight: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconArrowRight as IconComponent).keywords = [
-  "arrow",
-  "right",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-  "straight",
-  "precise",
-  "right on",
-  "accurate",
-  "decently",
-  "satisfactory",
-  "exact",
-  "powerful",
-  "opportune",
-];
-
-export default IconArrowRight as IconComponent;
+export default IconArrowRight;

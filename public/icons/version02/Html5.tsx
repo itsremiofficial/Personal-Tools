@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHtml5: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,28 +85,4 @@ const IconHtml5: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHtml5 as IconComponent).keywords = [
-  "html",
-  "5",
-  "hypertext markup language",
-  "xhtml",
-  "javascript",
-  "javascripts",
-  "imagemaps",
-  "wysiwyg",
-  "dreamweaver",
-  "jscript",
-  "textarea",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-  "rush hour",
-];
-
-export default IconHtml5 as IconComponent;
+export default IconHtml5;

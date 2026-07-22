@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPrinterMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconPrinterMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPrinterMinimalistic as IconComponent).keywords = [
-  "printer",
-  "minimalistic",
-  "pressman",
-  "printing machine",
-  "printout",
-  "copier",
-  "printing",
-  "impression",
-  "print",
-  "ink",
-  "typesetting",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconPrinterMinimalistic as IconComponent;
+export default IconPrinterMinimalistic;

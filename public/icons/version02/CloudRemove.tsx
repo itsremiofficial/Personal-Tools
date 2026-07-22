@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,28 +109,4 @@ const IconCloudRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudRemove as IconComponent).keywords = [
-  "cloud",
-  "remove",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconCloudRemove as IconComponent;
+export default IconCloudRemove;

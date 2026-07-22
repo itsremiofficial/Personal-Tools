@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBedsideTable4: FC<IconProps> = ({
   className,
   fill = false,
@@ -112,31 +119,4 @@ const IconBedsideTable4: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBedsideTable4 as IconComponent).keywords = [
-  "bedside",
-  "table",
-  "4",
-  "bed",
-  "bunk",
-  "crib",
-  "staff",
-  "ward",
-  "deathbed",
-  "pain",
-  "patient",
-  "sick",
-  "board",
-  "shelve",
-  "mesa",
-  "set back",
-  "remit",
-  "put over",
-  "postpone",
-  "put off",
-  "defer",
-  "dh",
-  "f4f",
-];
-
-export default IconBedsideTable4 as IconComponent;
+export default IconBedsideTable4;

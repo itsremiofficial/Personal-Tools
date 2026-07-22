@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDollarMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,28 +93,4 @@ const IconDollarMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDollarMinimalistic as IconComponent).keywords = [
-  "dollar",
-  "minimalistic",
-  "dollar bill",
-  "dollar sign",
-  "buck",
-  "clam",
-  "dollar mark",
-  "one dollar bill",
-  "loonie",
-  "dime",
-  "penny",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconDollarMinimalistic as IconComponent;
+export default IconDollarMinimalistic;

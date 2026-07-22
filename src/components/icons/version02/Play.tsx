@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPlay: FC<IconProps> = ({
   className,
   fill = false,
@@ -68,18 +75,4 @@ const IconPlay: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPlay as IconComponent).keywords = [
-  "play",
-  "frolic",
-  "fun",
-  "gambol",
-  "caper",
-  "romp",
-  "toy",
-  "make-believe",
-  "pretend",
-  "dally",
-];
-
-export default IconPlay as IconComponent;
+export default IconPlay;

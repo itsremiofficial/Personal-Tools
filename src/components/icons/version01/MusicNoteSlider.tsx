@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMusicNoteSlider: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,38 +113,4 @@ const IconMusicNoteSlider: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMusicNoteSlider as IconComponent).keywords = [
-  "music",
-  "note",
-  "slider",
-  "sheet music",
-  "euphony",
-  "medicine",
-  "melody",
-  "symphony",
-  "orchestra",
-  "musician",
-  "song",
-  "singing",
-  "annotation",
-  "notation",
-  "mention",
-  "remark",
-  "notice",
-  "observe",
-  "take note",
-  "distinction",
-  "bank note",
-  "luger",
-  "pseudemys scripta",
-  "yellow-bellied terrapin",
-  "bushing",
-  "skid",
-  "glider",
-  "scroll",
-  "scrollbar",
-  "track",
-];
-
-export default IconMusicNoteSlider as IconComponent;
+export default IconMusicNoteSlider;

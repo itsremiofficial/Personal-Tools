@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMinusCirlce: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,19 +78,4 @@ const IconMinusCirlce: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMinusCirlce as IconComponent).keywords = [
-  "minus",
-  "cirlce",
-  "subtraction",
-  "negative",
-  "disadvantageous",
-  "harmful",
-  "sans",
-  "min",
-  "least",
-  "unary",
-  "nec",
-];
-
-export default IconMinusCirlce as IconComponent;
+export default IconMinusCirlce;

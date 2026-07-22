@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCandle: FC<IconProps> = ({
   className,
   fill = false,
@@ -112,18 +119,4 @@ const IconCandle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCandle as IconComponent).keywords = [
-  "candle",
-  "taper",
-  "candela",
-  "standard candle",
-  "cd",
-  "wax light",
-  "candlelight",
-  "torch",
-  "flame",
-  "wax",
-];
-
-export default IconCandle as IconComponent;
+export default IconCandle;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSocket: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,18 +102,4 @@ const IconSocket: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSocket as IconComponent).keywords = [
-  "socket",
-  "bulb",
-  "plug",
-  "switch",
-  "bushing",
-  "groove",
-  "key",
-  "slot",
-  "hose",
-  "ferrule",
-];
-
-export default IconSocket as IconComponent;
+export default IconSocket;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconArchiveTick: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconArchiveTick: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconArchiveTick as IconComponent).keywords = [
-  "archive",
-  "tick",
-  "file away",
-  "archival",
-  "file",
-  "record-keeping",
-  "registry",
-  "record",
-  "photo",
-  "filer",
-  "filename",
-  "click",
-  "ticktock",
-  "beat",
-  "ticktack",
-  "retick",
-  "ixodid",
-  "acarid",
-  "spinose",
-  "gene",
-];
-
-export default IconArchiveTick as IconComponent;
+export default IconArchiveTick;

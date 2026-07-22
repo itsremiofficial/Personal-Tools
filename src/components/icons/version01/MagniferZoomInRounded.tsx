@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMagniferZoomInRounded: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,39 +104,4 @@ const IconMagniferZoomInRounded: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMagniferZoomInRounded as IconComponent).keywords = [
-  "magnifer",
-  "zoom",
-  "in",
-  "rounded",
-  "whizz",
-  "surge",
-  "soar",
-  "rapid climb",
-  "rapid growth",
-  "soar up",
-  "soar upwards",
-  "whizz along",
-  "zoom along",
-  "cbs",
-  "nsis",
-  "nih",
-  "nsi",
-  "establishment",
-  "immigration",
-  "without",
-  "elected",
-  "adherents",
-  "ringed",
-  "ring-shaped",
-  "annulate",
-  "annular",
-  "circular",
-  "rotund",
-  "bowfront",
-  "prolate",
-  "domed",
-];
-
-export default IconMagniferZoomInRounded as IconComponent;
+export default IconMagniferZoomInRounded;

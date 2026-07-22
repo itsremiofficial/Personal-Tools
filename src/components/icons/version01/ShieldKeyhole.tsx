@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShieldKeyhole: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,28 +77,4 @@ const IconShieldKeyhole: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShieldKeyhole as IconComponent).keywords = [
-  "shield",
-  "keyhole",
-  "buckler",
-  "screen",
-  "harbor",
-  "harbour",
-  "armoured",
-  "armor",
-  "breastplate",
-  "ribbon",
-  "visor",
-  "lock",
-  "slot",
-  "latch",
-  "hemocyanin",
-  "haemocyanin",
-  "limpet",
-  "escutcheons",
-  "latches",
-  "limpets",
-];
-
-export default IconShieldKeyhole as IconComponent;
+export default IconShieldKeyhole;

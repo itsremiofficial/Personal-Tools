@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSound: FC<IconProps> = ({
   className,
   fill = false,
@@ -122,18 +129,4 @@ const IconSound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSound as IconComponent).keywords = [
-  "sound",
-  "healthy",
-  "strong",
-  "intelligent",
-  "good",
-  "dependable",
-  "sensible",
-  "levelheaded",
-  "substantial",
-  "well-grounded",
-];
-
-export default IconSound as IconComponent;
+export default IconSound;

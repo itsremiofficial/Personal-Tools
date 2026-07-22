@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAttachCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconAttachCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAttachCircle as IconComponent).keywords = [
-  "attach",
-  "circle",
-  "seize",
-  "confiscate",
-  "sequester",
-  "impound",
-  "tether",
-  "enclose",
-  "bind",
-  "append",
-  "fasten",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconAttachCircle as IconComponent;
+export default IconAttachCircle;

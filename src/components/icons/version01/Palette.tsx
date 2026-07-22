@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPalette: FC<IconProps> = ({
   className,
   fill = false,
@@ -103,18 +110,4 @@ const IconPalette: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPalette as IconComponent).keywords = [
-  "palette",
-  "pallette",
-  "pallet",
-  "range",
-  "shoulder",
-  "blade",
-  "array",
-  "panoply",
-  "sweep",
-  "mix",
-];
-
-export default IconPalette as IconComponent;
+export default IconPalette;

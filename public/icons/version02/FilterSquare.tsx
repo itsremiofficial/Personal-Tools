@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFilterSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconFilterSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFilterSquare as IconComponent).keywords = [
-  "filter",
-  "square",
-  "filtrate",
-  "filter out",
-  "percolate",
-  "permeate",
-  "trickle",
-  "sink in",
-  "strain",
-  "dribble",
-  "separate out",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconFilterSquare as IconComponent;
+export default IconFilterSquare;

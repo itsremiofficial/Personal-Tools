@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBucketCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,28 +107,4 @@ const IconBucketCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBucketCircle as IconComponent).keywords = [
-  "bucket",
-  "circle",
-  "pail",
-  "bucketful",
-  "tub",
-  "basin",
-  "boiler",
-  "spade",
-  "basket",
-  "trough",
-  "shovel",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconBucketCircle as IconComponent;
+export default IconBucketCircle;

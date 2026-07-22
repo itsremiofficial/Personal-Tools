@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBrifecaseCross: FC<IconProps> = ({
   className,
   fill = false,
@@ -129,19 +136,4 @@ const IconBrifecaseCross: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBrifecaseCross as IconComponent).keywords = [
-  "brifecase",
-  "cross",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-];
-
-export default IconBrifecaseCross as IconComponent;
+export default IconBrifecaseCross;

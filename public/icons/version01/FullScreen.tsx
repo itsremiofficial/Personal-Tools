@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFullScreen: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconFullScreen: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFullScreen as IconComponent).keywords = [
-  "full",
-  "screen",
-  "filled",
-  "brimming",
-  "brimful",
-  "overfull",
-  "high",
-  "brimfull",
-  "overflowing",
-  "replete",
-  "overladen",
-  "screen door",
-  "cover",
-  "screen out",
-  "sieve",
-  "shield",
-  "silver screen",
-  "sort",
-  "test",
-  "block out",
-];
-
-export default IconFullScreen as IconComponent;
+export default IconFullScreen;

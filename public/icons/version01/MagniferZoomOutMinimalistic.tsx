@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMagniferZoomOutMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,39 +104,4 @@ const IconMagniferZoomOutMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMagniferZoomOutMinimalistic as IconComponent).keywords = [
-  "magnifer",
-  "zoom",
-  "out",
-  "minimalistic",
-  "whizz",
-  "surge",
-  "soar",
-  "rapid climb",
-  "rapid growth",
-  "soar up",
-  "soar upwards",
-  "whizz along",
-  "zoom along",
-  "away",
-  "outer",
-  "exterior",
-  "retired",
-  "extinct",
-  "dead",
-  "down",
-  "extinguished",
-  "come out",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconMagniferZoomOutMinimalistic as IconComponent;
+export default IconMagniferZoomOutMinimalistic;

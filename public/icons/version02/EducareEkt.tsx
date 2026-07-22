@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEducareEkt: FC<IconProps> = ({
   className,
   fill = false,
@@ -116,23 +123,4 @@ const IconEducareEkt: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEducareEkt as IconComponent).keywords = [
-  "educare",
-  "ekt",
-  "latin",
-  "means",
-  "derived",
-  "comes",
-  "ecj",
-  "ect",
-  "era",
-  "credito",
-  "benetton",
-  "celanese",
-  "evolute",
-  "stock symbol",
-  "motor oil",
-];
-
-export default IconEducareEkt as IconComponent;
+export default IconEducareEkt;

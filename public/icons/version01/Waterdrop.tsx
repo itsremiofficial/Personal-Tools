@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWaterdrop: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,18 +77,4 @@ const IconWaterdrop: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWaterdrop as IconComponent).keywords = [
-  "waterdrop",
-  "drip",
-  "dewdrop",
-  "dropful",
-  "bead",
-  "dropper",
-  "drizzle",
-  "teardrop",
-  "splash",
-  "fountain water",
-];
-
-export default IconWaterdrop as IconComponent;
+export default IconWaterdrop;

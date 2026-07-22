@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconIostIost: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,7 +102,4 @@ const IconIostIost: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconIostIost as IconComponent).keywords = ["iost"];
-
-export default IconIostIost as IconComponent;
+export default IconIostIost;

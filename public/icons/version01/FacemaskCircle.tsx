@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFacemaskCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -114,28 +121,4 @@ const IconFacemaskCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFacemaskCircle as IconComponent).keywords = [
-  "facemask",
-  "circle",
-  "diving mask",
-  "scuba diving",
-  "snorkel",
-  "swimcap",
-  "scuba",
-  "backplate",
-  "aqualung",
-  "scaphander",
-  "bailout",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconFacemaskCircle as IconComponent;
+export default IconFacemaskCircle;

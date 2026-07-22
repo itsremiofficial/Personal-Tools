@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDashDash: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,18 +85,4 @@ const IconDashDash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDashDash as IconComponent).keywords = [
-  "dash",
-  "hyphen",
-  "dah",
-  "style",
-  "flair",
-  "elan",
-  "flash",
-  "scoot",
-  "sprint",
-  "shoot",
-];
-
-export default IconDashDash as IconComponent;
+export default IconDashDash;

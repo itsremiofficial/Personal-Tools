@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAddCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconAddCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAddCircle as IconComponent).keywords = [
-  "add",
-  "circle",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconAddCircle as IconComponent;
+export default IconAddCircle;

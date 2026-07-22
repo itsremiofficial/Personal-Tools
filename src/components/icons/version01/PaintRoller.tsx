@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPaintRoller: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,28 +99,4 @@ const IconPaintRoller: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPaintRoller as IconComponent).keywords = [
-  "paint",
-  "roller",
-  "rouge",
-  "blusher",
-  "paintwork",
-  "paintbrush",
-  "coating",
-  "varnish",
-  "canvas",
-  "veneer",
-  "enamel",
-  "curler",
-  "roll",
-  "hair curler",
-  "tumbler",
-  "rolling wave",
-  "tumbler pigeon",
-  "bulldozer",
-  "chassis",
-  "steamroller",
-];
-
-export default IconPaintRoller as IconComponent;
+export default IconPaintRoller;

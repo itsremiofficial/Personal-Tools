@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEthereumClassicEtc: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,38 +102,4 @@ const IconEthereumClassicEtc: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEthereumClassicEtc as IconComponent).keywords = [
-  "ethereum",
-  "classic",
-  "etc",
-  "blockchain",
-  "oracle",
-  "hyperledger",
-  "mainchain",
-  "dapp",
-  "cryptoprotocol",
-  "web3",
-  "ethernet",
-  "distributed ledger",
-  "classical",
-  "standard",
-  "tradition",
-  "traditional",
-  "formal",
-  "canon",
-  "mainstream",
-  "conventional",
-  "textbook",
-  "etcetera",
-  "example",
-  "suchlike",
-  "such",
-  "more",
-  "others",
-  "other",
-  "forth",
-  "like",
-];
-
-export default IconEthereumClassicEtc as IconComponent;
+export default IconEthereumClassicEtc;

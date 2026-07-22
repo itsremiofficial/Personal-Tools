@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMusicLibrary: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,28 +113,4 @@ const IconMusicLibrary: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMusicLibrary as IconComponent).keywords = [
-  "music",
-  "library",
-  "sheet music",
-  "euphony",
-  "medicine",
-  "melody",
-  "symphony",
-  "orchestra",
-  "musician",
-  "song",
-  "singing",
-  "depository library",
-  "program library",
-  "librarianship",
-  "librarian",
-  "bookstore",
-  "catalogue",
-  "bookselling",
-  "bookshop",
-  "bibliotheca",
-];
-
-export default IconMusicLibrary as IconComponent;
+export default IconMusicLibrary;

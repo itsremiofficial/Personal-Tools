@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPinCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,28 +77,4 @@ const IconPinCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPinCircle as IconComponent).keywords = [
-  "pin",
-  "circle",
-  "peg",
-  "pin down",
-  "tholepin",
-  "trap",
-  "pivot",
-  "flag",
-  "oarlock",
-  "rowlock",
-  "pin up",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconPinCircle as IconComponent;
+export default IconPinCircle;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLightning: FC<IconProps> = ({
   className,
   fill = false,
@@ -122,18 +129,4 @@ const IconLightning: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLightning as IconComponent).keywords = [
-  "lightning",
-  "lightyear",
-  "flashpoint",
-  "thunderstorm",
-  "storm",
-  "electricity",
-  "ray",
-  "light",
-  "lighting",
-  "thunder",
-];
-
-export default IconLightning as IconComponent;
+export default IconLightning;

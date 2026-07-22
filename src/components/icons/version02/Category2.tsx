@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCategory2: FC<IconProps> = ({
   className,
   fill = false,
@@ -111,28 +118,4 @@ const IconCategory2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCategory2 as IconComponent).keywords = [
-  "category",
-  "2",
-  "class",
-  "family",
-  "classification",
-  "categorization",
-  "subcategory",
-  "categorized",
-  "type",
-  "classified",
-  "kind",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconCategory2 as IconComponent;
+export default IconCategory2;

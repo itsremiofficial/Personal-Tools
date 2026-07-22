@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGamepadCharge: FC<IconProps> = ({
   className,
   fill = false,
@@ -127,28 +134,4 @@ const IconGamepadCharge: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGamepadCharge as IconComponent).keywords = [
-  "gamepad",
-  "charge",
-  "joypad",
-  "thumbstick",
-  "d-pad",
-  "tv game",
-  "fighting stick",
-  "button masher",
-  "fire button",
-  "hat switch",
-  "gameboard",
-  "consign",
-  "commission",
-  "mission",
-  "appoint",
-  "billing",
-  "guardianship",
-  "tutelage",
-  "institutionalize",
-  "send",
-];
-
-export default IconGamepadCharge as IconComponent;
+export default IconGamepadCharge;

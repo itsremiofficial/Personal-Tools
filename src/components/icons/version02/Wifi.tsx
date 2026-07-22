@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWifi: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,18 +114,4 @@ const IconWifi: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWifi as IconComponent).keywords = [
-  "wifi",
-  "wi-fi",
-  "wireless",
-  "wlan",
-  "bluetooth",
-  "ethernet",
-  "broadband",
-  "internet",
-  "airconditioning",
-  "modem",
-];
-
-export default IconWifi as IconComponent;
+export default IconWifi;

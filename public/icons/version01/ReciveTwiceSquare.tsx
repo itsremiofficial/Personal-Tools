@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconReciveTwiceSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,30 +99,4 @@ const IconReciveTwiceSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconReciveTwiceSquare as IconComponent).keywords = [
-  "recive",
-  "twice",
-  "square",
-  "eyehole",
-  "double",
-  "doubly",
-  "twofold",
-  "two-fold",
-  "two",
-  "dual",
-  "two-tier",
-  "two-pronged",
-  "half",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconReciveTwiceSquare as IconComponent;
+export default IconReciveTwiceSquare;

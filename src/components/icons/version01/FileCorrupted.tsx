@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFileCorrupted: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,28 +85,4 @@ const IconFileCorrupted: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFileCorrupted as IconComponent).keywords = [
-  "file",
-  "corrupted",
-  "register",
-  "single file",
-  "indian file",
-  "charge",
-  "file away",
-  "lodge",
-  "file cabinet",
-  "filing cabinet",
-  "data file",
-  "debased",
-  "imperfect",
-  "vitiated",
-  "corruption",
-  "depraved",
-  "corruptive",
-  "tainted",
-  "damaging",
-  "malformed",
-];
-
-export default IconFileCorrupted as IconComponent;
+export default IconFileCorrupted;

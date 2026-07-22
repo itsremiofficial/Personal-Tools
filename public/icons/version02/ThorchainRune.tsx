@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconThorchainRune: FC<IconProps> = ({
   className,
   fill = false,
@@ -67,19 +74,4 @@ const IconThorchainRune: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconThorchainRune as IconComponent).keywords = [
-  "thorchain",
-  "rune",
-  "runic letter",
-  "sigil",
-  "runestone",
-  "glyph",
-  "runestones",
-  "sigils",
-  "amulet",
-  "aett",
-  "mage",
-];
-
-export default IconThorchainRune as IconComponent;
+export default IconThorchainRune;

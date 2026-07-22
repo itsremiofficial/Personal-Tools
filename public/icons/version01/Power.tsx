@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPower: FC<IconProps> = ({
   className,
   fill = false,
@@ -74,18 +81,4 @@ const IconPower: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPower as IconComponent).keywords = [
-  "power",
-  "might",
-  "powerfulness",
-  "force",
-  "potency",
-  "ability",
-  "mightiness",
-  "superpower",
-  "exponent",
-  "tycoon",
-];
-
-export default IconPower as IconComponent;
+export default IconPower;

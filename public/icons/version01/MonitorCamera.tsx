@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMonitorCamera: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,28 +106,4 @@ const IconMonitorCamera: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMonitorCamera as IconComponent).keywords = [
-  "monitor",
-  "camera",
-  "ride herd on",
-  "supervise",
-  "proctor",
-  "reminder",
-  "admonisher",
-  "varan",
-  "monitor lizard",
-  "supervised",
-  "manage",
-  "photographic camera",
-  "television camera",
-  "photography",
-  "photographer",
-  "photographing",
-  "photograph",
-  "photo",
-  "imaging",
-  "photographic",
-];
-
-export default IconMonitorCamera as IconComponent;
+export default IconMonitorCamera;

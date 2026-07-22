@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFirstline: FC<IconProps> = ({
   className,
   fill = false,
@@ -123,18 +130,4 @@ const IconFirstline: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFirstline as IconComponent).keywords = [
-  "firstline",
-  "adjunctive",
-  "antibacterial",
-  "antibiotic",
-  "anticonvulsant",
-  "antidepressant",
-  "antifungal",
-  "antihypertensive",
-  "antimicrobial",
-  "antineoplastic",
-];
-
-export default IconFirstline as IconComponent;
+export default IconFirstline;

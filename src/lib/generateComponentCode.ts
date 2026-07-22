@@ -1,25 +1,19 @@
-import { generateLocalKeywords } from "./keywordUtils";
-
 const generateComponentTemplate = (
   name: string,
   lineDuotoneSvg: string,
   boldDuotoneSvg: string,
   boldSvg: string,
-  keywords: string[],
-  includeKeywords: boolean = false
 ): string => {
-  const interfaceDeclaration = !includeKeywords
-    ? `
+  const interfaceDeclaration = `
 interface IconProps {
   className?: string;
   fill?: boolean;
   duotone?: boolean;
   width?: string | number;
 }
-`
-    : "";
+`;
 
-  const baseTemplate = `import { FC } from 'react';
+  return `import { FC } from 'react';
 ${interfaceDeclaration}
 const Icon${name}: FC<IconProps> = ({ className, fill = false, duotone = true, width = '1.5' }) => {
   return (
@@ -33,18 +27,7 @@ const Icon${name}: FC<IconProps> = ({ className, fill = false, duotone = true, w
       )}
     </>
   );
-};`;
-
-  if (includeKeywords) {
-    return `${baseTemplate}
-
-// Keywords for search and categorization
-(Icon${name} as IconComponent).keywords = ${JSON.stringify(keywords, null, 2)};
-
-export default Icon${name} as IconComponent;`;
-  }
-
-  return `${baseTemplate}
+};
 
 export default Icon${name};`;
 };
@@ -54,7 +37,6 @@ export const generateComponentCode = (
   lineDuotoneSvg: string,
   boldDuotoneSvg: string,
   boldSvg: string,
-  includeKeywords: boolean = false
 ): GeneratedResult => {
   try {
     if (!name) {
@@ -79,15 +61,11 @@ export const generateComponentCode = (
     const defaultName = name || "UnknownIcon";
     const fileName = `Icon${defaultName}.tsx`;
 
-    const keywords = includeKeywords ? generateLocalKeywords(name) : [];
-
     const output = generateComponentTemplate(
       name,
       lineDuotoneSvg,
       boldDuotoneSvg,
       boldSvg,
-      keywords,
-      includeKeywords
     );
 
     return {
@@ -117,13 +95,11 @@ export const generateComponentCodeSync = (
   lineDuotoneSvg: string,
   boldDuotoneSvg: string,
   boldSvg: string,
-  includeKeywords: boolean = false
 ): GeneratedResult => {
   return generateComponentCode(
     name,
     lineDuotoneSvg,
     boldDuotoneSvg,
     boldSvg,
-    includeKeywords
   );
 };

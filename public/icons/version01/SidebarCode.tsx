@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSidebarCode: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconSidebarCode: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSidebarCode as IconComponent).keywords = [
-  "sidebar",
-  "code",
-  "billet",
-  "margin",
-  "textbox",
-  "supervised",
-  "inset",
-  "banknote",
-  "vertical",
-  "ticket",
-  "fare",
-  "encode",
-  "cypher",
-  "encipher",
-  "cipher",
-  "encrypt",
-  "computer code",
-  "codification",
-  "inscribe",
-  "write in code",
-];
-
-export default IconSidebarCode as IconComponent;
+export default IconSidebarCode;

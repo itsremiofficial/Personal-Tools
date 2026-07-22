@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSale: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,18 +93,4 @@ const IconSale: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSale as IconComponent).keywords = [
-  "sale",
-  "cut-rate sale",
-  "sales agreement",
-  "sales event",
-  "sell",
-  "transaction",
-  "buying",
-  "resale",
-  "buy",
-  "purchasing",
-];
-
-export default IconSale as IconComponent;
+export default IconSale;

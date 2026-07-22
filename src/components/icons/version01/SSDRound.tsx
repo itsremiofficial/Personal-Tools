@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSSDRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,18 +104,4 @@ const IconSSDRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSSDRound as IconComponent).keywords = [
-  "round",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconSSDRound as IconComponent;
+export default IconSSDRound;

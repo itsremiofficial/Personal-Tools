@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRunning2: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,28 +99,4 @@ const IconRunning2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRunning2 as IconComponent).keywords = [
-  "running",
-  "2",
-  "scampering",
-  "fleeing",
-  "moving",
-  "flowing",
-  "gushing",
-  "streaming",
-  "track",
-  "pouring",
-  "working",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconRunning2 as IconComponent;
+export default IconRunning2;

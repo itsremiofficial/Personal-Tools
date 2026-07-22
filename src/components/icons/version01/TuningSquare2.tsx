@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTuningSquare2: FC<IconProps> = ({
   className,
   fill = false,
@@ -133,38 +140,4 @@ const IconTuningSquare2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTuningSquare2 as IconComponent).keywords = [
-  "tuning",
-  "square",
-  "2",
-  "melody",
-  "tune up",
-  "line",
-  "strain",
-  "air",
-  "melodic line",
-  "melodic phrase",
-  "tuner",
-  "audience",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconTuningSquare2 as IconComponent;
+export default IconTuningSquare2;

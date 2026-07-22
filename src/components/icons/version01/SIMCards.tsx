@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSIMCards: FC<IconProps> = ({
   className,
   fill = false,
@@ -81,18 +88,4 @@ const IconSIMCards: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSIMCards as IconComponent).keywords = [
-  "cards",
-  "card game",
-  "slips",
-  "pass",
-  "cart",
-  "papers",
-  "postcard",
-  "boards",
-  "books",
-  "charter",
-];
-
-export default IconSIMCards as IconComponent;
+export default IconSIMCards;

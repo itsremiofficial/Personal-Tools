@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFingerScan: FC<IconProps> = ({
   className,
   fill = false,
@@ -138,28 +145,4 @@ const IconFingerScan: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFingerScan as IconComponent).keywords = [
-  "finger",
-  "scan",
-  "thumb",
-  "feel",
-  "fingerbreadth",
-  "digit",
-  "hand",
-  "wrist",
-  "nail",
-  "epi",
-  "bleed",
-  "read",
-  "run down",
-  "glance over",
-  "skim",
-  "rake",
-  "examine",
-  "inspect",
-  "finding",
-  "scrutinize",
-];
-
-export default IconFingerScan as IconComponent;
+export default IconFingerScan;

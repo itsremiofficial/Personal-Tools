@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSetting3: FC<IconProps> = ({
   className,
   fill = false,
@@ -23,8 +30,9 @@ const IconSetting3: FC<IconProps> = ({
             strokeWidth={width}
             strokeLinecap="round"
             strokeLinejoin="round"
+            opacity={duotone ? "0.4" : "1"}
           />
-          <g opacity={duotone ? "0.4" : "1"}>
+          <g>
             <path
               d="M16.2402 18.4996V14.5996"
               stroke="currentColor"
@@ -133,28 +141,4 @@ const IconSetting3: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSetting3 as IconComponent).keywords = [
-  "setting",
-  "3",
-  "scene",
-  "stage setting",
-  "mise en scene",
-  "scope",
-  "background",
-  "mount",
-  "place setting",
-  "scenario",
-  "context",
-  "omega",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-];
-
-export default IconSetting3 as IconComponent;
+export default IconSetting3;

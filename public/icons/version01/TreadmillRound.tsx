@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTreadmillRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -119,28 +126,4 @@ const IconTreadmillRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTreadmillRound as IconComponent).keywords = [
-  "treadmill",
-  "round",
-  "treadwheel",
-  "salt mine",
-  "carousel",
-  "walkway",
-  "conveyor",
-  "sport",
-  "logjam",
-  "carpeting",
-  "carpet",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconTreadmillRound as IconComponent;
+export default IconTreadmillRound;

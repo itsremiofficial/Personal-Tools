@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPenNewSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,38 +93,4 @@ const IconPenNewSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPenNewSquare as IconComponent).keywords = [
-  "pen",
-  "new",
-  "square",
-  "playpen",
-  "penitentiary",
-  "compose",
-  "indite",
-  "write",
-  "paddock",
-  "corral",
-  "basin",
-  "sty",
-  "newfound",
-  "fresh",
-  "freshly",
-  "newly",
-  "brand-new",
-  "recent",
-  "novel",
-  "recently",
-  "newfangled",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconPenNewSquare as IconComponent;
+export default IconPenNewSquare;

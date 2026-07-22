@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDocumentCloud: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,28 +105,4 @@ const IconDocumentCloud: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDocumentCloud as IconComponent).keywords = [
-  "document",
-  "cloud",
-  "papers",
-  "text file",
-  "written document",
-  "documentation",
-  "backgrounder",
-  "workbook",
-  "dossier",
-  "handbook",
-  "listing",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-];
-
-export default IconDocumentCloud as IconComponent;
+export default IconDocumentCloud;

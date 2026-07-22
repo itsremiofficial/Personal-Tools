@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPlayCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconPlayCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPlayCircle as IconComponent).keywords = [
-  "play",
-  "circle",
-  "frolic",
-  "fun",
-  "gambol",
-  "caper",
-  "romp",
-  "toy",
-  "make-believe",
-  "pretend",
-  "dally",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconPlayCircle as IconComponent;
+export default IconPlayCircle;

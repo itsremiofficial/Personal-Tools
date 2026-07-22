@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDriving: FC<IconProps> = ({
   className,
   fill = false,
@@ -176,18 +183,4 @@ const IconDriving: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDriving as IconComponent).keywords = [
-  "driving",
-  "motoring",
-  "dynamical",
-  "dynamic",
-  "impulsive",
-  "energetic",
-  "vehicular",
-  "vehicle",
-  "driver",
-  "traffic",
-];
-
-export default IconDriving as IconComponent;
+export default IconDriving;

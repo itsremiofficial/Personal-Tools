@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBrifecaseTimer: FC<IconProps> = ({
   className,
   fill = false,
@@ -120,19 +127,4 @@ const IconBrifecaseTimer: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBrifecaseTimer as IconComponent).keywords = [
-  "brifecase",
-  "timer",
-  "clocking",
-  "timekeeping",
-  "timekeeper",
-  "clock",
-  "stopwatch",
-  "scheduler",
-  "timing",
-  "developer",
-  "bomb",
-];
-
-export default IconBrifecaseTimer as IconComponent;
+export default IconBrifecaseTimer;

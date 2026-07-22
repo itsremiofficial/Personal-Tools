@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWiFiRouterRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -148,45 +155,4 @@ const IconWiFiRouterRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWiFiRouterRound as IconComponent).keywords = [
-  "wi",
-  "fi",
-  "router",
-  "round",
-  "tl",
-  "t2",
-  "jon",
-  "chak",
-  "claire",
-  "crosse",
-  "dsl",
-  "ethernet",
-  "sci",
-  "semper",
-  "initiative",
-  "audio",
-  "abyss",
-  "agent",
-  "alien",
-  "routing",
-  "switch",
-  "route",
-  "adapter",
-  "hub",
-  "lsa",
-  "cisco",
-  "linksys",
-  "modem",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconWiFiRouterRound as IconComponent;
+export default IconWiFiRouterRound;

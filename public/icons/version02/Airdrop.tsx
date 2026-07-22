@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAirdrop: FC<IconProps> = ({
   className,
   fill = false,
@@ -108,18 +115,4 @@ const IconAirdrop: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAirdrop as IconComponent).keywords = [
-  "airdrop",
-  "landing",
-  "parachute",
-  "infliction",
-  "drop",
-  "airlift",
-  "paradrop",
-  "air support",
-  "airbridge",
-  "airmail",
-];
-
-export default IconAirdrop as IconComponent;
+export default IconAirdrop;

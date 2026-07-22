@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMoneyTime: FC<IconProps> = ({
   className,
   fill = false,
@@ -110,28 +117,4 @@ const IconMoneyTime: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMoneyTime as IconComponent).keywords = [
-  "money",
-  "time",
-  "rich",
-  "monied",
-  "wealthy",
-  "affluent",
-  "loaded",
-  "flush",
-  "muni",
-  "finance",
-  "financing",
-  "fourth dimension",
-  "clock",
-  "meter",
-  "clip",
-  "sentence",
-  "clock time",
-  "prison term",
-  "space-time",
-  "momentum",
-];
-
-export default IconMoneyTime as IconComponent;
+export default IconMoneyTime;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShieldUp: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,28 +80,4 @@ const IconShieldUp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShieldUp as IconComponent).keywords = [
-  "shield",
-  "up",
-  "buckler",
-  "screen",
-  "harbor",
-  "harbour",
-  "armoured",
-  "armor",
-  "breastplate",
-  "ribbon",
-  "visor",
-  "upbound",
-  "upwardly",
-  "ascending",
-  "upward",
-  "upwards",
-  "rising",
-  "astir",
-  "ahead",
-  "awake",
-];
-
-export default IconShieldUp as IconComponent;
+export default IconShieldUp;

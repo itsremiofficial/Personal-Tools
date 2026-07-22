@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconOutgoingCall: FC<IconProps> = ({
   className,
   fill = false,
@@ -76,28 +83,4 @@ const IconOutgoingCall: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconOutgoingCall as IconComponent).keywords = [
-  "outgoing",
-  "call",
-  "extrovertish",
-  "extroverted",
-  "extroversive",
-  "sociable",
-  "outward",
-  "past",
-  "preceding",
-  "out",
-  "forthcoming",
-  "phone call",
-  "telephone call",
-  "call in",
-  "telephone",
-  "phone",
-  "call up",
-  "send for",
-  "call option",
-  "margin call",
-];
-
-export default IconOutgoingCall as IconComponent;
+export default IconOutgoingCall;

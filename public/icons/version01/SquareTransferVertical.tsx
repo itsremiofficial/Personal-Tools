@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSquareTransferVertical: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,38 +89,4 @@ const IconSquareTransferVertical: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSquareTransferVertical as IconComponent).keywords = [
-  "square",
-  "transfer",
-  "vertical",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "transference",
-  "transport",
-  "transpose",
-  "change",
-  "transferral",
-  "reassign",
-  "remove",
-  "transmit",
-  "conveyance",
-  "perpendicular",
-  "plumb",
-  "upright",
-  "stand-up",
-  "standing",
-  "straight",
-  "rearing",
-  "erect",
-  "erectile",
-];
-
-export default IconSquareTransferVertical as IconComponent;
+export default IconSquareTransferVertical;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShieldUser: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,28 +87,4 @@ const IconShieldUser: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShieldUser as IconComponent).keywords = [
-  "shield",
-  "user",
-  "buckler",
-  "screen",
-  "harbor",
-  "harbour",
-  "armoured",
-  "armor",
-  "breastplate",
-  "ribbon",
-  "visor",
-  "exploiter",
-  "enjoyer",
-  "drug user",
-  "substance abuser",
-  "customer",
-  "client",
-  "employer",
-  "consumer",
-  "employee",
-];
-
-export default IconShieldUser as IconComponent;
+export default IconShieldUser;

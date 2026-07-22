@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconExplicit: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,18 +77,4 @@ const IconExplicit: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconExplicit as IconComponent).keywords = [
-  "explicit",
-  "definitive",
-  "stated",
-  "literal",
-  "declared",
-  "denotative",
-  "unequivocal",
-  "graphic",
-  "express",
-  "expressed",
-];
-
-export default IconExplicit as IconComponent;
+export default IconExplicit;

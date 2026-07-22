@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRobotic: FC<IconProps> = ({
   className,
   fill = false,
@@ -152,18 +159,4 @@ const IconRobotic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRobotic as IconComponent).keywords = [
-  "robotic",
-  "automated",
-  "remote-controlled",
-  "machinery",
-  "mechanism",
-  "robot",
-  "cart",
-  "automatic",
-  "unmanned",
-  "robotized",
-];
-
-export default IconRobotic as IconComponent;
+export default IconRobotic;

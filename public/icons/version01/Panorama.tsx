@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPanorama: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,18 +89,4 @@ const IconPanorama: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPanorama as IconComponent).keywords = [
-  "panorama",
-  "cyclorama",
-  "diorama",
-  "vista",
-  "scene",
-  "aspect",
-  "prospect",
-  "view",
-  "landscape",
-  "scenery",
-];
-
-export default IconPanorama as IconComponent;
+export default IconPanorama;

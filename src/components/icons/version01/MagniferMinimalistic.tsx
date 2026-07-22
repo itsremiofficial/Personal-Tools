@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMagniferMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,19 +85,4 @@ const IconMagniferMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMagniferMinimalistic as IconComponent).keywords = [
-  "magnifer",
-  "minimalistic",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconMagniferMinimalistic as IconComponent;
+export default IconMagniferMinimalistic;

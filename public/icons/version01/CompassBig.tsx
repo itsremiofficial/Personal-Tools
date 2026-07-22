@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCompassBig: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,28 +80,4 @@ const IconCompassBig: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCompassBig as IconComponent).keywords = [
-  "compass",
-  "big",
-  "orbit",
-  "range",
-  "dig",
-  "circumnavigate",
-  "ambit",
-  "scope",
-  "comprehend",
-  "reach",
-  "grasp",
-  "gigantic",
-  "humongous",
-  "huge",
-  "gargantuan",
-  "immense",
-  "colossal",
-  "prodigious",
-  "massive",
-  "larger-than-life",
-];
-
-export default IconCompassBig as IconComponent;
+export default IconCompassBig;

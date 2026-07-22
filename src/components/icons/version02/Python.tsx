@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPython: FC<IconProps> = ({
   className,
   fill = false,
@@ -103,18 +110,4 @@ const IconPython: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPython as IconComponent).keywords = [
-  "python",
-  "monty",
-  "phyton",
-  "django",
-  "perl",
-  "ocaml",
-  "snakeskin",
-  "snake",
-  "anaconda",
-  "crocodile",
-];
-
-export default IconPython as IconComponent;
+export default IconPython;

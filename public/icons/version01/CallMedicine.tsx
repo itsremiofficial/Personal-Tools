@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCallMedicine: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,28 +87,4 @@ const IconCallMedicine: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCallMedicine as IconComponent).keywords = [
-  "call",
-  "medicine",
-  "phone call",
-  "telephone call",
-  "call in",
-  "telephone",
-  "phone",
-  "call up",
-  "send for",
-  "call option",
-  "margin call",
-  "medication",
-  "medicate",
-  "medicament",
-  "music",
-  "medicinal drug",
-  "practice of medicine",
-  "prescription",
-  "pharmaceutical",
-  "drug",
-];
-
-export default IconCallMedicine as IconComponent;
+export default IconCallMedicine;

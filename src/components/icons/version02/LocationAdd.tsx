@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLocationAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,28 +94,4 @@ const IconLocationAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLocationAdd as IconComponent).keywords = [
-  "location",
-  "add",
-  "position",
-  "placement",
-  "positioning",
-  "localization",
-  "localisation",
-  "emplacement",
-  "fix",
-  "locating",
-  "situating",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconLocationAdd as IconComponent;
+export default IconLocationAdd;

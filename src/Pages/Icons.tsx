@@ -27,18 +27,21 @@ const LoadingSkeleton = ({
 }) => {
   const skeletonLayouts = {
     grid: (
-      <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 p-4">
+      <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
         {Array.from({ length: 24 }).map((_, i) => (
           <div
             key={i}
             className="flex-[1_1_232px] min-w-[232px] bg-muted/20 p-2 flex flex-col rounded-3xl overflow-hidden"
           >
-            <div className="p-3 sm:p-4 flex items-center justify-center">
+            <div className="p-3 sm:p-4 flex items-center justify-center rounded-t-xl">
               <div className="min-h-24 w-full rounded-xl bg-muted animate-pulse" />
             </div>
-            <div className="space-y-2 mt-auto">
+            <div className="space-y-2 grow flex flex-col">
               <div className="h-4 w-2/3 mx-auto rounded-lg bg-muted animate-pulse" />
-              <div className="h-8 w-full rounded-full bg-muted animate-pulse" />
+              <div className="mt-auto flex items-center justify-between gap-1 p-1 border border-border rounded-full">
+                <div className="flex-1 h-8 rounded-full bg-muted animate-pulse" />
+                <div className="flex-1 h-8 rounded-full bg-muted animate-pulse" />
+              </div>
             </div>
           </div>
         ))}
@@ -127,8 +130,9 @@ const IconsList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [globalStyle, setGlobalStyle] = useState<IconStyle>("line-solid");
-  const [isSearchVisible, setIsSearchVisible] = useState(false);
-  const [viewMode] = useState<"grid" | "list" | "minimal">("grid");
+  const [isSearchVisible, setIsSearchVisible] = useState(true);
+  const [viewMode, setViewMode] = useState<"grid" | "list" | "minimal">("grid");
+  const [iconSize, setIconSize] = useState(48);
 
   const { copyToClipboard } = useClipboard();
 
@@ -245,6 +249,7 @@ const IconsList = () => {
             onStyleChange={setGlobalStyle}
             onCopy={(style) => handleCopy(icon.name, style)}
             onDownload={() => handleDownload(icon.name, icon.version)}
+            iconSize={iconSize}
             variant="default"
           />
         ))}
@@ -269,9 +274,14 @@ const IconsList = () => {
                 isVisible: isSearchVisible,
                 onToggleVisibility: setIsSearchVisible,
                 isLoading: isSearching,
+                resultCount: filteredIcons.length,
               }}
               onStyleChange={setGlobalStyle}
               currentStyle={globalStyle}
+              iconSize={iconSize}
+              onIconSizeChange={setIconSize}
+              viewMode={viewMode}
+              onViewModeChange={setViewMode}
             />
           </header>
 

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconKyberNetworkKnc: FC<IconProps> = ({
   className,
   fill = false,
@@ -108,30 +115,4 @@ const IconKyberNetworkKnc: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconKyberNetworkKnc as IconComponent).keywords = [
-  "kyber",
-  "network",
-  "knc",
-  "quantum key distribution",
-  "post-quantum cryptography",
-  "quantum error correction",
-  "strong cryptography",
-  "superconducting quantum computing",
-  "key encapsulation mechanism",
-  "quantum programming",
-  "quantum memory",
-  "integrated encryption scheme",
-  "meshwork",
-  "net",
-  "mesh",
-  "reticulation",
-  "web",
-  "communications network",
-  "lacis",
-  "ring",
-  "array",
-  "kpp",
-];
-
-export default IconKyberNetworkKnc as IconComponent;
+export default IconKyberNetworkKnc;

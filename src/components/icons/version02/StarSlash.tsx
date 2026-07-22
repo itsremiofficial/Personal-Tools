@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStarSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconStarSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStarSlash as IconComponent).keywords = [
-  "star",
-  "slash",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconStarSlash as IconComponent;
+export default IconStarSlash;

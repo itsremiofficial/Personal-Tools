@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPassportMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconPassportMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPassportMinimalistic as IconComponent).keywords = [
-  "passport",
-  "minimalistic",
-  "pass",
-  "e-passport",
-  "laissez-passer",
-  "carnet",
-  "ticket",
-  "travel",
-  "document",
-  "authorisation",
-  "booklet",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconPassportMinimalistic as IconComponent;
+export default IconPassportMinimalistic;

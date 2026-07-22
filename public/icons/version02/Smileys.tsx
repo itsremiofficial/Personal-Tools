@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSmileys: FC<IconProps> = ({
   className,
   fill = false,
@@ -146,18 +153,4 @@ const IconSmileys: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSmileys as IconComponent).keywords = [
-  "smileys",
-  "merry",
-  "cheerful",
-  "happy",
-  "expensive",
-  "face",
-  "side",
-  "cara",
-  "-happy",
-  "sided",
-];
-
-export default IconSmileys as IconComponent;
+export default IconSmileys;

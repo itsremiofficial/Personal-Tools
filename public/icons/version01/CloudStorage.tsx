@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudStorage: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,28 +91,4 @@ const IconCloudStorage: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudStorage as IconComponent).keywords = [
-  "cloud",
-  "storage",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "store",
-  "storehouse",
-  "depot",
-  "entrepot",
-  "memory",
-  "memory board",
-  "reservoir",
-  "cache",
-  "storing",
-];
-
-export default IconCloudStorage as IconComponent;
+export default IconCloudStorage;

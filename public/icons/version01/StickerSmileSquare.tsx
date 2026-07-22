@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStickerSmileSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,38 +101,4 @@ const IconStickerSmileSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStickerSmileSquare as IconComponent).keywords = [
-  "sticker",
-  "smile",
-  "square",
-  "label",
-  "gummed label",
-  "sticky",
-  "bonding",
-  "paster",
-  "adhesive",
-  "tab",
-  "decal",
-  "thumbnail",
-  "grin",
-  "grinning",
-  "smirk",
-  "laughter",
-  "laugh",
-  "laughing",
-  "cheer",
-  "kidding",
-  "happiness",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconStickerSmileSquare as IconComponent;
+export default IconStickerSmileSquare;

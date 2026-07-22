@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSetting5: FC<IconProps> = ({
   className,
   fill = false,
@@ -173,28 +180,4 @@ const IconSetting5: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSetting5 as IconComponent).keywords = [
-  "setting",
-  "5",
-  "scene",
-  "stage setting",
-  "mise en scene",
-  "scope",
-  "background",
-  "mount",
-  "place setting",
-  "scenario",
-  "context",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-  "rush hour",
-];
-
-export default IconSetting5 as IconComponent;
+export default IconSetting5;

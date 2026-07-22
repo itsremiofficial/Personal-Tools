@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMath: FC<IconProps> = ({
   className,
   fill = false,
@@ -124,18 +131,4 @@ const IconMath: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMath as IconComponent).keywords = [
-  "math",
-  "mathematics",
-  "mathematically",
-  "calculus",
-  "calculation",
-  "calculated",
-  "mathematician",
-  "mathematical",
-  "arithmetic",
-  "algebra",
-];
-
-export default IconMath as IconComponent;
+export default IconMath;

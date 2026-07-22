@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCar: FC<IconProps> = ({
   className,
   fill = false,
@@ -128,18 +135,4 @@ const IconCar: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCar as IconComponent).keywords = [
-  "car",
-  "automobile",
-  "motorcar",
-  "cable car",
-  "railroad car",
-  "railcar",
-  "auto",
-  "gondola",
-  "machine",
-  "elevator car",
-];
-
-export default IconCar as IconComponent;
+export default IconCar;

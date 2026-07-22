@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconClockCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconClockCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconClockCircle as IconComponent).keywords = [
-  "clock",
-  "circle",
-  "time",
-  "stopwatch",
-  "watch",
-  "impactor",
-  "clockwork",
-  "pendulum",
-  "timer",
-  "dial",
-  "countdown",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconClockCircle as IconComponent;
+export default IconClockCircle;

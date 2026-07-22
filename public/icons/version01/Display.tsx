@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDisplay: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,18 +77,4 @@ const IconDisplay: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDisplay as IconComponent).keywords = [
-  "display",
-  "exhibit",
-  "showing",
-  "show",
-  "presentation",
-  "expose",
-  "reveal",
-  "showcase",
-  "showcasing",
-  "exhibition",
-];
-
-export default IconDisplay as IconComponent;
+export default IconDisplay;

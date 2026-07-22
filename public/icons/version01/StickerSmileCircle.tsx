@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStickerSmileCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,38 +114,4 @@ const IconStickerSmileCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStickerSmileCircle as IconComponent).keywords = [
-  "sticker",
-  "smile",
-  "circle",
-  "label",
-  "gummed label",
-  "sticky",
-  "bonding",
-  "paster",
-  "adhesive",
-  "tab",
-  "decal",
-  "thumbnail",
-  "grin",
-  "grinning",
-  "smirk",
-  "laughter",
-  "laugh",
-  "laughing",
-  "cheer",
-  "kidding",
-  "happiness",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconStickerSmileCircle as IconComponent;
+export default IconStickerSmileCircle;

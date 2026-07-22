@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDiagram: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,18 +84,4 @@ const IconDiagram: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDiagram as IconComponent).keywords = [
-  "diagram",
-  "plot",
-  "flowchart",
-  "plan",
-  "graphical",
-  "figure",
-  "organigram",
-  "schema",
-  "organigramme",
-  "graph",
-];
-
-export default IconDiagram as IconComponent;
+export default IconDiagram;

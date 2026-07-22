@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCrownLine: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,28 +77,4 @@ const IconCrownLine: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCrownLine as IconComponent).keywords = [
-  "crown",
-  "line",
-  "diadem",
-  "coronate",
-  "pate",
-  "tip",
-  "crest",
-  "summit",
-  "top",
-  "peak",
-  "treetop",
-  "outline",
-  "dividing line",
-  "agate line",
-  "delineate",
-  "telephone line",
-  "draw",
-  "transmission line",
-  "credit line",
-  "phone line",
-];
-
-export default IconCrownLine as IconComponent;
+export default IconCrownLine;

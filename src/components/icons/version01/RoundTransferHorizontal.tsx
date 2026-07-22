@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRoundTransferHorizontal: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,38 +91,4 @@ const IconRoundTransferHorizontal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRoundTransferHorizontal as IconComponent).keywords = [
-  "round",
-  "transfer",
-  "horizontal",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-  "transference",
-  "transport",
-  "transpose",
-  "change",
-  "transferral",
-  "reassign",
-  "remove",
-  "transmit",
-  "conveyance",
-  "level",
-  "flat",
-  "crosswise",
-  "swimming",
-  "naiant",
-  "cross-sectional",
-  "transverse",
-  "transversal",
-  "landscape",
-];
-
-export default IconRoundTransferHorizontal as IconComponent;
+export default IconRoundTransferHorizontal;

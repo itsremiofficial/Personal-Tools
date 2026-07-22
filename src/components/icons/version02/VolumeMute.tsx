@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVolumeMute: FC<IconProps> = ({
   className,
   fill = false,
@@ -61,28 +68,4 @@ const IconVolumeMute: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVolumeMute as IconComponent).keywords = [
-  "volume",
-  "mute",
-  "loudness",
-  "book",
-  "mass",
-  "bulk",
-  "intensity",
-  "quantum",
-  "weight",
-  "density",
-  "potentiometer",
-  "dumb",
-  "silent",
-  "inarticulate",
-  "unarticulate",
-  "wordless",
-  "dull",
-  "deaf-mute",
-  "nonspeaking",
-  "unspoken",
-];
-
-export default IconVolumeMute as IconComponent;
+export default IconVolumeMute;

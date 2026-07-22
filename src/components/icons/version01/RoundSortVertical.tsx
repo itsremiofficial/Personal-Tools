@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRoundSortVertical: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,38 +91,4 @@ const IconRoundSortVertical: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRoundSortVertical as IconComponent).keywords = [
-  "round",
-  "sort",
-  "vertical",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-  "classify",
-  "assort",
-  "class",
-  "form",
-  "kind",
-  "sort out",
-  "variety",
-  "separate",
-  "screen",
-  "perpendicular",
-  "plumb",
-  "upright",
-  "stand-up",
-  "standing",
-  "straight",
-  "rearing",
-  "erect",
-  "erectile",
-];
-
-export default IconRoundSortVertical as IconComponent;
+export default IconRoundSortVertical;

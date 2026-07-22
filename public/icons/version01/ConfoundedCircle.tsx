@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconConfoundedCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconConfoundedCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconConfoundedCircle as IconComponent).keywords = [
-  "confounded",
-  "circle",
-  "befuddled",
-  "perplexed",
-  "bewildered",
-  "baffled",
-  "confused",
-  "bemused",
-  "mixed-up",
-  "mazed",
-  "lost",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconConfoundedCircle as IconComponent;
+export default IconConfoundedCircle;

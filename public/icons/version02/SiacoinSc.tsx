@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSiacoinSc: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,19 +106,4 @@ const IconSiacoinSc: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSiacoinSc as IconComponent).keywords = [
-  "siacoin",
-  "sc",
-  "scandium",
-  "security council",
-  "atomic number 21",
-  "pml",
-  "pascal",
-  "ssb",
-  "dlo",
-  "faber",
-  "dsb",
-];
-
-export default IconSiacoinSc as IconComponent;
+export default IconSiacoinSc;

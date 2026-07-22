@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWindowFrame: FC<IconProps> = ({
   className,
   fill = false,
@@ -101,28 +108,4 @@ const IconWindowFrame: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWindowFrame as IconComponent).keywords = [
-  "window",
-  "frame",
-  "windowpane",
-  "windowsill",
-  "pane",
-  "skylight",
-  "louvered",
-  "niche",
-  "door",
-  "wicket",
-  "tile",
-  "build",
-  "put",
-  "compose",
-  "form",
-  "draw up",
-  "set up",
-  "shape",
-  "border",
-  "outline",
-];
-
-export default IconWindowFrame as IconComponent;
+export default IconWindowFrame;

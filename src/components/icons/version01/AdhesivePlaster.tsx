@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAdhesivePlaster: FC<IconProps> = ({
   className,
   fill = false,
@@ -119,28 +126,4 @@ const IconAdhesivePlaster: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAdhesivePlaster as IconComponent).keywords = [
-  "adhesive",
-  "plaster",
-  "agglutinative",
-  "gluey",
-  "glutinous",
-  "viscid",
-  "viscous",
-  "pasty",
-  "agglutinate",
-  "gooey",
-  "sticky",
-  "plaster of paris",
-  "daub",
-  "sticking plaster",
-  "poultice",
-  "cataplasm",
-  "adhesive plaster",
-  "plaster over",
-  "stick on",
-  "gypsum",
-];
-
-export default IconAdhesivePlaster as IconComponent;
+export default IconAdhesivePlaster;

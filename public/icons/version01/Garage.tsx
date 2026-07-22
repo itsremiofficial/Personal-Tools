@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGarage: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,18 +113,4 @@ const IconGarage: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGarage as IconComponent).keywords = [
-  "garage",
-  "service department",
-  "parkade",
-  "carpark",
-  "parking",
-  "driveway",
-  "dealership",
-  "auto",
-  "siding",
-  "mechanic",
-];
-
-export default IconGarage as IconComponent;
+export default IconGarage;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAlignVerticalCenter: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,38 +95,4 @@ const IconAlignVerticalCenter: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAlignVerticalCenter as IconComponent).keywords = [
-  "align",
-  "vertical",
-  "center",
-  "line up",
-  "adjust",
-  "coordinate",
-  "aline",
-  "array",
-  "alignment",
-  "link",
-  "combine",
-  "integrate",
-  "perpendicular",
-  "plumb",
-  "upright",
-  "stand-up",
-  "standing",
-  "straight",
-  "rearing",
-  "erect",
-  "erectile",
-  "central",
-  "focus",
-  "center of attention",
-  "nerve centre",
-  "middle",
-  "midway",
-  "centre",
-  "kernel",
-  "midpoint",
-];
-
-export default IconAlignVerticalCenter as IconComponent;
+export default IconAlignVerticalCenter;

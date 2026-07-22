@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDiamonds: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,18 +78,4 @@ const IconDiamonds: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDiamonds as IconComponent).keywords = [
-  "diamonds",
-  "infield",
-  "adamant",
-  "baseball diamond",
-  "ball field",
-  "mas",
-  "curls",
-  "ice",
-  "diamante",
-  "jewels",
-];
-
-export default IconDiamonds as IconComponent;
+export default IconDiamonds;

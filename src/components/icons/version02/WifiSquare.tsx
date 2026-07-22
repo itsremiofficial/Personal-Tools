@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWifiSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconWifiSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWifiSquare as IconComponent).keywords = [
-  "wifi",
-  "square",
-  "wi-fi",
-  "wireless",
-  "wlan",
-  "bluetooth",
-  "ethernet",
-  "broadband",
-  "internet",
-  "airconditioning",
-  "modem",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconWifiSquare as IconComponent;
+export default IconWifiSquare;

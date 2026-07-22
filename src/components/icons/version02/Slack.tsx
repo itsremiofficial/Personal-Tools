@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSlack: FC<IconProps> = ({
   className,
   fill = false,
@@ -184,18 +191,4 @@ const IconSlack: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSlack as IconComponent).keywords = [
-  "slack",
-  "slow",
-  "slack off",
-  "slow up",
-  "slow down",
-  "slacken",
-  "abate",
-  "let up",
-  "die away",
-  "weak",
-];
-
-export default IconSlack as IconComponent;
+export default IconSlack;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWallpaper: FC<IconProps> = ({
   className,
   fill = false,
@@ -113,18 +120,4 @@ const IconWallpaper: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWallpaper as IconComponent).keywords = [
-  "wallpaper",
-  "paper",
-  "curtain",
-  "carpet",
-  "upholstery",
-  "tapestry",
-  "flocked",
-  "wallcovering",
-  "screensaver",
-  "wallcoverings",
-];
-
-export default IconWallpaper as IconComponent;
+export default IconWallpaper;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRotateRight: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,28 +85,4 @@ const IconRotateRight: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRotateRight as IconComponent).keywords = [
-  "rotate",
-  "right",
-  "go around",
-  "revolve",
-  "rotation",
-  "rotational",
-  "slue",
-  "turn",
-  "tilt",
-  "spinning",
-  "counterclockwise",
-  "straight",
-  "precise",
-  "right on",
-  "accurate",
-  "decently",
-  "satisfactory",
-  "exact",
-  "powerful",
-  "opportune",
-];
-
-export default IconRotateRight as IconComponent;
+export default IconRotateRight;

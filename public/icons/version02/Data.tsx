@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconData: FC<IconProps> = ({
   className,
   fill = false,
@@ -128,18 +135,4 @@ const IconData: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconData as IconComponent).keywords = [
-  "data",
-  "information",
-  "informatics",
-  "computer",
-  "datafile",
-  "datatype",
-  "dataset",
-  "databank",
-  "database",
-  "datasheet",
-];
-
-export default IconData as IconComponent;
+export default IconData;

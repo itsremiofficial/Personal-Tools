@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconConfetti: FC<IconProps> = ({
   className,
   fill = false,
@@ -211,18 +218,4 @@ const IconConfetti: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconConfetti as IconComponent).keywords = [
-  "confetti",
-  "glitter",
-  "balloons",
-  "sprinkles",
-  "sequins",
-  "champagne",
-  "pompoms",
-  "gumballs",
-  "pinata",
-  "kazoos",
-];
-
-export default IconConfetti as IconComponent;
+export default IconConfetti;

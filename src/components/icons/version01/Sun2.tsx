@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSun2: FC<IconProps> = ({
   className,
   fill = false,
@@ -140,28 +147,4 @@ const IconSun2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSun2 as IconComponent).keywords = [
-  "sun",
-  "2",
-  "sunlight",
-  "sunshine",
-  "sunbathe",
-  "sunday",
-  "earth",
-  "stars",
-  "sky",
-  "eclipse",
-  "star",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconSun2 as IconComponent;
+export default IconSun2;

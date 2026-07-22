@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPointOnMapPerspective: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,48 +102,4 @@ const IconPointOnMapPerspective: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPointOnMapPerspective as IconComponent).keywords = [
-  "point",
-  "on",
-  "map",
-  "perspective",
-  "item",
-  "betoken",
-  "indicate",
-  "bespeak",
-  "period",
-  "point in time",
-  "show",
-  "stage",
-  "detail",
-  "bps",
-  "add",
-  "nso",
-  "our",
-  "bsi",
-  "nbs",
-  "opti",
-  "sno",
-  "weap",
-  "map out",
-  "correspondence",
-  "represent",
-  "chart",
-  "cartography",
-  "cartographic",
-  "topography",
-  "plan",
-  "charting",
-  "view",
-  "position",
-  "linear perspective",
-  "viewpoint",
-  "vista",
-  "standpoint",
-  "outlook",
-  "prospect",
-  "aspect",
-];
-
-export default IconPointOnMapPerspective as IconComponent;
+export default IconPointOnMapPerspective;

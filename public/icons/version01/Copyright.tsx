@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCopyright: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,18 +77,4 @@ const IconCopyright: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCopyright as IconComponent).keywords = [
-  "copyright",
-  "proprietary",
-  "right of first publication",
-  "sponsor",
-  "law",
-  "ownership",
-  "property",
-  "complainant",
-  "proposer",
-  "originator",
-];
-
-export default IconCopyright as IconComponent;
+export default IconCopyright;

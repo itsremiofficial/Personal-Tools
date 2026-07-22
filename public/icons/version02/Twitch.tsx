@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTwitch: FC<IconProps> = ({
   className,
   fill = false,
@@ -101,18 +108,4 @@ const IconTwitch: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTwitch as IconComponent).keywords = [
-  "twitch",
-  "twinge",
-  "pinch",
-  "vellicate",
-  "squeeze",
-  "nip",
-  "tweet",
-  "jerk",
-  "flip",
-  "tic",
-];
-
-export default IconTwitch as IconComponent;
+export default IconTwitch;

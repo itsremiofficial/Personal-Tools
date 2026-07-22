@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTurntable: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,18 +100,4 @@ const IconTurntable: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTurntable as IconComponent).keywords = [
-  "turntable",
-  "lazy susan",
-  "rotary",
-  "revolving",
-  "gateway",
-  "hub",
-  "carousel",
-  "shelf",
-  "plateau",
-  "sinker",
-];
-
-export default IconTurntable as IconComponent;
+export default IconTurntable;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHiking: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,18 +111,4 @@ const IconHiking: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHiking as IconComponent).keywords = [
-  "hiking",
-  "boost",
-  "hike up",
-  "rise",
-  "tramp",
-  "raise",
-  "pedestrian",
-  "walks",
-  "walking",
-  "walk",
-];
-
-export default IconHiking as IconComponent;
+export default IconHiking;

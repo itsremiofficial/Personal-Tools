@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLockKeyholeMinimalisticUnlocked: FC<IconProps> = ({
   className,
   fill = false,
@@ -81,47 +88,4 @@ const IconLockKeyholeMinimalisticUnlocked: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLockKeyholeMinimalisticUnlocked as IconComponent).keywords = [
-  "lock",
-  "keyhole",
-  "minimalistic",
-  "unlocked",
-  "interlock",
-  "lock in",
-  "mesh",
-  "interlace",
-  "whorl",
-  "lock away",
-  "curl",
-  "ringlet",
-  "put away",
-  "slot",
-  "latch",
-  "hemocyanin",
-  "haemocyanin",
-  "limpet",
-  "escutcheons",
-  "latches",
-  "limpets",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-  "unsecured",
-  "unbarred",
-  "unbolted",
-  "unfastened",
-  "unlatched",
-  "unobstructed",
-  "undone",
-  "unblocked",
-  "untied",
-];
-
-export default IconLockKeyholeMinimalisticUnlocked as IconComponent;
+export default IconLockKeyholeMinimalisticUnlocked;

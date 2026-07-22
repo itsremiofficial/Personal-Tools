@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDocumentDownload: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,28 +101,4 @@ const IconDocumentDownload: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDocumentDownload as IconComponent).keywords = [
-  "document",
-  "download",
-  "papers",
-  "text file",
-  "written document",
-  "documentation",
-  "backgrounder",
-  "workbook",
-  "dossier",
-  "handbook",
-  "listing",
-  "uploaded",
-  "uploading",
-  "upload",
-  "downlink",
-  "softcopy",
-  "printable",
-  "refresh",
-  "transfer",
-  "discovery",
-];
-
-export default IconDocumentDownload as IconComponent;
+export default IconDocumentDownload;

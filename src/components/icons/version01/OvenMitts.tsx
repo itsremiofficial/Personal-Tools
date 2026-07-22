@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconOvenMitts: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconOvenMitts: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconOvenMitts as IconComponent).keywords = [
-  "oven",
-  "mitts",
-  "cooking",
-  "baked",
-  "baking",
-  "baker",
-  "cooker",
-  "greenhouse",
-  "stove",
-  "fur",
-  "furnace",
-  "glove",
-  "hook",
-  "mauler",
-  "hand",
-  "paw",
-  "manus",
-  "baseball mitt",
-  "baseball glove",
-  "gloves",
-];
-
-export default IconOvenMitts as IconComponent;
+export default IconOvenMitts;

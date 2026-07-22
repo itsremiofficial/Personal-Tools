@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSpeaker: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,18 +97,4 @@ const IconSpeaker: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSpeaker as IconComponent).keywords = [
-  "speaker",
-  "talker",
-  "loudspeaker",
-  "loudspeaker system",
-  "speaker system",
-  "speaker unit",
-  "speaking",
-  "orator",
-  "speak",
-  "speech",
-];
-
-export default IconSpeaker as IconComponent;
+export default IconSpeaker;

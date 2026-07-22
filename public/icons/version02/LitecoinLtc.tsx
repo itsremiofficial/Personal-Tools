@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLitecoinLtc: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,28 +94,4 @@ const IconLitecoinLtc: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLitecoinLtc as IconComponent).keywords = [
-  "litecoin",
-  "ltc",
-  "bitcoin",
-  "peercoin",
-  "ethereum classic",
-  "ethereum",
-  "counterparty",
-  "economics of bitcoin",
-  "tezos",
-  "namecoin",
-  "avalanche",
-  "atc",
-  "lfc",
-  "crf",
-  "cta",
-  "sld",
-  "ic",
-  "flc",
-  "cfl",
-  "atk",
-];
-
-export default IconLitecoinLtc as IconComponent;
+export default IconLitecoinLtc;

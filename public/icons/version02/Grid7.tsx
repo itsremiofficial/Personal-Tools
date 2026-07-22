@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGrid7: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,28 +99,4 @@ const IconGrid7: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGrid7 as IconComponent).keywords = [
-  "grid",
-  "7",
-  "gridiron",
-  "control grid",
-  "power grid",
-  "power system",
-  "reference grid",
-  "crossword",
-  "card",
-  "bars",
-  "parcel",
-  "rpg",
-  "sl",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull in",
-  "pull up",
-  "pull over",
-  "work out",
-];
-
-export default IconGrid7 as IconComponent;
+export default IconGrid7;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAirbudsCharge: FC<IconProps> = ({
   className,
   fill = false,
@@ -133,19 +140,4 @@ const IconAirbudsCharge: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAirbudsCharge as IconComponent).keywords = [
-  "airbuds",
-  "charge",
-  "consign",
-  "commission",
-  "mission",
-  "appoint",
-  "billing",
-  "guardianship",
-  "tutelage",
-  "institutionalize",
-  "send",
-];
-
-export default IconAirbudsCharge as IconComponent;
+export default IconAirbudsCharge;

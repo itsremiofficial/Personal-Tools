@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSquareDoubleAltArrowRight: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,58 +89,4 @@ const IconSquareDoubleAltArrowRight: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSquareDoubleAltArrowRight as IconComponent).keywords = [
-  "square",
-  "double",
-  "alt",
-  "arrow",
-  "right",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "twofold",
-  "duple",
-  "twice",
-  "dual",
-  "reduplicate",
-  "doubly",
-  "multiple",
-  "double up",
-  "forked",
-  "elevation",
-  "el",
-  "altitude",
-  "backspace",
-  "esc",
-  "shadow",
-  "ctrl",
-  "variation",
-  "variant",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-  "straight",
-  "precise",
-  "right on",
-  "accurate",
-  "decently",
-  "satisfactory",
-  "exact",
-  "powerful",
-  "opportune",
-];
-
-export default IconSquareDoubleAltArrowRight as IconComponent;
+export default IconSquareDoubleAltArrowRight;

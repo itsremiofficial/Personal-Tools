@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMentionSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -76,28 +83,4 @@ const IconMentionSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMentionSquare as IconComponent).keywords = [
-  "mention",
-  "square",
-  "remark",
-  "refer",
-  "observe",
-  "reference",
-  "name",
-  "note",
-  "quotation",
-  "cite",
-  "acknowledge",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconMentionSquare as IconComponent;
+export default IconMentionSquare;

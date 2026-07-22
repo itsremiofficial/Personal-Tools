@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTarget: FC<IconProps> = ({
   className,
   fill = false,
@@ -114,18 +121,4 @@ const IconTarget: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTarget as IconComponent).keywords = [
-  "target",
-  "aim",
-  "place",
-  "mark",
-  "quarry",
-  "prey",
-  "butt",
-  "point",
-  "object",
-  "objective",
-];
-
-export default IconTarget as IconComponent;
+export default IconTarget;

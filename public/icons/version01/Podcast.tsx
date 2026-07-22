@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPodcast: FC<IconProps> = ({
   className,
   fill = false,
@@ -116,18 +123,4 @@ const IconPodcast: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPodcast as IconComponent).keywords = [
-  "podcast",
-  "forecast",
-  "podcaster",
-  "podcasters",
-  "episode",
-  "blog",
-  "audiobook",
-  "vlog",
-  "interview",
-  "webcast",
-];
-
-export default IconPodcast as IconComponent;
+export default IconPodcast;

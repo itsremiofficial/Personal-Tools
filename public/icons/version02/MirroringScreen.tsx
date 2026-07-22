@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMirroringScreen: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconMirroringScreen: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMirroringScreen as IconComponent).keywords = [
-  "mirroring",
-  "screen",
-  "reflected",
-  "reflecting",
-  "doubling",
-  "duplication",
-  "replica",
-  "duplicative",
-  "overlapping",
-  "overlap",
-  "replication",
-  "screen door",
-  "cover",
-  "screen out",
-  "sieve",
-  "shield",
-  "silver screen",
-  "sort",
-  "test",
-  "block out",
-];
-
-export default IconMirroringScreen as IconComponent;
+export default IconMirroringScreen;

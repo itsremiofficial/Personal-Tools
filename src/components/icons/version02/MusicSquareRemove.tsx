@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMusicSquareRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -135,38 +142,4 @@ const IconMusicSquareRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMusicSquareRemove as IconComponent).keywords = [
-  "music",
-  "square",
-  "remove",
-  "sheet music",
-  "euphony",
-  "medicine",
-  "melody",
-  "symphony",
-  "orchestra",
-  "musician",
-  "song",
-  "singing",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconMusicSquareRemove as IconComponent;
+export default IconMusicSquareRemove;

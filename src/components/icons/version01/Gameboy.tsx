@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGameboy: FC<IconProps> = ({
   className,
   fill = false,
@@ -114,7 +121,4 @@ const IconGameboy: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGameboy as IconComponent).keywords = ["gameboy"];
-
-export default IconGameboy as IconComponent;
+export default IconGameboy;

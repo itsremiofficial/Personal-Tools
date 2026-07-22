@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHandPills: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,28 +93,4 @@ const IconHandPills: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHandPills as IconComponent).keywords = [
-  "hand",
-  "pills",
-  "manus",
-  "paw",
-  "hired hand",
-  "mitt",
-  "mauler",
-  "hook",
-  "reach",
-  "handwriting",
-  "script",
-  "tablet",
-  "lozenge",
-  "anovulatory drug",
-  "birth control pill",
-  "contraceptive pill",
-  "oral contraceptive",
-  "oral contraceptive pill",
-  "antibilious",
-  "aspirins",
-];
-
-export default IconHandPills as IconComponent;
+export default IconHandPills;

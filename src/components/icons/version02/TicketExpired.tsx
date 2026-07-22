@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTicketExpired: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,28 +85,4 @@ const IconTicketExpired: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTicketExpired as IconComponent).keywords = [
-  "ticket",
-  "expired",
-  "fine",
-  "coupon",
-  "itinerary",
-  "passport",
-  "place",
-  "engineer",
-  "flag",
-  "airfare",
-  "travel",
-  "invalid",
-  "terminated",
-  "lapsed",
-  "closed",
-  "obsolete",
-  "overdue",
-  "deceased",
-  "expiration",
-  "expiry",
-];
-
-export default IconTicketExpired as IconComponent;
+export default IconTicketExpired;

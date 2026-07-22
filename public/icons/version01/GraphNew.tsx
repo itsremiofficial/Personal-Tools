@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGraphNew: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,28 +93,4 @@ const IconGraphNew: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGraphNew as IconComponent).keywords = [
-  "graph",
-  "new",
-  "graphical record",
-  "diagram",
-  "flowchart",
-  "figure",
-  "graphical",
-  "chart",
-  "map",
-  "design",
-  "graphically",
-  "newfound",
-  "fresh",
-  "freshly",
-  "newly",
-  "brand-new",
-  "recent",
-  "novel",
-  "recently",
-  "newfangled",
-];
-
-export default IconGraphNew as IconComponent;
+export default IconGraphNew;

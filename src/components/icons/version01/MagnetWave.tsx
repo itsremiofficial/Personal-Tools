@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMagnetWave: FC<IconProps> = ({
   className,
   fill = false,
@@ -125,28 +132,4 @@ const IconMagnetWave: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMagnetWave as IconComponent).keywords = [
-  "magnet",
-  "wave",
-  "magnetic",
-  "lodestone",
-  "draw",
-  "mag",
-  "pole",
-  "trap",
-  "swipe",
-  "braid",
-  "sucker",
-  "beckon",
-  "undulate",
-  "undulation",
-  "flap",
-  "wafture",
-  "brandish",
-  "curl",
-  "flourish",
-  "moving ridge",
-];
-
-export default IconMagnetWave as IconComponent;
+export default IconMagnetWave;

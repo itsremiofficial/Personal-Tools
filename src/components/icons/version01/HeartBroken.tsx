@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHeartBroken: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconHeartBroken: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHeartBroken as IconComponent).keywords = [
-  "heart",
-  "broken",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-  "fractured",
-  "shattered",
-  "fragmented",
-  "crushed",
-  "destroyed",
-  "damaged",
-  "chipped",
-  "cracked",
-  "rugged",
-];
-
-export default IconHeartBroken as IconComponent;
+export default IconHeartBroken;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTextSelection: FC<IconProps> = ({
   className,
   fill = false,
@@ -155,28 +162,4 @@ const IconTextSelection: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTextSelection as IconComponent).keywords = [
-  "text",
-  "selection",
-  "schoolbook",
-  "textbook",
-  "school text",
-  "text edition",
-  "textual matter",
-  "writing",
-  "letter",
-  "paragraph",
-  "manuscript",
-  "choice",
-  "survival",
-  "extract",
-  "excerpt",
-  "survival of the fittest",
-  "pick",
-  "natural selection",
-  "selector",
-  "picked",
-];
-
-export default IconTextSelection as IconComponent;
+export default IconTextSelection;

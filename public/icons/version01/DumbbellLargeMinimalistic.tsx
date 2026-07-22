@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDumbbellLargeMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -103,38 +110,4 @@ const IconDumbbellLargeMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDumbbellLargeMinimalistic as IconComponent).keywords = [
-  "dumbbell",
-  "large",
-  "minimalistic",
-  "dope",
-  "boob",
-  "booby",
-  "dummy",
-  "pinhead",
-  "jerk",
-  "jackass",
-  "arsehole",
-  "sucker",
-  "great",
-  "large-scale",
-  "vast",
-  "larger-than-life",
-  "colossal",
-  "huge",
-  "prodigious",
-  "humongous",
-  "massive",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconDumbbellLargeMinimalistic as IconComponent;
+export default IconDumbbellLargeMinimalistic;

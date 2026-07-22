@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUsersGroupRounded: FC<IconProps> = ({
   className,
   fill = false,
@@ -110,38 +117,4 @@ const IconUsersGroupRounded: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUsersGroupRounded as IconComponent).keywords = [
-  "users",
-  "group",
-  "rounded",
-  "exploiter",
-  "enjoyer",
-  "drug user",
-  "substance abuser",
-  "abusers",
-  "addicts",
-  "adopters",
-  "audience",
-  "audiences",
-  "aggroup",
-  "common",
-  "communal",
-  "radical",
-  "mathematical group",
-  "cohort",
-  "type",
-  "class",
-  "collective",
-  "ringed",
-  "ring-shaped",
-  "annulate",
-  "annular",
-  "circular",
-  "rotund",
-  "bowfront",
-  "prolate",
-  "domed",
-];
-
-export default IconUsersGroupRounded as IconComponent;
+export default IconUsersGroupRounded;

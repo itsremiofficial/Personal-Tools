@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTeaCup: FC<IconProps> = ({
   className,
   fill = false,
@@ -126,28 +133,4 @@ const IconTeaCup: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTeaCup as IconComponent).keywords = [
-  "tea",
-  "cup",
-  "tea leaf",
-  "afternoon tea",
-  "teatime",
-  "camellia sinensis",
-  "oolong",
-  "pekoe",
-  "hyson",
-  "cha",
-  "coffee",
-  "loving cup",
-  "cupful",
-  "transfuse",
-  "chalice",
-  "goblet",
-  "bottle",
-  "jar",
-  "pot",
-  "bowl",
-];
-
-export default IconTeaCup as IconComponent;
+export default IconTeaCup;

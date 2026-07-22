@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStretchingRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,28 +95,4 @@ const IconStretchingRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStretchingRound as IconComponent).keywords = [
-  "stretching",
-  "round",
-  "wide",
-  "broad",
-  "wide-spreading",
-  "lengthening",
-  "spreading",
-  "spanning",
-  "ranging",
-  "vibrating",
-  "covering",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconStretchingRound as IconComponent;
+export default IconStretchingRound;

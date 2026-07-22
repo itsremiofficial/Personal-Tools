@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLevel: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,18 +93,4 @@ const IconLevel: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLevel as IconComponent).keywords = [
-  "level",
-  "horizontal",
-  "flat",
-  "plane",
-  "stage",
-  "storey",
-  "spirit level",
-  "even",
-  "even out",
-  "floor",
-];
-
-export default IconLevel as IconComponent;
+export default IconLevel;

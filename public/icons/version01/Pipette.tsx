@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPipette: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,18 +86,4 @@ const IconPipette: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPipette as IconComponent).keywords = [
-  "pipette",
-  "transfer",
-  "transferring",
-  "micropipette",
-  "pipetter",
-  "micropipettes",
-  "micropipet",
-  "pipettor",
-  "pipets",
-  "pipeting",
-];
-
-export default IconPipette as IconComponent;
+export default IconPipette;

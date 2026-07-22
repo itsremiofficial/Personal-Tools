@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTranslate: FC<IconProps> = ({
   className,
   fill = false,
@@ -161,18 +168,4 @@ const IconTranslate: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTranslate as IconComponent).keywords = [
-  "translate",
-  "interpret",
-  "read",
-  "transform",
-  "understand",
-  "translation",
-  "interpretation",
-  "transcribe",
-  "replicate",
-  "articulate",
-];
-
-export default IconTranslate as IconComponent;
+export default IconTranslate;

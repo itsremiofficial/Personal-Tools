@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCalendarEdit: FC<IconProps> = ({
   className,
   fill = false,
@@ -137,28 +144,4 @@ const IconCalendarEdit: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCalendarEdit as IconComponent).keywords = [
-  "calendar",
-  "edit",
-  "timeline",
-  "chronology",
-  "rota",
-  "scheduling",
-  "timetable",
-  "program",
-  "time-scale",
-  "timeframe",
-  "timescale",
-  "redact",
-  "edit out",
-  "cut",
-  "editor",
-  "edition",
-  "publication",
-  "publish",
-  "publishing",
-  "authoring",
-];
-
-export default IconCalendarEdit as IconComponent;
+export default IconCalendarEdit;

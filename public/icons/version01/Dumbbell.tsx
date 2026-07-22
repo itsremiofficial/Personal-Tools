@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDumbbell: FC<IconProps> = ({
   className,
   fill = false,
@@ -61,18 +68,4 @@ const IconDumbbell: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDumbbell as IconComponent).keywords = [
-  "dumbbell",
-  "dope",
-  "boob",
-  "booby",
-  "dummy",
-  "pinhead",
-  "jerk",
-  "jackass",
-  "arsehole",
-  "sucker",
-];
-
-export default IconDumbbell as IconComponent;
+export default IconDumbbell;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudSnow: FC<IconProps> = ({
   className,
   fill = false,
@@ -108,27 +115,4 @@ const IconCloudSnow: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudSnow as IconComponent).keywords = [
-  "cloud",
-  "snow",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "snowfall",
-  "coke",
-  "cocaine",
-  "lead by the nose",
-  "hoodwink",
-  "bamboozle",
-  "cocain",
-  "play false",
-];
-
-export default IconCloudSnow as IconComponent;
+export default IconCloudSnow;

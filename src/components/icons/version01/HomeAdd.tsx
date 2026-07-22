@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHomeAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,28 +77,4 @@ const IconHomeAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHomeAdd as IconComponent).keywords = [
-  "home",
-  "add",
-  "domicile",
-  "habitation",
-  "domestic",
-  "dwelling",
-  "nursing home",
-  "rest home",
-  "house",
-  "dwelling house",
-  "household",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconHomeAdd as IconComponent;
+export default IconHomeAdd;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGridEraser: FC<IconProps> = ({
   className,
   fill = false,
@@ -161,28 +168,4 @@ const IconGridEraser: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGridEraser as IconComponent).keywords = [
-  "grid",
-  "eraser",
-  "gridiron",
-  "control grid",
-  "power grid",
-  "power system",
-  "reference grid",
-  "crossword",
-  "card",
-  "bars",
-  "parcel",
-  "clearance",
-  "cleanup",
-  "cleaning",
-  "clean-up",
-  "rough",
-  "scratch",
-  "cleansing",
-  "cleanliness",
-  "draft",
-];
-
-export default IconGridEraser as IconComponent;
+export default IconGridEraser;

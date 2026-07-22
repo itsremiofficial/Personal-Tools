@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLetterUnread: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconLetterUnread: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLetterUnread as IconComponent).keywords = [
-  "letter",
-  "unread",
-  "missive",
-  "varsity letter",
-  "alphabetic character",
-  "letter of the alphabet",
-  "writing",
-  "text",
-  "write",
-  "alphabetic",
-  "courier",
-  "uninformed",
-  "unused",
-  "unutilized",
-  "unspent",
-  "unencumbered",
-  "unwatched",
-  "unplayed",
-  "unsent",
-  "unreviewed",
-];
-
-export default IconLetterUnread as IconComponent;
+export default IconLetterUnread;

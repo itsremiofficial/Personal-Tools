@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSliderMinimalisticHorizontal: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,38 +91,4 @@ const IconSliderMinimalisticHorizontal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSliderMinimalisticHorizontal as IconComponent).keywords = [
-  "slider",
-  "minimalistic",
-  "horizontal",
-  "luger",
-  "pseudemys scripta",
-  "yellow-bellied terrapin",
-  "bushing",
-  "skid",
-  "glider",
-  "scroll",
-  "scrollbar",
-  "track",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-  "level",
-  "flat",
-  "crosswise",
-  "swimming",
-  "naiant",
-  "cross-sectional",
-  "transverse",
-  "transversal",
-  "landscape",
-];
-
-export default IconSliderMinimalisticHorizontal as IconComponent;
+export default IconSliderMinimalisticHorizontal;

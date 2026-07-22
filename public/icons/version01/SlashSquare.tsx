@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSlashSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,28 +77,4 @@ const IconSlashSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSlashSquare as IconComponent).keywords = [
-  "slash",
-  "square",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconSlashSquare as IconComponent;
+export default IconSlashSquare;

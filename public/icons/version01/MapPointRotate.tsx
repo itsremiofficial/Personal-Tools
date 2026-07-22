@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMapPointRotate: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,38 +90,4 @@ const IconMapPointRotate: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMapPointRotate as IconComponent).keywords = [
-  "map",
-  "point",
-  "rotate",
-  "map out",
-  "correspondence",
-  "represent",
-  "chart",
-  "cartography",
-  "cartographic",
-  "topography",
-  "plan",
-  "charting",
-  "item",
-  "betoken",
-  "indicate",
-  "bespeak",
-  "period",
-  "point in time",
-  "show",
-  "stage",
-  "detail",
-  "go around",
-  "revolve",
-  "rotation",
-  "rotational",
-  "slue",
-  "turn",
-  "tilt",
-  "spinning",
-  "counterclockwise",
-];
-
-export default IconMapPointRotate as IconComponent;
+export default IconMapPointRotate;

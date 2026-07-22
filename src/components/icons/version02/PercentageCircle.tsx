@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPercentageCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconPercentageCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPercentageCircle as IconComponent).keywords = [
-  "percentage",
-  "circle",
-  "per centum",
-  "percent",
-  "pct",
-  "part",
-  "portion",
-  "share",
-  "centenary",
-  "centennial",
-  "percentile",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconPercentageCircle as IconComponent;
+export default IconPercentageCircle;

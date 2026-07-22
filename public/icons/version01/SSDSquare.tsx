@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSSDSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,18 +103,4 @@ const IconSSDSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSSDSquare as IconComponent).keywords = [
-  "square",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconSSDSquare as IconComponent;
+export default IconSSDSquare;

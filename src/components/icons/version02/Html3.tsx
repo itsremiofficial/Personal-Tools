@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHtml3: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,28 +94,4 @@ const IconHtml3: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHtml3 as IconComponent).keywords = [
-  "html",
-  "3",
-  "hypertext markup language",
-  "xhtml",
-  "javascript",
-  "javascripts",
-  "imagemaps",
-  "wysiwyg",
-  "dreamweaver",
-  "jscript",
-  "textarea",
-  "omega",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-];
-
-export default IconHtml3 as IconComponent;
+export default IconHtml3;

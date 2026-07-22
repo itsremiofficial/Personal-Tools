@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCallAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconCallAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCallAdd as IconComponent).keywords = [
-  "call",
-  "add",
-  "phone call",
-  "telephone call",
-  "call in",
-  "telephone",
-  "phone",
-  "call up",
-  "send for",
-  "call option",
-  "margin call",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconCallAdd as IconComponent;
+export default IconCallAdd;

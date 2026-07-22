@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVolumeSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -119,28 +126,4 @@ const IconVolumeSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVolumeSlash as IconComponent).keywords = [
-  "volume",
-  "slash",
-  "loudness",
-  "book",
-  "mass",
-  "bulk",
-  "intensity",
-  "quantum",
-  "weight",
-  "density",
-  "potentiometer",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconVolumeSlash as IconComponent;
+export default IconVolumeSlash;

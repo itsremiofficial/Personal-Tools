@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSoundwave: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,18 +104,4 @@ const IconSoundwave: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSoundwave as IconComponent).keywords = [
-  "soundwave",
-  "shockwave",
-  "shearwave",
-  "sandwave",
-  "soundhead",
-  "squarewave",
-  "wavetrain",
-  "soundcard",
-  "laserbeam",
-  "soundbite",
-];
-
-export default IconSoundwave as IconComponent;
+export default IconSoundwave;

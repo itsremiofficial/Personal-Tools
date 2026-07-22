@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBatteryFull: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,28 +107,4 @@ const IconBatteryFull: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBatteryFull as IconComponent).keywords = [
-  "battery",
-  "full",
-  "bombardment",
-  "stamp battery",
-  "barrage",
-  "shelling",
-  "assault and battery",
-  "assault",
-  "barrage fire",
-  "electric battery",
-  "alternator",
-  "filled",
-  "brimming",
-  "brimful",
-  "overfull",
-  "high",
-  "brimfull",
-  "overflowing",
-  "replete",
-  "overladen",
-];
-
-export default IconBatteryFull as IconComponent;
+export default IconBatteryFull;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTrontronTrx: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,16 +111,4 @@ const IconTrontronTrx: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTrontronTrx as IconComponent).keywords = [
-  "trontron",
-  "trx",
-  "compromise",
-  "transact",
-  "transaction",
-  "transactional",
-  "reduced",
-  "aav",
-];
-
-export default IconTrontronTrx as IconComponent;
+export default IconTrontronTrx;

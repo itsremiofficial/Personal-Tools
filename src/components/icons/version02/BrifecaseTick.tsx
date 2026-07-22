@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBrifecaseTick: FC<IconProps> = ({
   className,
   fill = false,
@@ -119,19 +126,4 @@ const IconBrifecaseTick: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBrifecaseTick as IconComponent).keywords = [
-  "brifecase",
-  "tick",
-  "click",
-  "ticktock",
-  "beat",
-  "ticktack",
-  "retick",
-  "ixodid",
-  "acarid",
-  "spinose",
-  "gene",
-];
-
-export default IconBrifecaseTick as IconComponent;
+export default IconBrifecaseTick;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEyeScan: FC<IconProps> = ({
   className,
   fill = false,
@@ -137,28 +144,4 @@ const IconEyeScan: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEyeScan as IconComponent).keywords = [
-  "eye",
-  "scan",
-  "optic",
-  "heart",
-  "eyeball",
-  "oculus",
-  "peeper",
-  "middle",
-  "center",
-  "centre",
-  "ocular",
-  "read",
-  "run down",
-  "glance over",
-  "skim",
-  "rake",
-  "examine",
-  "inspect",
-  "finding",
-  "scrutinize",
-];
-
-export default IconEyeScan as IconComponent;
+export default IconEyeScan;

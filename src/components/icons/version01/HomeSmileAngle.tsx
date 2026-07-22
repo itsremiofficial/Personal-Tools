@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHomeSmileAngle: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,38 +77,4 @@ const IconHomeSmileAngle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHomeSmileAngle as IconComponent).keywords = [
-  "home",
-  "smile",
-  "angle",
-  "domicile",
-  "habitation",
-  "domestic",
-  "dwelling",
-  "nursing home",
-  "rest home",
-  "house",
-  "dwelling house",
-  "household",
-  "grin",
-  "grinning",
-  "smirk",
-  "laughter",
-  "laugh",
-  "laughing",
-  "cheer",
-  "kidding",
-  "happiness",
-  "weight",
-  "slant",
-  "tilt",
-  "lean",
-  "tip",
-  "fish",
-  "side",
-  "prism",
-  "dimension",
-];
-
-export default IconHomeSmileAngle as IconComponent;
+export default IconHomeSmileAngle;

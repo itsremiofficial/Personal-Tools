@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPeopleNearby: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,28 +95,4 @@ const IconPeopleNearby: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPeopleNearby as IconComponent).keywords = [
-  "people",
-  "nearby",
-  "hoi polloi",
-  "citizenry",
-  "masses",
-  "populate",
-  "inhabit",
-  "mass",
-  "multitude",
-  "reside",
-  "live",
-  "near",
-  "close",
-  "nigh",
-  "proximate",
-  "almost",
-  "nearly",
-  "closely",
-  "vicinity",
-  "next",
-];
-
-export default IconPeopleNearby as IconComponent;
+export default IconPeopleNearby;

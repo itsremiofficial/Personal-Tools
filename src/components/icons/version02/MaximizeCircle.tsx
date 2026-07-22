@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMaximizeCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -114,28 +121,4 @@ const IconMaximizeCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMaximizeCircle as IconComponent).keywords = [
-  "maximize",
-  "circle",
-  "max",
-  "maximum",
-  "maximal",
-  "optimum",
-  "broaden",
-  "optimal",
-  "maximisation",
-  "maximise",
-  "optimizing",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconMaximizeCircle as IconComponent;
+export default IconMaximizeCircle;

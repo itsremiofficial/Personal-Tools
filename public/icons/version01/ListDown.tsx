@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconListDown: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconListDown: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconListDown as IconComponent).keywords = [
-  "list",
-  "down",
-  "tilt",
-  "inclination",
-  "lean",
-  "leaning",
-  "name",
-  "number",
-  "sheet",
-  "heel",
-  "table",
-  "downwards",
-  "downward",
-  "downbound",
-  "falling",
-  "fallen",
-  "pull down",
-  "downwardly",
-  "declining",
-  "descending",
-];
-
-export default IconListDown as IconComponent;
+export default IconListDown;

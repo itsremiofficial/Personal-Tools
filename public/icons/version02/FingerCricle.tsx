@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFingerCricle: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,19 +93,4 @@ const IconFingerCricle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFingerCricle as IconComponent).keywords = [
-  "finger",
-  "cricle",
-  "thumb",
-  "feel",
-  "fingerbreadth",
-  "digit",
-  "hand",
-  "wrist",
-  "nail",
-  "epi",
-  "bleed",
-];
-
-export default IconFingerCricle as IconComponent;
+export default IconFingerCricle;

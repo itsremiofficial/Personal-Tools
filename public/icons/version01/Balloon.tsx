@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBalloon: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,18 +100,4 @@ const IconBalloon: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBalloon as IconComponent).keywords = [
-  "balloon",
-  "billow",
-  "inflate",
-  "blimp",
-  "dirigible",
-  "airship",
-  "ball",
-  "hut",
-  "bag",
-  "flask",
-];
-
-export default IconBalloon as IconComponent;
+export default IconBalloon;

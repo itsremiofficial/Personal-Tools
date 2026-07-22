@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBatteryCharging: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,28 +101,4 @@ const IconBatteryCharging: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBatteryCharging as IconComponent).keywords = [
-  "battery",
-  "charging",
-  "bombardment",
-  "stamp battery",
-  "barrage",
-  "shelling",
-  "assault and battery",
-  "assault",
-  "barrage fire",
-  "electric battery",
-  "alternator",
-  "consign",
-  "commission",
-  "mission",
-  "appoint",
-  "billing",
-  "guardianship",
-  "tutelage",
-  "institutionalize",
-  "send",
-];
-
-export default IconBatteryCharging as IconComponent;
+export default IconBatteryCharging;

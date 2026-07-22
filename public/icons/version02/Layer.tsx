@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLayer: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,18 +99,4 @@ const IconLayer: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLayer as IconComponent).keywords = [
-  "layer",
-  "superimposed",
-  "stratified",
-  "bedded",
-  "ply",
-  "coating",
-  "veneer",
-  "floor",
-  "storey",
-  "film",
-];
-
-export default IconLayer as IconComponent;
+export default IconLayer;

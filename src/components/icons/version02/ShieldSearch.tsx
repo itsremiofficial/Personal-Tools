@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShieldSearch: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconShieldSearch: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShieldSearch as IconComponent).keywords = [
-  "shield",
-  "search",
-  "buckler",
-  "screen",
-  "harbor",
-  "harbour",
-  "armoured",
-  "armor",
-  "breastplate",
-  "ribbon",
-  "visor",
-  "seek",
-  "look for",
-  "explore",
-  "lookup",
-  "research",
-  "look",
-  "hunting",
-  "hunt",
-  "seeking",
-];
-
-export default IconShieldSearch as IconComponent;
+export default IconShieldSearch;

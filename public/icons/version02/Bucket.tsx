@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBucket: FC<IconProps> = ({
   className,
   fill = false,
@@ -113,18 +120,4 @@ const IconBucket: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBucket as IconComponent).keywords = [
-  "bucket",
-  "pail",
-  "bucketful",
-  "tub",
-  "basin",
-  "boiler",
-  "spade",
-  "basket",
-  "trough",
-  "shovel",
-];
-
-export default IconBucket as IconComponent;
+export default IconBucket;

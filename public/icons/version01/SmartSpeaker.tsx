@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSmartSpeaker: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,28 +101,4 @@ const IconSmartSpeaker: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSmartSpeaker as IconComponent).keywords = [
-  "smart",
-  "speaker",
-  "hurt",
-  "ache",
-  "raffish",
-  "rakish",
-  "snappy",
-  "cagy",
-  "impertinent",
-  "dashing",
-  "impudent",
-  "talker",
-  "loudspeaker",
-  "loudspeaker system",
-  "speaker system",
-  "speaker unit",
-  "speaking",
-  "orator",
-  "speak",
-  "speech",
-];
-
-export default IconSmartSpeaker as IconComponent;
+export default IconSmartSpeaker;

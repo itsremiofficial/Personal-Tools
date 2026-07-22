@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMouse: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,18 +80,4 @@ const IconMouse: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMouse as IconComponent).keywords = [
-  "mouse",
-  "creep",
-  "pussyfoot",
-  "sneak",
-  "steal",
-  "murine",
-  "rodent",
-  "rat",
-  "weasel",
-  "frog",
-];
-
-export default IconMouse as IconComponent;
+export default IconMouse;

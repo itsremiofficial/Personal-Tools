@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGalleryCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconGalleryCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGalleryCircle as IconComponent).keywords = [
-  "gallery",
-  "circle",
-  "art gallery",
-  "heading",
-  "verandah",
-  "veranda",
-  "drift",
-  "picture gallery",
-  "museum",
-  "beaux-arts",
-  "art",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconGalleryCircle as IconComponent;
+export default IconGalleryCircle;

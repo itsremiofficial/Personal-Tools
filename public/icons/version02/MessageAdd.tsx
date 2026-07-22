@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMessageAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -81,28 +88,4 @@ const IconMessageAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMessageAdd as IconComponent).keywords = [
-  "message",
-  "add",
-  "subject matter",
-  "substance",
-  "content",
-  "file",
-  "communiqué",
-  "transmission",
-  "communication",
-  "news",
-  "advertisement",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconMessageAdd as IconComponent;
+export default IconMessageAdd;

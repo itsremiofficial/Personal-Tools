@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWalking: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,18 +97,4 @@ const IconWalking: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWalking as IconComponent).keywords = [
-  "walking",
-  "afoot",
-  "moving",
-  "close",
-  "walk-to",
-  "pedestrian",
-  "hike",
-  "step",
-  "stepping",
-  "strolling",
-];
-
-export default IconWalking as IconComponent;
+export default IconWalking;

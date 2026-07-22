@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStarRings: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,28 +89,4 @@ const IconStarRings: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStarRings as IconComponent).keywords = [
-  "star",
-  "rings",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-  "band",
-  "hoop",
-  "pack",
-  "encircle",
-  "surround",
-  "environ",
-  "knell",
-  "tintinnabulation",
-  "peal",
-];
-
-export default IconStarRings as IconComponent;
+export default IconStarRings;

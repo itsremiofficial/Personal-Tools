@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUnlimited: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,18 +82,4 @@ const IconUnlimited: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUnlimited as IconComponent).keywords = [
-  "unlimited",
-  "limitless",
-  "inexhaustible",
-  "bottomless",
-  "infinite",
-  "untrammeled",
-  "untrammelled",
-  "unqualified",
-  "straight-out",
-  "outright",
-];
-
-export default IconUnlimited as IconComponent;
+export default IconUnlimited;

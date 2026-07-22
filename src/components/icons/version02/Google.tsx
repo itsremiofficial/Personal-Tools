@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGoogle: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,18 +80,4 @@ const IconGoogle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGoogle as IconComponent).keywords = [
-  "google",
-  "valley",
-  "adsense",
-  "adwords",
-  "googe",
-  "goole",
-  "wikipedia",
-  "yahoo",
-  "youtube",
-  "bing",
-];
-
-export default IconGoogle as IconComponent;
+export default IconGoogle;

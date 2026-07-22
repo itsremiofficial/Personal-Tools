@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDiagramDown: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,28 +80,4 @@ const IconDiagramDown: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDiagramDown as IconComponent).keywords = [
-  "diagram",
-  "down",
-  "plot",
-  "flowchart",
-  "plan",
-  "graphical",
-  "figure",
-  "organigram",
-  "schema",
-  "organigramme",
-  "graph",
-  "downwards",
-  "downward",
-  "downbound",
-  "falling",
-  "fallen",
-  "pull down",
-  "downwardly",
-  "declining",
-  "descending",
-];
-
-export default IconDiagramDown as IconComponent;
+export default IconDiagramDown;

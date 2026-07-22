@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEmercoinEmc: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,19 +92,4 @@ const IconEmercoinEmc: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEmercoinEmc as IconComponent).keywords = [
-  "emercoin",
-  "emc",
-  "emf",
-  "sme",
-  "cme",
-  "ecm",
-  "crb",
-  "mtc",
-  "smc",
-  "mic",
-  "electromagnetic",
-];
-
-export default IconEmercoinEmc as IconComponent;
+export default IconEmercoinEmc;

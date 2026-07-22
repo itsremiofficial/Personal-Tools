@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGamepadNoCharge: FC<IconProps> = ({
   className,
   fill = false,
@@ -130,38 +137,4 @@ const IconGamepadNoCharge: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGamepadNoCharge as IconComponent).keywords = [
-  "gamepad",
-  "no",
-  "charge",
-  "joypad",
-  "thumbstick",
-  "d-pad",
-  "tv game",
-  "fighting stick",
-  "button masher",
-  "fire button",
-  "hat switch",
-  "gameboard",
-  "zero",
-  "nobelium",
-  "no more",
-  "nary",
-  "atomic number 102",
-  "rtecs",
-  "cobos",
-  "lack",
-  "negative",
-  "consign",
-  "commission",
-  "mission",
-  "appoint",
-  "billing",
-  "guardianship",
-  "tutelage",
-  "institutionalize",
-  "send",
-];
-
-export default IconGamepadNoCharge as IconComponent;
+export default IconGamepadNoCharge;

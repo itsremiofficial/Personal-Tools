@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLanguageSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,28 +100,4 @@ const IconLanguageSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLanguageSquare as IconComponent).keywords = [
-  "language",
-  "square",
-  "speech",
-  "nomenclature",
-  "terminology",
-  "lyric",
-  "words",
-  "linguistic communication",
-  "linguistic process",
-  "oral communication",
-  "spoken language",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconLanguageSquare as IconComponent;
+export default IconLanguageSquare;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBatteryHalfMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,38 +101,4 @@ const IconBatteryHalfMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBatteryHalfMinimalistic as IconComponent).keywords = [
-  "battery",
-  "half",
-  "minimalistic",
-  "bombardment",
-  "stamp battery",
-  "barrage",
-  "shelling",
-  "assault and battery",
-  "assault",
-  "barrage fire",
-  "electric battery",
-  "alternator",
-  "fractional",
-  "one-half",
-  "uncomplete",
-  "incomplete",
-  "halving",
-  "halve",
-  "halved",
-  "moiety",
-  "semi-finished",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconBatteryHalfMinimalistic as IconComponent;
+export default IconBatteryHalfMinimalistic;

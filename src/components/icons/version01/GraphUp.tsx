@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGraphUp: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconGraphUp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGraphUp as IconComponent).keywords = [
-  "graph",
-  "up",
-  "graphical record",
-  "diagram",
-  "flowchart",
-  "figure",
-  "graphical",
-  "chart",
-  "map",
-  "design",
-  "graphically",
-  "upbound",
-  "upwardly",
-  "ascending",
-  "upward",
-  "upwards",
-  "rising",
-  "astir",
-  "ahead",
-  "awake",
-];
-
-export default IconGraphUp as IconComponent;
+export default IconGraphUp;

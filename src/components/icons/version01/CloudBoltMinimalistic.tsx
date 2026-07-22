@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudBoltMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,38 +86,4 @@ const IconCloudBoltMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudBoltMinimalistic as IconComponent).keywords = [
-  "cloud",
-  "bolt",
-  "minimalistic",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "deadbolt",
-  "thunderbolt",
-  "run out",
-  "slap",
-  "smack",
-  "bang",
-  "gobble",
-  "go off",
-  "absquatulate",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconCloudBoltMinimalistic as IconComponent;
+export default IconCloudBoltMinimalistic;

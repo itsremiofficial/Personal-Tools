@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconKeyMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconKeyMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconKeyMinimalistic as IconComponent).keywords = [
-  "key",
-  "minimalistic",
-  "winder",
-  "kilo",
-  "kilogram",
-  "central",
-  "kg",
-  "discover",
-  "operative",
-  "describe",
-  "identify",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconKeyMinimalistic as IconComponent;
+export default IconKeyMinimalistic;

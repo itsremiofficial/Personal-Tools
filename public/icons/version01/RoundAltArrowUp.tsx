@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRoundAltArrowUp: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,48 +80,4 @@ const IconRoundAltArrowUp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRoundAltArrowUp as IconComponent).keywords = [
-  "round",
-  "alt",
-  "arrow",
-  "up",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-  "elevation",
-  "el",
-  "altitude",
-  "backspace",
-  "esc",
-  "shadow",
-  "ctrl",
-  "variation",
-  "variant",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-  "upbound",
-  "upwardly",
-  "ascending",
-  "upward",
-  "upwards",
-  "rising",
-  "astir",
-  "ahead",
-  "awake",
-];
-
-export default IconRoundAltArrowUp as IconComponent;
+export default IconRoundAltArrowUp;

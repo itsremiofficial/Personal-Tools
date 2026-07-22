@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRemoteControllerMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,38 +92,4 @@ const IconRemoteControllerMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRemoteControllerMinimalistic as IconComponent).keywords = [
-  "remote",
-  "controller",
-  "minimalistic",
-  "distant",
-  "far",
-  "outside",
-  "removed",
-  "unlikely",
-  "inaccessible",
-  "unaccessible",
-  "backwoods",
-  "outback",
-  "control",
-  "accountant",
-  "comptroller",
-  "conductor",
-  "inspector",
-  "scrutineer",
-  "controlling",
-  "monitor",
-  "checker",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconRemoteControllerMinimalistic as IconComponent;
+export default IconRemoteControllerMinimalistic;

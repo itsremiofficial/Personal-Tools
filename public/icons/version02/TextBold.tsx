@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTextBold: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,28 +86,4 @@ const IconTextBold: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTextBold as IconComponent).keywords = [
-  "text",
-  "bold",
-  "schoolbook",
-  "textbook",
-  "school text",
-  "text edition",
-  "textual matter",
-  "writing",
-  "letter",
-  "paragraph",
-  "manuscript",
-  "vaulting",
-  "heroic",
-  "heroical",
-  "steep",
-  "overreaching",
-  "enterprising",
-  "bluff",
-  "daredevil",
-  "positive",
-];
-
-export default IconTextBold as IconComponent;
+export default IconTextBold;

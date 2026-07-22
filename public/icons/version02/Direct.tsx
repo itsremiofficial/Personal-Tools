@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDirect: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,18 +106,4 @@ const IconDirect: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDirect as IconComponent).keywords = [
-  "direct",
-  "straightforward",
-  "directly",
-  "forthright",
-  "plainspoken",
-  "man-to-man",
-  "straight",
-  "frank",
-  "free-spoken",
-  "outspoken",
-];
-
-export default IconDirect as IconComponent;
+export default IconDirect;

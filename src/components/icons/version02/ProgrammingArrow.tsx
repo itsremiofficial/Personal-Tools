@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconProgrammingArrow: FC<IconProps> = ({
   className,
   fill = false,
@@ -105,28 +112,4 @@ const IconProgrammingArrow: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconProgrammingArrow as IconComponent).keywords = [
-  "programming",
-  "arrow",
-  "computer programming",
-  "scheduling",
-  "airtime",
-  "television",
-  "broadcasting",
-  "plan",
-  "software",
-  "programmer",
-  "programmatic",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-];
-
-export default IconProgrammingArrow as IconComponent;
+export default IconProgrammingArrow;

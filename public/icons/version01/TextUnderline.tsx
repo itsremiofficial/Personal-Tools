@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTextUnderline: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconTextUnderline: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTextUnderline as IconComponent).keywords = [
-  "text",
-  "underline",
-  "schoolbook",
-  "textbook",
-  "school text",
-  "text edition",
-  "textual matter",
-  "writing",
-  "letter",
-  "paragraph",
-  "manuscript",
-  "underscore",
-  "emphasize",
-  "highlighting",
-  "highlight",
-  "highlights",
-  "outline",
-  "note",
-  "accentuate",
-  "draw",
-];
-
-export default IconTextUnderline as IconComponent;
+export default IconTextUnderline;

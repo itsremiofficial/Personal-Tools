@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMessageNotif: FC<IconProps> = ({
   className,
   fill = false,
@@ -112,28 +119,4 @@ const IconMessageNotif: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMessageNotif as IconComponent).keywords = [
-  "message",
-  "notif",
-  "subject matter",
-  "substance",
-  "content",
-  "file",
-  "communiqué",
-  "transmission",
-  "communication",
-  "news",
-  "advertisement",
-  "buzzer",
-  "sharpie",
-  "freq",
-  "snout",
-  "deets",
-  "sticky note",
-  "goss",
-  "nooz",
-  "bullfuck",
-];
-
-export default IconMessageNotif as IconComponent;
+export default IconMessageNotif;

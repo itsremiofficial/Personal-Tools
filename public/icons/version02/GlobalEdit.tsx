@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGlobalEdit: FC<IconProps> = ({
   className,
   fill = false,
@@ -196,28 +203,4 @@ const IconGlobalEdit: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGlobalEdit as IconComponent).keywords = [
-  "global",
-  "edit",
-  "worldwide",
-  "international",
-  "world",
-  "circular",
-  "round",
-  "spherical",
-  "orbicular",
-  "globular",
-  "spheric",
-  "redact",
-  "edit out",
-  "cut",
-  "editor",
-  "edition",
-  "publication",
-  "publish",
-  "publishing",
-  "authoring",
-];
-
-export default IconGlobalEdit as IconComponent;
+export default IconGlobalEdit;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFatrows: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,7 +82,4 @@ const IconFatrows: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFatrows as IconComponent).keywords = ["fatrows"];
-
-export default IconFatrows as IconComponent;
+export default IconFatrows;

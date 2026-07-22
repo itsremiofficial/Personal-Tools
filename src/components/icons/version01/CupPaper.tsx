@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCupPaper: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,28 +93,4 @@ const IconCupPaper: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCupPaper as IconComponent).keywords = [
-  "cup",
-  "paper",
-  "loving cup",
-  "cupful",
-  "transfuse",
-  "chalice",
-  "goblet",
-  "bottle",
-  "jar",
-  "pot",
-  "bowl",
-  "wallpaper",
-  "composition",
-  "newspaper",
-  "report",
-  "theme",
-  "newspaper publisher",
-  "ink",
-  "wallet",
-  "stationery",
-];
-
-export default IconCupPaper as IconComponent;
+export default IconCupPaper;

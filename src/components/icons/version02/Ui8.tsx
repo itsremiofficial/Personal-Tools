@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUi8: FC<IconProps> = ({
   className,
   fill = false,
@@ -122,28 +129,4 @@ const IconUi8: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUi8 as IconComponent).keywords = [
-  "ui",
-  "8",
-  "pds",
-  "haq",
-  "mulk",
-  "benefits",
-  "allowances",
-  "benefit",
-  "checkbox",
-  "delivery",
-  "entitlements",
-  "cck",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "back up",
-  "put through",
-  "ring up",
-  "call up",
-  "hang up",
-];
-
-export default IconUi8 as IconComponent;
+export default IconUi8;

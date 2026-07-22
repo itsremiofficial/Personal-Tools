@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCallSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,28 +99,4 @@ const IconCallSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCallSlash as IconComponent).keywords = [
-  "call",
-  "slash",
-  "phone call",
-  "telephone call",
-  "call in",
-  "telephone",
-  "phone",
-  "call up",
-  "send for",
-  "call option",
-  "margin call",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconCallSlash as IconComponent;
+export default IconCallSlash;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBillCross: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,28 +87,4 @@ const IconBillCross: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBillCross as IconComponent).keywords = [
-  "bill",
-  "cross",
-  "billhook",
-  "handbill",
-  "visor",
-  "vizor",
-  "flyer",
-  "broadside",
-  "nib",
-  "circular",
-  "eyeshade",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-];
-
-export default IconBillCross as IconComponent;
+export default IconBillCross;

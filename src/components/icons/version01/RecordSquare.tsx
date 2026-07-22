@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRecordSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconRecordSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRecordSquare as IconComponent).keywords = [
-  "record",
-  "square",
-  "phonograph record",
-  "book",
-  "register",
-  "read",
-  "disk",
-  "disc",
-  "show",
-  "memorialize",
-  "commemorate",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconRecordSquare as IconComponent;
+export default IconRecordSquare;

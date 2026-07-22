@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBroom: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,18 +84,4 @@ const IconBroom: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBroom as IconComponent).keywords = [
-  "broom",
-  "sweep",
-  "heather",
-  "ling",
-  "calluna vulgaris",
-  "scots heather",
-  "broomstick",
-  "mop",
-  "dustpan",
-  "sweeper",
-];
-
-export default IconBroom as IconComponent;
+export default IconBroom;

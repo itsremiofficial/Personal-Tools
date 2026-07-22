@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconReceipt: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,18 +90,4 @@ const IconReceipt: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconReceipt as IconComponent).keywords = [
-  "receipt",
-  "receiving",
-  "reception",
-  "acknowledge",
-  "recipient",
-  "receptor",
-  "granting",
-  "receive",
-  "grant",
-  "remitting",
-];
-
-export default IconReceipt as IconComponent;
+export default IconReceipt;

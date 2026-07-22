@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTemperature: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,18 +77,4 @@ const IconTemperature: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTemperature as IconComponent).keywords = [
-  "temperature",
-  "thermic",
-  "thermal",
-  "thermometer",
-  "climate",
-  "weather",
-  "water",
-  "celsius",
-  "velocity",
-  "cold",
-];
-
-export default IconTemperature as IconComponent;
+export default IconTemperature;

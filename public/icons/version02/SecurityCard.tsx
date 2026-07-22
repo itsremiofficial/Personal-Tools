@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSecurityCard: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,28 +114,4 @@ const IconSecurityCard: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSecurityCard as IconComponent).keywords = [
-  "security",
-  "card",
-  "surety",
-  "protection",
-  "certificate",
-  "security system",
-  "security measures",
-  "confidentiality",
-  "safe",
-  "secure",
-  "peace",
-  "scorecard",
-  "batting order",
-  "identity card",
-  "visiting card",
-  "calling card",
-  "lineup",
-  "poster",
-  "placard",
-  "tease",
-];
-
-export default IconSecurityCard as IconComponent;
+export default IconSecurityCard;

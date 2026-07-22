@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSidebarMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconSidebarMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSidebarMinimalistic as IconComponent).keywords = [
-  "sidebar",
-  "minimalistic",
-  "billet",
-  "margin",
-  "textbox",
-  "supervised",
-  "inset",
-  "banknote",
-  "vertical",
-  "ticket",
-  "fare",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconSidebarMinimalistic as IconComponent;
+export default IconSidebarMinimalistic;

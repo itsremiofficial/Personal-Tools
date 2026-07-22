@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCircleBottomDown: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,38 +91,4 @@ const IconCircleBottomDown: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCircleBottomDown as IconComponent).keywords = [
-  "circle",
-  "bottom",
-  "down",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-  "ass",
-  "bed",
-  "backside",
-  "underside",
-  "undersurface",
-  "penetrate",
-  "derriere",
-  "fathom",
-  "seat",
-  "downwards",
-  "downward",
-  "downbound",
-  "falling",
-  "fallen",
-  "pull down",
-  "downwardly",
-  "declining",
-  "descending",
-];
-
-export default IconCircleBottomDown as IconComponent;
+export default IconCircleBottomDown;

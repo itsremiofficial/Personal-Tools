@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMenuDotsCircle2: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,48 +93,4 @@ const IconMenuDotsCircle2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMenuDotsCircle2 as IconComponent).keywords = [
-  "menu",
-  "dots",
-  "circle",
-  "2",
-  "bill of fare",
-  "carte",
-  "fare",
-  "card",
-  "carte du jour",
-  "computer menu",
-  "dinner",
-  "meal",
-  "list",
-  "sprinkle",
-  "scatter",
-  "disperse",
-  "dust",
-  "dit",
-  "stud",
-  "point",
-  "constellate",
-  "pts",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconMenuDotsCircle2 as IconComponent;
+export default IconMenuDotsCircle2;

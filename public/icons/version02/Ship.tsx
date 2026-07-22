@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShip: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,18 +105,4 @@ const IconShip: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShip as IconComponent).keywords = [
-  "ship",
-  "transport",
-  "send",
-  "shipboard",
-  "vessel",
-  "cruiser",
-  "barge",
-  "sailing",
-  "houseboat",
-  "shipbuilding",
-];
-
-export default IconShip as IconComponent;
+export default IconShip;

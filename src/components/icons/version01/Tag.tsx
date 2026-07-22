@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTag: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,18 +90,4 @@ const IconTag: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTag as IconComponent).keywords = [
-  "tag",
-  "label",
-  "mark",
-  "trail",
-  "chase",
-  "go after",
-  "tag end",
-  "dog",
-  "shred",
-  "chase after",
-];
-
-export default IconTag as IconComponent;
+export default IconTag;

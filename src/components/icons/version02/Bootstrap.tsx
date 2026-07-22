@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBootstrap: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,18 +92,4 @@ const IconBootstrap: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBootstrap as IconComponent).keywords = [
-  "bootstrap",
-  "boot",
-  "startup",
-  "start",
-  "method",
-  "bootable",
-  "lifters",
-  "bootstrapper",
-  "scss",
-  "multiproject",
-];
-
-export default IconBootstrap as IconComponent;
+export default IconBootstrap;

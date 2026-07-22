@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTetherUsdt: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,19 +90,4 @@ const IconTetherUsdt: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTetherUsdt as IconComponent).keywords = [
-  "tether",
-  "usdt",
-  "leash",
-  "lead",
-  "fasten",
-  "fastening",
-  "bind",
-  "attach",
-  "cover",
-  "cable",
-  "strap",
-];
-
-export default IconTetherUsdt as IconComponent;
+export default IconTetherUsdt;

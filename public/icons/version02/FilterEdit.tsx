@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFilterEdit: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconFilterEdit: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFilterEdit as IconComponent).keywords = [
-  "filter",
-  "edit",
-  "filtrate",
-  "filter out",
-  "percolate",
-  "permeate",
-  "trickle",
-  "sink in",
-  "strain",
-  "dribble",
-  "separate out",
-  "redact",
-  "edit out",
-  "cut",
-  "editor",
-  "edition",
-  "publication",
-  "publish",
-  "publishing",
-  "authoring",
-];
-
-export default IconFilterEdit as IconComponent;
+export default IconFilterEdit;

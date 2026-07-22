@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVideoTime: FC<IconProps> = ({
   className,
   fill = false,
@@ -123,28 +130,4 @@ const IconVideoTime: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVideoTime as IconComponent).keywords = [
-  "video",
-  "time",
-  "tv",
-  "television",
-  "picture",
-  "telecasting",
-  "televised",
-  "videotaping",
-  "videotaped",
-  "taping",
-  "videotape",
-  "fourth dimension",
-  "clock",
-  "meter",
-  "clip",
-  "sentence",
-  "clock time",
-  "prison term",
-  "space-time",
-  "momentum",
-];
-
-export default IconVideoTime as IconComponent;
+export default IconVideoTime;

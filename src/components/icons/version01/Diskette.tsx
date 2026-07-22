@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDiskette: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,18 +90,4 @@ const IconDiskette: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDiskette as IconComponent).keywords = [
-  "diskette",
-  "floppy disk",
-  "floppy",
-  "bootable",
-  "database",
-  "cdi",
-  "disk",
-  "disc",
-  "girder",
-  "disco",
-];
-
-export default IconDiskette as IconComponent;
+export default IconDiskette;

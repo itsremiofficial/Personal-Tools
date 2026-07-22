@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconForward5Seconds: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,37 +89,4 @@ const IconForward5Seconds: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconForward5Seconds as IconComponent).keywords = [
-  "forward",
-  "5",
-  "seconds",
-  "frontwards",
-  "ahead",
-  "frontward",
-  "forrader",
-  "front",
-  "forth",
-  "onwards",
-  "onward",
-  "advancing",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-  "rush hour",
-  "sec",
-  "moment",
-  "instant",
-  "intermediate",
-  "endorsement",
-  "endorse",
-  "indorse",
-  "back",
-];
-
-export default IconForward5Seconds as IconComponent;
+export default IconForward5Seconds;

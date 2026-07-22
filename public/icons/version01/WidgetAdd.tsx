@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWidgetAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,28 +109,4 @@ const IconWidgetAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWidgetAdd as IconComponent).keywords = [
-  "widget",
-  "add",
-  "gadget",
-  "gizmo",
-  "convenience",
-  "contraption",
-  "contrivance",
-  "appliance",
-  "thingy",
-  "accessory",
-  "wizard",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconWidgetAdd as IconComponent;
+export default IconWidgetAdd;

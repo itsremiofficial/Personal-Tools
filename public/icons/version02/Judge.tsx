@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconJudge: FC<IconProps> = ({
   className,
   fill = false,
@@ -110,18 +117,4 @@ const IconJudge: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconJudge as IconComponent).keywords = [
-  "judge",
-  "magistrate",
-  "jurist",
-  "justice",
-  "adjudicate",
-  "estimate",
-  "pronounce",
-  "label",
-  "guess",
-  "approximate",
-];
-
-export default IconJudge as IconComponent;
+export default IconJudge;

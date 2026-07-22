@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTextBlock: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,28 +86,4 @@ const IconTextBlock: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTextBlock as IconComponent).keywords = [
-  "text",
-  "block",
-  "schoolbook",
-  "textbook",
-  "school text",
-  "text edition",
-  "textual matter",
-  "writing",
-  "letter",
-  "paragraph",
-  "manuscript",
-  "bar",
-  "stuff",
-  "pulley",
-  "barricade",
-  "engine block",
-  "lug",
-  "freeze",
-  "blockade",
-  "parry",
-];
-
-export default IconTextBlock as IconComponent;
+export default IconTextBlock;

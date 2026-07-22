@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTextCross: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,28 +85,4 @@ const IconTextCross: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTextCross as IconComponent).keywords = [
-  "text",
-  "cross",
-  "schoolbook",
-  "textbook",
-  "school text",
-  "text edition",
-  "textual matter",
-  "writing",
-  "letter",
-  "paragraph",
-  "manuscript",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-];
-
-export default IconTextCross as IconComponent;
+export default IconTextCross;

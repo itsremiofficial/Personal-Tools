@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFolderFavouriteStar: FC<IconProps> = ({
   className,
   fill = false,
@@ -69,38 +76,4 @@ const IconFolderFavouriteStar: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFolderFavouriteStar as IconComponent).keywords = [
-  "folder",
-  "favourite",
-  "star",
-  "booklet",
-  "pamphlet",
-  "brochure",
-  "leaflet",
-  "toolkit",
-  "pack",
-  "package",
-  "kit",
-  "shirt",
-  "preferred",
-  "favored",
-  "favorite",
-  "popular",
-  "loved",
-  "deary",
-  "darling",
-  "dearie",
-  "front-runner",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-];
-
-export default IconFolderFavouriteStar as IconComponent;
+export default IconFolderFavouriteStar;

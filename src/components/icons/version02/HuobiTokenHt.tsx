@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHuobiTokenHt: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,38 +85,4 @@ const IconHuobiTokenHt: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHuobiTokenHt as IconComponent).keywords = [
-  "huobi",
-  "token",
-  "ht",
-  "bitstamp",
-  "bithumb",
-  "shapeshift",
-  "mauritius commercial bank",
-  "mt. gox",
-  "neo exchange",
-  "szse 100 index",
-  "hsbc",
-  "tsx venture exchange",
-  "tokenish",
-  "item",
-  "nominal",
-  "keepsake",
-  "souvenir",
-  "relic",
-  "minimal",
-  "minimum",
-  "tokenistic",
-  "hrt",
-  "tso",
-  "sts",
-  "utes",
-  "alt",
-  "serotonin",
-  "98",
-  "73",
-  "acetylcholine",
-];
-
-export default IconHuobiTokenHt as IconComponent;
+export default IconHuobiTokenHt;

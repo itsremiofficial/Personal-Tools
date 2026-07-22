@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAccumulator: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,18 +114,4 @@ const IconAccumulator: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAccumulator as IconComponent).keywords = [
-  "accumulator",
-  "gatherer",
-  "collector",
-  "storage battery",
-  "servo",
-  "nonlinear",
-  "cell",
-  "battery",
-  "smog",
-  "smoke",
-];
-
-export default IconAccumulator as IconComponent;
+export default IconAccumulator;

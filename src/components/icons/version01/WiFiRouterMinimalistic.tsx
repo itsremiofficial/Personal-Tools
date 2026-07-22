@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWiFiRouterMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -116,45 +123,4 @@ const IconWiFiRouterMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWiFiRouterMinimalistic as IconComponent).keywords = [
-  "wi",
-  "fi",
-  "router",
-  "minimalistic",
-  "tl",
-  "t2",
-  "jon",
-  "chak",
-  "claire",
-  "crosse",
-  "dsl",
-  "ethernet",
-  "sci",
-  "semper",
-  "initiative",
-  "audio",
-  "abyss",
-  "agent",
-  "alien",
-  "routing",
-  "switch",
-  "route",
-  "adapter",
-  "hub",
-  "lsa",
-  "cisco",
-  "linksys",
-  "modem",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconWiFiRouterMinimalistic as IconComponent;
+export default IconWiFiRouterMinimalistic;

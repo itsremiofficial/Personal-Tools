@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGalleryEdit: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,28 +89,4 @@ const IconGalleryEdit: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGalleryEdit as IconComponent).keywords = [
-  "gallery",
-  "edit",
-  "art gallery",
-  "heading",
-  "verandah",
-  "veranda",
-  "drift",
-  "picture gallery",
-  "museum",
-  "beaux-arts",
-  "art",
-  "redact",
-  "edit out",
-  "cut",
-  "editor",
-  "edition",
-  "publication",
-  "publish",
-  "publishing",
-  "authoring",
-];
-
-export default IconGalleryEdit as IconComponent;
+export default IconGalleryEdit;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDangerSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconDangerSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDangerSquare as IconComponent).keywords = [
-  "danger",
-  "square",
-  "peril",
-  "risk",
-  "jeopardize",
-  "hazardous",
-  "dangerous",
-  "dangerously",
-  "dangerousness",
-  "endangering",
-  "hazard",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconDangerSquare as IconComponent;
+export default IconDangerSquare;

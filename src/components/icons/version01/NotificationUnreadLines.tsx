@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNotificationUnreadLines: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,38 +109,4 @@ const IconNotificationUnreadLines: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNotificationUnreadLines as IconComponent).keywords = [
-  "notification",
-  "unread",
-  "lines",
-  "apprisal",
-  "notice",
-  "telling",
-  "presentment",
-  "notifying",
-  "notifier",
-  "notify",
-  "denunciation",
-  "announcement",
-  "uninformed",
-  "unused",
-  "unutilized",
-  "unspent",
-  "unencumbered",
-  "unwatched",
-  "unplayed",
-  "unsent",
-  "unreviewed",
-  "outline",
-  "dividing line",
-  "agate line",
-  "delineate",
-  "telephone line",
-  "draw",
-  "transmission line",
-  "credit line",
-  "phone line",
-];
-
-export default IconNotificationUnreadLines as IconComponent;
+export default IconNotificationUnreadLines;

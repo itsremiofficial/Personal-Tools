@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTestTube: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,28 +103,4 @@ const IconTestTube: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTestTube as IconComponent).keywords = [
-  "test",
-  "tube",
-  "try out",
-  "examine",
-  "trial",
-  "experimental",
-  "examination",
-  "prove",
-  "assay",
-  "try",
-  "quiz",
-  "underground",
-  "electron tube",
-  "vacuum tube",
-  "thermionic valve",
-  "metro",
-  "subway",
-  "pipe",
-  "thermionic tube",
-  "thermionic vacuum tube",
-];
-
-export default IconTestTube as IconComponent;
+export default IconTestTube;

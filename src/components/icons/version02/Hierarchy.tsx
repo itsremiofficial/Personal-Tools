@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHierarchy: FC<IconProps> = ({
   className,
   fill = false,
@@ -113,18 +120,4 @@ const IconHierarchy: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHierarchy as IconComponent).keywords = [
-  "hierarchy",
-  "power structure",
-  "pecking order",
-  "hierarchical",
-  "seniority",
-  "class",
-  "leadership",
-  "high-ranking",
-  "affiliated",
-  "authority",
-];
-
-export default IconHierarchy as IconComponent;
+export default IconHierarchy;

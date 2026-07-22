@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUploadTrack2: FC<IconProps> = ({
   className,
   fill = false,
@@ -110,38 +117,4 @@ const IconUploadTrack2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUploadTrack2 as IconComponent).keywords = [
-  "upload",
-  "track",
-  "2",
-  "download",
-  "loader",
-  "reload",
-  "uplink",
-  "send",
-  "sending",
-  "charging",
-  "recharge",
-  "rechargeable",
-  "cover",
-  "traverse",
-  "path",
-  "racecourse",
-  "cartroad",
-  "rail",
-  "cut across",
-  "running",
-  "trail",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconUploadTrack2 as IconComponent;
+export default IconUploadTrack2;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVinylRecord: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,28 +96,4 @@ const IconVinylRecord: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVinylRecord as IconComponent).keywords = [
-  "vinyl",
-  "record",
-  "vinyl group",
-  "vinyl radical",
-  "carbazole",
-  "pyridine",
-  "pyrrolidone",
-  "polyvinyl",
-  "gaba",
-  "plastic",
-  "chloride",
-  "phonograph record",
-  "book",
-  "register",
-  "read",
-  "disk",
-  "disc",
-  "show",
-  "memorialize",
-  "commemorate",
-];
-
-export default IconVinylRecord as IconComponent;
+export default IconVinylRecord;

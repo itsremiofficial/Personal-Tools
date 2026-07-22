@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGemini: FC<IconProps> = ({
   className,
   fill = false,
@@ -117,18 +124,4 @@ const IconGemini: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGemini as IconComponent).keywords = [
-  "gemini",
-  "gemini the twins",
-  "telescope",
-  "double",
-  "titan",
-  "orion",
-  "virgo",
-  "scorpio",
-  "aquarius",
-  "capricorn",
-];
-
-export default IconGemini as IconComponent;
+export default IconGemini;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMessenger: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,18 +85,4 @@ const IconMessenger: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMessenger as IconComponent).keywords = [
-  "messenger",
-  "courier",
-  "mailman",
-  "mail",
-  "agent",
-  "message",
-  "herald",
-  "e-mail",
-  "emissary",
-  "factor",
-];
-
-export default IconMessenger as IconComponent;
+export default IconMessenger;

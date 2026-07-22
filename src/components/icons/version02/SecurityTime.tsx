@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSecurityTime: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,28 +96,4 @@ const IconSecurityTime: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSecurityTime as IconComponent).keywords = [
-  "security",
-  "time",
-  "surety",
-  "protection",
-  "certificate",
-  "security system",
-  "security measures",
-  "confidentiality",
-  "safe",
-  "secure",
-  "peace",
-  "fourth dimension",
-  "clock",
-  "meter",
-  "clip",
-  "sentence",
-  "clock time",
-  "prison term",
-  "space-time",
-  "momentum",
-];
-
-export default IconSecurityTime as IconComponent;
+export default IconSecurityTime;

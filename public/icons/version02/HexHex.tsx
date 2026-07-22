@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHexHex: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,18 +102,4 @@ const IconHexHex: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHexHex as IconComponent).keywords = [
-  "hex",
-  "bewitch",
-  "enchant",
-  "glamour",
-  "witch",
-  "jinx",
-  "curse",
-  "hexadecimal",
-  "charm",
-  "spell",
-];
-
-export default IconHexHex as IconComponent;
+export default IconHexHex;

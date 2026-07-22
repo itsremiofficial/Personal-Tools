@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBluetoothWave: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,28 +107,4 @@ const IconBluetoothWave: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBluetoothWave as IconComponent).keywords = [
-  "bluetooth",
-  "wave",
-  "teeth",
-  "tooth",
-  "handsfree",
-  "wireless",
-  "ipod",
-  "wifi",
-  "stereo",
-  "speakerphone",
-  "headset",
-  "beckon",
-  "undulate",
-  "undulation",
-  "flap",
-  "wafture",
-  "brandish",
-  "curl",
-  "flourish",
-  "moving ridge",
-];
-
-export default IconBluetoothWave as IconComponent;
+export default IconBluetoothWave;

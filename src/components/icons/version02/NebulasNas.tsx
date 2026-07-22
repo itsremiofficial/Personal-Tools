@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNebulasNas: FC<IconProps> = ({
   className,
   fill = false,
@@ -111,28 +118,4 @@ const IconNebulasNas: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNebulasNas as IconComponent).keywords = [
-  "nebulas",
-  "nas",
-  "aurorae",
-  "trifid",
-  "astrophysical",
-  "epsilon aurigae",
-  "haloes",
-  "nebulosity",
-  "prominences",
-  "planetary nebula",
-  "galaxies",
-  "sodium",
-  "atomic number 11",
-  "sar",
-  "nsa",
-  "nrc",
-  "sns",
-  "lha",
-  "san",
-  "academy",
-];
-
-export default IconNebulasNas as IconComponent;
+export default IconNebulasNas;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCallCancel: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,28 +80,4 @@ const IconCallCancel: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCallCancel as IconComponent).keywords = [
-  "call",
-  "cancel",
-  "phone call",
-  "telephone call",
-  "call in",
-  "telephone",
-  "phone",
-  "call up",
-  "send for",
-  "call option",
-  "margin call",
-  "offset",
-  "natural",
-  "delete",
-  "call off",
-  "set off",
-  "invalidate",
-  "strike",
-  "write",
-  "render",
-];
-
-export default IconCallCancel as IconComponent;
+export default IconCallCancel;

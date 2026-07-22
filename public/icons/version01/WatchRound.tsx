@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWatchRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,28 +106,4 @@ const IconWatchRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWatchRound as IconComponent).keywords = [
-  "watch",
-  "round",
-  "picket",
-  "ticker",
-  "sentry",
-  "lookout man",
-  "lookout",
-  "sentinel",
-  "determine",
-  "scout",
-  "catch",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconWatchRound as IconComponent;
+export default IconWatchRound;

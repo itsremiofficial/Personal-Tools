@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBugMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -169,28 +176,4 @@ const IconBugMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBugMinimalistic as IconComponent).keywords = [
-  "bug",
-  "minimalistic",
-  "hemipteran",
-  "hemipteron",
-  "badger",
-  "germ",
-  "microbe",
-  "tap",
-  "tease",
-  "beleaguer",
-  "harass",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconBugMinimalistic as IconComponent;
+export default IconBugMinimalistic;

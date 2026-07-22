@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEarth: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,18 +96,4 @@ const IconEarth: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEarth as IconComponent).keywords = [
-  "earth",
-  "ground",
-  "terra firma",
-  "land",
-  "dry land",
-  "globe",
-  "world",
-  "earthly concern",
-  "solid ground",
-  "worldly concern",
-];
-
-export default IconEarth as IconComponent;
+export default IconEarth;

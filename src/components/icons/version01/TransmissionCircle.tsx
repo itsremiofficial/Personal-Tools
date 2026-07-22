@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTransmissionCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,28 +89,4 @@ const IconTransmissionCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTransmissionCircle as IconComponent).keywords = [
-  "transmission",
-  "circle",
-  "transmittal",
-  "transmitting",
-  "transmittance",
-  "infection",
-  "contagion",
-  "transmitted",
-  "transmitter",
-  "transmit",
-  "message",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconTransmissionCircle as IconComponent;
+export default IconTransmissionCircle;

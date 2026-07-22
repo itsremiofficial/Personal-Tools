@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCake: FC<IconProps> = ({
   className,
   fill = false,
@@ -146,18 +153,4 @@ const IconCake: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCake as IconComponent).keywords = [
-  "cake",
-  "coat",
-  "bar",
-  "patty",
-  "doughnut",
-  "pudding",
-  "fruitcake",
-  "twinkie",
-  "biscuit",
-  "cookie",
-];
-
-export default IconCake as IconComponent;
+export default IconCake;

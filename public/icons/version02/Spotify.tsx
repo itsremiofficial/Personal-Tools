@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSpotify: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,18 +111,4 @@ const IconSpotify: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSpotify as IconComponent).keywords = [
-  "spotify",
-  "ipod",
-  "audioblog",
-  "label",
-  "folknik",
-  "abba",
-  "apple",
-  "one-stop",
-  "soundcloud rap",
-  "music",
-];
-
-export default IconSpotify as IconComponent;
+export default IconSpotify;

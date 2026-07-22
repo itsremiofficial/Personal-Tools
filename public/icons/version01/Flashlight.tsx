@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFlashlight: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,18 +111,4 @@ const IconFlashlight: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFlashlight as IconComponent).keywords = [
-  "flashlight",
-  "torch",
-  "lamp",
-  "searchlight",
-  "lantern",
-  "blowtorch",
-  "bonfire",
-  "luminous",
-  "flare",
-  "light",
-];
-
-export default IconFlashlight as IconComponent;
+export default IconFlashlight;

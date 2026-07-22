@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconListUp: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconListUp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconListUp as IconComponent).keywords = [
-  "list",
-  "up",
-  "tilt",
-  "inclination",
-  "lean",
-  "leaning",
-  "name",
-  "number",
-  "sheet",
-  "heel",
-  "table",
-  "upbound",
-  "upwardly",
-  "ascending",
-  "upward",
-  "upwards",
-  "rising",
-  "astir",
-  "ahead",
-  "awake",
-];
-
-export default IconListUp as IconComponent;
+export default IconListUp;

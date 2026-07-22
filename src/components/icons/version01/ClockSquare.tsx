@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconClockSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,28 +80,4 @@ const IconClockSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconClockSquare as IconComponent).keywords = [
-  "clock",
-  "square",
-  "time",
-  "stopwatch",
-  "watch",
-  "impactor",
-  "clockwork",
-  "pendulum",
-  "timer",
-  "dial",
-  "countdown",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconClockSquare as IconComponent;
+export default IconClockSquare;

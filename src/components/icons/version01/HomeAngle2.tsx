@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHomeAngle2: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,38 +79,4 @@ const IconHomeAngle2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHomeAngle2 as IconComponent).keywords = [
-  "home",
-  "angle",
-  "2",
-  "domicile",
-  "habitation",
-  "domestic",
-  "dwelling",
-  "nursing home",
-  "rest home",
-  "house",
-  "dwelling house",
-  "household",
-  "weight",
-  "slant",
-  "tilt",
-  "lean",
-  "tip",
-  "fish",
-  "side",
-  "prism",
-  "dimension",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconHomeAngle2 as IconComponent;
+export default IconHomeAngle2;

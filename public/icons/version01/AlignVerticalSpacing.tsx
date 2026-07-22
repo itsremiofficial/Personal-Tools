@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAlignVerticalSpacing: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,38 +91,4 @@ const IconAlignVerticalSpacing: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAlignVerticalSpacing as IconComponent).keywords = [
-  "align",
-  "vertical",
-  "spacing",
-  "line up",
-  "adjust",
-  "coordinate",
-  "aline",
-  "array",
-  "alignment",
-  "link",
-  "combine",
-  "integrate",
-  "perpendicular",
-  "plumb",
-  "upright",
-  "stand-up",
-  "standing",
-  "straight",
-  "rearing",
-  "erect",
-  "erectile",
-  "spatial arrangement",
-  "separator",
-  "partition",
-  "interval",
-  "layout",
-  "separation",
-  "separate",
-  "distance",
-  "disengagement",
-];
-
-export default IconAlignVerticalSpacing as IconComponent;
+export default IconAlignVerticalSpacing;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNemXem: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,19 +101,4 @@ const IconNemXem: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNemXem as IconComponent).keywords = [
-  "nem",
-  "xem",
-  "ene",
-  "eod",
-  "nor",
-  "not",
-  "nao",
-  "vai",
-  "niente",
-  "hoa",
-  "eet",
-];
-
-export default IconNemXem as IconComponent;
+export default IconNemXem;

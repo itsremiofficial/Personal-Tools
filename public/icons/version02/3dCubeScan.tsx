@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const Icon3dCubeScan: FC<IconProps> = ({
   className,
   fill = false,
@@ -124,38 +131,4 @@ const Icon3dCubeScan: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(Icon3dCubeScan as IconComponent).keywords = [
-  "3d",
-  "cube",
-  "scan",
-  "3-d",
-  "three-d",
-  "postage",
-  "qsar",
-  "abit",
-  "abstinent",
-  "amityville",
-  "arist",
-  "barque",
-  "block",
-  "dice",
-  "regular hexahedron",
-  "square block",
-  "third power",
-  "cubic",
-  "metre",
-  "piece",
-  "boss",
-  "read",
-  "run down",
-  "glance over",
-  "skim",
-  "rake",
-  "examine",
-  "inspect",
-  "finding",
-  "scrutinize",
-];
-
-export default Icon3dCubeScan as IconComponent;
+export default Icon3dCubeScan;

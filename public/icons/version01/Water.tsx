@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWater: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,18 +89,4 @@ const IconWater: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWater as IconComponent).keywords = [
-  "water",
-  "body of water",
-  "irrigate",
-  "water supply",
-  "sweat",
-  "weewee",
-  "sudor",
-  "perspiration",
-  "diaphoresis",
-  "hidrosis",
-];
-
-export default IconWater as IconComponent;
+export default IconWater;

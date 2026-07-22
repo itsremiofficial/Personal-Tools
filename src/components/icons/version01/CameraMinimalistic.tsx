@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCameraMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -114,28 +121,4 @@ const IconCameraMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCameraMinimalistic as IconComponent).keywords = [
-  "camera",
-  "minimalistic",
-  "photographic camera",
-  "television camera",
-  "photography",
-  "photographer",
-  "photographing",
-  "photograph",
-  "photo",
-  "imaging",
-  "photographic",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconCameraMinimalistic as IconComponent;
+export default IconCameraMinimalistic;

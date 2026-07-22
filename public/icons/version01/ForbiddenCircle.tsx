@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconForbiddenCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -74,28 +81,4 @@ const IconForbiddenCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconForbiddenCircle as IconComponent).keywords = [
-  "forbidden",
-  "circle",
-  "prohibited",
-  "impermissible",
-  "taboo",
-  "tabu",
-  "out",
-  "proscribed",
-  "banned",
-  "off-limits",
-  "not",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconForbiddenCircle as IconComponent;
+export default IconForbiddenCircle;

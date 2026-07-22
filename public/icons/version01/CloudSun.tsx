@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudSun: FC<IconProps> = ({
   className,
   fill = false,
@@ -121,28 +128,4 @@ const IconCloudSun: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudSun as IconComponent).keywords = [
-  "cloud",
-  "sun",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "sunlight",
-  "sunshine",
-  "sunbathe",
-  "sunday",
-  "earth",
-  "stars",
-  "sky",
-  "eclipse",
-  "star",
-];
-
-export default IconCloudSun as IconComponent;
+export default IconCloudSun;

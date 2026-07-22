@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconListArrowDownMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,48 +103,4 @@ const IconListArrowDownMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconListArrowDownMinimalistic as IconComponent).keywords = [
-  "list",
-  "arrow",
-  "down",
-  "minimalistic",
-  "tilt",
-  "inclination",
-  "lean",
-  "leaning",
-  "name",
-  "number",
-  "sheet",
-  "heel",
-  "table",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-  "downwards",
-  "downward",
-  "downbound",
-  "falling",
-  "fallen",
-  "pull down",
-  "downwardly",
-  "declining",
-  "descending",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconListArrowDownMinimalistic as IconComponent;
+export default IconListArrowDownMinimalistic;

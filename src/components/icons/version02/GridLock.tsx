@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGridLock: FC<IconProps> = ({
   className,
   fill = false,
@@ -152,28 +159,4 @@ const IconGridLock: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGridLock as IconComponent).keywords = [
-  "grid",
-  "lock",
-  "gridiron",
-  "control grid",
-  "power grid",
-  "power system",
-  "reference grid",
-  "crossword",
-  "card",
-  "bars",
-  "parcel",
-  "interlock",
-  "lock in",
-  "mesh",
-  "interlace",
-  "whorl",
-  "lock away",
-  "curl",
-  "ringlet",
-  "put away",
-];
-
-export default IconGridLock as IconComponent;
+export default IconGridLock;

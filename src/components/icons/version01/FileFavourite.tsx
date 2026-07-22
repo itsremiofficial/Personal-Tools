@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFileFavourite: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,28 +91,4 @@ const IconFileFavourite: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFileFavourite as IconComponent).keywords = [
-  "file",
-  "favourite",
-  "register",
-  "single file",
-  "indian file",
-  "charge",
-  "file away",
-  "lodge",
-  "file cabinet",
-  "filing cabinet",
-  "data file",
-  "preferred",
-  "favored",
-  "favorite",
-  "popular",
-  "loved",
-  "deary",
-  "darling",
-  "dearie",
-  "front-runner",
-];
-
-export default IconFileFavourite as IconComponent;
+export default IconFileFavourite;

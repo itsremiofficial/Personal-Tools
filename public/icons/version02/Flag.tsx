@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFlag: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,18 +80,4 @@ const IconFlag: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFlag as IconComponent).keywords = [
-  "flag",
-  "ensign",
-  "flagstone",
-  "pin",
-  "swag",
-  "sag",
-  "slacken off",
-  "ease off",
-  "droop",
-  "ease up",
-];
-
-export default IconFlag as IconComponent;
+export default IconFlag;

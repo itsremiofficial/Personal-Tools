@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFloorLampMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -113,38 +120,4 @@ const IconFloorLampMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFloorLampMinimalistic as IconComponent).keywords = [
-  "floor",
-  "lamp",
-  "minimalistic",
-  "deck",
-  "storey",
-  "dump",
-  "level",
-  "coldcock",
-  "knock down",
-  "base",
-  "story",
-  "shock",
-  "bulb",
-  "flashlight",
-  "lamppost",
-  "lantern",
-  "lighting",
-  "dimmer",
-  "searchlight",
-  "wick",
-  "lighter",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconFloorLampMinimalistic as IconComponent;
+export default IconFloorLampMinimalistic;

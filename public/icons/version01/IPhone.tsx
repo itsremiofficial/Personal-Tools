@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconIPhone: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,18 +84,4 @@ const IconIPhone: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconIPhone as IconComponent).keywords = [
-  "phone",
-  "telephone",
-  "call",
-  "earphone",
-  "earpiece",
-  "headphone",
-  "call up",
-  "ring",
-  "sound",
-  "speech sound",
-];
-
-export default IconIPhone as IconComponent;
+export default IconIPhone;

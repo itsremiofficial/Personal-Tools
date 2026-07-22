@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMagniferRounded: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,19 +85,4 @@ const IconMagniferRounded: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMagniferRounded as IconComponent).keywords = [
-  "magnifer",
-  "rounded",
-  "ringed",
-  "ring-shaped",
-  "annulate",
-  "annular",
-  "circular",
-  "rotund",
-  "bowfront",
-  "prolate",
-  "domed",
-];
-
-export default IconMagniferRounded as IconComponent;
+export default IconMagniferRounded;

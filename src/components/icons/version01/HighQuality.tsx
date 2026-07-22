@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHighQuality: FC<IconProps> = ({
   className,
   fill = false,
@@ -76,28 +83,4 @@ const IconHighQuality: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHighQuality as IconComponent).keywords = [
-  "high",
-  "quality",
-  "towering",
-  "high-level",
-  "altitudinous",
-  "upper",
-  "lofty",
-  "full",
-  "rising",
-  "overflowing",
-  "peak",
-  "superior",
-  "fine",
-  "prime",
-  "choice",
-  "upper-class",
-  "select",
-  "character",
-  "prize",
-  "calibre",
-];
-
-export default IconHighQuality as IconComponent;
+export default IconHighQuality;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStreetsMapPoint: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,38 +111,4 @@ const IconStreetsMapPoint: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStreetsMapPoint as IconComponent).keywords = [
-  "streets",
-  "map",
-  "point",
-  "alleys",
-  "alleyways",
-  "arteries",
-  "avenues",
-  "benches",
-  "blocks",
-  "corners",
-  "crowds",
-  "demonstrations",
-  "map out",
-  "correspondence",
-  "represent",
-  "chart",
-  "cartography",
-  "cartographic",
-  "topography",
-  "plan",
-  "charting",
-  "item",
-  "betoken",
-  "indicate",
-  "bespeak",
-  "period",
-  "point in time",
-  "show",
-  "stage",
-  "detail",
-];
-
-export default IconStreetsMapPoint as IconComponent;
+export default IconStreetsMapPoint;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRoundArrowDown: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,38 +80,4 @@ const IconRoundArrowDown: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRoundArrowDown as IconComponent).keywords = [
-  "round",
-  "arrow",
-  "down",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-  "downwards",
-  "downward",
-  "downbound",
-  "falling",
-  "fallen",
-  "pull down",
-  "downwardly",
-  "declining",
-  "descending",
-];
-
-export default IconRoundArrowDown as IconComponent;
+export default IconRoundArrowDown;

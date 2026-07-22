@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSafe2: FC<IconProps> = ({
   className,
   fill = false,
@@ -111,28 +118,4 @@ const IconSafe2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSafe2 as IconComponent).keywords = [
-  "safe",
-  "2",
-  "secure",
-  "safe and sound",
-  "safety",
-  "risk-free",
-  "dependable",
-  "harmless",
-  "innocuous",
-  "off the hook",
-  "sound",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconSafe2 as IconComponent;
+export default IconSafe2;

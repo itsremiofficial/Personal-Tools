@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTextalignJustifyleft: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,10 +114,4 @@ const IconTextalignJustifyleft: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTextalignJustifyleft as IconComponent).keywords = [
-  "textalign",
-  "justifyleft",
-];
-
-export default IconTextalignJustifyleft as IconComponent;
+export default IconTextalignJustifyleft;

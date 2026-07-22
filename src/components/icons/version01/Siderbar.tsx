@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSiderbar: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,7 +103,4 @@ const IconSiderbar: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSiderbar as IconComponent).keywords = ["siderbar"];
-
-export default IconSiderbar as IconComponent;
+export default IconSiderbar;

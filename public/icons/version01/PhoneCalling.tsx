@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPhoneCalling: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,28 +96,4 @@ const IconPhoneCalling: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPhoneCalling as IconComponent).keywords = [
-  "phone",
-  "calling",
-  "telephone",
-  "call",
-  "earphone",
-  "earpiece",
-  "headphone",
-  "call up",
-  "ring",
-  "sound",
-  "speech sound",
-  "vocation",
-  "career",
-  "invocation",
-  "preacher",
-  "dawa",
-  "convocation",
-  "convening",
-  "summon",
-  "so-called",
-];
-
-export default IconPhoneCalling as IconComponent;
+export default IconPhoneCalling;

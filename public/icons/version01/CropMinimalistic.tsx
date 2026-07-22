@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCropMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconCropMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCropMinimalistic as IconComponent).keywords = [
-  "crop",
-  "minimalistic",
-  "harvest",
-  "cultivate",
-  "pasture",
-  "prune",
-  "range",
-  "snip",
-  "dress",
-  "lop",
-  "graze",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconCropMinimalistic as IconComponent;
+export default IconCropMinimalistic;

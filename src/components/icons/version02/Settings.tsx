@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSettings: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,18 +103,4 @@ const IconSettings: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSettings as IconComponent).keywords = [
-  "settings",
-  "scene",
-  "stage setting",
-  "mise en scene",
-  "scope",
-  "background",
-  "mount",
-  "place setting",
-  "accommodations",
-  "adjust",
-];
-
-export default IconSettings as IconComponent;
+export default IconSettings;

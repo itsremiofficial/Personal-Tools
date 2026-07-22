@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCashOut: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconCashOut: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCashOut as IconComponent).keywords = [
-  "cash",
-  "out",
-  "cash in",
-  "immediate payment",
-  "currency",
-  "encashment",
-  "financial",
-  "capital",
-  "money",
-  "finance",
-  "cashflow",
-  "away",
-  "outer",
-  "exterior",
-  "retired",
-  "extinct",
-  "dead",
-  "down",
-  "extinguished",
-  "come out",
-];
-
-export default IconCashOut as IconComponent;
+export default IconCashOut;

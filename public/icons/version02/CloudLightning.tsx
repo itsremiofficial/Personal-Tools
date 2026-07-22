@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudLightning: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,28 +100,4 @@ const IconCloudLightning: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudLightning as IconComponent).keywords = [
-  "cloud",
-  "lightning",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "lightyear",
-  "flashpoint",
-  "thunderstorm",
-  "storm",
-  "electricity",
-  "ray",
-  "light",
-  "lighting",
-  "thunder",
-];
-
-export default IconCloudLightning as IconComponent;
+export default IconCloudLightning;

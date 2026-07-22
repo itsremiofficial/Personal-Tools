@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVideocameraRecord: FC<IconProps> = ({
   className,
   fill = false,
@@ -81,28 +88,4 @@ const IconVideocameraRecord: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVideocameraRecord as IconComponent).keywords = [
-  "videocamera",
-  "record",
-  "handycam",
-  "video cassette",
-  "handicam",
-  "nannycam",
-  "body cam",
-  "file videotape",
-  "dash cam",
-  "framegrabber",
-  "audiocassette",
-  "phonograph record",
-  "book",
-  "register",
-  "read",
-  "disk",
-  "disc",
-  "show",
-  "memorialize",
-  "commemorate",
-];
-
-export default IconVideocameraRecord as IconComponent;
+export default IconVideocameraRecord;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPostsCarouselHorizontal: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,38 +95,4 @@ const IconPostsCarouselHorizontal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPostsCarouselHorizontal as IconComponent).keywords = [
-  "posts",
-  "carousel",
-  "horizontal",
-  "mail",
-  "send",
-  "base",
-  "position",
-  "place",
-  "succeeding",
-  "situation",
-  "spot",
-  "station",
-  "merry-go-round",
-  "whirligig",
-  "roundabout",
-  "luggage carousel",
-  "carrousel",
-  "conveyor",
-  "walkway",
-  "treadmill",
-  "armoury",
-  "level",
-  "flat",
-  "crosswise",
-  "swimming",
-  "naiant",
-  "cross-sectional",
-  "transverse",
-  "transversal",
-  "landscape",
-];
-
-export default IconPostsCarouselHorizontal as IconComponent;
+export default IconPostsCarouselHorizontal;

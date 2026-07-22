@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPlaylistMinimalistic3: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,38 +103,4 @@ const IconPlaylistMinimalistic3: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPlaylistMinimalistic3 as IconComponent).keywords = [
-  "playlist",
-  "minimalistic",
-  "3",
-  "playback",
-  "replay",
-  "list",
-  "reproductive",
-  "reproduction",
-  "soundtrack",
-  "song",
-  "tunes",
-  "songs",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-  "omega",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-];
-
-export default IconPlaylistMinimalistic3 as IconComponent;
+export default IconPlaylistMinimalistic3;

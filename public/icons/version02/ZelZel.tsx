@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconZelZel: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,18 +106,4 @@ const IconZelZel: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconZelZel as IconComponent).keywords = [
-  "zel",
-  "zak",
-  "leese",
-  "kuhn",
-  "reh",
-  "etta",
-  "rer",
-  "mel",
-  "kel",
-  "hawn",
-];
-
-export default IconZelZel as IconComponent;
+export default IconZelZel;

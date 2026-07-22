@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSpeedometer: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,18 +100,4 @@ const IconSpeedometer: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSpeedometer as IconComponent).keywords = [
-  "speedometer",
-  "speed indicator",
-  "tachograph",
-  "odometer",
-  "tachometer",
-  "meter",
-  "speedo",
-  "trip",
-  "tachometers",
-  "cyclometer",
-];
-
-export default IconSpeedometer as IconComponent;
+export default IconSpeedometer;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSIMCardMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -69,28 +76,4 @@ const IconSIMCardMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSIMCardMinimalistic as IconComponent).keywords = [
-  "card",
-  "minimalistic",
-  "scorecard",
-  "batting order",
-  "identity card",
-  "visiting card",
-  "calling card",
-  "lineup",
-  "poster",
-  "placard",
-  "tease",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconSIMCardMinimalistic as IconComponent;
+export default IconSIMCardMinimalistic;

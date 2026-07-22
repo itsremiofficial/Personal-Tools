@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPath: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,18 +105,4 @@ const IconPath: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPath as IconComponent).keywords = [
-  "path",
-  "way",
-  "route",
-  "track",
-  "way of life",
-  "course",
-  "pathway",
-  "footway",
-  "footpath",
-  "trailhead",
-];
-
-export default IconPath as IconComponent;
+export default IconPath;

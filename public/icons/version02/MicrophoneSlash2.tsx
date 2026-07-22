@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMicrophoneSlash2: FC<IconProps> = ({
   className,
   fill = false,
@@ -133,38 +140,4 @@ const IconMicrophoneSlash2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMicrophoneSlash2 as IconComponent).keywords = [
-  "microphone",
-  "slash",
-  "2",
-  "mike",
-  "loudspeaker",
-  "mic",
-  "wire",
-  "speaker",
-  "floor",
-  "lavalier",
-  "lavaliere",
-  "boom",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconMicrophoneSlash2 as IconComponent;
+export default IconMicrophoneSlash2;

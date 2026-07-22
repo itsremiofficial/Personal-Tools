@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEnjinCoinEnj: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,20 +90,4 @@ const IconEnjinCoinEnj: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEnjinCoinEnj as IconComponent).keywords = [
-  "enjin",
-  "coin",
-  "enj",
-  "mint",
-  "strike",
-  "coinage",
-  "euro",
-  "bullion",
-  "voucher",
-  "currency",
-  "money",
-  "suite",
-];
-
-export default IconEnjinCoinEnj as IconComponent;
+export default IconEnjinCoinEnj;

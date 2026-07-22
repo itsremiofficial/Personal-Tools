@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconConvert: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,18 +90,4 @@ const IconConvert: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconConvert as IconComponent).keywords = [
-  "convert",
-  "change over",
-  "change",
-  "exchange",
-  "turn",
-  "win over",
-  "convince",
-  "commute",
-  "transformation",
-  "alter",
-];
-
-export default IconConvert as IconComponent;
+export default IconConvert;

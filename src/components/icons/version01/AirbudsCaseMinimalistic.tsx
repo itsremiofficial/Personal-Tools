@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAirbudsCaseMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,29 +77,4 @@ const IconAirbudsCaseMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAirbudsCaseMinimalistic as IconComponent).keywords = [
-  "airbuds",
-  "case",
-  "minimalistic",
-  "event",
-  "cause",
-  "subject",
-  "example",
-  "eccentric",
-  "showcase",
-  "type",
-  "instance",
-  "character",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconAirbudsCaseMinimalistic as IconComponent;
+export default IconAirbudsCaseMinimalistic;

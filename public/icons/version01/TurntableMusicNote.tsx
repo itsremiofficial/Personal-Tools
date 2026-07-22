@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTurntableMusicNote: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,38 +114,4 @@ const IconTurntableMusicNote: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTurntableMusicNote as IconComponent).keywords = [
-  "turntable",
-  "music",
-  "note",
-  "lazy susan",
-  "rotary",
-  "revolving",
-  "gateway",
-  "hub",
-  "carousel",
-  "shelf",
-  "plateau",
-  "sinker",
-  "sheet music",
-  "euphony",
-  "medicine",
-  "melody",
-  "symphony",
-  "orchestra",
-  "musician",
-  "song",
-  "singing",
-  "annotation",
-  "notation",
-  "mention",
-  "remark",
-  "notice",
-  "observe",
-  "take note",
-  "distinction",
-  "bank note",
-];
-
-export default IconTurntableMusicNote as IconComponent;
+export default IconTurntableMusicNote;

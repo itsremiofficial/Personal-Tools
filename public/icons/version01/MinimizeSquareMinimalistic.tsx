@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMinimizeSquareMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,38 +93,4 @@ const IconMinimizeSquareMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMinimizeSquareMinimalistic as IconComponent).keywords = [
-  "minimize",
-  "square",
-  "minimalistic",
-  "derogate",
-  "belittle",
-  "denigrate",
-  "understate",
-  "lessen",
-  "reduced",
-  "diminish",
-  "lessening",
-  "reduce",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconMinimizeSquareMinimalistic as IconComponent;
+export default IconMinimizeSquareMinimalistic;

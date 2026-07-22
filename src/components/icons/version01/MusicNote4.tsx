@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMusicNote4: FC<IconProps> = ({
   className,
   fill = false,
@@ -68,31 +75,4 @@ const IconMusicNote4: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMusicNote4 as IconComponent).keywords = [
-  "music",
-  "note",
-  "4",
-  "sheet music",
-  "euphony",
-  "medicine",
-  "melody",
-  "symphony",
-  "orchestra",
-  "musician",
-  "song",
-  "singing",
-  "annotation",
-  "notation",
-  "mention",
-  "remark",
-  "notice",
-  "observe",
-  "take note",
-  "distinction",
-  "bank note",
-  "dh",
-  "f4f",
-];
-
-export default IconMusicNote4 as IconComponent;
+export default IconMusicNote4;

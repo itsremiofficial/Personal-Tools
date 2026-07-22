@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBluetooth: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,18 +79,4 @@ const IconBluetooth: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBluetooth as IconComponent).keywords = [
-  "bluetooth",
-  "teeth",
-  "tooth",
-  "handsfree",
-  "wireless",
-  "ipod",
-  "wifi",
-  "stereo",
-  "speakerphone",
-  "headset",
-];
-
-export default IconBluetooth as IconComponent;
+export default IconBluetooth;

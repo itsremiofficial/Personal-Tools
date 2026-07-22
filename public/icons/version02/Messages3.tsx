@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMessages3: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,28 +84,4 @@ const IconMessages3: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMessages3 as IconComponent).keywords = [
-  "messages",
-  "3",
-  "subject matter",
-  "substance",
-  "content",
-  "mails",
-  "things",
-  "communication",
-  "news",
-  "correspondence",
-  "copy",
-  "omega",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-];
-
-export default IconMessages3 as IconComponent;
+export default IconMessages3;

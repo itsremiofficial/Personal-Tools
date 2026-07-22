@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSquareAcademicCap: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,38 +86,4 @@ const IconSquareAcademicCap: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSquareAcademicCap as IconComponent).keywords = [
-  "square",
-  "academic",
-  "cap",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "scholarly",
-  "donnish",
-  "academician",
-  "theoretical",
-  "pedantic",
-  "faculty member",
-  "academy",
-  "academe",
-  "scholastic",
-  "ceiling",
-  "crownwork",
-  "crest",
-  "detonator",
-  "chapiter",
-  "pileus",
-  "capital",
-  "detonating device",
-  "beanie",
-];
-
-export default IconSquareAcademicCap as IconComponent;
+export default IconSquareAcademicCap;

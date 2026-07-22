@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSpedometerLow: FC<IconProps> = ({
   className,
   fill = false,
@@ -145,19 +152,4 @@ const IconSpedometerLow: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSpedometerLow as IconComponent).keywords = [
-  "spedometer",
-  "low",
-  "ebb",
-  "underslung",
-  "first gear",
-  "low gear",
-  "blue",
-  "under",
-  "crushed",
-  "broken",
-  "nether",
-];
-
-export default IconSpedometerLow as IconComponent;
+export default IconSpedometerLow;

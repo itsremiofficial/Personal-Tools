@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWheel: FC<IconProps> = ({
   className,
   fill = false,
@@ -148,18 +155,4 @@ const IconWheel: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWheel as IconComponent).keywords = [
-  "wheel",
-  "steering wheel",
-  "wheel around",
-  "pedal",
-  "bicycle",
-  "cycle",
-  "rack",
-  "bike",
-  "roll",
-  "roulette wheel",
-];
-
-export default IconWheel as IconComponent;
+export default IconWheel;

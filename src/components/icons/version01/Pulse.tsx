@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPulse: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,18 +77,4 @@ const IconPulse: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPulse as IconComponent).keywords = [
-  "pulse",
-  "heartbeat",
-  "pulsation",
-  "heart rate",
-  "pulsate",
-  "throb",
-  "beat",
-  "impulse",
-  "oximetry",
-  "oximeter",
-];
-
-export default IconPulse as IconComponent;
+export default IconPulse;

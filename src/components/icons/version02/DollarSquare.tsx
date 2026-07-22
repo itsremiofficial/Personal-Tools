@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDollarSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,28 +94,4 @@ const IconDollarSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDollarSquare as IconComponent).keywords = [
-  "dollar",
-  "square",
-  "dollar bill",
-  "dollar sign",
-  "buck",
-  "clam",
-  "dollar mark",
-  "one dollar bill",
-  "loonie",
-  "dime",
-  "penny",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconDollarSquare as IconComponent;
+export default IconDollarSquare;

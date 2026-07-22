@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRoundSortHorizontal: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,38 +91,4 @@ const IconRoundSortHorizontal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRoundSortHorizontal as IconComponent).keywords = [
-  "round",
-  "sort",
-  "horizontal",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-  "classify",
-  "assort",
-  "class",
-  "form",
-  "kind",
-  "sort out",
-  "variety",
-  "separate",
-  "screen",
-  "level",
-  "flat",
-  "crosswise",
-  "swimming",
-  "naiant",
-  "cross-sectional",
-  "transverse",
-  "transversal",
-  "landscape",
-];
-
-export default IconRoundSortHorizontal as IconComponent;
+export default IconRoundSortHorizontal;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBill: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,18 +106,4 @@ const IconBill: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBill as IconComponent).keywords = [
-  "bill",
-  "billhook",
-  "handbill",
-  "visor",
-  "vizor",
-  "flyer",
-  "broadside",
-  "nib",
-  "circular",
-  "eyeshade",
-];
-
-export default IconBill as IconComponent;
+export default IconBill;

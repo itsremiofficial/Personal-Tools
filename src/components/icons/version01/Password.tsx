@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPassword: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,18 +97,4 @@ const IconPassword: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPassword as IconComponent).keywords = [
-  "password",
-  "countersign",
-  "watchword",
-  "word",
-  "parole",
-  "passcode",
-  "username",
-  "passphrase",
-  "codeword",
-  "cleartext",
-];
-
-export default IconPassword as IconComponent;
+export default IconPassword;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGoogleDrive: FC<IconProps> = ({
   className,
   fill = false,
@@ -142,28 +149,4 @@ const IconGoogleDrive: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGoogleDrive as IconComponent).keywords = [
-  "google",
-  "drive",
-  "valley",
-  "adsense",
-  "adwords",
-  "googe",
-  "goole",
-  "wikipedia",
-  "yahoo",
-  "youtube",
-  "bing",
-  "force",
-  "effort",
-  "driving force",
-  "labour",
-  "get",
-  "push",
-  "cause",
-  "beat back",
-  "movement",
-];
-
-export default IconGoogleDrive as IconComponent;
+export default IconGoogleDrive;

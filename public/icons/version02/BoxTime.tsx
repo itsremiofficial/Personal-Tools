@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBoxTime: FC<IconProps> = ({
   className,
   fill = false,
@@ -117,28 +124,4 @@ const IconBoxTime: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBoxTime as IconComponent).keywords = [
-  "box",
-  "time",
-  "package",
-  "loge",
-  "corner",
-  "box seat",
-  "boxwood",
-  "bin",
-  "chest",
-  "toolbox",
-  "shoebox",
-  "fourth dimension",
-  "clock",
-  "meter",
-  "clip",
-  "sentence",
-  "clock time",
-  "prison term",
-  "space-time",
-  "momentum",
-];
-
-export default IconBoxTime as IconComponent;
+export default IconBoxTime;

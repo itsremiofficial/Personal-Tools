@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDriverRefresh: FC<IconProps> = ({
   className,
   fill = false,
@@ -145,28 +152,4 @@ const IconDriverRefresh: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDriverRefresh as IconComponent).keywords = [
-  "driver",
-  "refresh",
-  "device driver",
-  "number one wood",
-  "motorist",
-  "passenger",
-  "motorman",
-  "vehicle",
-  "car",
-  "driving",
-  "chauffeur",
-  "refreshen",
-  "freshen",
-  "review",
-  "freshen up",
-  "brush up",
-  "refresher",
-  "refreshment",
-  "rejuvenate",
-  "revive",
-];
-
-export default IconDriverRefresh as IconComponent;
+export default IconDriverRefresh;

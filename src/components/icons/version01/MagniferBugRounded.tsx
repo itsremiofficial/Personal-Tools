@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMagniferBugRounded: FC<IconProps> = ({
   className,
   fill = false,
@@ -105,29 +112,4 @@ const IconMagniferBugRounded: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMagniferBugRounded as IconComponent).keywords = [
-  "magnifer",
-  "bug",
-  "rounded",
-  "hemipteran",
-  "hemipteron",
-  "badger",
-  "germ",
-  "microbe",
-  "tap",
-  "tease",
-  "beleaguer",
-  "harass",
-  "ringed",
-  "ring-shaped",
-  "annulate",
-  "annular",
-  "circular",
-  "rotund",
-  "bowfront",
-  "prolate",
-  "domed",
-];
-
-export default IconMagniferBugRounded as IconComponent;
+export default IconMagniferBugRounded;

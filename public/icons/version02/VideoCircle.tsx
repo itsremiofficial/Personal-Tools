@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVideoCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconVideoCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVideoCircle as IconComponent).keywords = [
-  "video",
-  "circle",
-  "tv",
-  "television",
-  "picture",
-  "telecasting",
-  "televised",
-  "videotaping",
-  "videotaped",
-  "taping",
-  "videotape",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconVideoCircle as IconComponent;
+export default IconVideoCircle;

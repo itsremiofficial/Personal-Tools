@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSafeHome: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconSafeHome: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSafeHome as IconComponent).keywords = [
-  "safe",
-  "home",
-  "secure",
-  "safe and sound",
-  "safety",
-  "risk-free",
-  "dependable",
-  "harmless",
-  "innocuous",
-  "off the hook",
-  "sound",
-  "domicile",
-  "habitation",
-  "domestic",
-  "dwelling",
-  "nursing home",
-  "rest home",
-  "house",
-  "dwelling house",
-  "household",
-];
-
-export default IconSafeHome as IconComponent;
+export default IconSafeHome;

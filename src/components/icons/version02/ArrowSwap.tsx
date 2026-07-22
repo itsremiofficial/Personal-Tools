@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconArrowSwap: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,28 +101,4 @@ const IconArrowSwap: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconArrowSwap as IconComponent).keywords = [
-  "arrow",
-  "swap",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-  "barter",
-  "quid pro quo",
-  "trade",
-  "swop",
-  "switch",
-  "exchange",
-  "bartering",
-  "substitute",
-  "trade-in",
-];
-
-export default IconArrowSwap as IconComponent;
+export default IconArrowSwap;

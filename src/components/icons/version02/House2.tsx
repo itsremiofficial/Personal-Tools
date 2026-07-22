@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHouse2: FC<IconProps> = ({
   className,
   fill = false,
@@ -109,28 +116,4 @@ const IconHouse2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHouse2 as IconComponent).keywords = [
-  "house",
-  "2",
-  "mansion",
-  "home",
-  "household",
-  "put up",
-  "firm",
-  "family",
-  "sign",
-  "menage",
-  "theatre",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconHouse2 as IconComponent;
+export default IconHouse2;

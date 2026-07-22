@@ -63,30 +63,35 @@ const Sidebar = forwardRef<HTMLElement>((_props, ref) => {
       >
         <div className="relative h-full flex flex-col">
           <div className="grow flex flex-col">
-            <div className="flex flex-col items-center gap-6 w-full pt-4">
-              <Link
-                to="/"
-                className={cn(
-                  "flex justify-center transition-[width] duration-700 ease-fluid",
-                  "text-sidebar-foreground",
-                  isOpen ? "w-36" : "w-20",
-                )}
-              >
-                <Logo
+            <div className="flex flex-col items-center gap-6 w-full pt-6">
+              <div className="w-full flex justify-center">
+                <Link
+                  to="/"
                   className={cn(
-                    "transition-all duration-700 ease-fluid",
-                    "text-sidebar-foreground",
-                    isOpen ? "w-16" : "w-10",
+                    "flex items-center self-start gap-2 text-primary",
+                    "transition-[width] duration-700 ease-fluid",
+                    isOpen ? "w-36" : "w-20",
                   )}
-                  fill
-                />
-              </Link>
+                >
+                  <Logo
+                    className={cn(
+                      "transition-all duration-700 ease-fluid",
+                      isOpen ? "w-8" : "w-10",
+                    )}
+                    fill
+                  />
+                  <span className="text-4xl font-extrabold">REMI</span>
+                </Link>
+              </div>
 
-              <div className="w-full px-4">
+              <div className="w-full">
                 <div className="h-px bg-sidebar-border/50" />
               </div>
 
               <ul className="flex flex-col w-full gap-2 px-3 overflow-y-auto">
+                <div className="flex items-center gap-2 px-2 text-[11px] font-medium uppercase tracking-widest text-sidebar-foreground/50">
+                  Menu
+                </div>
                 {navItems.map((item) => (
                   <NavItem
                     key={item.path}
@@ -101,16 +106,8 @@ const Sidebar = forwardRef<HTMLElement>((_props, ref) => {
             <div className="mt-auto px-2 pb-2 w-full">
               {/* Sidebar collapse toggle — re-enable when ready */}
               <div className="mb-2">
-                <div className="flex items-center gap-2 px-1 mb-2 mt-4">
-                  <span className="text-[11px] font-medium uppercase tracking-widest text-sidebar-foreground/50">
-                    Theme
-                  </span>
-                  <div
-                    className={cn(
-                      "h-px bg-sidebar-border/50 transition-opacity duration-500",
-                      isOpen ? "flex-1" : "hidden",
-                    )}
-                  />
+                <div className="flex items-center gap-2 px-2 mb-2 text-[11px] font-medium uppercase tracking-widest text-sidebar-foreground/50">
+                  Theme
                 </div>
                 <Tabs
                   value={isDark ? "dark" : "light"}
@@ -124,7 +121,7 @@ const Sidebar = forwardRef<HTMLElement>((_props, ref) => {
                       indicatorClassName="bg-sidebar-primary/15 rounded-md"
                       className={`text-foreground ${isOpen ? "px-5 py-3.5 gap-1.5" : "px-1.5"}`}
                     >
-                      <IconMoon fill={isDark} className="w-5 h-5 shrink-0" />
+                      <IconMoon fill={isDark} className="size-5 shrink-0" />
                       <motion.div
                         initial={false}
                         animate={{

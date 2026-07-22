@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStarFall: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,28 +99,4 @@ const IconStarFall: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStarFall as IconComponent).keywords = [
-  "star",
-  "fall",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-  "come down",
-  "decline",
-  "descend",
-  "descent",
-  "downfall",
-  "devolve",
-  "tumble",
-  "decrease",
-  "downslope",
-];
-
-export default IconStarFall as IconComponent;
+export default IconStarFall;

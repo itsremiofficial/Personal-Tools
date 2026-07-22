@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChatUnread: FC<IconProps> = ({
   className,
   fill = false,
@@ -69,28 +76,4 @@ const IconChatUnread: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChatUnread as IconComponent).keywords = [
-  "chat",
-  "unread",
-  "confabulate",
-  "confab",
-  "confabulation",
-  "chitchat",
-  "natter",
-  "gossip",
-  "visit",
-  "chatter",
-  "claver",
-  "uninformed",
-  "unused",
-  "unutilized",
-  "unspent",
-  "unencumbered",
-  "unwatched",
-  "unplayed",
-  "unsent",
-  "unreviewed",
-];
-
-export default IconChatUnread as IconComponent;
+export default IconChatUnread;

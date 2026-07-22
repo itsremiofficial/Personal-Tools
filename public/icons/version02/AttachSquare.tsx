@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAttachSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconAttachSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAttachSquare as IconComponent).keywords = [
-  "attach",
-  "square",
-  "seize",
-  "confiscate",
-  "sequester",
-  "impound",
-  "tether",
-  "enclose",
-  "bind",
-  "append",
-  "fasten",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconAttachSquare as IconComponent;
+export default IconAttachSquare;

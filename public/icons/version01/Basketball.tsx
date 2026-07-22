@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBasketball: FC<IconProps> = ({
   className,
   fill = false,
@@ -105,18 +112,4 @@ const IconBasketball: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBasketball as IconComponent).keywords = [
-  "basketball",
-  "basketball game",
-  "football",
-  "nba",
-  "player",
-  "team",
-  "shoe",
-  "balloon",
-  "ball",
-  "sneaker",
-];
-
-export default IconBasketball as IconComponent;
+export default IconBasketball;

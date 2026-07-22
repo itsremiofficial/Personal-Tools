@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAlignHorizontalCenter: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,38 +95,4 @@ const IconAlignHorizontalCenter: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAlignHorizontalCenter as IconComponent).keywords = [
-  "align",
-  "horizontal",
-  "center",
-  "line up",
-  "adjust",
-  "coordinate",
-  "aline",
-  "array",
-  "alignment",
-  "link",
-  "combine",
-  "integrate",
-  "level",
-  "flat",
-  "crosswise",
-  "swimming",
-  "naiant",
-  "cross-sectional",
-  "transverse",
-  "transversal",
-  "landscape",
-  "central",
-  "focus",
-  "center of attention",
-  "nerve centre",
-  "middle",
-  "midway",
-  "centre",
-  "kernel",
-  "midpoint",
-];
-
-export default IconAlignHorizontalCenter as IconComponent;
+export default IconAlignHorizontalCenter;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTaskSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,28 +114,4 @@ const IconTaskSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTaskSquare as IconComponent).keywords = [
-  "task",
-  "square",
-  "job",
-  "chore",
-  "project",
-  "labor",
-  "tax",
-  "undertaking",
-  "work",
-  "assignment",
-  "mission",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconTaskSquare as IconComponent;
+export default IconTaskSquare;

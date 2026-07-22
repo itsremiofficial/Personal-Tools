@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconQRCode: FC<IconProps> = ({
   className,
   fill = false,
@@ -187,18 +194,4 @@ const IconQRCode: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconQRCode as IconComponent).keywords = [
-  "code",
-  "encode",
-  "cypher",
-  "encipher",
-  "cipher",
-  "encrypt",
-  "computer code",
-  "codification",
-  "inscribe",
-  "write in code",
-];
-
-export default IconQRCode as IconComponent;
+export default IconQRCode;

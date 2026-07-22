@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconXiaomi: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,18 +109,4 @@ const IconXiaomi: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconXiaomi as IconComponent).keywords = [
-  "xiaomi",
-  "huawei",
-  "shanzhai",
-  "baidu",
-  "sharp",
-  "xinmi",
-  "samsung",
-  "xiamen",
-  "ximiao",
-  "wechat",
-];
-
-export default IconXiaomi as IconComponent;
+export default IconXiaomi;

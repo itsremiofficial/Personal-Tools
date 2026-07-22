@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFolderPathConnect: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,38 +101,4 @@ const IconFolderPathConnect: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFolderPathConnect as IconComponent).keywords = [
-  "folder",
-  "path",
-  "connect",
-  "booklet",
-  "pamphlet",
-  "brochure",
-  "leaflet",
-  "toolkit",
-  "pack",
-  "package",
-  "kit",
-  "shirt",
-  "way",
-  "route",
-  "track",
-  "way of life",
-  "course",
-  "pathway",
-  "footway",
-  "footpath",
-  "trailhead",
-  "link",
-  "unite",
-  "associate",
-  "relate",
-  "join",
-  "plug in",
-  "tie in",
-  "tie",
-  "touch base",
-];
-
-export default IconFolderPathConnect as IconComponent;
+export default IconFolderPathConnect;

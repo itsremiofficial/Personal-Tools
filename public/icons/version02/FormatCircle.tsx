@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFormatCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,28 +111,4 @@ const IconFormatCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFormatCircle as IconComponent).keywords = [
-  "format",
-  "circle",
-  "initialize",
-  "arrange",
-  "data format",
-  "data formatting",
-  "edition",
-  "file",
-  "print",
-  "reporting",
-  "notation",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconFormatCircle as IconComponent;
+export default IconFormatCircle;

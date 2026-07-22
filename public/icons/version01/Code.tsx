@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCode: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,18 +94,4 @@ const IconCode: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCode as IconComponent).keywords = [
-  "code",
-  "encode",
-  "cypher",
-  "encipher",
-  "cipher",
-  "encrypt",
-  "computer code",
-  "codification",
-  "inscribe",
-  "write in code",
-];
-
-export default IconCode as IconComponent;
+export default IconCode;

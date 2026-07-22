@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVideoHorizontal: FC<IconProps> = ({
   className,
   fill = false,
@@ -161,28 +168,4 @@ const IconVideoHorizontal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVideoHorizontal as IconComponent).keywords = [
-  "video",
-  "horizontal",
-  "tv",
-  "television",
-  "picture",
-  "telecasting",
-  "televised",
-  "videotaping",
-  "videotaped",
-  "taping",
-  "videotape",
-  "level",
-  "flat",
-  "crosswise",
-  "swimming",
-  "naiant",
-  "cross-sectional",
-  "transverse",
-  "transversal",
-  "landscape",
-];
-
-export default IconVideoHorizontal as IconComponent;
+export default IconVideoHorizontal;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStreets: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,18 +87,4 @@ const IconStreets: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStreets as IconComponent).keywords = [
-  "streets",
-  "alleys",
-  "alleyways",
-  "arteries",
-  "avenues",
-  "benches",
-  "blocks",
-  "corners",
-  "crowds",
-  "demonstrations",
-];
-
-export default IconStreets as IconComponent;
+export default IconStreets;

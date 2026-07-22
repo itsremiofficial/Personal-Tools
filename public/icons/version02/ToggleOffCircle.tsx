@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconToggleOffCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,38 +78,4 @@ const IconToggleOffCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconToggleOffCircle as IconComponent).keywords = [
-  "toggle",
-  "off",
-  "circle",
-  "on-off switch",
-  "toggle switch",
-  "lever",
-  "cycle",
-  "switch",
-  "button",
-  "switching",
-  "rotate",
-  "rotation",
-  "away",
-  "cancelled",
-  "forth",
-  "inactive",
-  "disconnected",
-  "unsatisfactory",
-  "soured",
-  "sour",
-  "off-duty",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconToggleOffCircle as IconComponent;
+export default IconToggleOffCircle;

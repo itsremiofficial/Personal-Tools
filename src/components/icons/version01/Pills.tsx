@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPills: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,18 +97,4 @@ const IconPills: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPills as IconComponent).keywords = [
-  "pills",
-  "tablet",
-  "lozenge",
-  "anovulatory drug",
-  "birth control pill",
-  "contraceptive pill",
-  "oral contraceptive",
-  "oral contraceptive pill",
-  "antibilious",
-  "aspirins",
-];
-
-export default IconPills as IconComponent;
+export default IconPills;

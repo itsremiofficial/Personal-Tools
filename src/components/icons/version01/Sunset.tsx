@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSunset: FC<IconProps> = ({
   className,
   fill = false,
@@ -171,18 +178,4 @@ const IconSunset: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSunset as IconComponent).keywords = [
-  "sunset",
-  "sundown",
-  "last",
-  "old",
-  "sunsetting",
-  "dusk",
-  "night",
-  "sunrise",
-  "dawn",
-  "evening",
-];
-
-export default IconSunset as IconComponent;
+export default IconSunset;

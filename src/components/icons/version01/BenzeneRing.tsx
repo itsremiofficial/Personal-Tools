@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBenzeneRing: FC<IconProps> = ({
   className,
   fill = false,
@@ -105,28 +112,4 @@ const IconBenzeneRing: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBenzeneRing as IconComponent).keywords = [
-  "benzene",
-  "ring",
-  "benzol",
-  "benzine",
-  "hexane",
-  "cyclohexane",
-  "toluene",
-  "methanol",
-  "dinitro",
-  "divinyl",
-  "gas",
-  "band",
-  "hoop",
-  "pack",
-  "encircle",
-  "surround",
-  "environ",
-  "knell",
-  "tintinnabulation",
-  "peal",
-];
-
-export default IconBenzeneRing as IconComponent;
+export default IconBenzeneRing;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconYoutube: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,18 +85,4 @@ const IconYoutube: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconYoutube as IconComponent).keywords = [
-  "youtube",
-  "videos",
-  "video",
-  "vids",
-  "facebook",
-  "google",
-  "vid.",
-  "vlog",
-  "clips",
-  "myspace",
-];
-
-export default IconYoutube as IconComponent;
+export default IconYoutube;

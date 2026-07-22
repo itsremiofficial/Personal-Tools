@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGallerySlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -123,28 +130,4 @@ const IconGallerySlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGallerySlash as IconComponent).keywords = [
-  "gallery",
-  "slash",
-  "art gallery",
-  "heading",
-  "verandah",
-  "veranda",
-  "drift",
-  "picture gallery",
-  "museum",
-  "beaux-arts",
-  "art",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconGallerySlash as IconComponent;
+export default IconGallerySlash;

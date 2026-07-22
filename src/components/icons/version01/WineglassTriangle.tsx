@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWineglassTriangle: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconWineglassTriangle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWineglassTriangle as IconComponent).keywords = [
-  "wineglass",
-  "triangle",
-  "wineglasses",
-  "goblet",
-  "stemware",
-  "decanter",
-  "wineglassful",
-  "glass",
-  "carafe",
-  "goblets",
-  "vase",
-  "trigon",
-  "trilateral",
-  "triangular",
-  "direction",
-  "tripartite",
-  "trio",
-  "triptych",
-  "delta",
-  "wye",
-];
-
-export default IconWineglassTriangle as IconComponent;
+export default IconWineglassTriangle;

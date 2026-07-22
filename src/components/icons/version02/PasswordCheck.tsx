@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPasswordCheck: FC<IconProps> = ({
   className,
   fill = false,
@@ -111,28 +118,4 @@ const IconPasswordCheck: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPasswordCheck as IconComponent).keywords = [
-  "password",
-  "check",
-  "countersign",
-  "watchword",
-  "word",
-  "parole",
-  "passcode",
-  "username",
-  "passphrase",
-  "codeword",
-  "cleartext",
-  "match",
-  "hitch",
-  "check out",
-  "curb",
-  "check into",
-  "checkout",
-  "turn back",
-  "arrest",
-  "hold",
-];
-
-export default IconPasswordCheck as IconComponent;
+export default IconPasswordCheck;

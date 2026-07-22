@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSmartHomeAngle: FC<IconProps> = ({
   className,
   fill = false,
@@ -101,38 +108,4 @@ const IconSmartHomeAngle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSmartHomeAngle as IconComponent).keywords = [
-  "smart",
-  "home",
-  "angle",
-  "hurt",
-  "ache",
-  "raffish",
-  "rakish",
-  "snappy",
-  "cagy",
-  "impertinent",
-  "dashing",
-  "impudent",
-  "domicile",
-  "habitation",
-  "domestic",
-  "dwelling",
-  "nursing home",
-  "rest home",
-  "house",
-  "dwelling house",
-  "household",
-  "weight",
-  "slant",
-  "tilt",
-  "lean",
-  "tip",
-  "fish",
-  "side",
-  "prism",
-  "dimension",
-];
-
-export default IconSmartHomeAngle as IconComponent;
+export default IconSmartHomeAngle;

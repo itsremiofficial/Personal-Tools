@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHeartAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,28 +99,4 @@ const IconHeartAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHeartAdd as IconComponent).keywords = [
-  "heart",
-  "add",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconHeartAdd as IconComponent;
+export default IconHeartAdd;

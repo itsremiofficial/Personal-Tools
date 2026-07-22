@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRepeatOneMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,37 +99,4 @@ const IconRepeatOneMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRepeatOneMinimalistic as IconComponent).keywords = [
-  "repeat",
-  "one",
-  "minimalistic",
-  "restate",
-  "reiterate",
-  "ingeminate",
-  "reprise",
-  "repetition",
-  "retell",
-  "recur",
-  "recapitulate",
-  "duplicate",
-  "combined",
-  "united",
-  "same",
-  "unity",
-  "unitary",
-  "cardinal",
-  "one and only",
-  "extraordinary",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconRepeatOneMinimalistic as IconComponent;
+export default IconRepeatOneMinimalistic;

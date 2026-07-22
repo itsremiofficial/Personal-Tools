@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "node scripts/icondex.mjs && vite build",
+    "build": "node scripts/icondex.mjs && node scripts/generateSearchIndex.mjs && vite build",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit --project tsconfig.app.json",
     "test": "vitest run",

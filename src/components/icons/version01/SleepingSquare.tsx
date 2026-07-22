@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSleepingSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -126,28 +133,4 @@ const IconSleepingSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSleepingSquare as IconComponent).keywords = [
-  "sleeping",
-  "square",
-  "asleep",
-  "slumbering",
-  "dormant",
-  "dormancy",
-  "quiescence",
-  "quiescency",
-  "unerect",
-  "slumber",
-  "sleeper",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconSleepingSquare as IconComponent;
+export default IconSleepingSquare;

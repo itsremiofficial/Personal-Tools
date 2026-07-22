@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNotificationBing: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,28 +93,4 @@ const IconNotificationBing: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNotificationBing as IconComponent).keywords = [
-  "notification",
-  "bing",
-  "apprisal",
-  "notice",
-  "telling",
-  "presentment",
-  "notifying",
-  "notifier",
-  "notify",
-  "denunciation",
-  "announcement",
-  "troops",
-  "bong",
-  "ping",
-  "tong",
-  "bam",
-  "ice",
-  "prem",
-  "fa",
-  "iceland",
-];
-
-export default IconNotificationBing as IconComponent;
+export default IconNotificationBing;

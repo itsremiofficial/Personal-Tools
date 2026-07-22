@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShop: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,18 +103,4 @@ const IconShop: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShop as IconComponent).keywords = [
-  "shop",
-  "workshop",
-  "store",
-  "browse",
-  "sponsor",
-  "give away",
-  "patronize",
-  "snitch",
-  "tell on",
-  "betray",
-];
-
-export default IconShop as IconComponent;
+export default IconShop;

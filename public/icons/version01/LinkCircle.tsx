@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLinkCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconLinkCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLinkCircle as IconComponent).keywords = [
-  "link",
-  "circle",
-  "linkup",
-  "connection",
-  "nexus",
-  "connexion",
-  "connectedness",
-  "connect",
-  "tie-in",
-  "unite",
-  "associate",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconLinkCircle as IconComponent;
+export default IconLinkCircle;

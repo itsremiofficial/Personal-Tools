@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFolder: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,18 +77,4 @@ const IconFolder: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFolder as IconComponent).keywords = [
-  "folder",
-  "booklet",
-  "pamphlet",
-  "brochure",
-  "leaflet",
-  "toolkit",
-  "pack",
-  "package",
-  "kit",
-  "shirt",
-];
-
-export default IconFolder as IconComponent;
+export default IconFolder;

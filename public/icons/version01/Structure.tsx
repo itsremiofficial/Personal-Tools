@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStructure: FC<IconProps> = ({
   className,
   fill = false,
@@ -131,18 +138,4 @@ const IconStructure: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStructure as IconComponent).keywords = [
-  "structure",
-  "construction",
-  "architecture",
-  "anatomical structure",
-  "bodily structure",
-  "body structure",
-  "complex body part",
-  "social organization",
-  "social structure",
-  "social system",
-];
-
-export default IconStructure as IconComponent;
+export default IconStructure;

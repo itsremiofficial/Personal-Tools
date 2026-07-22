@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSagittarius: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,18 +89,4 @@ const IconSagittarius: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSagittarius as IconComponent).keywords = [
-  "sagittarius",
-  "genus sagittarius",
-  "sagittarius the archer",
-  "archer",
-  "scorpio",
-  "aquarius",
-  "virgo",
-  "virgos",
-  "capricorn",
-  "chiron",
-];
-
-export default IconSagittarius as IconComponent;
+export default IconSagittarius;

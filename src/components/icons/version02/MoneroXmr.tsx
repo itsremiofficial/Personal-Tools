@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMoneroXmr: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,19 +85,4 @@ const IconMoneroXmr: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMoneroXmr as IconComponent).keywords = [
-  "monero",
-  "xmr",
-  "bitcoin",
-  "bitcoin gold",
-  "platinum coin",
-  "chilean peso",
-  "romania and the euro",
-  "mars",
-  "pound",
-  "firefox",
-  "electron",
-];
-
-export default IconMoneroXmr as IconComponent;
+export default IconMoneroXmr;

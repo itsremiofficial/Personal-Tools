@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCaseRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,28 +109,4 @@ const IconCaseRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCaseRound as IconComponent).keywords = [
-  "case",
-  "round",
-  "event",
-  "cause",
-  "subject",
-  "example",
-  "eccentric",
-  "showcase",
-  "type",
-  "instance",
-  "character",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconCaseRound as IconComponent;
+export default IconCaseRound;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconReceiptSearch: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,28 +100,4 @@ const IconReceiptSearch: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconReceiptSearch as IconComponent).keywords = [
-  "receipt",
-  "search",
-  "receiving",
-  "reception",
-  "acknowledge",
-  "recipient",
-  "receptor",
-  "granting",
-  "receive",
-  "grant",
-  "remitting",
-  "seek",
-  "look for",
-  "explore",
-  "lookup",
-  "research",
-  "look",
-  "hunting",
-  "hunt",
-  "seeking",
-];
-
-export default IconReceiptSearch as IconComponent;
+export default IconReceiptSearch;

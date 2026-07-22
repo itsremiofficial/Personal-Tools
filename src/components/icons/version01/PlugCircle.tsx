@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPlugCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconPlugCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPlugCircle as IconComponent).keywords = [
-  "plug",
-  "circle",
-  "spark plug",
-  "fireplug",
-  "sparking plug",
-  "fire hydrant",
-  "stopper",
-  "hack",
-  "stopple",
-  "stop up",
-  "punch",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconPlugCircle as IconComponent;
+export default IconPlugCircle;

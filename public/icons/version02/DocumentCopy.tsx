@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDocumentCopy: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,28 +113,4 @@ const IconDocumentCopy: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDocumentCopy as IconComponent).keywords = [
-  "document",
-  "copy",
-  "papers",
-  "text file",
-  "written document",
-  "documentation",
-  "backgrounder",
-  "workbook",
-  "dossier",
-  "handbook",
-  "listing",
-  "simulate",
-  "transcript",
-  "imitate",
-  "emulate",
-  "re-create",
-  "ape",
-  "written matter",
-  "replicate",
-  "replica",
-];
-
-export default IconDocumentCopy as IconComponent;
+export default IconDocumentCopy;

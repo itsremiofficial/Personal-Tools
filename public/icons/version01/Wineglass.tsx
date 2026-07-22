@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWineglass: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,18 +96,4 @@ const IconWineglass: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWineglass as IconComponent).keywords = [
-  "wineglass",
-  "wineglasses",
-  "goblet",
-  "stemware",
-  "decanter",
-  "wineglassful",
-  "glass",
-  "carafe",
-  "goblets",
-  "vase",
-];
-
-export default IconWineglass as IconComponent;
+export default IconWineglass;

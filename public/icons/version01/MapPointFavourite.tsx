@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMapPointFavourite: FC<IconProps> = ({
   className,
   fill = false,
@@ -68,38 +75,4 @@ const IconMapPointFavourite: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMapPointFavourite as IconComponent).keywords = [
-  "map",
-  "point",
-  "favourite",
-  "map out",
-  "correspondence",
-  "represent",
-  "chart",
-  "cartography",
-  "cartographic",
-  "topography",
-  "plan",
-  "charting",
-  "item",
-  "betoken",
-  "indicate",
-  "bespeak",
-  "period",
-  "point in time",
-  "show",
-  "stage",
-  "detail",
-  "preferred",
-  "favored",
-  "favorite",
-  "popular",
-  "loved",
-  "deary",
-  "darling",
-  "dearie",
-  "front-runner",
-];
-
-export default IconMapPointFavourite as IconComponent;
+export default IconMapPointFavourite;

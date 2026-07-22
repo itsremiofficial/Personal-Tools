@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGame: FC<IconProps> = ({
   className,
   fill = false,
@@ -148,18 +155,4 @@ const IconGame: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGame as IconComponent).keywords = [
-  "game",
-  "spunky",
-  "spirited",
-  "mettlesome",
-  "courageous",
-  "brave",
-  "back",
-  "fearless",
-  "gamey",
-  "biz",
-];
-
-export default IconGame as IconComponent;
+export default IconGame;

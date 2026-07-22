@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUserPlus: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,28 +94,4 @@ const IconUserPlus: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUserPlus as IconComponent).keywords = [
-  "user",
-  "plus",
-  "exploiter",
-  "enjoyer",
-  "drug user",
-  "substance abuser",
-  "customer",
-  "client",
-  "employer",
-  "consumer",
-  "employee",
-  "addition",
-  "summation",
-  "advantageous",
-  "positive",
-  "asset",
-  "nonnegative",
-  "additional",
-  "add",
-  "along",
-];
-
-export default IconUserPlus as IconComponent;
+export default IconUserPlus;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconArchiveDown: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,28 +87,4 @@ const IconArchiveDown: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconArchiveDown as IconComponent).keywords = [
-  "archive",
-  "down",
-  "file away",
-  "archival",
-  "file",
-  "record-keeping",
-  "registry",
-  "record",
-  "photo",
-  "filer",
-  "filename",
-  "downwards",
-  "downward",
-  "downbound",
-  "falling",
-  "fallen",
-  "pull down",
-  "downwardly",
-  "declining",
-  "descending",
-];
-
-export default IconArchiveDown as IconComponent;
+export default IconArchiveDown;

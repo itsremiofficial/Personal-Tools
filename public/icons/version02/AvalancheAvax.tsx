@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAvalancheAvax: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconAvalancheAvax: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAvalancheAvax as IconComponent).keywords = [
-  "avalanche",
-  "avax",
-  "roll down",
-  "landslide",
-  "snow",
-  "ice",
-  "glacier",
-  "blizzard",
-  "flood",
-  "cascade",
-  "tide",
-  "ard",
-  "args",
-  "asn",
-  "bool",
-  "boolean",
-  "checkbox",
-  "cies",
-  "connect",
-  "constructor",
-];
-
-export default IconAvalancheAvax as IconComponent;
+export default IconAvalancheAvax;

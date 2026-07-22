@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTriangle: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,18 +105,4 @@ const IconTriangle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTriangle as IconComponent).keywords = [
-  "triangle",
-  "trigon",
-  "trilateral",
-  "triangular",
-  "direction",
-  "tripartite",
-  "trio",
-  "triptych",
-  "delta",
-  "wye",
-];
-
-export default IconTriangle as IconComponent;
+export default IconTriangle;

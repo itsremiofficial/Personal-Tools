@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHeadphone: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,18 +82,4 @@ const IconHeadphone: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHeadphone as IconComponent).keywords = [
-  "headphone",
-  "earpiece",
-  "earphone",
-  "phone",
-  "headset",
-  "handset",
-  "tag",
-  "ear",
-  "earphones",
-  "earbuds",
-];
-
-export default IconHeadphone as IconComponent;
+export default IconHeadphone;

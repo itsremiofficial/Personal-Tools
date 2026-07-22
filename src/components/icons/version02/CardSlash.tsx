@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCardSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -144,28 +151,4 @@ const IconCardSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCardSlash as IconComponent).keywords = [
-  "card",
-  "slash",
-  "scorecard",
-  "batting order",
-  "identity card",
-  "visiting card",
-  "calling card",
-  "lineup",
-  "poster",
-  "placard",
-  "tease",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconCardSlash as IconComponent;
+export default IconCardSlash;

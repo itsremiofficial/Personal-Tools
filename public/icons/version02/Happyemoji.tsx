@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHappyemoji: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,7 +78,4 @@ const IconHappyemoji: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHappyemoji as IconComponent).keywords = ["happyemoji"];
-
-export default IconHappyemoji as IconComponent;
+export default IconHappyemoji;

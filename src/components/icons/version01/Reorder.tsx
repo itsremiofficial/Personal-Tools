@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconReorder: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,18 +100,4 @@ const IconReorder: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconReorder as IconComponent).keywords = [
-  "reorder",
-  "reorganize",
-  "reconfigure",
-  "rearranging",
-  "reorganization",
-  "rearrange",
-  "re-engineering",
-  "regroup",
-  "repackage",
-  "rearrangement",
-];
-
-export default IconReorder as IconComponent;
+export default IconReorder;

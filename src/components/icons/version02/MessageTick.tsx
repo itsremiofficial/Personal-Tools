@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMessageTick: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,28 +103,4 @@ const IconMessageTick: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMessageTick as IconComponent).keywords = [
-  "message",
-  "tick",
-  "subject matter",
-  "substance",
-  "content",
-  "file",
-  "communiqué",
-  "transmission",
-  "communication",
-  "news",
-  "advertisement",
-  "click",
-  "ticktock",
-  "beat",
-  "ticktack",
-  "retick",
-  "ixodid",
-  "acarid",
-  "spinose",
-  "gene",
-];
-
-export default IconMessageTick as IconComponent;
+export default IconMessageTick;

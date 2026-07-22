@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBranchingPathsDown: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,38 +80,4 @@ const IconBranchingPathsDown: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBranchingPathsDown as IconComponent).keywords = [
-  "branching",
-  "paths",
-  "down",
-  "ramification",
-  "fork",
-  "forking",
-  "divergent",
-  "diverging",
-  "offshoot",
-  "ramose",
-  "epicormic",
-  "monopodial",
-  "way",
-  "route",
-  "track",
-  "way of life",
-  "course",
-  "airstrips",
-  "aisles",
-  "approaches",
-  "arteries",
-  "downwards",
-  "downward",
-  "downbound",
-  "falling",
-  "fallen",
-  "pull down",
-  "downwardly",
-  "declining",
-  "descending",
-];
-
-export default IconBranchingPathsDown as IconComponent;
+export default IconBranchingPathsDown;

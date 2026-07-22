@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDirectboxDefault2: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,29 +107,4 @@ const IconDirectboxDefault2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDirectboxDefault2 as IconComponent).keywords = [
-  "directbox",
-  "default",
-  "2",
-  "nonpayment",
-  "default on",
-  "default option",
-  "nonremittal",
-  "missing",
-  "omission",
-  "absent",
-  "fail",
-  "absence",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconDirectboxDefault2 as IconComponent;
+export default IconDirectboxDefault2;

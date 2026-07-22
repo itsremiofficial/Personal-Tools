@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSquareTopUp: FC<IconProps> = ({
   className,
   fill = false,
@@ -76,38 +83,4 @@ const IconSquareTopUp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSquareTopUp as IconComponent).keywords = [
-  "square",
-  "top",
-  "up",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "upper side",
-  "upside",
-  "elevation",
-  "uppermost",
-  "height",
-  "pinnacle",
-  "peak",
-  "upper",
-  "topmost",
-  "upbound",
-  "upwardly",
-  "ascending",
-  "upward",
-  "upwards",
-  "rising",
-  "astir",
-  "ahead",
-  "awake",
-];
-
-export default IconSquareTopUp as IconComponent;
+export default IconSquareTopUp;

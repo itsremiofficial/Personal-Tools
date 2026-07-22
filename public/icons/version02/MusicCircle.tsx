@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMusicCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -161,28 +168,4 @@ const IconMusicCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMusicCircle as IconComponent).keywords = [
-  "music",
-  "circle",
-  "sheet music",
-  "euphony",
-  "medicine",
-  "melody",
-  "symphony",
-  "orchestra",
-  "musician",
-  "song",
-  "singing",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconMusicCircle as IconComponent;
+export default IconMusicCircle;

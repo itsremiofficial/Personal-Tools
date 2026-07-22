@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMagnifierBugMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,38 +106,4 @@ const IconMagnifierBugMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMagnifierBugMinimalistic as IconComponent).keywords = [
-  "magnifier",
-  "bug",
-  "minimalistic",
-  "expander",
-  "magnification",
-  "amplifier",
-  "permission",
-  "authorisation",
-  "lens",
-  "microscope",
-  "loupe",
-  "magnifying",
-  "hemipteran",
-  "hemipteron",
-  "badger",
-  "germ",
-  "microbe",
-  "tap",
-  "tease",
-  "beleaguer",
-  "harass",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconMagnifierBugMinimalistic as IconComponent;
+export default IconMagnifierBugMinimalistic;

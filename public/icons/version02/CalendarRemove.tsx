@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCalendarRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -161,28 +168,4 @@ const IconCalendarRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCalendarRemove as IconComponent).keywords = [
-  "calendar",
-  "remove",
-  "timeline",
-  "chronology",
-  "rota",
-  "scheduling",
-  "timetable",
-  "program",
-  "time-scale",
-  "timeframe",
-  "timescale",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconCalendarRemove as IconComponent;
+export default IconCalendarRemove;

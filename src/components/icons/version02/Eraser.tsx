@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEraser: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,18 +91,4 @@ const IconEraser: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEraser as IconComponent).keywords = [
-  "eraser",
-  "clearance",
-  "cleanup",
-  "cleaning",
-  "clean-up",
-  "rough",
-  "scratch",
-  "cleansing",
-  "cleanliness",
-  "draft",
-];
-
-export default IconEraser as IconComponent;
+export default IconEraser;

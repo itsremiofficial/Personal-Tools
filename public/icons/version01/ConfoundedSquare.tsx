@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconConfoundedSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,28 +100,4 @@ const IconConfoundedSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconConfoundedSquare as IconComponent).keywords = [
-  "confounded",
-  "square",
-  "befuddled",
-  "perplexed",
-  "bewildered",
-  "baffled",
-  "confused",
-  "bemused",
-  "mixed-up",
-  "mazed",
-  "lost",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconConfoundedSquare as IconComponent;
+export default IconConfoundedSquare;

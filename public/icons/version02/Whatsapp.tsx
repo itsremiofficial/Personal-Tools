@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWhatsapp: FC<IconProps> = ({
   className,
   fill = false,
@@ -76,18 +83,4 @@ const IconWhatsapp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWhatsapp as IconComponent).keywords = [
-  "whatsapp",
-  "snapchat",
-  "facetime",
-  "facebook",
-  "snapchatter",
-  "videochat",
-  "webchat",
-  "kakaotalk",
-  "instagram",
-  "chat",
-];
-
-export default IconWhatsapp as IconComponent;
+export default IconWhatsapp;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSadCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,28 +89,4 @@ const IconSadCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSadCircle as IconComponent).keywords = [
-  "sad",
-  "circle",
-  "sadden",
-  "doleful",
-  "sorrowful",
-  "tragic",
-  "saddening",
-  "mournful",
-  "lamentable",
-  "melancholic",
-  "depressing",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconSadCircle as IconComponent;
+export default IconSadCircle;

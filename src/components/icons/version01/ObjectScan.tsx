@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconObjectScan: FC<IconProps> = ({
   className,
   fill = false,
@@ -137,28 +144,4 @@ const IconObjectScan: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconObjectScan as IconComponent).keywords = [
-  "object",
-  "scan",
-  "objective",
-  "aim",
-  "target",
-  "physical object",
-  "item",
-  "thing",
-  "subject-matter",
-  "intention",
-  "considered",
-  "read",
-  "run down",
-  "glance over",
-  "skim",
-  "rake",
-  "examine",
-  "inspect",
-  "finding",
-  "scrutinize",
-];
-
-export default IconObjectScan as IconComponent;
+export default IconObjectScan;

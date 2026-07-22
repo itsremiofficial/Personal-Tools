@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLinkBrokenMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,38 +114,4 @@ const IconLinkBrokenMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLinkBrokenMinimalistic as IconComponent).keywords = [
-  "link",
-  "broken",
-  "minimalistic",
-  "linkup",
-  "connection",
-  "nexus",
-  "connexion",
-  "connectedness",
-  "connect",
-  "tie-in",
-  "unite",
-  "associate",
-  "fractured",
-  "shattered",
-  "fragmented",
-  "crushed",
-  "destroyed",
-  "damaged",
-  "chipped",
-  "cracked",
-  "rugged",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconLinkBrokenMinimalistic as IconComponent;
+export default IconLinkBrokenMinimalistic;

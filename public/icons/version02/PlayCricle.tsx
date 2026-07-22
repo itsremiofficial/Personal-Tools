@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPlayCricle: FC<IconProps> = ({
   className,
   fill = false,
@@ -124,19 +131,4 @@ const IconPlayCricle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPlayCricle as IconComponent).keywords = [
-  "play",
-  "cricle",
-  "frolic",
-  "fun",
-  "gambol",
-  "caper",
-  "romp",
-  "toy",
-  "make-believe",
-  "pretend",
-  "dally",
-];
-
-export default IconPlayCricle as IconComponent;
+export default IconPlayCricle;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSafeCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -113,28 +120,4 @@ const IconSafeCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSafeCircle as IconComponent).keywords = [
-  "safe",
-  "circle",
-  "secure",
-  "safe and sound",
-  "safety",
-  "risk-free",
-  "dependable",
-  "harmless",
-  "innocuous",
-  "off the hook",
-  "sound",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconSafeCircle as IconComponent;
+export default IconSafeCircle;

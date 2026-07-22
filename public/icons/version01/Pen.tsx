@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPen: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,18 +78,4 @@ const IconPen: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPen as IconComponent).keywords = [
-  "pen",
-  "playpen",
-  "penitentiary",
-  "compose",
-  "indite",
-  "write",
-  "paddock",
-  "corral",
-  "basin",
-  "sty",
-];
-
-export default IconPen as IconComponent;
+export default IconPen;

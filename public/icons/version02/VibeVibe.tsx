@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVibeVibe: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,18 +96,4 @@ const IconVibeVibe: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVibeVibe as IconComponent).keywords = [
-  "vibe",
-  "vibraharp",
-  "vibraphone",
-  "vibrations",
-  "printing",
-  "style",
-  "vibration",
-  "vibrational",
-  "impression",
-  "ambience",
-];
-
-export default IconVibeVibe as IconComponent;
+export default IconVibeVibe;

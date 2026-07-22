@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconInboxIn: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconInboxIn: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconInboxIn as IconComponent).keywords = [
-  "inbox",
-  "in",
-  "mailbox",
-  "letterbox",
-  "email",
-  "binder",
-  "workbook",
-  "cassette",
-  "compartment",
-  "rack",
-  "lockbox",
-  "cbs",
-  "nsis",
-  "nih",
-  "nsi",
-  "establishment",
-  "immigration",
-  "without",
-  "elected",
-  "adherents",
-];
-
-export default IconInboxIn as IconComponent;
+export default IconInboxIn;

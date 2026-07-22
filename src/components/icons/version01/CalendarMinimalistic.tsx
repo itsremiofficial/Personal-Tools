@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCalendarMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,28 +93,4 @@ const IconCalendarMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCalendarMinimalistic as IconComponent).keywords = [
-  "calendar",
-  "minimalistic",
-  "timeline",
-  "chronology",
-  "rota",
-  "scheduling",
-  "timetable",
-  "program",
-  "time-scale",
-  "timeframe",
-  "timescale",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconCalendarMinimalistic as IconComponent;
+export default IconCalendarMinimalistic;

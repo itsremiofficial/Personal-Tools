@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCat: FC<IconProps> = ({
   className,
   fill = false,
@@ -136,18 +143,4 @@ const IconCat: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCat as IconComponent).keywords = [
-  "cat",
-  "big cat",
-  "chuck",
-  "caterpillar",
-  "vomit",
-  "regurgitate",
-  "spew",
-  "regorge",
-  "disgorge",
-  "retch",
-];
-
-export default IconCat as IconComponent;
+export default IconCat;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconThetaTheta: FC<IconProps> = ({
   className,
   fill = false,
@@ -114,18 +121,4 @@ const IconThetaTheta: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconThetaTheta as IconComponent).keywords = [
-  "theta",
-  "phi",
-  "epsilon",
-  "gamma",
-  "omega",
-  "arctan",
-  "delta",
-  "cosine",
-  "arcsin",
-  "upsilon",
-];
-
-export default IconThetaTheta as IconComponent;
+export default IconThetaTheta;

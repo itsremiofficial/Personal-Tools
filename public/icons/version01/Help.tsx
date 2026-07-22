@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHelp: FC<IconProps> = ({
   className,
   fill = false,
@@ -120,18 +127,4 @@ const IconHelp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHelp as IconComponent).keywords = [
-  "help",
-  "aid",
-  "service",
-  "assistance",
-  "assist",
-  "helper",
-  "avail",
-  "facilitate",
-  "supporter",
-  "assistant",
-];
-
-export default IconHelp as IconComponent;
+export default IconHelp;

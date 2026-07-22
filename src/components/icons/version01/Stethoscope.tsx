@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStethoscope: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,18 +95,4 @@ const IconStethoscope: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStethoscope as IconComponent).keywords = [
-  "stethoscope",
-  "precordial",
-  "binaural",
-  "otoscope",
-  "auscultation",
-  "littman",
-  "cardiograph",
-  "auscultate",
-  "cardiogram",
-  "electrocardiograph",
-];
-
-export default IconStethoscope as IconComponent;
+export default IconStethoscope;

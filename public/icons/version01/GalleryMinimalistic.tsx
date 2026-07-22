@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGalleryMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,28 +91,4 @@ const IconGalleryMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGalleryMinimalistic as IconComponent).keywords = [
-  "gallery",
-  "minimalistic",
-  "art gallery",
-  "heading",
-  "verandah",
-  "veranda",
-  "drift",
-  "picture gallery",
-  "museum",
-  "beaux-arts",
-  "art",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconGalleryMinimalistic as IconComponent;
+export default IconGalleryMinimalistic;

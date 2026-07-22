@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMagniferZoomInMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,39 +94,4 @@ const IconMagniferZoomInMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMagniferZoomInMinimalistic as IconComponent).keywords = [
-  "magnifer",
-  "zoom",
-  "in",
-  "minimalistic",
-  "whizz",
-  "surge",
-  "soar",
-  "rapid climb",
-  "rapid growth",
-  "soar up",
-  "soar upwards",
-  "whizz along",
-  "zoom along",
-  "cbs",
-  "nsis",
-  "nih",
-  "nsi",
-  "establishment",
-  "immigration",
-  "without",
-  "elected",
-  "adherents",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconMagniferZoomInMinimalistic as IconComponent;
+export default IconMagniferZoomInMinimalistic;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLanguageCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,28 +100,4 @@ const IconLanguageCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLanguageCircle as IconComponent).keywords = [
-  "language",
-  "circle",
-  "speech",
-  "nomenclature",
-  "terminology",
-  "lyric",
-  "words",
-  "linguistic communication",
-  "linguistic process",
-  "oral communication",
-  "spoken language",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconLanguageCircle as IconComponent;
+export default IconLanguageCircle;

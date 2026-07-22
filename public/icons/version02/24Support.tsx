@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const Icon24Support: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,28 +95,4 @@ const Icon24Support: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(Icon24Support as IconComponent).keywords = [
-  "24",
-  "support",
-  "cardinal",
-  "twenty-four",
-  "two dozen",
-  "xxiv",
-  "247",
-  "ever",
-  "hour",
-  "ibid",
-  "karat",
-  "sustain",
-  "sustenance",
-  "stand",
-  "keep",
-  "hold up",
-  "reinforcement",
-  "hold",
-  "back up",
-  "backing",
-];
-
-export default Icon24Support as IconComponent;
+export default Icon24Support;

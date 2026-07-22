@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMoreSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconMoreSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMoreSquare as IconComponent).keywords = [
-  "more",
-  "square",
-  "additional",
-  "further",
-  "added",
-  "more than",
-  "to a greater extent",
-  "maximum",
-  "farther",
-  "anymore",
-  "better",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconMoreSquare as IconComponent;
+export default IconMoreSquare;

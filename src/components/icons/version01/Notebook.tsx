@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNotebook: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,18 +95,4 @@ const IconNotebook: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNotebook as IconComponent).keywords = [
-  "notebook",
-  "notebook computer",
-  "scrapbook",
-  "booklet",
-  "binder",
-  "book",
-  "notepad",
-  "journal",
-  "diary",
-  "scratchpad",
-];
-
-export default IconNotebook as IconComponent;
+export default IconNotebook;

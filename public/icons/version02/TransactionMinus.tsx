@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTransactionMinus: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconTransactionMinus: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTransactionMinus as IconComponent).keywords = [
-  "transaction",
-  "minus",
-  "dealing",
-  "dealings",
-  "sale",
-  "exchange",
-  "purchase",
-  "trading",
-  "trade",
-  "turnover",
-  "dealer",
-  "subtraction",
-  "negative",
-  "disadvantageous",
-  "harmful",
-  "sans",
-  "min",
-  "least",
-  "unary",
-  "nec",
-];
-
-export default IconTransactionMinus as IconComponent;
+export default IconTransactionMinus;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSpecialEffects: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconSpecialEffects: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSpecialEffects as IconComponent).keywords = [
-  "special",
-  "effects",
-  "specific",
-  "particular",
-  "especial",
-  "exceptional",
-  "extraordinary",
-  "primary",
-  "peculiar",
-  "uncommon",
-  "extra",
-  "personal effects",
-  "adverse",
-  "affect",
-  "affected",
-  "affecting",
-  "affects",
-  "after-effects",
-  "aftereffects",
-  "aftermath",
-];
-
-export default IconSpecialEffects as IconComponent;
+export default IconSpecialEffects;

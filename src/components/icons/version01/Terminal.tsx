@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTerminal: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,18 +96,4 @@ const IconTerminal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTerminal as IconComponent).keywords = [
-  "terminal",
-  "pole",
-  "depot",
-  "closing",
-  "final",
-  "terminus",
-  "concluding",
-  "endmost",
-  "last",
-  "fatal",
-];
-
-export default IconTerminal as IconComponent;
+export default IconTerminal;

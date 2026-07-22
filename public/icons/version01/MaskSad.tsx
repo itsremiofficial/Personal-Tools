@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMaskSad: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconMaskSad: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMaskSad as IconComponent).keywords = [
-  "mask",
-  "sad",
-  "cloak",
-  "masquerade",
-  "masque",
-  "block out",
-  "dissemble",
-  "vizard",
-  "hood",
-  "shield",
-  "sock",
-  "sadden",
-  "doleful",
-  "sorrowful",
-  "tragic",
-  "saddening",
-  "mournful",
-  "lamentable",
-  "melancholic",
-  "depressing",
-];
-
-export default IconMaskSad as IconComponent;
+export default IconMaskSad;

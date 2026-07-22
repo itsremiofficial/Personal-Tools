@@ -10,19 +10,19 @@ export const FileList = React.memo(
       <div
         className={cn(
           "relative rounded-2xl overflow-hidden",
-          "border-2 border-dashed border-border/70"
+          "border-2 border-dashed border-border/70",
         )}
       >
         <div
           className={cn(
-            "absolute w-32 inset-y-0 right-0 bg-gradient-to-r z-1 from-0% via-80% to-100%",
-            "from-transparent via-muted to-muted"
+            "absolute w-32 inset-y-0 right-0 bg-linear-to-r z-1 from-0% via-80% to-100%",
+            "from-transparent via-card to-card",
           )}
         />
         <div
           className={cn(
             "px-4 py-2",
-            disabled && "opacity-50 cursor-not-allowed"
+            disabled && "opacity-50 cursor-not-allowed",
           )}
         >
           <div className="flex overflow-auto py-2 gap-4 ">
@@ -38,7 +38,7 @@ export const FileList = React.memo(
         </div>
       </div>
     );
-  }
+  },
 );
 
 const FileItem = React.memo(({ file, onRemove, disabled }: FileItemProps) => (
@@ -47,7 +47,7 @@ const FileItem = React.memo(({ file, onRemove, disabled }: FileItemProps) => (
       "relative py-4 px-8 rounded-2xl text-sm flex items-center whitespace-nowrap",
       "bg-accent/70",
       "text-foreground",
-      disabled && "opacity-50"
+      disabled && "opacity-50",
     )}
   >
     {file.name}
@@ -59,7 +59,7 @@ const FileItem = React.memo(({ file, onRemove, disabled }: FileItemProps) => (
         "bg-muted/50 hover:bg-muted/80",
         "dark:bg-rose-950/30 dark:hover:bg-rose-900/40",
         "dark:text-rose-500 dark:hover:text-rose-400",
-        !disabled && "cursor-pointer"
+        !disabled && "cursor-pointer",
       )}
     >
       <IconClose className="size-5 stroke-3" duotone={false} />

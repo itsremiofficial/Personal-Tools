@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSaveMinus: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,28 +94,4 @@ const IconSaveMinus: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSaveMinus as IconComponent).keywords = [
-  "save",
-  "minus",
-  "save up",
-  "lay aside",
-  "carry through",
-  "redeem",
-  "keep",
-  "deliver",
-  "relieve",
-  "spare",
-  "pull through",
-  "subtraction",
-  "negative",
-  "disadvantageous",
-  "harmful",
-  "sans",
-  "min",
-  "least",
-  "unary",
-  "nec",
-];
-
-export default IconSaveMinus as IconComponent;
+export default IconSaveMinus;

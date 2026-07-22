@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGolf: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,18 +95,4 @@ const IconGolf: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGolf as IconComponent).keywords = [
-  "golf",
-  "golf game",
-  "putt",
-  "football",
-  "stadium",
-  "driving",
-  "trajectory",
-  "surge",
-  "ball",
-  "wave",
-];
-
-export default IconGolf as IconComponent;
+export default IconGolf;

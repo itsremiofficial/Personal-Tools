@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTV: FC<IconProps> = ({
   className,
   fill = false,
@@ -105,7 +112,4 @@ const IconTV: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTV as IconComponent).keywords = [];
-
-export default IconTV as IconComponent;
+export default IconTV;

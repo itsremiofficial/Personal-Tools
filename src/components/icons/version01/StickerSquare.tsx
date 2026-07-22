@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStickerSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,28 +84,4 @@ const IconStickerSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStickerSquare as IconComponent).keywords = [
-  "sticker",
-  "square",
-  "label",
-  "gummed label",
-  "sticky",
-  "bonding",
-  "paster",
-  "adhesive",
-  "tab",
-  "decal",
-  "thumbnail",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconStickerSquare as IconComponent;
+export default IconStickerSquare;

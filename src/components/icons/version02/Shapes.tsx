@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShapes: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,18 +82,4 @@ const IconShapes: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShapes as IconComponent).keywords = [
-  "shapes",
-  "form",
-  "determine",
-  "pattern",
-  "embodiment",
-  "influence",
-  "frame",
-  "configuration",
-  "build",
-  "regulate",
-];
-
-export default IconShapes as IconComponent;
+export default IconShapes;

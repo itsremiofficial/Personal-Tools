@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHomeTrendUp: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,38 +86,4 @@ const IconHomeTrendUp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHomeTrendUp as IconComponent).keywords = [
-  "home",
-  "trend",
-  "up",
-  "domicile",
-  "habitation",
-  "domestic",
-  "dwelling",
-  "nursing home",
-  "rest home",
-  "house",
-  "dwelling house",
-  "household",
-  "tendency",
-  "vogue",
-  "course",
-  "curve",
-  "slue",
-  "swerve",
-  "slew",
-  "style",
-  "cut",
-  "upbound",
-  "upwardly",
-  "ascending",
-  "upward",
-  "upwards",
-  "rising",
-  "astir",
-  "ahead",
-  "awake",
-];
-
-export default IconHomeTrendUp as IconComponent;
+export default IconHomeTrendUp;

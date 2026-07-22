@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTicketDiscount: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconTicketDiscount: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTicketDiscount as IconComponent).keywords = [
-  "ticket",
-  "discount",
-  "fine",
-  "coupon",
-  "itinerary",
-  "passport",
-  "place",
-  "engineer",
-  "flag",
-  "airfare",
-  "travel",
-  "bank discount",
-  "discount rate",
-  "rebate",
-  "deduction",
-  "dismiss",
-  "brush aside",
-  "brush off",
-  "ignore",
-  "disregard",
-];
-
-export default IconTicketDiscount as IconComponent;
+export default IconTicketDiscount;

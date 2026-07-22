@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTreadmill: FC<IconProps> = ({
   className,
   fill = false,
@@ -119,18 +126,4 @@ const IconTreadmill: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTreadmill as IconComponent).keywords = [
-  "treadmill",
-  "treadwheel",
-  "salt mine",
-  "carousel",
-  "walkway",
-  "conveyor",
-  "sport",
-  "logjam",
-  "carpeting",
-  "carpet",
-];
-
-export default IconTreadmill as IconComponent;
+export default IconTreadmill;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMainComponent: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconMainComponent: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMainComponent as IconComponent).keywords = [
-  "main",
-  "component",
-  "principal",
-  "primary",
-  "important",
-  "independent",
-  "chief",
-  "intense",
-  "briny",
-  "of import",
-  "prime",
-  "constituent",
-  "part",
-  "fractional",
-  "portion",
-  "factor",
-  "ingredient",
-  "element",
-  "component part",
-  "piece",
-];
-
-export default IconMainComponent as IconComponent;
+export default IconMainComponent;

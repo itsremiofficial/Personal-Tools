@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUserHeartRounded: FC<IconProps> = ({
   className,
   fill = false,
@@ -81,38 +88,4 @@ const IconUserHeartRounded: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUserHeartRounded as IconComponent).keywords = [
-  "user",
-  "heart",
-  "rounded",
-  "exploiter",
-  "enjoyer",
-  "drug user",
-  "substance abuser",
-  "customer",
-  "client",
-  "employer",
-  "consumer",
-  "employee",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-  "ringed",
-  "ring-shaped",
-  "annulate",
-  "annular",
-  "circular",
-  "rotund",
-  "bowfront",
-  "prolate",
-  "domed",
-];
-
-export default IconUserHeartRounded as IconComponent;
+export default IconUserHeartRounded;

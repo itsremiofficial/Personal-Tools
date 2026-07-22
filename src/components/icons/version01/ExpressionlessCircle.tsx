@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconExpressionlessCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconExpressionlessCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconExpressionlessCircle as IconComponent).keywords = [
-  "expressionless",
-  "circle",
-  "impassive",
-  "unexpressive",
-  "incommunicative",
-  "uncommunicative",
-  "deadpan",
-  "poker-faced",
-  "stony",
-  "inexpressive",
-  "emotionless",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconExpressionlessCircle as IconComponent;
+export default IconExpressionlessCircle;

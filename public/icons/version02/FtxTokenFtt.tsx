@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFtxTokenFtt: FC<IconProps> = ({
   className,
   fill = false,
@@ -112,38 +119,4 @@ const IconFtxTokenFtt: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFtxTokenFtt as IconComponent).keywords = [
-  "ftx",
-  "token",
-  "ftt",
-  "wireless network",
-  "put through",
-  "ring up",
-  "hang up",
-  "call up",
-  "sign on",
-  "carry on",
-  "sign off",
-  "back up",
-  "tokenish",
-  "item",
-  "nominal",
-  "keepsake",
-  "souvenir",
-  "relic",
-  "minimal",
-  "minimum",
-  "tokenistic",
-  "ftd",
-  "wftu",
-  "ets",
-  "fms",
-  "itf",
-  "dft",
-  "ndr",
-  "ttf",
-  "fsm",
-];
-
-export default IconFtxTokenFtt as IconComponent;
+export default IconFtxTokenFtt;

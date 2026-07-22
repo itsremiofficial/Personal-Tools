@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconExternalDrive: FC<IconProps> = ({
   className,
   fill = false,
@@ -118,28 +125,4 @@ const IconExternalDrive: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconExternalDrive as IconComponent).keywords = [
-  "external",
-  "drive",
-  "exogenous",
-  "international",
-  "outside",
-  "outer",
-  "outward",
-  "extrinsic",
-  "extraneous",
-  "foreign",
-  "internal",
-  "force",
-  "effort",
-  "driving force",
-  "labour",
-  "get",
-  "push",
-  "cause",
-  "beat back",
-  "movement",
-];
-
-export default IconExternalDrive as IconComponent;
+export default IconExternalDrive;

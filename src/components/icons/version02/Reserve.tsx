@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconReserve: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,18 +105,4 @@ const IconReserve: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconReserve as IconComponent).keywords = [
-  "reserve",
-  "set aside",
-  "retain",
-  "allow",
-  "substitute",
-  "stockpile",
-  "hold",
-  "appropriate",
-  "reticence",
-  "modesty",
-];
-
-export default IconReserve as IconComponent;
+export default IconReserve;

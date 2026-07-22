@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUserOctagon: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,28 +90,4 @@ const IconUserOctagon: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUserOctagon as IconComponent).keywords = [
-  "user",
-  "octagon",
-  "exploiter",
-  "enjoyer",
-  "drug user",
-  "substance abuser",
-  "customer",
-  "client",
-  "employer",
-  "consumer",
-  "employee",
-  "decagon",
-  "hexagon",
-  "dodecagon",
-  "octogonal",
-  "hexagonal",
-  "oval",
-  "triangled",
-  "triangle",
-  "square",
-];
-
-export default IconUserOctagon as IconComponent;
+export default IconUserOctagon;

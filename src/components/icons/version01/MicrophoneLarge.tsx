@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMicrophoneLarge: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,28 +109,4 @@ const IconMicrophoneLarge: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMicrophoneLarge as IconComponent).keywords = [
-  "microphone",
-  "large",
-  "mike",
-  "loudspeaker",
-  "mic",
-  "wire",
-  "speaker",
-  "floor",
-  "lavalier",
-  "lavaliere",
-  "boom",
-  "great",
-  "large-scale",
-  "vast",
-  "larger-than-life",
-  "colossal",
-  "huge",
-  "prodigious",
-  "humongous",
-  "massive",
-];
-
-export default IconMicrophoneLarge as IconComponent;
+export default IconMicrophoneLarge;

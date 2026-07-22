@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMapPointRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,38 +77,4 @@ const IconMapPointRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMapPointRemove as IconComponent).keywords = [
-  "map",
-  "point",
-  "remove",
-  "map out",
-  "correspondence",
-  "represent",
-  "chart",
-  "cartography",
-  "cartographic",
-  "topography",
-  "plan",
-  "charting",
-  "item",
-  "betoken",
-  "indicate",
-  "bespeak",
-  "period",
-  "point in time",
-  "show",
-  "stage",
-  "detail",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconMapPointRemove as IconComponent;
+export default IconMapPointRemove;

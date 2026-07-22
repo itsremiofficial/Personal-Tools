@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudSnowfallMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -149,38 +156,4 @@ const IconCloudSnowfallMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudSnowfallMinimalistic as IconComponent).keywords = [
-  "cloud",
-  "snowfall",
-  "minimalistic",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "snow",
-  "snowy",
-  "snow-covered",
-  "snowpack",
-  "ice",
-  "snowman",
-  "snowstorm",
-  "height",
-  "fall",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconCloudSnowfallMinimalistic as IconComponent;
+export default IconCloudSnowfallMinimalistic;

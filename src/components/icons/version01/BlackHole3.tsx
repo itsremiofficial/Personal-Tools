@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBlackHole3: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,38 +105,4 @@ const IconBlackHole3: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBlackHole3 as IconComponent).keywords = [
-  "black",
-  "hole",
-  "3",
-  "pitch-black",
-  "pitch-dark",
-  "bleak",
-  "calamitous",
-  "disastrous",
-  "grim",
-  "dirty",
-  "soiled",
-  "unclean",
-  "hollow",
-  "trap",
-  "fix",
-  "jam",
-  "pickle",
-  "maw",
-  "yap",
-  "muddle",
-  "mess",
-  "omega",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-];
-
-export default IconBlackHole3 as IconComponent;
+export default IconBlackHole3;

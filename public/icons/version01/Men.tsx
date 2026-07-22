@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMen: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,18 +77,4 @@ const IconMen: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMen as IconComponent).keywords = [
-  "men",
-  "work force",
-  "workforce",
-  "manpower",
-  "hands",
-  "mankind",
-  "humankind",
-  "boy",
-  "masculine",
-  "male",
-];
-
-export default IconMen as IconComponent;
+export default IconMen;

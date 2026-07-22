@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRocket: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,18 +93,4 @@ const IconRocket: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRocket as IconComponent).keywords = [
-  "rocket",
-  "rocket engine",
-  "skyrocket",
-  "rocket salad",
-  "roquette",
-  "arugula",
-  "eruca sativa",
-  "eruca vesicaria sativa",
-  "garden rocket",
-  "propellant",
-];
-
-export default IconRocket as IconComponent;
+export default IconRocket;

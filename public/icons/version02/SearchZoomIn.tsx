@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSearchZoomIn: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,38 +102,4 @@ const IconSearchZoomIn: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSearchZoomIn as IconComponent).keywords = [
-  "search",
-  "zoom",
-  "in",
-  "seek",
-  "look for",
-  "explore",
-  "lookup",
-  "research",
-  "look",
-  "hunting",
-  "hunt",
-  "seeking",
-  "whizz",
-  "surge",
-  "soar",
-  "rapid climb",
-  "rapid growth",
-  "soar up",
-  "soar upwards",
-  "whizz along",
-  "zoom along",
-  "cbs",
-  "nsis",
-  "nih",
-  "nsi",
-  "establishment",
-  "immigration",
-  "without",
-  "elected",
-  "adherents",
-];
-
-export default IconSearchZoomIn as IconComponent;
+export default IconSearchZoomIn;

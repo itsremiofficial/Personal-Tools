@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconScanner2: FC<IconProps> = ({
   className,
   fill = false,
@@ -108,28 +115,4 @@ const IconScanner2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconScanner2 as IconComponent).keywords = [
-  "scanner",
-  "2",
-  "scanned",
-  "scanning",
-  "digitizer",
-  "recognizer",
-  "digitisation",
-  "digitization",
-  "radio",
-  "browser",
-  "reader",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconScanner2 as IconComponent;
+export default IconScanner2;

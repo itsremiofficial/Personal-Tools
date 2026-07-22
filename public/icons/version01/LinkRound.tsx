@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLinkRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,28 +80,4 @@ const IconLinkRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLinkRound as IconComponent).keywords = [
-  "link",
-  "round",
-  "linkup",
-  "connection",
-  "nexus",
-  "connexion",
-  "connectedness",
-  "connect",
-  "tie-in",
-  "unite",
-  "associate",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconLinkRound as IconComponent;
+export default IconLinkRound;

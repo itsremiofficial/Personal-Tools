@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLocationSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -110,28 +117,4 @@ const IconLocationSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLocationSlash as IconComponent).keywords = [
-  "location",
-  "slash",
-  "position",
-  "placement",
-  "positioning",
-  "localization",
-  "localisation",
-  "emplacement",
-  "fix",
-  "locating",
-  "situating",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconLocationSlash as IconComponent;
+export default IconLocationSlash;

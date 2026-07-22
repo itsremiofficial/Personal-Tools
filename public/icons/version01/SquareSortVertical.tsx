@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSquareSortVertical: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,38 +89,4 @@ const IconSquareSortVertical: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSquareSortVertical as IconComponent).keywords = [
-  "square",
-  "sort",
-  "vertical",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "classify",
-  "assort",
-  "class",
-  "form",
-  "kind",
-  "sort out",
-  "variety",
-  "separate",
-  "screen",
-  "perpendicular",
-  "plumb",
-  "upright",
-  "stand-up",
-  "standing",
-  "straight",
-  "rearing",
-  "erect",
-  "erectile",
-];
-
-export default IconSquareSortVertical as IconComponent;
+export default IconSquareSortVertical;

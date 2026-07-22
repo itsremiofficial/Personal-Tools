@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBuilding3: FC<IconProps> = ({
   className,
   fill = false,
@@ -131,28 +138,4 @@ const IconBuilding3: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBuilding3 as IconComponent).keywords = [
-  "building",
-  "3",
-  "edifice",
-  "construction",
-  "rising",
-  "increasing",
-  "augmentative",
-  "heightening",
-  "augmenting",
-  "constructing",
-  "constructive",
-  "omega",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-];
-
-export default IconBuilding3 as IconComponent;
+export default IconBuilding3;

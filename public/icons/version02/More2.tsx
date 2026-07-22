@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMore2: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconMore2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMore2 as IconComponent).keywords = [
-  "more",
-  "2",
-  "additional",
-  "further",
-  "added",
-  "more than",
-  "to a greater extent",
-  "maximum",
-  "farther",
-  "anymore",
-  "better",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconMore2 as IconComponent;
+export default IconMore2;

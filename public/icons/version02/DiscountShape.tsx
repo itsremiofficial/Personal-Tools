@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDiscountShape: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconDiscountShape: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDiscountShape as IconComponent).keywords = [
-  "discount",
-  "shape",
-  "bank discount",
-  "discount rate",
-  "rebate",
-  "deduction",
-  "dismiss",
-  "brush aside",
-  "brush off",
-  "ignore",
-  "disregard",
-  "form",
-  "determine",
-  "pattern",
-  "embodiment",
-  "influence",
-  "frame",
-  "configuration",
-  "build",
-  "regulate",
-];
-
-export default IconDiscountShape as IconComponent;
+export default IconDiscountShape;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUserRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -103,28 +110,4 @@ const IconUserRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUserRemove as IconComponent).keywords = [
-  "user",
-  "remove",
-  "exploiter",
-  "enjoyer",
-  "drug user",
-  "substance abuser",
-  "customer",
-  "client",
-  "employer",
-  "consumer",
-  "employee",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconUserRemove as IconComponent;
+export default IconUserRemove;

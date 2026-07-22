@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPaperBin: FC<IconProps> = ({
   className,
   fill = false,
@@ -142,28 +149,4 @@ const IconPaperBin: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPaperBin as IconComponent).keywords = [
-  "paper",
-  "bin",
-  "wallpaper",
-  "composition",
-  "newspaper",
-  "report",
-  "theme",
-  "newspaper publisher",
-  "ink",
-  "wallet",
-  "stationery",
-  "binful",
-  "aba transit number",
-  "bank identification number",
-  "box",
-  "shelf",
-  "locker",
-  "drawer",
-  "coffer",
-  "dumpster",
-];
-
-export default IconPaperBin as IconComponent;
+export default IconPaperBin;

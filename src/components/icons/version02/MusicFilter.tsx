@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMusicFilter: FC<IconProps> = ({
   className,
   fill = false,
@@ -149,28 +156,4 @@ const IconMusicFilter: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMusicFilter as IconComponent).keywords = [
-  "music",
-  "filter",
-  "sheet music",
-  "euphony",
-  "medicine",
-  "melody",
-  "symphony",
-  "orchestra",
-  "musician",
-  "song",
-  "singing",
-  "filtrate",
-  "filter out",
-  "percolate",
-  "permeate",
-  "trickle",
-  "sink in",
-  "strain",
-  "dribble",
-  "separate out",
-];
-
-export default IconMusicFilter as IconComponent;
+export default IconMusicFilter;

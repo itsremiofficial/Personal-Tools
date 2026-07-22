@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAirpod: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,7 +97,4 @@ const IconAirpod: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAirpod as IconComponent).keywords = ["airpod"];
-
-export default IconAirpod as IconComponent;
+export default IconAirpod;

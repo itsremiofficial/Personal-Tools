@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTextalignCenter: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,19 +114,4 @@ const IconTextalignCenter: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTextalignCenter as IconComponent).keywords = [
-  "textalign",
-  "center",
-  "central",
-  "focus",
-  "center of attention",
-  "nerve centre",
-  "middle",
-  "midway",
-  "centre",
-  "kernel",
-  "midpoint",
-];
-
-export default IconTextalignCenter as IconComponent;
+export default IconTextalignCenter;

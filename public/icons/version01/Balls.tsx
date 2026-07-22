@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBalls: FC<IconProps> = ({
   className,
   fill = false,
@@ -125,18 +132,4 @@ const IconBalls: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBalls as IconComponent).keywords = [
-  "balls",
-  "glob",
-  "lump",
-  "clump",
-  "globe",
-  "clod",
-  "chunk",
-  "ballock",
-  "orb",
-  "bollock",
-];
-
-export default IconBalls as IconComponent;
+export default IconBalls;

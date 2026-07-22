@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStretching: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,18 +97,4 @@ const IconStretching: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStretching as IconComponent).keywords = [
-  "stretching",
-  "wide",
-  "broad",
-  "wide-spreading",
-  "lengthening",
-  "spreading",
-  "spanning",
-  "ranging",
-  "vibrating",
-  "covering",
-];
-
-export default IconStretching as IconComponent;
+export default IconStretching;

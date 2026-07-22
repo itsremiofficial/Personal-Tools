@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCameraRotate: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconCameraRotate: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCameraRotate as IconComponent).keywords = [
-  "camera",
-  "rotate",
-  "photographic camera",
-  "television camera",
-  "photography",
-  "photographer",
-  "photographing",
-  "photograph",
-  "photo",
-  "imaging",
-  "photographic",
-  "go around",
-  "revolve",
-  "rotation",
-  "rotational",
-  "slue",
-  "turn",
-  "tilt",
-  "spinning",
-  "counterclockwise",
-];
-
-export default IconCameraRotate as IconComponent;
+export default IconCameraRotate;

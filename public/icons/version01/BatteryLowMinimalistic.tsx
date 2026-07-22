@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBatteryLowMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,38 +91,4 @@ const IconBatteryLowMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBatteryLowMinimalistic as IconComponent).keywords = [
-  "battery",
-  "low",
-  "minimalistic",
-  "bombardment",
-  "stamp battery",
-  "barrage",
-  "shelling",
-  "assault and battery",
-  "assault",
-  "barrage fire",
-  "electric battery",
-  "alternator",
-  "ebb",
-  "underslung",
-  "first gear",
-  "low gear",
-  "blue",
-  "under",
-  "crushed",
-  "broken",
-  "nether",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconBatteryLowMinimalistic as IconComponent;
+export default IconBatteryLowMinimalistic;

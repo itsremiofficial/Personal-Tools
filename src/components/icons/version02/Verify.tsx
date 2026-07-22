@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVerify: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,18 +78,4 @@ const IconVerify: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVerify as IconComponent).keywords = [
-  "verify",
-  "control",
-  "verification",
-  "validate",
-  "corroborate",
-  "substantiate",
-  "confirmation",
-  "ascertain",
-  "see",
-  "prove",
-];
-
-export default IconVerify as IconComponent;
+export default IconVerify;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBookmark: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,18 +91,4 @@ const IconBookmark: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBookmark as IconComponent).keywords = [
-  "bookmark",
-  "bookmarker",
-  "marking",
-  "caller",
-  "dialing",
-  "dialer",
-  "maker",
-  "add",
-  "marker",
-  "make",
-];
-
-export default IconBookmark as IconComponent;
+export default IconBookmark;

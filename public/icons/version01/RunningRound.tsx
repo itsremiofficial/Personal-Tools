@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRunningRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,28 +107,4 @@ const IconRunningRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRunningRound as IconComponent).keywords = [
-  "running",
-  "round",
-  "scampering",
-  "fleeing",
-  "moving",
-  "flowing",
-  "gushing",
-  "streaming",
-  "track",
-  "pouring",
-  "working",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconRunningRound as IconComponent;
+export default IconRunningRound;

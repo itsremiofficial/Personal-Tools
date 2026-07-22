@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTextFieldFocus: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,38 +92,4 @@ const IconTextFieldFocus: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTextFieldFocus as IconComponent).keywords = [
-  "text",
-  "field",
-  "focus",
-  "schoolbook",
-  "textbook",
-  "school text",
-  "text edition",
-  "textual matter",
-  "writing",
-  "letter",
-  "paragraph",
-  "manuscript",
-  "champaign",
-  "plain",
-  "field of force",
-  "force field",
-  "battlefield",
-  "field of view",
-  "landing field",
-  "airfield",
-  "battleground",
-  "focal point",
-  "center",
-  "concenter",
-  "pore",
-  "centre",
-  "centering",
-  "sharpen",
-  "concentrate",
-  "rivet",
-];
-
-export default IconTextFieldFocus as IconComponent;
+export default IconTextFieldFocus;

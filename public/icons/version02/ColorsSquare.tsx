@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconColorsSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,28 +103,4 @@ const IconColorsSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconColorsSquare as IconComponent).keywords = [
-  "colors",
-  "square",
-  "colours",
-  "alwan",
-  "colorants",
-  "colorful",
-  "colour",
-  "colourants",
-  "coloured",
-  "colourings",
-  "connotations",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconColorsSquare as IconComponent;
+export default IconColorsSquare;

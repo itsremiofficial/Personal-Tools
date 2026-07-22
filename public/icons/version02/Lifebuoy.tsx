@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLifebuoy: FC<IconProps> = ({
   className,
   fill = false,
@@ -114,18 +121,4 @@ const IconLifebuoy: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLifebuoy as IconComponent).keywords = [
-  "lifebuoy",
-  "lifeline",
-  "lap",
-  "circle",
-  "life-buoy",
-  "life buoy",
-  "lifebelt",
-  "buoy",
-  "safety buoy",
-  "life ring",
-];
-
-export default IconLifebuoy as IconComponent;
+export default IconLifebuoy;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPaw: FC<IconProps> = ({
   className,
   fill = false,
@@ -113,18 +120,4 @@ const IconPaw: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPaw as IconComponent).keywords = [
-  "paw",
-  "hand",
-  "manus",
-  "mitt",
-  "mauler",
-  "hook",
-  "foot",
-  "leg",
-  "limb",
-  "claw",
-];
-
-export default IconPaw as IconComponent;
+export default IconPaw;

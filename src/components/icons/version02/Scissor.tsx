@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconScissor: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,18 +105,4 @@ const IconScissor: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconScissor as IconComponent).keywords = [
-  "scissor",
-  "pair of scissors",
-  "shears",
-  "knife",
-  "snippers",
-  "tweezer",
-  "needlenose",
-  "tweezers",
-  "stapler",
-  "cutter",
-];
-
-export default IconScissor as IconComponent;
+export default IconScissor;

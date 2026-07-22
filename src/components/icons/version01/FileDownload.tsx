@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFileDownload: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,28 +93,4 @@ const IconFileDownload: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFileDownload as IconComponent).keywords = [
-  "file",
-  "download",
-  "register",
-  "single file",
-  "indian file",
-  "charge",
-  "file away",
-  "lodge",
-  "file cabinet",
-  "filing cabinet",
-  "data file",
-  "uploaded",
-  "uploading",
-  "upload",
-  "downlink",
-  "softcopy",
-  "printable",
-  "refresh",
-  "transfer",
-  "discovery",
-];
-
-export default IconFileDownload as IconComponent;
+export default IconFileDownload;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBitcoinRefresh: FC<IconProps> = ({
   className,
   fill = false,
@@ -131,28 +138,4 @@ const IconBitcoinRefresh: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBitcoinRefresh as IconComponent).keywords = [
-  "bitcoin",
-  "refresh",
-  "coin",
-  "cryptocurrency",
-  "cryptocoin",
-  "crypto-currency",
-  "dogecoin",
-  "ether",
-  "millibitcoin",
-  "bitcoin faucet",
-  "bitcent",
-  "refreshen",
-  "freshen",
-  "review",
-  "freshen up",
-  "brush up",
-  "refresher",
-  "refreshment",
-  "rejuvenate",
-  "revive",
-];
-
-export default IconBitcoinRefresh as IconComponent;
+export default IconBitcoinRefresh;

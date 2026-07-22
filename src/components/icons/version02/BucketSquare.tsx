@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBucketSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,28 +107,4 @@ const IconBucketSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBucketSquare as IconComponent).keywords = [
-  "bucket",
-  "square",
-  "pail",
-  "bucketful",
-  "tub",
-  "basin",
-  "boiler",
-  "spade",
-  "basket",
-  "trough",
-  "shovel",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconBucketSquare as IconComponent;
+export default IconBucketSquare;

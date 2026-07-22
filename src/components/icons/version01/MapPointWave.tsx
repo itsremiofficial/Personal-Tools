@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMapPointWave: FC<IconProps> = ({
   className,
   fill = false,
@@ -81,38 +88,4 @@ const IconMapPointWave: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMapPointWave as IconComponent).keywords = [
-  "map",
-  "point",
-  "wave",
-  "map out",
-  "correspondence",
-  "represent",
-  "chart",
-  "cartography",
-  "cartographic",
-  "topography",
-  "plan",
-  "charting",
-  "item",
-  "betoken",
-  "indicate",
-  "bespeak",
-  "period",
-  "point in time",
-  "show",
-  "stage",
-  "detail",
-  "beckon",
-  "undulate",
-  "undulation",
-  "flap",
-  "wafture",
-  "brandish",
-  "curl",
-  "flourish",
-  "moving ridge",
-];
-
-export default IconMapPointWave as IconComponent;
+export default IconMapPointWave;

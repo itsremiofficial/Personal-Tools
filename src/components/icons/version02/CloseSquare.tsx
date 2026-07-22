@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloseSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,28 +86,4 @@ const IconCloseSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloseSquare as IconComponent).keywords = [
-  "close",
-  "square",
-  "confining",
-  "restrained",
-  "end",
-  "terminus",
-  "finis",
-  "conclusion",
-  "ending",
-  "finish",
-  "shut",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconCloseSquare as IconComponent;
+export default IconCloseSquare;

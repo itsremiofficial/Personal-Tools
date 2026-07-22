@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWindows: FC<IconProps> = ({
   className,
   fill = false,
@@ -136,18 +143,4 @@ const IconWindows: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWindows as IconComponent).keywords = [
-  "windows",
-  "windowpane",
-  "taskbar",
-  "microsoft",
-  "ups",
-  "times",
-  "win",
-  "exhaust",
-  "wells",
-  "panes",
-];
-
-export default IconWindows as IconComponent;
+export default IconWindows;

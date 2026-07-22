@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconQuantQnt: FC<IconProps> = ({
   className,
   fill = false,
@@ -157,19 +164,4 @@ const IconQuantQnt: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconQuantQnt as IconComponent).keywords = [
-  "quant",
-  "qnt",
-  "aux",
-  "biol",
-  "comps",
-  "quantitative",
-  "quantative",
-  "qual",
-  "quantitive",
-  "gmat",
-  "analytic",
-];
-
-export default IconQuantQnt as IconComponent;
+export default IconQuantQnt;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTransferHorizontal: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconTransferHorizontal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTransferHorizontal as IconComponent).keywords = [
-  "transfer",
-  "horizontal",
-  "transference",
-  "transport",
-  "transpose",
-  "change",
-  "transferral",
-  "reassign",
-  "remove",
-  "transmit",
-  "conveyance",
-  "level",
-  "flat",
-  "crosswise",
-  "swimming",
-  "naiant",
-  "cross-sectional",
-  "transverse",
-  "transversal",
-  "landscape",
-];
-
-export default IconTransferHorizontal as IconComponent;
+export default IconTransferHorizontal;

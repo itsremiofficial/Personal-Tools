@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUsersGroupTwoRounded: FC<IconProps> = ({
   className,
   fill = false,
@@ -138,48 +145,4 @@ const IconUsersGroupTwoRounded: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUsersGroupTwoRounded as IconComponent).keywords = [
-  "users",
-  "group",
-  "two",
-  "rounded",
-  "exploiter",
-  "enjoyer",
-  "drug user",
-  "substance abuser",
-  "abusers",
-  "addicts",
-  "adopters",
-  "audience",
-  "audiences",
-  "aggroup",
-  "common",
-  "communal",
-  "radical",
-  "mathematical group",
-  "cohort",
-  "type",
-  "class",
-  "collective",
-  "cardinal",
-  "deuce",
-  "ii",
-  "twice",
-  "two-fold",
-  "twofold",
-  "two-time",
-  "twain",
-  "2nd",
-  "ringed",
-  "ring-shaped",
-  "annulate",
-  "annular",
-  "circular",
-  "rotund",
-  "bowfront",
-  "prolate",
-  "domed",
-];
-
-export default IconUsersGroupTwoRounded as IconComponent;
+export default IconUsersGroupTwoRounded;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCupHot: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,28 +113,4 @@ const IconCupHot: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCupHot as IconComponent).keywords = [
-  "cup",
-  "hot",
-  "loving cup",
-  "cupful",
-  "transfuse",
-  "chalice",
-  "goblet",
-  "bottle",
-  "jar",
-  "pot",
-  "bowl",
-  "calefacient",
-  "scorching",
-  "baking hot",
-  "torrid",
-  "red-hot",
-  "burning",
-  "warming",
-  "scalding",
-  "sweltry",
-];
-
-export default IconCupHot as IconComponent;
+export default IconCupHot;

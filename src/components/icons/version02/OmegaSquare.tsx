@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconOmegaSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,27 +78,4 @@ const IconOmegaSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconOmegaSquare as IconComponent).keywords = [
-  "omega",
-  "square",
-  "lambda",
-  "3s",
-  "word",
-  "mentor",
-  "alfa",
-  "ending",
-  "end-all",
-  "omega-3",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconOmegaSquare as IconComponent;
+export default IconOmegaSquare;

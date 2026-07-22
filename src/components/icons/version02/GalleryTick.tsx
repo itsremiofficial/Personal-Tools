@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGalleryTick: FC<IconProps> = ({
   className,
   fill = false,
@@ -103,28 +110,4 @@ const IconGalleryTick: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGalleryTick as IconComponent).keywords = [
-  "gallery",
-  "tick",
-  "art gallery",
-  "heading",
-  "verandah",
-  "veranda",
-  "drift",
-  "picture gallery",
-  "museum",
-  "beaux-arts",
-  "art",
-  "click",
-  "ticktock",
-  "beat",
-  "ticktack",
-  "retick",
-  "ixodid",
-  "acarid",
-  "spinose",
-  "gene",
-];
-
-export default IconGalleryTick as IconComponent;
+export default IconGalleryTick;

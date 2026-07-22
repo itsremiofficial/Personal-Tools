@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFlashCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconFlashCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFlashCircle as IconComponent).keywords = [
-  "flash",
-  "circle",
-  "twinkle",
-  "twinkling",
-  "glint",
-  "flare",
-  "blink",
-  "wink",
-  "scud",
-  "trice",
-  "loud",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconFlashCircle as IconComponent;
+export default IconFlashCircle;

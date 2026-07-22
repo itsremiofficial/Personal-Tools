@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEmptyWalletTime: FC<IconProps> = ({
   className,
   fill = false,
@@ -126,38 +133,4 @@ const IconEmptyWalletTime: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEmptyWalletTime as IconComponent).keywords = [
-  "empty",
-  "wallet",
-  "time",
-  "lifeless",
-  "void",
-  "vacuous",
-  "vacant",
-  "empty-handed",
-  "meaningless",
-  "unfilled",
-  "bare",
-  "clean",
-  "billfold",
-  "notecase",
-  "portfolio",
-  "paper",
-  "book",
-  "paperwork",
-  "briefcase",
-  "suitcase",
-  "cash",
-  "fourth dimension",
-  "clock",
-  "meter",
-  "clip",
-  "sentence",
-  "clock time",
-  "prison term",
-  "space-time",
-  "momentum",
-];
-
-export default IconEmptyWalletTime as IconComponent;
+export default IconEmptyWalletTime;

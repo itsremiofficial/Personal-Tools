@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFlashSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,28 +100,4 @@ const IconFlashSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFlashSlash as IconComponent).keywords = [
-  "flash",
-  "slash",
-  "twinkle",
-  "twinkling",
-  "glint",
-  "flare",
-  "blink",
-  "wink",
-  "scud",
-  "trice",
-  "loud",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconFlashSlash as IconComponent;
+export default IconFlashSlash;

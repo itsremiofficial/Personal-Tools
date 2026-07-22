@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDocumentNormal: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,28 +84,4 @@ const IconDocumentNormal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDocumentNormal as IconComponent).keywords = [
-  "document",
-  "normal",
-  "papers",
-  "text file",
-  "written document",
-  "documentation",
-  "backgrounder",
-  "workbook",
-  "dossier",
-  "handbook",
-  "listing",
-  "typical",
-  "natural",
-  "mean",
-  "rule",
-  "modal",
-  "pattern",
-  "convention",
-  "regular",
-  "average",
-];
-
-export default IconDocumentNormal as IconComponent;
+export default IconDocumentNormal;

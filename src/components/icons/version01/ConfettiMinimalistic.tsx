@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconConfettiMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -195,28 +202,4 @@ const IconConfettiMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconConfettiMinimalistic as IconComponent).keywords = [
-  "confetti",
-  "minimalistic",
-  "glitter",
-  "balloons",
-  "sprinkles",
-  "sequins",
-  "champagne",
-  "pompoms",
-  "gumballs",
-  "pinata",
-  "kazoos",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconConfettiMinimalistic as IconComponent;
+export default IconConfettiMinimalistic;

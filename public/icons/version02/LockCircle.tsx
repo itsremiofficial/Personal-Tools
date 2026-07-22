@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLockCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,28 +101,4 @@ const IconLockCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLockCircle as IconComponent).keywords = [
-  "lock",
-  "circle",
-  "interlock",
-  "lock in",
-  "mesh",
-  "interlace",
-  "whorl",
-  "lock away",
-  "curl",
-  "ringlet",
-  "put away",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconLockCircle as IconComponent;
+export default IconLockCircle;

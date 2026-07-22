@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWinRAR: FC<IconProps> = ({
   className,
   fill = false,
@@ -119,18 +126,4 @@ const IconWinRAR: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWinRAR as IconComponent).keywords = [
-  "win",
-  "gain ground",
-  "gain",
-  "make headway",
-  "get ahead",
-  "advance",
-  "profits",
-  "winnings",
-  "conquer",
-  "overcome",
-];
-
-export default IconWinRAR as IconComponent;
+export default IconWinRAR;

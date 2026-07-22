@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDanger: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,18 +90,4 @@ const IconDanger: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDanger as IconComponent).keywords = [
-  "danger",
-  "peril",
-  "risk",
-  "jeopardize",
-  "hazardous",
-  "dangerous",
-  "dangerously",
-  "dangerousness",
-  "endangering",
-  "hazard",
-];
-
-export default IconDanger as IconComponent;
+export default IconDanger;

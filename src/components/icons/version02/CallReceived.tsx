@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCallReceived: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,28 +89,4 @@ const IconCallReceived: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCallReceived as IconComponent).keywords = [
-  "call",
-  "received",
-  "phone call",
-  "telephone call",
-  "call in",
-  "telephone",
-  "phone",
-  "call up",
-  "send for",
-  "call option",
-  "margin call",
-  "accepted",
-  "acceptable",
-  "prescriptive",
-  "normative",
-  "conventional",
-  "standard",
-  "acknowledged",
-  "acceptance",
-  "accepting",
-];
-
-export default IconCallReceived as IconComponent;
+export default IconCallReceived;

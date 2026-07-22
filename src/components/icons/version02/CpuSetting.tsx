@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCpuSetting: FC<IconProps> = ({
   className,
   fill = false,
@@ -204,28 +211,4 @@ const IconCpuSetting: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCpuSetting as IconComponent).keywords = [
-  "cpu",
-  "setting",
-  "central processing unit",
-  "mainframe",
-  "processor",
-  "central processor",
-  "eeprom",
-  "upc",
-  "uct",
-  "ucp",
-  "utilization",
-  "scene",
-  "stage setting",
-  "mise en scene",
-  "scope",
-  "background",
-  "mount",
-  "place setting",
-  "scenario",
-  "context",
-];
-
-export default IconCpuSetting as IconComponent;
+export default IconCpuSetting;

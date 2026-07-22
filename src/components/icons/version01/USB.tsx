@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUSB: FC<IconProps> = ({
   className,
   fill = false,
@@ -109,7 +116,4 @@ const IconUSB: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUSB as IconComponent).keywords = [];
-
-export default IconUSB as IconComponent;
+export default IconUSB;

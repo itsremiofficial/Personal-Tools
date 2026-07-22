@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudChange: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,28 +100,4 @@ const IconCloudChange: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudChange as IconComponent).keywords = [
-  "cloud",
-  "change",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "alteration",
-  "alter",
-  "convert",
-  "interchange",
-  "vary",
-  "modification",
-  "variety",
-  "transfer",
-  "exchange",
-];
-
-export default IconCloudChange as IconComponent;
+export default IconCloudChange;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudMinus: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,28 +100,4 @@ const IconCloudMinus: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudMinus as IconComponent).keywords = [
-  "cloud",
-  "minus",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "subtraction",
-  "negative",
-  "disadvantageous",
-  "harmful",
-  "sans",
-  "min",
-  "least",
-  "unary",
-  "nec",
-];
-
-export default IconCloudMinus as IconComponent;
+export default IconCloudMinus;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconJavascript: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,18 +98,4 @@ const IconJavascript: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconJavascript as IconComponent).keywords = [
-  "javascript",
-  "jscript",
-  "script",
-  "java",
-  "javascripts",
-  "html",
-  "ajax",
-  "iframe",
-  "browser",
-  "serverside",
-];
-
-export default IconJavascript as IconComponent;
+export default IconJavascript;

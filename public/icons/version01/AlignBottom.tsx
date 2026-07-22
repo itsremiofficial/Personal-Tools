@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAlignBottom: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconAlignBottom: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAlignBottom as IconComponent).keywords = [
-  "align",
-  "bottom",
-  "line up",
-  "adjust",
-  "coordinate",
-  "aline",
-  "array",
-  "alignment",
-  "link",
-  "combine",
-  "integrate",
-  "ass",
-  "bed",
-  "backside",
-  "underside",
-  "undersurface",
-  "penetrate",
-  "derriere",
-  "fathom",
-  "seat",
-];
-
-export default IconAlignBottom as IconComponent;
+export default IconAlignBottom;

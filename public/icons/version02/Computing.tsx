@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconComputing: FC<IconProps> = ({
   className,
   fill = false,
@@ -109,18 +116,4 @@ const IconComputing: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconComputing as IconComponent).keywords = [
-  "computing",
-  "cypher",
-  "cipher",
-  "calculate",
-  "figure",
-  "reckon",
-  "computational",
-  "computation",
-  "calculator",
-  "informatics",
-];
-
-export default IconComputing as IconComponent;
+export default IconComputing;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSuspension: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,18 +106,4 @@ const IconSuspension: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSuspension as IconComponent).keywords = [
-  "suspension",
-  "hiatus",
-  "pause",
-  "reprieve",
-  "interruption",
-  "respite",
-  "abatement",
-  "break",
-  "dangling",
-  "hanging",
-];
-
-export default IconSuspension as IconComponent;
+export default IconSuspension;

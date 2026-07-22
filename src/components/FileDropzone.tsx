@@ -61,7 +61,7 @@ export const FileDropzone = React.memo(
     });
 
     return (
-      <Card className={cn("p-6 border rounded-4xl flex flex-col gap-6 grow ")}>
+      <Card className={cn("p-2 bg-muted/20 rounded-3xl flex flex-col gap-6 grow")}>
         <div
           {...getRootProps()}
           className={cn(

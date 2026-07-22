@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTrello: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,18 +93,4 @@ const IconTrello: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTrello as IconComponent).keywords = [
-  "trello",
-  "jira",
-  "kanboard",
-  "confluence",
-  "asana",
-  "microsoft to do",
-  "outlook.com",
-  "google tasks",
-  "smartsheet",
-  "trac",
-];
-
-export default IconTrello as IconComponent;
+export default IconTrello;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSatellite: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,18 +92,4 @@ const IconSatellite: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSatellite as IconComponent).keywords = [
-  "satellite",
-  "planet",
-  "outer",
-  "artificial satellite",
-  "moon",
-  "star",
-  "orbital",
-  "constellation",
-  "lunar",
-  "stars",
-];
-
-export default IconSatellite as IconComponent;
+export default IconSatellite;

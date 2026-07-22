@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHanger2: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,28 +77,4 @@ const IconHanger2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHanger2 as IconComponent).keywords = [
-  "hanger",
-  "2",
-  "hanging",
-  "shed",
-  "hoisting",
-  "tilt",
-  "hoist",
-  "lifting",
-  "boost",
-  "lift",
-  "riser",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconHanger2 as IconComponent;
+export default IconHanger2;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCeloCelo: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,7 +85,4 @@ const IconCeloCelo: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCeloCelo as IconComponent).keywords = ["celo"];
-
-export default IconCeloCelo as IconComponent;
+export default IconCeloCelo;

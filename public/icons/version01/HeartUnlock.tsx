@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHeartUnlock: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,28 +89,4 @@ const IconHeartUnlock: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHeartUnlock as IconComponent).keywords = [
-  "heart",
-  "unlock",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-  "unsecured",
-  "unbarred",
-  "unbolted",
-  "unfastened",
-  "unlatched",
-  "unblocking",
-  "unblock",
-  "uncover",
-  "unveil",
-];
-
-export default IconHeartUnlock as IconComponent;
+export default IconHeartUnlock;

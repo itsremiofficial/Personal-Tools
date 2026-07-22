@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCourseUp: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconCourseUp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCourseUp as IconComponent).keywords = [
-  "course",
-  "up",
-  "of course",
-  "naturally",
-  "trend",
-  "class",
-  "row",
-  "run",
-  "line",
-  "flow",
-  "path",
-  "upbound",
-  "upwardly",
-  "ascending",
-  "upward",
-  "upwards",
-  "rising",
-  "astir",
-  "ahead",
-  "awake",
-];
-
-export default IconCourseUp as IconComponent;
+export default IconCourseUp;

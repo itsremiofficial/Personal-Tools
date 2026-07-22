@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBones: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,18 +87,4 @@ const IconBones: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBones as IconComponent).keywords = [
-  "bones",
-  "castanets",
-  "maraca",
-  "clappers",
-  "finger cymbals",
-  "the",
-  "legs",
-  "feet",
-  "apples",
-  "edges",
-];
-
-export default IconBones as IconComponent;
+export default IconBones;

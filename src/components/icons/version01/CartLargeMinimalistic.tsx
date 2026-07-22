@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCartLargeMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,38 +97,4 @@ const IconCartLargeMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCartLargeMinimalistic as IconComponent).keywords = [
-  "cart",
-  "large",
-  "minimalistic",
-  "handcart",
-  "pushcart",
-  "go-cart",
-  "haul",
-  "drag",
-  "dray",
-  "wheelbarrow",
-  "wagon",
-  "bandwagon",
-  "great",
-  "large-scale",
-  "vast",
-  "larger-than-life",
-  "colossal",
-  "huge",
-  "prodigious",
-  "humongous",
-  "massive",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconCartLargeMinimalistic as IconComponent;
+export default IconCartLargeMinimalistic;

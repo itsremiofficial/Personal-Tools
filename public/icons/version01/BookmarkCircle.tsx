@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBookmarkCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -69,28 +76,4 @@ const IconBookmarkCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBookmarkCircle as IconComponent).keywords = [
-  "bookmark",
-  "circle",
-  "bookmarker",
-  "marking",
-  "caller",
-  "dialing",
-  "dialer",
-  "maker",
-  "add",
-  "marker",
-  "make",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconBookmarkCircle as IconComponent;
+export default IconBookmarkCircle;

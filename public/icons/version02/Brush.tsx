@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBrush: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,18 +82,4 @@ const IconBrush: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBrush as IconComponent).keywords = [
-  "brush",
-  "sweep",
-  "copse",
-  "thicket",
-  "coppice",
-  "brushwood",
-  "clash",
-  "skirmish",
-  "kiss",
-  "encounter",
-];
-
-export default IconBrush as IconComponent;
+export default IconBrush;

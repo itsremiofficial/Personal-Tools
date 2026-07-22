@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWiFiRouter: FC<IconProps> = ({
   className,
   fill = false,
@@ -147,35 +154,4 @@ const IconWiFiRouter: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWiFiRouter as IconComponent).keywords = [
-  "wi",
-  "fi",
-  "router",
-  "tl",
-  "t2",
-  "jon",
-  "chak",
-  "claire",
-  "crosse",
-  "dsl",
-  "ethernet",
-  "sci",
-  "semper",
-  "initiative",
-  "audio",
-  "abyss",
-  "agent",
-  "alien",
-  "routing",
-  "switch",
-  "route",
-  "adapter",
-  "hub",
-  "lsa",
-  "cisco",
-  "linksys",
-  "modem",
-];
-
-export default IconWiFiRouter as IconComponent;
+export default IconWiFiRouter;

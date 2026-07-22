@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFlipHorizontal: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,28 +111,4 @@ const IconFlipHorizontal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFlipHorizontal as IconComponent).keywords = [
-  "flip",
-  "horizontal",
-  "flip over",
-  "toss",
-  "throw",
-  "flick",
-  "jerk",
-  "pass",
-  "turn over",
-  "interchange",
-  "flip-flop",
-  "level",
-  "flat",
-  "crosswise",
-  "swimming",
-  "naiant",
-  "cross-sectional",
-  "transverse",
-  "transversal",
-  "landscape",
-];
-
-export default IconFlipHorizontal as IconComponent;
+export default IconFlipHorizontal;

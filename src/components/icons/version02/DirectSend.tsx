@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDirectSend: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,28 +106,4 @@ const IconDirectSend: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDirectSend as IconComponent).keywords = [
-  "direct",
-  "send",
-  "straightforward",
-  "directly",
-  "forthright",
-  "plainspoken",
-  "man-to-man",
-  "straight",
-  "frank",
-  "free-spoken",
-  "outspoken",
-  "transmit",
-  "charge",
-  "transport",
-  "mail",
-  "base",
-  "institutionalize",
-  "place",
-  "broadcast",
-  "commit",
-];
-
-export default IconDirectSend as IconComponent;
+export default IconDirectSend;

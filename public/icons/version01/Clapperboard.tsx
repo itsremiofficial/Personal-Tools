@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconClapperboard: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,18 +95,4 @@ const IconClapperboard: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconClapperboard as IconComponent).keywords = [
-  "clapperboard",
-  "synchronizer",
-  "photoboard",
-  "film horse",
-  "movie camera",
-  "kinetoscope",
-  "cinematoscope",
-  "projectoscope",
-  "gate",
-  "moviola",
-];
-
-export default IconClapperboard as IconComponent;
+export default IconClapperboard;

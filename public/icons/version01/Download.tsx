@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDownload: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,18 +85,4 @@ const IconDownload: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDownload as IconComponent).keywords = [
-  "download",
-  "uploaded",
-  "uploading",
-  "upload",
-  "downlink",
-  "softcopy",
-  "printable",
-  "refresh",
-  "transfer",
-  "discovery",
-];
-
-export default IconDownload as IconComponent;
+export default IconDownload;

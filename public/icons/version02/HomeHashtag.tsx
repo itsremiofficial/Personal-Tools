@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHomeHashtag: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,28 +109,4 @@ const IconHomeHashtag: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHomeHashtag as IconComponent).keywords = [
-  "home",
-  "hashtag",
-  "domicile",
-  "habitation",
-  "domestic",
-  "dwelling",
-  "nursing home",
-  "rest home",
-  "house",
-  "dwelling house",
-  "household",
-  "slashtag",
-  "bashtag",
-  "hashtagger",
-  "hashflag",
-  "tag cloud",
-  "tweet",
-  "label cloud",
-  "entity tag",
-  "fragment",
-];
-
-export default IconHomeHashtag as IconComponent;
+export default IconHomeHashtag;

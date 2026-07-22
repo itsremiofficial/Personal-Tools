@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShareCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -115,28 +122,4 @@ const IconShareCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShareCircle as IconComponent).keywords = [
-  "share",
-  "circle",
-  "portion out",
-  "portion",
-  "deal",
-  "divvy up",
-  "apportion",
-  "contribution",
-  "partake",
-  "part",
-  "parcel",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconShareCircle as IconComponent;
+export default IconShareCircle;

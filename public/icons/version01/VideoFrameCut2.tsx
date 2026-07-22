@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVideoFrameCut2: FC<IconProps> = ({
   className,
   fill = false,
@@ -125,48 +132,4 @@ const IconVideoFrameCut2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVideoFrameCut2 as IconComponent).keywords = [
-  "video",
-  "frame",
-  "cut",
-  "2",
-  "tv",
-  "television",
-  "picture",
-  "telecasting",
-  "televised",
-  "videotaping",
-  "videotaped",
-  "taping",
-  "videotape",
-  "build",
-  "put",
-  "compose",
-  "form",
-  "draw up",
-  "set up",
-  "shape",
-  "border",
-  "outline",
-  "gash",
-  "slit",
-  "slitted",
-  "incised",
-  "perforated",
-  "gashed",
-  "pierced",
-  "slashed",
-  "perforate",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconVideoFrameCut2 as IconComponent;
+export default IconVideoFrameCut2;

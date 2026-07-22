@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTrashBin2: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,38 +113,4 @@ const IconTrashBin2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTrashBin2 as IconComponent).keywords = [
-  "trash",
-  "bin",
-  "2",
-  "junk",
-  "rubbish",
-  "scum",
-  "trumpery",
-  "folderol",
-  "scrap",
-  "tear apart",
-  "wish-wash",
-  "tripe",
-  "binful",
-  "aba transit number",
-  "bank identification number",
-  "box",
-  "shelf",
-  "locker",
-  "drawer",
-  "coffer",
-  "dumpster",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconTrashBin2 as IconComponent;
+export default IconTrashBin2;

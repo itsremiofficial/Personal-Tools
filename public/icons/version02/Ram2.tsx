@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRam2: FC<IconProps> = ({
   className,
   fill = false,
@@ -123,28 +130,4 @@ const IconRam2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRam2 as IconComponent).keywords = [
-  "ram",
-  "2",
-  "random-access memory",
-  "random access memory",
-  "pound",
-  "jampack",
-  "pack",
-  "cram",
-  "run",
-  "drive",
-  "crash",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconRam2 as IconComponent;
+export default IconRam2;

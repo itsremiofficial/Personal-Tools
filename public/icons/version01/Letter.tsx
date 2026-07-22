@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLetter: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,18 +77,4 @@ const IconLetter: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLetter as IconComponent).keywords = [
-  "letter",
-  "missive",
-  "varsity letter",
-  "alphabetic character",
-  "letter of the alphabet",
-  "writing",
-  "text",
-  "write",
-  "alphabetic",
-  "courier",
-];
-
-export default IconLetter as IconComponent;
+export default IconLetter;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAccessibility: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,18 +100,4 @@ const IconAccessibility: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAccessibility as IconComponent).keywords = [
-  "accessibility",
-  "availability",
-  "availableness",
-  "handiness",
-  "approachability",
-  "reachability",
-  "available",
-  "access",
-  "entry",
-  "convenient",
-];
-
-export default IconAccessibility as IconComponent;
+export default IconAccessibility;

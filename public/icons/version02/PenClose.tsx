@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPenClose: FC<IconProps> = ({
   className,
   fill = false,
@@ -126,28 +133,4 @@ const IconPenClose: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPenClose as IconComponent).keywords = [
-  "pen",
-  "close",
-  "playpen",
-  "penitentiary",
-  "compose",
-  "indite",
-  "write",
-  "paddock",
-  "corral",
-  "basin",
-  "sty",
-  "confining",
-  "restrained",
-  "end",
-  "terminus",
-  "finis",
-  "conclusion",
-  "ending",
-  "finish",
-  "shut",
-];
-
-export default IconPenClose as IconComponent;
+export default IconPenClose;

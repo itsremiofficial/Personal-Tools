@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStarShine: FC<IconProps> = ({
   className,
   fill = false,
@@ -139,28 +146,4 @@ const IconStarShine: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStarShine as IconComponent).keywords = [
-  "star",
-  "shine",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-  "refulgency",
-  "refulgence",
-  "effulgence",
-  "glow",
-  "radiance",
-  "glisten",
-  "gleam",
-  "glitter",
-  "glint",
-];
-
-export default IconStarShine as IconComponent;
+export default IconStarShine;

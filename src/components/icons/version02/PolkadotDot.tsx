@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPolkadotDot: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,28 +86,4 @@ const IconPolkadotDot: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPolkadotDot as IconComponent).keywords = [
-  "polkadot",
-  "dot",
-  "polka-dot",
-  "ink-dot",
-  "ink dot",
-  "poke-a-dot",
-  "battik",
-  "picketee",
-  "chequerboard",
-  "flower-petal",
-  "pom pom",
-  "sprinkle",
-  "scatter",
-  "disperse",
-  "dust",
-  "dit",
-  "stud",
-  "point",
-  "constellate",
-  "speck",
-];
-
-export default IconPolkadotDot as IconComponent;
+export default IconPolkadotDot;

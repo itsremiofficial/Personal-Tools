@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLink2: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,28 +91,4 @@ const IconLink2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLink2 as IconComponent).keywords = [
-  "link",
-  "2",
-  "linkup",
-  "connection",
-  "nexus",
-  "connexion",
-  "connectedness",
-  "connect",
-  "tie-in",
-  "unite",
-  "associate",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconLink2 as IconComponent;
+export default IconLink2;

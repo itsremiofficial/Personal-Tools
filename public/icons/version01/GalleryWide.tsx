@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGalleryWide: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,28 +106,4 @@ const IconGalleryWide: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGalleryWide as IconComponent).keywords = [
-  "gallery",
-  "wide",
-  "art gallery",
-  "heading",
-  "verandah",
-  "veranda",
-  "drift",
-  "picture gallery",
-  "museum",
-  "beaux-arts",
-  "art",
-  "broad",
-  "extensive",
-  "widely",
-  "extended",
-  "spacious",
-  "comprehensive",
-  "across-the-board",
-  "all-embracing",
-  "stretching",
-];
-
-export default IconGalleryWide as IconComponent;
+export default IconGalleryWide;

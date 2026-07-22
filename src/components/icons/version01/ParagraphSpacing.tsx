@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconParagraphSpacing: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,28 +99,4 @@ const IconParagraphSpacing: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconParagraphSpacing as IconComponent).keywords = [
-  "paragraph",
-  "spacing",
-  "text",
-  "comma",
-  "article",
-  "subparagraph",
-  "figure",
-  "number",
-  "recital",
-  "subsection",
-  "clause",
-  "spatial arrangement",
-  "separator",
-  "partition",
-  "interval",
-  "layout",
-  "separation",
-  "separate",
-  "distance",
-  "disengagement",
-];
-
-export default IconParagraphSpacing as IconComponent;
+export default IconParagraphSpacing;

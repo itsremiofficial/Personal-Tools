@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPercentageSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconPercentageSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPercentageSquare as IconComponent).keywords = [
-  "percentage",
-  "square",
-  "per centum",
-  "percent",
-  "pct",
-  "part",
-  "portion",
-  "share",
-  "centenary",
-  "centennial",
-  "percentile",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconPercentageSquare as IconComponent;
+export default IconPercentageSquare;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNoteRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -139,28 +146,4 @@ const IconNoteRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNoteRemove as IconComponent).keywords = [
-  "note",
-  "remove",
-  "annotation",
-  "notation",
-  "mention",
-  "remark",
-  "notice",
-  "observe",
-  "take note",
-  "distinction",
-  "bank note",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconNoteRemove as IconComponent;
+export default IconNoteRemove;

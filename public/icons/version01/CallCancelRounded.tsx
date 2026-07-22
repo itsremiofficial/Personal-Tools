@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCallCancelRounded: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,38 +84,4 @@ const IconCallCancelRounded: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCallCancelRounded as IconComponent).keywords = [
-  "call",
-  "cancel",
-  "rounded",
-  "phone call",
-  "telephone call",
-  "call in",
-  "telephone",
-  "phone",
-  "call up",
-  "send for",
-  "call option",
-  "margin call",
-  "offset",
-  "natural",
-  "delete",
-  "call off",
-  "set off",
-  "invalidate",
-  "strike",
-  "write",
-  "render",
-  "ringed",
-  "ring-shaped",
-  "annulate",
-  "annular",
-  "circular",
-  "rotund",
-  "bowfront",
-  "prolate",
-  "domed",
-];
-
-export default IconCallCancelRounded as IconComponent;
+export default IconCallCancelRounded;

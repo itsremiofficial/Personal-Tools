@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCondicioner2: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,19 +95,4 @@ const IconCondicioner2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCondicioner2 as IconComponent).keywords = [
-  "condicioner",
-  "2",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconCondicioner2 as IconComponent;
+export default IconCondicioner2;

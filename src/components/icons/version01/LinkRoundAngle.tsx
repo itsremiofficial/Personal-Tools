@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLinkRoundAngle: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,38 +82,4 @@ const IconLinkRoundAngle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLinkRoundAngle as IconComponent).keywords = [
-  "link",
-  "round",
-  "angle",
-  "linkup",
-  "connection",
-  "nexus",
-  "connexion",
-  "connectedness",
-  "connect",
-  "tie-in",
-  "unite",
-  "associate",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-  "weight",
-  "slant",
-  "tilt",
-  "lean",
-  "tip",
-  "fish",
-  "side",
-  "prism",
-  "dimension",
-];
-
-export default IconLinkRoundAngle as IconComponent;
+export default IconLinkRoundAngle;

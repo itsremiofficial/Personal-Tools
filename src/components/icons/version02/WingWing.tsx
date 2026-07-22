@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWingWing: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,18 +105,4 @@ const IconWingWing: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWingWing as IconComponent).keywords = [
-  "wing",
-  "fly",
-  "fender",
-  "flank",
-  "extension",
-  "backstage",
-  "offstage",
-  "annex",
-  "annexe",
-  "fin",
-];
-
-export default IconWingWing as IconComponent;
+export default IconWingWing;

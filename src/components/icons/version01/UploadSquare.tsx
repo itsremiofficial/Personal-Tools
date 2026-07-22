@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUploadSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -81,28 +88,4 @@ const IconUploadSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUploadSquare as IconComponent).keywords = [
-  "upload",
-  "square",
-  "download",
-  "loader",
-  "reload",
-  "uplink",
-  "send",
-  "sending",
-  "charging",
-  "recharge",
-  "rechargeable",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconUploadSquare as IconComponent;
+export default IconUploadSquare;

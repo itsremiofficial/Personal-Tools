@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHourglassLine: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,28 +89,4 @@ const IconHourglassLine: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHourglassLine as IconComponent).keywords = [
-  "hourglass",
-  "line",
-  "sandglass",
-  "glass",
-  "silhouette",
-  "sands",
-  "sand",
-  "crescent",
-  "beachball",
-  "rectangle",
-  "shape",
-  "outline",
-  "dividing line",
-  "agate line",
-  "delineate",
-  "telephone line",
-  "draw",
-  "transmission line",
-  "credit line",
-  "phone line",
-];
-
-export default IconHourglassLine as IconComponent;
+export default IconHourglassLine;

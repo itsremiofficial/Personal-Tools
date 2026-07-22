@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChecklist: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,18 +113,4 @@ const IconChecklist: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChecklist as IconComponent).keywords = [
-  "checklist",
-  "listed",
-  "listing",
-  "aide-mémoire",
-  "inventory",
-  "schedule",
-  "audit",
-  "reference",
-  "summary",
-  "directory",
-];
-
-export default IconChecklist as IconComponent;
+export default IconChecklist;

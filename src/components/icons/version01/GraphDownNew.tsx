@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGraphDownNew: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,38 +94,4 @@ const IconGraphDownNew: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGraphDownNew as IconComponent).keywords = [
-  "graph",
-  "down",
-  "new",
-  "graphical record",
-  "diagram",
-  "flowchart",
-  "figure",
-  "graphical",
-  "chart",
-  "map",
-  "design",
-  "graphically",
-  "downwards",
-  "downward",
-  "downbound",
-  "falling",
-  "fallen",
-  "pull down",
-  "downwardly",
-  "declining",
-  "descending",
-  "newfound",
-  "fresh",
-  "freshly",
-  "newly",
-  "brand-new",
-  "recent",
-  "novel",
-  "recently",
-  "newfangled",
-];
-
-export default IconGraphDownNew as IconComponent;
+export default IconGraphDownNew;

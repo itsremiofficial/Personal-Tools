@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconQuitFullScreenCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,48 +109,4 @@ const IconQuitFullScreenCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconQuitFullScreenCircle as IconComponent).keywords = [
-  "quit",
-  "full",
-  "screen",
-  "circle",
-  "rid",
-  "leave",
-  "relinquish",
-  "give up",
-  "step down",
-  "discontinue",
-  "throw in the towel",
-  "chuck up the sponge",
-  "lay off",
-  "filled",
-  "brimming",
-  "brimful",
-  "overfull",
-  "high",
-  "brimfull",
-  "overflowing",
-  "replete",
-  "overladen",
-  "screen door",
-  "cover",
-  "screen out",
-  "sieve",
-  "shield",
-  "silver screen",
-  "sort",
-  "test",
-  "block out",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconQuitFullScreenCircle as IconComponent;
+export default IconQuitFullScreenCircle;

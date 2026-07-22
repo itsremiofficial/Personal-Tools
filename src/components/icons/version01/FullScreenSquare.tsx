@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFullScreenSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,38 +107,4 @@ const IconFullScreenSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFullScreenSquare as IconComponent).keywords = [
-  "full",
-  "screen",
-  "square",
-  "filled",
-  "brimming",
-  "brimful",
-  "overfull",
-  "high",
-  "brimfull",
-  "overflowing",
-  "replete",
-  "overladen",
-  "screen door",
-  "cover",
-  "screen out",
-  "sieve",
-  "shield",
-  "silver screen",
-  "sort",
-  "test",
-  "block out",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconFullScreenSquare as IconComponent;
+export default IconFullScreenSquare;

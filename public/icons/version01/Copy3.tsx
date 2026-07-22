@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCopy3: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconCopy3: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCopy3 as IconComponent).keywords = [
-  "copy",
-  "3",
-  "simulate",
-  "transcript",
-  "imitate",
-  "emulate",
-  "re-create",
-  "ape",
-  "written matter",
-  "replicate",
-  "replica",
-  "omega",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-];
-
-export default IconCopy3 as IconComponent;
+export default IconCopy3;

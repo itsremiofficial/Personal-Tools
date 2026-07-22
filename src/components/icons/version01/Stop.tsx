@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStop: FC<IconProps> = ({
   className,
   fill = false,
@@ -64,18 +71,4 @@ const IconStop: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStop as IconComponent).keywords = [
-  "stop",
-  "stoppage",
-  "cease",
-  "kibosh",
-  "discontinue",
-  "terminate",
-  "quit",
-  "break off",
-  "intercept",
-  "hold back",
-];
-
-export default IconStop as IconComponent;
+export default IconStop;

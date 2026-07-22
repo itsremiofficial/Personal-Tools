@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGift: FC<IconProps> = ({
   className,
   fill = false,
@@ -119,18 +126,4 @@ const IconGift: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGift as IconComponent).keywords = [
-  "gift",
-  "give",
-  "endowment",
-  "empower",
-  "endow",
-  "invest",
-  "talent",
-  "giving",
-  "present",
-  "indue",
-];
-
-export default IconGift as IconComponent;
+export default IconGift;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAward: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,18 +94,4 @@ const IconAward: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAward as IconComponent).keywords = [
-  "award",
-  "grant",
-  "honor",
-  "accolade",
-  "prize",
-  "present",
-  "honour",
-  "laurels",
-  "verdict",
-  "citation",
-];
-
-export default IconAward as IconComponent;
+export default IconAward;

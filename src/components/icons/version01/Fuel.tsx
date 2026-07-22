@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFuel: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,18 +114,4 @@ const IconFuel: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFuel as IconComponent).keywords = [
-  "fuel",
-  "fire",
-  "combustible",
-  "combustible material",
-  "heating",
-  "fan",
-  "lpg",
-  "gas",
-  "gasoline",
-  "cng",
-];
-
-export default IconFuel as IconComponent;
+export default IconFuel;

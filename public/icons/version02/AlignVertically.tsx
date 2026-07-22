@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAlignVertically: FC<IconProps> = ({
   className,
   fill = false,
@@ -122,28 +129,4 @@ const IconAlignVertically: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAlignVertically as IconComponent).keywords = [
-  "align",
-  "vertically",
-  "line up",
-  "adjust",
-  "coordinate",
-  "aline",
-  "array",
-  "alignment",
-  "link",
-  "combine",
-  "integrate",
-  "portrait",
-  "tilt",
-  "upward",
-  "riser",
-  "longitudinally",
-  "upright",
-  "fundamentally",
-  "down",
-  "vehemently",
-];
-
-export default IconAlignVertically as IconComponent;
+export default IconAlignVertically;

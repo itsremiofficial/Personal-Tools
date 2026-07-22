@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFullScreenCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,38 +109,4 @@ const IconFullScreenCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFullScreenCircle as IconComponent).keywords = [
-  "full",
-  "screen",
-  "circle",
-  "filled",
-  "brimming",
-  "brimful",
-  "overfull",
-  "high",
-  "brimfull",
-  "overflowing",
-  "replete",
-  "overladen",
-  "screen door",
-  "cover",
-  "screen out",
-  "sieve",
-  "shield",
-  "silver screen",
-  "sort",
-  "test",
-  "block out",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconFullScreenCircle as IconComponent;
+export default IconFullScreenCircle;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUserMinusRounded: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,38 +93,4 @@ const IconUserMinusRounded: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUserMinusRounded as IconComponent).keywords = [
-  "user",
-  "minus",
-  "rounded",
-  "exploiter",
-  "enjoyer",
-  "drug user",
-  "substance abuser",
-  "customer",
-  "client",
-  "employer",
-  "consumer",
-  "employee",
-  "subtraction",
-  "negative",
-  "disadvantageous",
-  "harmful",
-  "sans",
-  "min",
-  "least",
-  "unary",
-  "nec",
-  "ringed",
-  "ring-shaped",
-  "annulate",
-  "annular",
-  "circular",
-  "rotund",
-  "bowfront",
-  "prolate",
-  "domed",
-];
-
-export default IconUserMinusRounded as IconComponent;
+export default IconUserMinusRounded;

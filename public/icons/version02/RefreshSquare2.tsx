@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRefreshSquare2: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,38 +82,4 @@ const IconRefreshSquare2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRefreshSquare2 as IconComponent).keywords = [
-  "refresh",
-  "square",
-  "2",
-  "refreshen",
-  "freshen",
-  "review",
-  "freshen up",
-  "brush up",
-  "refresher",
-  "refreshment",
-  "rejuvenate",
-  "revive",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconRefreshSquare2 as IconComponent;
+export default IconRefreshSquare2;

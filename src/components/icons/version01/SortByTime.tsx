@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSortByTime: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,38 +111,4 @@ const IconSortByTime: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSortByTime as IconComponent).keywords = [
-  "sort",
-  "by",
-  "time",
-  "classify",
-  "assort",
-  "class",
-  "form",
-  "kind",
-  "sort out",
-  "variety",
-  "separate",
-  "screen",
-  "win by a nose",
-  "saved by the bell",
-  "lead by the nose",
-  "pull oneself up by one's bootstraps",
-  "by a landslide",
-  "set by the ears",
-  "have someone by the short and curlies",
-  "trial by fire",
-  "by the way",
-  "fourth dimension",
-  "clock",
-  "meter",
-  "clip",
-  "sentence",
-  "clock time",
-  "prison term",
-  "space-time",
-  "momentum",
-];
-
-export default IconSortByTime as IconComponent;
+export default IconSortByTime;

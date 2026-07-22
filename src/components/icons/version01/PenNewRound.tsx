@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPenNewRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,38 +95,4 @@ const IconPenNewRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPenNewRound as IconComponent).keywords = [
-  "pen",
-  "new",
-  "round",
-  "playpen",
-  "penitentiary",
-  "compose",
-  "indite",
-  "write",
-  "paddock",
-  "corral",
-  "basin",
-  "sty",
-  "newfound",
-  "fresh",
-  "freshly",
-  "newly",
-  "brand-new",
-  "recent",
-  "novel",
-  "recently",
-  "newfangled",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconPenNewRound as IconComponent;
+export default IconPenNewRound;

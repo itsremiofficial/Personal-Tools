@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMirror: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,18 +79,4 @@ const IconMirror: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMirror as IconComponent).keywords = [
-  "mirror",
-  "reflected",
-  "reflector",
-  "lens",
-  "reflection",
-  "reflect",
-  "light",
-  "symmetric",
-  "image",
-  "double",
-];
-
-export default IconMirror as IconComponent;
+export default IconMirror;

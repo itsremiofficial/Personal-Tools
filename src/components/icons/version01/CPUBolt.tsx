@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCPUBolt: FC<IconProps> = ({
   className,
   fill = false,
@@ -172,18 +179,4 @@ const IconCPUBolt: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCPUBolt as IconComponent).keywords = [
-  "bolt",
-  "deadbolt",
-  "thunderbolt",
-  "run out",
-  "slap",
-  "smack",
-  "bang",
-  "gobble",
-  "go off",
-  "absquatulate",
-];
-
-export default IconCPUBolt as IconComponent;
+export default IconCPUBolt;

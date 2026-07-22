@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVideoOctagon: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconVideoOctagon: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVideoOctagon as IconComponent).keywords = [
-  "video",
-  "octagon",
-  "tv",
-  "television",
-  "picture",
-  "telecasting",
-  "televised",
-  "videotaping",
-  "videotaped",
-  "taping",
-  "videotape",
-  "decagon",
-  "hexagon",
-  "dodecagon",
-  "octogonal",
-  "hexagonal",
-  "oval",
-  "triangled",
-  "triangle",
-  "square",
-];
-
-export default IconVideoOctagon as IconComponent;
+export default IconVideoOctagon;

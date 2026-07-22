@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWhisk: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,18 +84,4 @@ const IconWhisk: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWhisk as IconComponent).keywords = [
-  "whisk",
-  "whisk off",
-  "whip",
-  "whiskbroom",
-  "beat",
-  "fight",
-  "broom",
-  "scan",
-  "brooms",
-  "spatula",
-];
-
-export default IconWhisk as IconComponent;
+export default IconWhisk;

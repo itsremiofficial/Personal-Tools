@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBlur: FC<IconProps> = ({
   className,
   fill = false,
@@ -108,18 +115,4 @@ const IconBlur: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBlur as IconComponent).keywords = [
-  "blur",
-  "blear",
-  "smutch",
-  "smudge",
-  "glaze over",
-  "smear",
-  "confuse",
-  "obscure",
-  "slur",
-  "fuzz",
-];
-
-export default IconBlur as IconComponent;
+export default IconBlur;

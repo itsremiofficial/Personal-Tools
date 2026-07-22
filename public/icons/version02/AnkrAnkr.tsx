@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAnkrAnkr: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,7 +111,4 @@ const IconAnkrAnkr: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAnkrAnkr as IconComponent).keywords = ["ankr"];
-
-export default IconAnkrAnkr as IconComponent;
+export default IconAnkrAnkr;

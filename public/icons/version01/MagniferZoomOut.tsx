@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMagniferZoomOut: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,29 +92,4 @@ const IconMagniferZoomOut: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMagniferZoomOut as IconComponent).keywords = [
-  "magnifer",
-  "zoom",
-  "out",
-  "whizz",
-  "surge",
-  "soar",
-  "rapid climb",
-  "rapid growth",
-  "soar up",
-  "soar upwards",
-  "whizz along",
-  "zoom along",
-  "away",
-  "outer",
-  "exterior",
-  "retired",
-  "extinct",
-  "dead",
-  "down",
-  "extinguished",
-  "come out",
-];
-
-export default IconMagniferZoomOut as IconComponent;
+export default IconMagniferZoomOut;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconConvert3dCube: FC<IconProps> = ({
   className,
   fill = false,
@@ -167,38 +174,4 @@ const IconConvert3dCube: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconConvert3dCube as IconComponent).keywords = [
-  "convert",
-  "3d",
-  "cube",
-  "change over",
-  "change",
-  "exchange",
-  "turn",
-  "win over",
-  "convince",
-  "commute",
-  "transformation",
-  "alter",
-  "3-d",
-  "three-d",
-  "postage",
-  "qsar",
-  "abit",
-  "abstinent",
-  "amityville",
-  "arist",
-  "barque",
-  "block",
-  "dice",
-  "regular hexahedron",
-  "square block",
-  "third power",
-  "cubic",
-  "metre",
-  "piece",
-  "boss",
-];
-
-export default IconConvert3dCube as IconComponent;
+export default IconConvert3dCube;

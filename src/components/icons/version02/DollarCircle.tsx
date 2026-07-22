@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDollarCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,28 +94,4 @@ const IconDollarCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDollarCircle as IconComponent).keywords = [
-  "dollar",
-  "circle",
-  "dollar bill",
-  "dollar sign",
-  "buck",
-  "clam",
-  "dollar mark",
-  "one dollar bill",
-  "loonie",
-  "dime",
-  "penny",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconDollarCircle as IconComponent;
+export default IconDollarCircle;

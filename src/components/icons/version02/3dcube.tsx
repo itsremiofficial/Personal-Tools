@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const Icon3dcube: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,7 +99,4 @@ const Icon3dcube: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(Icon3dcube as IconComponent).keywords = ["3dcube"];
-
-export default Icon3dcube as IconComponent;
+export default Icon3dcube;

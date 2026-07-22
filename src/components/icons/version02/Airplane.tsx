@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAirplane: FC<IconProps> = ({
   className,
   fill = false,
@@ -63,18 +70,4 @@ const IconAirplane: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAirplane as IconComponent).keywords = [
-  "airplane",
-  "aeroplane",
-  "plane",
-  "jetliner",
-  "warplane",
-  "helicopter",
-  "aviation",
-  "airport",
-  "airliner",
-  "aircraft",
-];
-
-export default IconAirplane as IconComponent;
+export default IconAirplane;

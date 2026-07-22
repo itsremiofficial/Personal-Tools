@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGpsSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -155,28 +162,4 @@ const IconGpsSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGpsSlash as IconComponent).keywords = [
-  "gps",
-  "slash",
-  "general practitioner",
-  "rtk",
-  "spg",
-  "gsp",
-  "aps",
-  "positioning",
-  "sgp",
-  "spl",
-  "drs",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconGpsSlash as IconComponent;
+export default IconGpsSlash;

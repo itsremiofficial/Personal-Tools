@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChartSuccess: FC<IconProps> = ({
   className,
   fill = false,
@@ -129,28 +136,4 @@ const IconChartSuccess: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChartSuccess as IconComponent).keywords = [
-  "chart",
-  "success",
-  "map",
-  "cartography",
-  "mapping",
-  "cartographic",
-  "plan",
-  "diagram",
-  "graphical",
-  "diagrammatic",
-  "blueprint",
-  "achiever",
-  "winner",
-  "successful",
-  "achievement",
-  "accomplishment",
-  "attainment",
-  "successfully",
-  "avail",
-  "breakthrough",
-];
-
-export default IconChartSuccess as IconComponent;
+export default IconChartSuccess;

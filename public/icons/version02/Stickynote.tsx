@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStickynote: FC<IconProps> = ({
   className,
   fill = false,
@@ -137,7 +144,4 @@ const IconStickynote: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStickynote as IconComponent).keywords = ["stickynote"];
-
-export default IconStickynote as IconComponent;
+export default IconStickynote;

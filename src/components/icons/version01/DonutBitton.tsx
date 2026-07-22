@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDonutBitton: FC<IconProps> = ({
   className,
   fill = false,
@@ -194,28 +201,4 @@ const IconDonutBitton: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDonutBitton as IconComponent).keywords = [
-  "donut",
-  "bitton",
-  "doughnut",
-  "sinker",
-  "jelly",
-  "bagel",
-  "pillow",
-  "cushion",
-  "slap",
-  "doughnuts",
-  "cruller",
-  "jackson",
-  "jarrell",
-  "mitton",
-  "tippett",
-  "shockley",
-  "sorensen",
-  "grimshaw",
-  "litton",
-  "blanck",
-];
-
-export default IconDonutBitton as IconComponent;
+export default IconDonutBitton;

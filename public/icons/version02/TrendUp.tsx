@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTrendUp: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,28 +86,4 @@ const IconTrendUp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTrendUp as IconComponent).keywords = [
-  "trend",
-  "up",
-  "tendency",
-  "vogue",
-  "course",
-  "curve",
-  "slue",
-  "swerve",
-  "slew",
-  "style",
-  "cut",
-  "upbound",
-  "upwardly",
-  "ascending",
-  "upward",
-  "upwards",
-  "rising",
-  "astir",
-  "ahead",
-  "awake",
-];
-
-export default IconTrendUp as IconComponent;
+export default IconTrendUp;

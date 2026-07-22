@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGalleryRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,28 +90,4 @@ const IconGalleryRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGalleryRemove as IconComponent).keywords = [
-  "gallery",
-  "remove",
-  "art gallery",
-  "heading",
-  "verandah",
-  "veranda",
-  "drift",
-  "picture gallery",
-  "museum",
-  "beaux-arts",
-  "art",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconGalleryRemove as IconComponent;
+export default IconGalleryRemove;

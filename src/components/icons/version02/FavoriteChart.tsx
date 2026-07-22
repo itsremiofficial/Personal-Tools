@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFavoriteChart: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,28 +95,4 @@ const IconFavoriteChart: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFavoriteChart as IconComponent).keywords = [
-  "favorite",
-  "chart",
-  "favored",
-  "favourite",
-  "preferred",
-  "popular",
-  "loved",
-  "deary",
-  "darling",
-  "dearie",
-  "front-runner",
-  "map",
-  "cartography",
-  "mapping",
-  "cartographic",
-  "plan",
-  "diagram",
-  "graphical",
-  "diagrammatic",
-  "blueprint",
-];
-
-export default IconFavoriteChart as IconComponent;
+export default IconFavoriteChart;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPolyswarmNct: FC<IconProps> = ({
   className,
   fill = false,
@@ -117,19 +124,4 @@ const IconPolyswarmNct: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPolyswarmNct as IconComponent).keywords = [
-  "polyswarm",
-  "nct",
-  "trn",
-  "nrt",
-  "delhi",
-  "government",
-  "rush hour",
-  "pull over",
-  "pull in",
-  "carry on",
-  "pull out",
-];
-
-export default IconPolyswarmNct as IconComponent;
+export default IconPolyswarmNct;

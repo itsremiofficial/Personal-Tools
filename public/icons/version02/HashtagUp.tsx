@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHashtagUp: FC<IconProps> = ({
   className,
   fill = false,
@@ -121,28 +128,4 @@ const IconHashtagUp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHashtagUp as IconComponent).keywords = [
-  "hashtag",
-  "up",
-  "slashtag",
-  "bashtag",
-  "hashtagger",
-  "hashflag",
-  "tag cloud",
-  "tweet",
-  "label cloud",
-  "entity tag",
-  "fragment",
-  "upbound",
-  "upwardly",
-  "ascending",
-  "upward",
-  "upwards",
-  "rising",
-  "astir",
-  "ahead",
-  "awake",
-];
-
-export default IconHashtagUp as IconComponent;
+export default IconHashtagUp;

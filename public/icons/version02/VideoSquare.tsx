@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVideoSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconVideoSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVideoSquare as IconComponent).keywords = [
-  "video",
-  "square",
-  "tv",
-  "television",
-  "picture",
-  "telecasting",
-  "televised",
-  "videotaping",
-  "videotaped",
-  "taping",
-  "videotape",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconVideoSquare as IconComponent;
+export default IconVideoSquare;

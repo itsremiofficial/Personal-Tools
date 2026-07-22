@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconListCrossMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,38 +95,4 @@ const IconListCrossMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconListCrossMinimalistic as IconComponent).keywords = [
-  "list",
-  "cross",
-  "minimalistic",
-  "tilt",
-  "inclination",
-  "lean",
-  "leaning",
-  "name",
-  "number",
-  "sheet",
-  "heel",
-  "table",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconListCrossMinimalistic as IconComponent;
+export default IconListCrossMinimalistic;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconQuestionCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,28 +84,4 @@ const IconQuestionCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconQuestionCircle as IconComponent).keywords = [
-  "question",
-  "circle",
-  "interrogative",
-  "inquiry",
-  "interrogation",
-  "query",
-  "enquiry",
-  "interrogate",
-  "interview",
-  "oppugn",
-  "motion",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconQuestionCircle as IconComponent;
+export default IconQuestionCircle;

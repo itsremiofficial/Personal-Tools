@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTask: FC<IconProps> = ({
   className,
   fill = false,
@@ -139,18 +146,4 @@ const IconTask: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTask as IconComponent).keywords = [
-  "task",
-  "job",
-  "chore",
-  "project",
-  "labor",
-  "tax",
-  "undertaking",
-  "work",
-  "assignment",
-  "mission",
-];
-
-export default IconTask as IconComponent;
+export default IconTask;

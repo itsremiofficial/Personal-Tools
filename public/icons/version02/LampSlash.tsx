@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLampSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -103,28 +110,4 @@ const IconLampSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLampSlash as IconComponent).keywords = [
-  "lamp",
-  "slash",
-  "bulb",
-  "flashlight",
-  "lamppost",
-  "lantern",
-  "lighting",
-  "dimmer",
-  "searchlight",
-  "wick",
-  "lighter",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconLampSlash as IconComponent;
+export default IconLampSlash;

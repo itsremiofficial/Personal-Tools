@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCaseMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,28 +101,4 @@ const IconCaseMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCaseMinimalistic as IconComponent).keywords = [
-  "case",
-  "minimalistic",
-  "event",
-  "cause",
-  "subject",
-  "example",
-  "eccentric",
-  "showcase",
-  "type",
-  "instance",
-  "character",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconCaseMinimalistic as IconComponent;
+export default IconCaseMinimalistic;

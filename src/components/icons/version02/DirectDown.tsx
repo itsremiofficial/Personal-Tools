@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDirectDown: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,28 +86,4 @@ const IconDirectDown: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDirectDown as IconComponent).keywords = [
-  "direct",
-  "down",
-  "straightforward",
-  "directly",
-  "forthright",
-  "plainspoken",
-  "man-to-man",
-  "straight",
-  "frank",
-  "free-spoken",
-  "outspoken",
-  "downwards",
-  "downward",
-  "downbound",
-  "falling",
-  "fallen",
-  "pull down",
-  "downwardly",
-  "declining",
-  "descending",
-];
-
-export default IconDirectDown as IconComponent;
+export default IconDirectDown;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDirectboxDefault: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,19 +89,4 @@ const IconDirectboxDefault: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDirectboxDefault as IconComponent).keywords = [
-  "directbox",
-  "default",
-  "nonpayment",
-  "default on",
-  "default option",
-  "nonremittal",
-  "missing",
-  "omission",
-  "absent",
-  "fail",
-  "absence",
-];
-
-export default IconDirectboxDefault as IconComponent;
+export default IconDirectboxDefault;

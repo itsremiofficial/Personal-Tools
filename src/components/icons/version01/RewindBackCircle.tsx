@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRewindBackCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -74,36 +81,4 @@ const IconRewindBackCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRewindBackCircle as IconComponent).keywords = [
-  "rewind",
-  "back",
-  "circle",
-  "rollback",
-  "regress",
-  "backtrack",
-  "retrogressive",
-  "backward",
-  "rewrite",
-  "reverse",
-  "retract",
-  "rearward",
-  "rearwards",
-  "backwards",
-  "back up",
-  "backmost",
-  "rearmost",
-  "hindermost",
-  "support",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconRewindBackCircle as IconComponent;
+export default IconRewindBackCircle;

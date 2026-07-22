@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTickerStar: FC<IconProps> = ({
   className,
   fill = false,
@@ -69,28 +76,4 @@ const IconTickerStar: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTickerStar as IconComponent).keywords = [
-  "ticker",
-  "star",
-  "stock ticker",
-  "watch",
-  "pump",
-  "heart",
-  "indicator",
-  "symbol",
-  "code",
-  "gauge",
-  "coeur",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-];
-
-export default IconTickerStar as IconComponent;
+export default IconTickerStar;

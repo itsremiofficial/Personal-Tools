@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconClapperboardOpenPlay: FC<IconProps> = ({
   className,
   fill = false,
@@ -115,38 +122,4 @@ const IconClapperboardOpenPlay: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconClapperboardOpenPlay as IconComponent).keywords = [
-  "clapperboard",
-  "open",
-  "play",
-  "synchronizer",
-  "photoboard",
-  "film horse",
-  "movie camera",
-  "kinetoscope",
-  "cinematoscope",
-  "projectoscope",
-  "gate",
-  "moviola",
-  "open up",
-  "available",
-  "visible",
-  "afford",
-  "public",
-  "ajar",
-  "give",
-  "spread",
-  "wide",
-  "frolic",
-  "fun",
-  "gambol",
-  "caper",
-  "romp",
-  "toy",
-  "make-believe",
-  "pretend",
-  "dally",
-];
-
-export default IconClapperboardOpenPlay as IconComponent;
+export default IconClapperboardOpenPlay;

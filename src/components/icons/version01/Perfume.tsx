@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPerfume: FC<IconProps> = ({
   className,
   fill = false,
@@ -132,18 +139,4 @@ const IconPerfume: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPerfume as IconComponent).keywords = [
-  "perfume",
-  "aromatize",
-  "fragrance",
-  "aroma",
-  "scent",
-  "essence",
-  "fragrant",
-  "smell",
-  "odor",
-  "incense",
-];
-
-export default IconPerfume as IconComponent;
+export default IconPerfume;

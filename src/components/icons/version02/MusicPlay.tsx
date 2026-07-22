@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMusicPlay: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconMusicPlay: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMusicPlay as IconComponent).keywords = [
-  "music",
-  "play",
-  "sheet music",
-  "euphony",
-  "medicine",
-  "melody",
-  "symphony",
-  "orchestra",
-  "musician",
-  "song",
-  "singing",
-  "frolic",
-  "fun",
-  "gambol",
-  "caper",
-  "romp",
-  "toy",
-  "make-believe",
-  "pretend",
-  "dally",
-];
-
-export default IconMusicPlay as IconComponent;
+export default IconMusicPlay;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBook: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,18 +102,4 @@ const IconBook: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBook as IconComponent).keywords = [
-  "book",
-  "daybook",
-  "record",
-  "script",
-  "playscript",
-  "ledger",
-  "account book",
-  "volume",
-  "reserve",
-  "hold",
-];
-
-export default IconBook as IconComponent;
+export default IconBook;

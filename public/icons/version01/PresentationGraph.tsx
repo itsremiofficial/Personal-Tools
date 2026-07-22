@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPresentationGraph: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconPresentationGraph: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPresentationGraph as IconComponent).keywords = [
-  "presentation",
-  "graph",
-  "demonstration",
-  "intro",
-  "introduction",
-  "display",
-  "presentment",
-  "indication",
-  "referral",
-  "announcement",
-  "explanatory",
-  "graphical record",
-  "diagram",
-  "flowchart",
-  "figure",
-  "graphical",
-  "chart",
-  "map",
-  "design",
-  "graphically",
-];
-
-export default IconPresentationGraph as IconComponent;
+export default IconPresentationGraph;

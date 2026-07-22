@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCalendarTick: FC<IconProps> = ({
   className,
   fill = false,
@@ -152,28 +159,4 @@ const IconCalendarTick: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCalendarTick as IconComponent).keywords = [
-  "calendar",
-  "tick",
-  "timeline",
-  "chronology",
-  "rota",
-  "scheduling",
-  "timetable",
-  "program",
-  "time-scale",
-  "timeframe",
-  "timescale",
-  "click",
-  "ticktock",
-  "beat",
-  "ticktack",
-  "retick",
-  "ixodid",
-  "acarid",
-  "spinose",
-  "gene",
-];
-
-export default IconCalendarTick as IconComponent;
+export default IconCalendarTick;

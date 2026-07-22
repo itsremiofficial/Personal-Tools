@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLinkMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,28 +96,4 @@ const IconLinkMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLinkMinimalistic as IconComponent).keywords = [
-  "link",
-  "minimalistic",
-  "linkup",
-  "connection",
-  "nexus",
-  "connexion",
-  "connectedness",
-  "connect",
-  "tie-in",
-  "unite",
-  "associate",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconLinkMinimalistic as IconComponent;
+export default IconLinkMinimalistic;

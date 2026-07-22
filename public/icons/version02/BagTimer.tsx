@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBagTimer: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,28 +111,4 @@ const IconBagTimer: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBagTimer as IconComponent).keywords = [
-  "bag",
-  "timer",
-  "purse",
-  "pocketbook",
-  "handbag",
-  "pocket",
-  "bagful",
-  "suitcase",
-  "dish",
-  "grip",
-  "cup of tea",
-  "clocking",
-  "timekeeping",
-  "timekeeper",
-  "clock",
-  "stopwatch",
-  "scheduler",
-  "timing",
-  "developer",
-  "bomb",
-];
-
-export default IconBagTimer as IconComponent;
+export default IconBagTimer;

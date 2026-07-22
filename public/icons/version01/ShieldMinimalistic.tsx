@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShieldMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -69,28 +76,4 @@ const IconShieldMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShieldMinimalistic as IconComponent).keywords = [
-  "shield",
-  "minimalistic",
-  "buckler",
-  "screen",
-  "harbor",
-  "harbour",
-  "armoured",
-  "armor",
-  "breastplate",
-  "ribbon",
-  "visor",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconShieldMinimalistic as IconComponent;
+export default IconShieldMinimalistic;

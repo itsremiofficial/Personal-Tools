@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconXd: FC<IconProps> = ({
   className,
   fill = false,
@@ -103,17 +110,4 @@ const IconXd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconXd as IconComponent).keywords = [
-  "xd",
-  "dv",
-  "dx",
-  "dy",
-  "et",
-  "fa",
-  "fp",
-  "ns",
-  "pc",
-];
-
-export default IconXd as IconComponent;
+export default IconXd;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCoffee: FC<IconProps> = ({
   className,
   fill = false,
@@ -131,18 +138,4 @@ const IconCoffee: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCoffee as IconComponent).keywords = [
-  "coffee",
-  "coffee bean",
-  "chocolate",
-  "coffee berry",
-  "burnt umber",
-  "umber",
-  "java",
-  "coffee tree",
-  "deep brown",
-  "latte",
-];
-
-export default IconCoffee as IconComponent;
+export default IconCoffee;

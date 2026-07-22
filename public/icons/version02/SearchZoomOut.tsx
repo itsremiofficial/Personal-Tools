@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSearchZoomOut: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,38 +94,4 @@ const IconSearchZoomOut: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSearchZoomOut as IconComponent).keywords = [
-  "search",
-  "zoom",
-  "out",
-  "seek",
-  "look for",
-  "explore",
-  "lookup",
-  "research",
-  "look",
-  "hunting",
-  "hunt",
-  "seeking",
-  "whizz",
-  "surge",
-  "soar",
-  "rapid climb",
-  "rapid growth",
-  "soar up",
-  "soar upwards",
-  "whizz along",
-  "zoom along",
-  "away",
-  "outer",
-  "exterior",
-  "retired",
-  "extinct",
-  "dead",
-  "down",
-  "extinguished",
-  "come out",
-];
-
-export default IconSearchZoomOut as IconComponent;
+export default IconSearchZoomOut;

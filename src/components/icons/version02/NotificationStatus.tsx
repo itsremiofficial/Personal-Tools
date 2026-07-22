@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNotificationStatus: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,28 +106,4 @@ const IconNotificationStatus: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNotificationStatus as IconComponent).keywords = [
-  "notification",
-  "status",
-  "apprisal",
-  "notice",
-  "telling",
-  "presentment",
-  "notifying",
-  "notifier",
-  "notify",
-  "denunciation",
-  "announcement",
-  "position",
-  "condition",
-  "belonging",
-  "shape",
-  "ranking",
-  "rating",
-  "establish",
-  "availability",
-  "item",
-];
-
-export default IconNotificationStatus as IconComponent;
+export default IconNotificationStatus;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFileRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconFileRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFileRemove as IconComponent).keywords = [
-  "file",
-  "remove",
-  "register",
-  "single file",
-  "indian file",
-  "charge",
-  "file away",
-  "lodge",
-  "file cabinet",
-  "filing cabinet",
-  "data file",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconFileRemove as IconComponent;
+export default IconFileRemove;

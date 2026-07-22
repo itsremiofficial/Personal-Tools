@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRecordCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconRecordCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRecordCircle as IconComponent).keywords = [
-  "record",
-  "circle",
-  "phonograph record",
-  "book",
-  "register",
-  "read",
-  "disk",
-  "disc",
-  "show",
-  "memorialize",
-  "commemorate",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconRecordCircle as IconComponent;
+export default IconRecordCircle;

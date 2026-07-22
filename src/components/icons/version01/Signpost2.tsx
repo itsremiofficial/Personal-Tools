@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSignpost2: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,28 +114,4 @@ const IconSignpost2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSignpost2 as IconComponent).keywords = [
-  "signpost",
-  "2",
-  "guidepost",
-  "signage",
-  "milestone",
-  "beacon",
-  "landmark",
-  "hatch",
-  "guide",
-  "billboard",
-  "panel",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconSignpost2 as IconComponent;
+export default IconSignpost2;

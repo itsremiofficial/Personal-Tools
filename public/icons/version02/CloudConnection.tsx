@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudConnection: FC<IconProps> = ({
   className,
   fill = false,
@@ -103,28 +110,4 @@ const IconCloudConnection: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudConnection as IconComponent).keywords = [
-  "cloud",
-  "connection",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "connexion",
-  "connectedness",
-  "connective",
-  "joining",
-  "connector",
-  "link",
-  "connecter",
-  "association",
-  "connecting",
-];
-
-export default IconCloudConnection as IconComponent;
+export default IconCloudConnection;

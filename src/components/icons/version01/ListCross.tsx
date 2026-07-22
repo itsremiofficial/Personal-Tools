@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconListCross: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconListCross: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconListCross as IconComponent).keywords = [
-  "list",
-  "cross",
-  "tilt",
-  "inclination",
-  "lean",
-  "leaning",
-  "name",
-  "number",
-  "sheet",
-  "heel",
-  "table",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-];
-
-export default IconListCross as IconComponent;
+export default IconListCross;

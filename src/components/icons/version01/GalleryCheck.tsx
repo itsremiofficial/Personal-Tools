@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGalleryCheck: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,28 +91,4 @@ const IconGalleryCheck: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGalleryCheck as IconComponent).keywords = [
-  "gallery",
-  "check",
-  "art gallery",
-  "heading",
-  "verandah",
-  "veranda",
-  "drift",
-  "picture gallery",
-  "museum",
-  "beaux-arts",
-  "art",
-  "match",
-  "hitch",
-  "check out",
-  "curb",
-  "check into",
-  "checkout",
-  "turn back",
-  "arrest",
-  "hold",
-];
-
-export default IconGalleryCheck as IconComponent;
+export default IconGalleryCheck;

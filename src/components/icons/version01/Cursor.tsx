@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCursor: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,18 +80,4 @@ const IconCursor: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCursor as IconComponent).keywords = [
-  "cursor",
-  "pointer",
-  "updatable",
-  "poise",
-  "declare",
-  "traveller",
-  "precursor",
-  "pointing",
-  "hover",
-  "arrow",
-];
-
-export default IconCursor as IconComponent;
+export default IconCursor;

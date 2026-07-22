@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTextSquare2: FC<IconProps> = ({
   className,
   fill = false,
@@ -105,38 +112,4 @@ const IconTextSquare2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTextSquare2 as IconComponent).keywords = [
-  "text",
-  "square",
-  "2",
-  "schoolbook",
-  "textbook",
-  "school text",
-  "text edition",
-  "textual matter",
-  "writing",
-  "letter",
-  "paragraph",
-  "manuscript",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconTextSquare2 as IconComponent;
+export default IconTextSquare2;

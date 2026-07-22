@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPlayAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,28 +113,4 @@ const IconPlayAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPlayAdd as IconComponent).keywords = [
-  "play",
-  "add",
-  "frolic",
-  "fun",
-  "gambol",
-  "caper",
-  "romp",
-  "toy",
-  "make-believe",
-  "pretend",
-  "dally",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconPlayAdd as IconComponent;
+export default IconPlayAdd;

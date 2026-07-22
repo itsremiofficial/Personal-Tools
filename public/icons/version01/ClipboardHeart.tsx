@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconClipboardHeart: FC<IconProps> = ({
   className,
   fill = false,
@@ -81,28 +88,4 @@ const IconClipboardHeart: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconClipboardHeart as IconComponent).keywords = [
-  "clipboard",
-  "heart",
-  "flipchart",
-  "notebook",
-  "pad",
-  "notepad",
-  "whiteboard",
-  "pasteboard",
-  "chalkboard",
-  "sketchpad",
-  "copy",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-];
-
-export default IconClipboardHeart as IconComponent;
+export default IconClipboardHeart;

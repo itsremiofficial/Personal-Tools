@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPet: FC<IconProps> = ({
   className,
   fill = false,
@@ -123,18 +130,4 @@ const IconPet: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPet as IconComponent).keywords = [
-  "pet",
-  "ducky",
-  "positron emission tomography",
-  "dearie",
-  "deary",
-  "loved",
-  "darling",
-  "favored",
-  "favorite",
-  "favourite",
-];
-
-export default IconPet as IconComponent;
+export default IconPet;

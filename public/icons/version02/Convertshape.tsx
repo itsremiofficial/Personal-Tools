@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconConvertshape: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,7 +114,4 @@ const IconConvertshape: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconConvertshape as IconComponent).keywords = ["convertshape"];
-
-export default IconConvertshape as IconComponent;
+export default IconConvertshape;

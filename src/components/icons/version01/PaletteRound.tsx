@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPaletteRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,28 +104,4 @@ const IconPaletteRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPaletteRound as IconComponent).keywords = [
-  "palette",
-  "round",
-  "pallette",
-  "pallet",
-  "range",
-  "shoulder",
-  "blade",
-  "array",
-  "panoply",
-  "sweep",
-  "mix",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconPaletteRound as IconComponent;
+export default IconPaletteRound;

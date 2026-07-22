@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEuro: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,18 +91,4 @@ const IconEuro: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEuro as IconComponent).keywords = [
-  "euro",
-  "euroland",
-  "eurozone",
-  "coin",
-  "ecu",
-  "regional",
-  "dollar",
-  "ecb",
-  "currency",
-  "monetary",
-];
-
-export default IconEuro as IconComponent;
+export default IconEuro;

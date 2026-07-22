@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNotesMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconNotesMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNotesMinimalistic as IconComponent).keywords = [
-  "notes",
-  "minimalistic",
-  "annotation",
-  "notation",
-  "mention",
-  "remark",
-  "notice",
-  "observe",
-  "take note",
-  "distinction",
-  "bank note",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconNotesMinimalistic as IconComponent;
+export default IconNotesMinimalistic;

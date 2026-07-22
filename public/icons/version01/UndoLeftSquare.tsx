@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUndoLeftSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,38 +80,4 @@ const IconUndoLeftSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUndoLeftSquare as IconComponent).keywords = [
-  "undo",
-  "left",
-  "square",
-  "unmake",
-  "dispose",
-  "rescind",
-  "disconnect",
-  "vacate",
-  "revoke",
-  "rid",
-  "annul",
-  "repeal",
-  "left-hand",
-  "left-handed",
-  "left over",
-  "near",
-  "leftover",
-  "nigh",
-  "remaining",
-  "leftfield",
-  "odd",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconUndoLeftSquare as IconComponent;
+export default IconUndoLeftSquare;

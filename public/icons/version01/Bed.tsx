@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBed: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,18 +101,4 @@ const IconBed: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBed as IconComponent).keywords = [
-  "bed",
-  "seam",
-  "screw",
-  "bottom",
-  "hump",
-  "bonk",
-  "bang",
-  "get it on",
-  "sleep with",
-  "do it",
-];
-
-export default IconBed as IconComponent;
+export default IconBed;

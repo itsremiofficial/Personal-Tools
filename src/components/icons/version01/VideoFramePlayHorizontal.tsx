@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVideoFramePlayHorizontal: FC<IconProps> = ({
   className,
   fill = false,
@@ -142,48 +149,4 @@ const IconVideoFramePlayHorizontal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVideoFramePlayHorizontal as IconComponent).keywords = [
-  "video",
-  "frame",
-  "play",
-  "horizontal",
-  "tv",
-  "television",
-  "picture",
-  "telecasting",
-  "televised",
-  "videotaping",
-  "videotaped",
-  "taping",
-  "videotape",
-  "build",
-  "put",
-  "compose",
-  "form",
-  "draw up",
-  "set up",
-  "shape",
-  "border",
-  "outline",
-  "frolic",
-  "fun",
-  "gambol",
-  "caper",
-  "romp",
-  "toy",
-  "make-believe",
-  "pretend",
-  "dally",
-  "level",
-  "flat",
-  "crosswise",
-  "swimming",
-  "naiant",
-  "cross-sectional",
-  "transverse",
-  "transversal",
-  "landscape",
-];
-
-export default IconVideoFramePlayHorizontal as IconComponent;
+export default IconVideoFramePlayHorizontal;

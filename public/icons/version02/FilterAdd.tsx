@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFilterAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,28 +100,4 @@ const IconFilterAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFilterAdd as IconComponent).keywords = [
-  "filter",
-  "add",
-  "filtrate",
-  "filter out",
-  "percolate",
-  "permeate",
-  "trickle",
-  "sink in",
-  "strain",
-  "dribble",
-  "separate out",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconFilterAdd as IconComponent;
+export default IconFilterAdd;

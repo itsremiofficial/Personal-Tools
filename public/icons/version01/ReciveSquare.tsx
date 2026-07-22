@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconReciveSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -81,20 +88,4 @@ const IconReciveSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconReciveSquare as IconComponent).keywords = [
-  "recive",
-  "square",
-  "eyehole",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconReciveSquare as IconComponent;
+export default IconReciveSquare;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFilter: FC<IconProps> = ({
   className,
   fill = false,
@@ -69,18 +76,4 @@ const IconFilter: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFilter as IconComponent).keywords = [
-  "filter",
-  "filtrate",
-  "filter out",
-  "percolate",
-  "permeate",
-  "trickle",
-  "sink in",
-  "strain",
-  "dribble",
-  "separate out",
-];
-
-export default IconFilter as IconComponent;
+export default IconFilter;

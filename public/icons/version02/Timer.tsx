@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTimer: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,18 +95,4 @@ const IconTimer: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTimer as IconComponent).keywords = [
-  "timer",
-  "clocking",
-  "timekeeping",
-  "timekeeper",
-  "clock",
-  "stopwatch",
-  "scheduler",
-  "timing",
-  "developer",
-  "bomb",
-];
-
-export default IconTimer as IconComponent;
+export default IconTimer;

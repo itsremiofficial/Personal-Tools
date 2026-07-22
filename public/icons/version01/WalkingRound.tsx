@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWalkingRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconWalkingRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWalkingRound as IconComponent).keywords = [
-  "walking",
-  "round",
-  "afoot",
-  "moving",
-  "close",
-  "walk-to",
-  "pedestrian",
-  "hike",
-  "step",
-  "stepping",
-  "strolling",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconWalkingRound as IconComponent;
+export default IconWalkingRound;

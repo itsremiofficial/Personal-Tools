@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShockAbsorber: FC<IconProps> = ({
   className,
   fill = false,
@@ -122,28 +129,4 @@ const IconShockAbsorber: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShockAbsorber as IconComponent).keywords = [
-  "shock",
-  "absorber",
-  "take aback",
-  "stun",
-  "offend",
-  "outrage",
-  "traumatize",
-  "appall",
-  "stupor",
-  "daze",
-  "scandalize",
-  "adsorbent",
-  "absorptive",
-  "saturable",
-  "damper",
-  "canister",
-  "buffer",
-  "absorption",
-  "dumper",
-  "cushion",
-];
-
-export default IconShockAbsorber as IconComponent;
+export default IconShockAbsorber;

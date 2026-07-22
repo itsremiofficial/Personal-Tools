@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWidget: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,18 +106,4 @@ const IconWidget: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWidget as IconComponent).keywords = [
-  "widget",
-  "gadget",
-  "gizmo",
-  "convenience",
-  "contraption",
-  "contrivance",
-  "appliance",
-  "thingy",
-  "accessory",
-  "wizard",
-];
-
-export default IconWidget as IconComponent;
+export default IconWidget;

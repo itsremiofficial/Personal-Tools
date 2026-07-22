@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChatSquareArrow: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,38 +91,4 @@ const IconChatSquareArrow: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChatSquareArrow as IconComponent).keywords = [
-  "chat",
-  "square",
-  "arrow",
-  "confabulate",
-  "confab",
-  "confabulation",
-  "chitchat",
-  "natter",
-  "gossip",
-  "visit",
-  "chatter",
-  "claver",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-];
-
-export default IconChatSquareArrow as IconComponent;
+export default IconChatSquareArrow;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconReceived: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,18 +96,4 @@ const IconReceived: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconReceived as IconComponent).keywords = [
-  "received",
-  "accepted",
-  "acceptable",
-  "prescriptive",
-  "normative",
-  "conventional",
-  "standard",
-  "acknowledged",
-  "acceptance",
-  "accepting",
-];
-
-export default IconReceived as IconComponent;
+export default IconReceived;

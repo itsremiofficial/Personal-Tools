@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTicketStar: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconTicketStar: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTicketStar as IconComponent).keywords = [
-  "ticket",
-  "star",
-  "fine",
-  "coupon",
-  "itinerary",
-  "passport",
-  "place",
-  "engineer",
-  "flag",
-  "airfare",
-  "travel",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-];
-
-export default IconTicketStar as IconComponent;
+export default IconTicketStar;

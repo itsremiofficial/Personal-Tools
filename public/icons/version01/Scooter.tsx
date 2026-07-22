@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconScooter: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,18 +103,4 @@ const IconScooter: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconScooter as IconComponent).keywords = [
-  "scooter",
-  "motor scooter",
-  "scoter",
-  "motorcycle",
-  "sidecar",
-  "motorbike",
-  "bike",
-  "wagon",
-  "moped",
-  "tricycle",
-];
-
-export default IconScooter as IconComponent;
+export default IconScooter;

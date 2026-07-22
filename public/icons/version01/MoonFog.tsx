@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMoonFog: FC<IconProps> = ({
   className,
   fill = false,
@@ -122,28 +129,4 @@ const IconMoonFog: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMoonFog as IconComponent).keywords = [
-  "moon",
-  "fog",
-  "lunar month",
-  "moonlight",
-  "synodic month",
-  "lunation",
-  "daydream",
-  "moonshine",
-  "moon around",
-  "moon on",
-  "satellite",
-  "mist",
-  "haze",
-  "cloud",
-  "haze over",
-  "befog",
-  "becloud",
-  "fogginess",
-  "murkiness",
-  "murk",
-];
-
-export default IconMoonFog as IconComponent;
+export default IconMoonFog;

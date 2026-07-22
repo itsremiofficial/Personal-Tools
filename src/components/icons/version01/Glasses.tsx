@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGlasses: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,18 +102,4 @@ const IconGlasses: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGlasses as IconComponent).keywords = [
-  "glasses",
-  "eyeglasses",
-  "specs",
-  "spectacles",
-  "beakers",
-  "beers",
-  "bifocals",
-  "binoculars",
-  "checkers",
-  "clocks",
-];
-
-export default IconGlasses as IconComponent;
+export default IconGlasses;

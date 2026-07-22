@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRulerAngular: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,28 +111,4 @@ const IconRulerAngular: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRulerAngular as IconComponent).keywords = [
-  "ruler",
-  "angular",
-  "rule",
-  "ndp",
-  "head",
-  "roi",
-  "officer",
-  "leadership",
-  "boss",
-  "leader",
-  "administrator",
-  "angled",
-  "angulate",
-  "sharp-cornered",
-  "rectangular",
-  "triangular",
-  "three-cornered",
-  "equiangular",
-  "isogonic",
-  "cuspated",
-];
-
-export default IconRulerAngular as IconComponent;
+export default IconRulerAngular;

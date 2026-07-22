@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPlaylist: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,18 +105,4 @@ const IconPlaylist: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPlaylist as IconComponent).keywords = [
-  "playlist",
-  "playback",
-  "replay",
-  "list",
-  "reproductive",
-  "reproduction",
-  "soundtrack",
-  "song",
-  "tunes",
-  "songs",
-];
-
-export default IconPlaylist as IconComponent;
+export default IconPlaylist;

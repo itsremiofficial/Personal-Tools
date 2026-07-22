@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHospital: FC<IconProps> = ({
   className,
   fill = false,
@@ -111,18 +118,4 @@ const IconHospital: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHospital as IconComponent).keywords = [
-  "hospital",
-  "infirmary",
-  "clinical",
-  "clinic",
-  "hospitalization",
-  "inpatient",
-  "doctor",
-  "hospitalized",
-  "physician",
-  "medical",
-];
-
-export default IconHospital as IconComponent;
+export default IconHospital;

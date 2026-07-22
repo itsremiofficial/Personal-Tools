@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBagCheck: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,28 +89,4 @@ const IconBagCheck: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBagCheck as IconComponent).keywords = [
-  "bag",
-  "check",
-  "purse",
-  "pocketbook",
-  "handbag",
-  "pocket",
-  "bagful",
-  "suitcase",
-  "dish",
-  "grip",
-  "cup of tea",
-  "match",
-  "hitch",
-  "check out",
-  "curb",
-  "check into",
-  "checkout",
-  "turn back",
-  "arrest",
-  "hold",
-];
-
-export default IconBagCheck as IconComponent;
+export default IconBagCheck;

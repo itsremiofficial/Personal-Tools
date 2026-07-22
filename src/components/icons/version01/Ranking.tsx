@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRanking: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,18 +101,4 @@ const IconRanking: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRanking as IconComponent).keywords = [
-  "ranking",
-  "commanding",
-  "top-level",
-  "top-ranking",
-  "superior",
-  "senior",
-  "higher-ranking",
-  "grading",
-  "rating",
-  "status",
-];
-
-export default IconRanking as IconComponent;
+export default IconRanking;

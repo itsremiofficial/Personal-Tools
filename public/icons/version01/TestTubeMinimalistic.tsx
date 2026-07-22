@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTestTubeMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,38 +86,4 @@ const IconTestTubeMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTestTubeMinimalistic as IconComponent).keywords = [
-  "test",
-  "tube",
-  "minimalistic",
-  "try out",
-  "examine",
-  "trial",
-  "experimental",
-  "examination",
-  "prove",
-  "assay",
-  "try",
-  "quiz",
-  "underground",
-  "electron tube",
-  "vacuum tube",
-  "thermionic valve",
-  "metro",
-  "subway",
-  "pipe",
-  "thermionic tube",
-  "thermionic vacuum tube",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconTestTubeMinimalistic as IconComponent;
+export default IconTestTubeMinimalistic;

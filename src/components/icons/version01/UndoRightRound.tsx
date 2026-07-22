@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUndoRightRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,38 +80,4 @@ const IconUndoRightRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUndoRightRound as IconComponent).keywords = [
-  "undo",
-  "right",
-  "round",
-  "unmake",
-  "dispose",
-  "rescind",
-  "disconnect",
-  "vacate",
-  "revoke",
-  "rid",
-  "annul",
-  "repeal",
-  "straight",
-  "precise",
-  "right on",
-  "accurate",
-  "decently",
-  "satisfactory",
-  "exact",
-  "powerful",
-  "opportune",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconUndoRightRound as IconComponent;
+export default IconUndoRightRound;

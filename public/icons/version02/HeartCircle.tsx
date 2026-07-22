@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHeartCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconHeartCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHeartCircle as IconComponent).keywords = [
-  "heart",
-  "circle",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconHeartCircle as IconComponent;
+export default IconHeartCircle;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconToggleOnCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,38 +78,4 @@ const IconToggleOnCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconToggleOnCircle as IconComponent).keywords = [
-  "toggle",
-  "on",
-  "circle",
-  "on-off switch",
-  "toggle switch",
-  "lever",
-  "cycle",
-  "switch",
-  "button",
-  "switching",
-  "rotate",
-  "rotation",
-  "bps",
-  "add",
-  "nso",
-  "our",
-  "bsi",
-  "nbs",
-  "opti",
-  "sno",
-  "weap",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconToggleOnCircle as IconComponent;
+export default IconToggleOnCircle;

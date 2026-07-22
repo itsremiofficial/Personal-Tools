@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRadar2: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconRadar2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRadar2 as IconComponent).keywords = [
-  "radar",
-  "2",
-  "radiolocation",
-  "microwave radar",
-  "radio detection and ranging",
-  "monopulse",
-  "radio",
-  "centimetric",
-  "sonar",
-  "hub-and-spoke",
-  "radial",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconRadar2 as IconComponent;
+export default IconRadar2;

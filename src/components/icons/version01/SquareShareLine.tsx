@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSquareShareLine: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,38 +85,4 @@ const IconSquareShareLine: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSquareShareLine as IconComponent).keywords = [
-  "square",
-  "share",
-  "line",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "portion out",
-  "portion",
-  "deal",
-  "divvy up",
-  "apportion",
-  "contribution",
-  "partake",
-  "part",
-  "parcel",
-  "outline",
-  "dividing line",
-  "agate line",
-  "delineate",
-  "telephone line",
-  "draw",
-  "transmission line",
-  "credit line",
-  "phone line",
-];
-
-export default IconSquareShareLine as IconComponent;
+export default IconSquareShareLine;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPasswordMinimalisticInput: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,38 +100,4 @@ const IconPasswordMinimalisticInput: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPasswordMinimalisticInput as IconComponent).keywords = [
-  "password",
-  "minimalistic",
-  "input",
-  "countersign",
-  "watchword",
-  "word",
-  "parole",
-  "passcode",
-  "username",
-  "passphrase",
-  "codeword",
-  "cleartext",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-  "stimulus",
-  "stimulation",
-  "stimulant",
-  "input signal",
-  "production",
-  "guidance",
-  "supply",
-  "entrance",
-  "entry",
-];
-
-export default IconPasswordMinimalisticInput as IconComponent;
+export default IconPasswordMinimalisticInput;

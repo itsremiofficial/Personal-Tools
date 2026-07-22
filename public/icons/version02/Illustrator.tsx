@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconIllustrator: FC<IconProps> = ({
   className,
   fill = false,
@@ -111,18 +118,4 @@ const IconIllustrator: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconIllustrator as IconComponent).keywords = [
-  "illustrator",
-  "cartoonist",
-  "artist",
-  "designer",
-  "draftsperson",
-  "draftsman",
-  "artists",
-  "illustrations",
-  "animator",
-  "author",
-];
-
-export default IconIllustrator as IconComponent;
+export default IconIllustrator;

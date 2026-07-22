@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChatRoundLike: FC<IconProps> = ({
   className,
   fill = false,
@@ -68,38 +75,4 @@ const IconChatRoundLike: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChatRoundLike as IconComponent).keywords = [
-  "chat",
-  "round",
-  "like",
-  "confabulate",
-  "confab",
-  "confabulation",
-  "chitchat",
-  "natter",
-  "gossip",
-  "visit",
-  "chatter",
-  "claver",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-  "wish",
-  "ish",
-  "like-minded",
-  "suchlike",
-  "corresponding",
-  "similar",
-  "alike",
-  "equal",
-  "comparable",
-];
-
-export default IconChatRoundLike as IconComponent;
+export default IconChatRoundLike;

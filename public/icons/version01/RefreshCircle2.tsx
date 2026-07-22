@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRefreshCircle2: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,38 +82,4 @@ const IconRefreshCircle2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRefreshCircle2 as IconComponent).keywords = [
-  "refresh",
-  "circle",
-  "2",
-  "refreshen",
-  "freshen",
-  "review",
-  "freshen up",
-  "brush up",
-  "refresher",
-  "refreshment",
-  "rejuvenate",
-  "revive",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconRefreshCircle2 as IconComponent;
+export default IconRefreshCircle2;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBicycling: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,18 +113,4 @@ const IconBicycling: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBicycling as IconComponent).keywords = [
-  "bicycling",
-  "bike",
-  "cycle",
-  "pedal",
-  "wheel",
-  "biking",
-  "cycling",
-  "motorcycling",
-  "bicyclists",
-  "cyclist",
-];
-
-export default IconBicycling as IconComponent;
+export default IconBicycling;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBitcoinConvert: FC<IconProps> = ({
   className,
   fill = false,
@@ -158,28 +165,4 @@ const IconBitcoinConvert: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBitcoinConvert as IconComponent).keywords = [
-  "bitcoin",
-  "convert",
-  "coin",
-  "cryptocurrency",
-  "cryptocoin",
-  "crypto-currency",
-  "dogecoin",
-  "ether",
-  "millibitcoin",
-  "bitcoin faucet",
-  "bitcent",
-  "change over",
-  "change",
-  "exchange",
-  "turn",
-  "win over",
-  "convince",
-  "commute",
-  "transformation",
-  "alter",
-];
-
-export default IconBitcoinConvert as IconComponent;
+export default IconBitcoinConvert;

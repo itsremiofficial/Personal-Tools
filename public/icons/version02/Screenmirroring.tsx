@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconScreenmirroring: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,7 +78,4 @@ const IconScreenmirroring: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconScreenmirroring as IconComponent).keywords = ["screenmirroring"];
-
-export default IconScreenmirroring as IconComponent;
+export default IconScreenmirroring;

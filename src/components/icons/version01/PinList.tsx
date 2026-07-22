@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPinList: FC<IconProps> = ({
   className,
   fill = false,
@@ -129,28 +136,4 @@ const IconPinList: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPinList as IconComponent).keywords = [
-  "pin",
-  "list",
-  "peg",
-  "pin down",
-  "tholepin",
-  "trap",
-  "pivot",
-  "flag",
-  "oarlock",
-  "rowlock",
-  "pin up",
-  "tilt",
-  "inclination",
-  "lean",
-  "leaning",
-  "name",
-  "number",
-  "sheet",
-  "heel",
-  "table",
-];
-
-export default IconPinList as IconComponent;
+export default IconPinList;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChatDots: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,28 +90,4 @@ const IconChatDots: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChatDots as IconComponent).keywords = [
-  "chat",
-  "dots",
-  "confabulate",
-  "confab",
-  "confabulation",
-  "chitchat",
-  "natter",
-  "gossip",
-  "visit",
-  "chatter",
-  "claver",
-  "sprinkle",
-  "scatter",
-  "disperse",
-  "dust",
-  "dit",
-  "stud",
-  "point",
-  "constellate",
-  "pts",
-];
-
-export default IconChatDots as IconComponent;
+export default IconChatDots;

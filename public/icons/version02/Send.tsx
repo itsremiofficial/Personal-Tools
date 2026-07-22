@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSend: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,18 +96,4 @@ const IconSend: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSend as IconComponent).keywords = [
-  "send",
-  "transmit",
-  "charge",
-  "transport",
-  "mail",
-  "base",
-  "institutionalize",
-  "place",
-  "broadcast",
-  "commit",
-];
-
-export default IconSend as IconComponent;
+export default IconSend;

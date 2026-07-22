@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMore: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,18 +87,4 @@ const IconMore: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMore as IconComponent).keywords = [
-  "more",
-  "additional",
-  "further",
-  "added",
-  "more than",
-  "to a greater extent",
-  "maximum",
-  "farther",
-  "anymore",
-  "better",
-];
-
-export default IconMore as IconComponent;
+export default IconMore;

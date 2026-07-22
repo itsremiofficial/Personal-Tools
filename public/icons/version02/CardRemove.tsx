@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCardRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -115,28 +122,4 @@ const IconCardRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCardRemove as IconComponent).keywords = [
-  "card",
-  "remove",
-  "scorecard",
-  "batting order",
-  "identity card",
-  "visiting card",
-  "calling card",
-  "lineup",
-  "poster",
-  "placard",
-  "tease",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconCardRemove as IconComponent;
+export default IconCardRemove;

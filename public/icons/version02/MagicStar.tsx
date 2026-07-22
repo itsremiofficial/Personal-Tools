@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMagicStar: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconMagicStar: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMagicStar as IconComponent).keywords = [
-  "magic",
-  "star",
-  "sorcerous",
-  "wizardly",
-  "wizard",
-  "supernatural",
-  "magic trick",
-  "legerdemain",
-  "witching",
-  "charming",
-  "illusion",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-];
-
-export default IconMagicStar as IconComponent;
+export default IconMagicStar;

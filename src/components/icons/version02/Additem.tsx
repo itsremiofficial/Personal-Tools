@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAdditem: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,7 +114,4 @@ const IconAdditem: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAdditem as IconComponent).keywords = ["additem"];
-
-export default IconAdditem as IconComponent;
+export default IconAdditem;

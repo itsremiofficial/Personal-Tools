@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDropbox: FC<IconProps> = ({
   className,
   fill = false,
@@ -133,18 +140,4 @@ const IconDropbox: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDropbox as IconComponent).keywords = [
-  "dropbox",
-  "safebox",
-  "letterbox",
-  "drop",
-  "post box",
-  "lockerbox",
-  "mailbox",
-  "box file",
-  "drop safe",
-  "po box",
-];
-
-export default IconDropbox as IconComponent;
+export default IconDropbox;

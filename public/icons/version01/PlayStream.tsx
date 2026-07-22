@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPlayStream: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,28 +93,4 @@ const IconPlayStream: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPlayStream as IconComponent).keywords = [
-  "play",
-  "stream",
-  "frolic",
-  "fun",
-  "gambol",
-  "caper",
-  "romp",
-  "toy",
-  "make-believe",
-  "pretend",
-  "dally",
-  "watercourse",
-  "rain cats and dogs",
-  "rain buckets",
-  "current",
-  "flow",
-  "pour",
-  "pelt",
-  "swarm",
-  "well out",
-];
-
-export default IconPlayStream as IconComponent;
+export default IconPlayStream;

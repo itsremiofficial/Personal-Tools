@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAugurRep: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,28 +96,4 @@ const IconAugurRep: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAugurRep as IconComponent).keywords = [
-  "augur",
-  "rep",
-  "betoken",
-  "predict",
-  "forecast",
-  "prognosticate",
-  "bode",
-  "omen",
-  "portend",
-  "presage",
-  "foretell",
-  "repp",
-  "llp",
-  "representing",
-  "seller",
-  "dep",
-  "rpp",
-  "agent",
-  "representative",
-  "sir",
-];
-
-export default IconAugurRep as IconComponent;
+export default IconAugurRep;

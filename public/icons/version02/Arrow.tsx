@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconArrow: FC<IconProps> = ({
   className,
   fill = false,
@@ -149,18 +156,4 @@ const IconArrow: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconArrow as IconComponent).keywords = [
-  "arrow",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-];
-
-export default IconArrow as IconComponent;
+export default IconArrow;

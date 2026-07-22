@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLike: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,18 +79,4 @@ const IconLike: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLike as IconComponent).keywords = [
-  "like",
-  "wish",
-  "ish",
-  "like-minded",
-  "suchlike",
-  "corresponding",
-  "similar",
-  "alike",
-  "equal",
-  "comparable",
-];
-
-export default IconLike as IconComponent;
+export default IconLike;

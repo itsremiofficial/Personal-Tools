@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFolderError: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,28 +77,4 @@ const IconFolderError: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFolderError as IconComponent).keywords = [
-  "folder",
-  "error",
-  "booklet",
-  "pamphlet",
-  "brochure",
-  "leaflet",
-  "toolkit",
-  "pack",
-  "package",
-  "kit",
-  "shirt",
-  "erroneousness",
-  "mistake",
-  "wrongdoing",
-  "misplay",
-  "fault",
-  "erroneous belief",
-  "erroneous",
-  "inaccurate",
-  "misapprehension",
-];
-
-export default IconFolderError as IconComponent;
+export default IconFolderError;

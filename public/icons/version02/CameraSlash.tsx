@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCameraSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -119,28 +126,4 @@ const IconCameraSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCameraSlash as IconComponent).keywords = [
-  "camera",
-  "slash",
-  "photographic camera",
-  "television camera",
-  "photography",
-  "photographer",
-  "photographing",
-  "photograph",
-  "photo",
-  "imaging",
-  "photographic",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconCameraSlash as IconComponent;
+export default IconCameraSlash;

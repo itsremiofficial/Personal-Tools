@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSmartphoneUpdate: FC<IconProps> = ({
   className,
   fill = false,
@@ -113,28 +120,4 @@ const IconSmartphoneUpdate: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSmartphoneUpdate as IconComponent).keywords = [
-  "smartphone",
-  "update",
-  "intelligent",
-  "smart",
-  "screenphone",
-  "featurephone",
-  "superphone",
-  "touchphone",
-  "mobile device",
-  "cellular phone",
-  "smartwatch",
-  "amended",
-  "modernize",
-  "modify",
-  "addition",
-  "modified",
-  "adjust",
-  "adjustment",
-  "upgradable",
-  "revision",
-];
-
-export default IconSmartphoneUpdate as IconComponent;
+export default IconSmartphoneUpdate;

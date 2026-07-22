@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFireSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -69,28 +76,4 @@ const IconFireSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFireSquare as IconComponent).keywords = [
-  "fire",
-  "square",
-  "fuel",
-  "flame",
-  "blast",
-  "flaming",
-  "burn down",
-  "burn",
-  "kindle",
-  "enkindle",
-  "sack",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconFireSquare as IconComponent;
+export default IconFireSquare;

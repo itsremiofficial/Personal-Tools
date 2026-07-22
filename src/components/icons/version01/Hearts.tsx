@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHearts: FC<IconProps> = ({
   className,
   fill = false,
@@ -68,18 +75,4 @@ const IconHearts: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHearts as IconComponent).keywords = [
-  "hearts",
-  "black maria",
-  "courageous",
-  "rote",
-  "sympathy",
-  "condolences",
-  "central",
-  "spirits",
-  "core",
-  "wills",
-];
-
-export default IconHearts as IconComponent;
+export default IconHearts;

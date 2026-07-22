@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBluetoothSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,28 +95,4 @@ const IconBluetoothSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBluetoothSquare as IconComponent).keywords = [
-  "bluetooth",
-  "square",
-  "teeth",
-  "tooth",
-  "handsfree",
-  "wireless",
-  "ipod",
-  "wifi",
-  "stereo",
-  "speakerphone",
-  "headset",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconBluetoothSquare as IconComponent;
+export default IconBluetoothSquare;

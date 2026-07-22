@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLocationTick: FC<IconProps> = ({
   className,
   fill = false,
@@ -81,28 +88,4 @@ const IconLocationTick: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLocationTick as IconComponent).keywords = [
-  "location",
-  "tick",
-  "position",
-  "placement",
-  "positioning",
-  "localization",
-  "localisation",
-  "emplacement",
-  "fix",
-  "locating",
-  "situating",
-  "click",
-  "ticktock",
-  "beat",
-  "ticktack",
-  "retick",
-  "ixodid",
-  "acarid",
-  "spinose",
-  "gene",
-];
-
-export default IconLocationTick as IconComponent;
+export default IconLocationTick;

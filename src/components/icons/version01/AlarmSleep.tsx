@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAlarmSleep: FC<IconProps> = ({
   className,
   fill = false,
@@ -105,28 +112,4 @@ const IconAlarmSleep: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAlarmSleep as IconComponent).keywords = [
-  "alarm",
-  "sleep",
-  "alarum",
-  "alarm system",
-  "alert",
-  "consternation",
-  "alarm clock",
-  "horrify",
-  "appall",
-  "dismay",
-  "appal",
-  "nap",
-  "slumber",
-  "rest",
-  "quietus",
-  "kip",
-  "eternal sleep",
-  "eternal rest",
-  "snooze",
-  "doze",
-];
-
-export default IconAlarmSleep as IconComponent;
+export default IconAlarmSleep;

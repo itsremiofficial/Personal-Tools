@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChandelier: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,18 +96,4 @@ const IconChandelier: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChandelier as IconComponent).keywords = [
-  "chandelier",
-  "pendant",
-  "candlestick",
-  "lustre",
-  "luster",
-  "gloss",
-  "spider",
-  "earrings",
-  "chandy",
-  "sconce",
-];
-
-export default IconChandelier as IconComponent;
+export default IconChandelier;

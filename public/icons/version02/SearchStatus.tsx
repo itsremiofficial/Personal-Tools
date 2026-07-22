@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSearchStatus: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,28 +106,4 @@ const IconSearchStatus: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSearchStatus as IconComponent).keywords = [
-  "search",
-  "status",
-  "seek",
-  "look for",
-  "explore",
-  "lookup",
-  "research",
-  "look",
-  "hunting",
-  "hunt",
-  "seeking",
-  "position",
-  "condition",
-  "belonging",
-  "shape",
-  "ranking",
-  "rating",
-  "establish",
-  "availability",
-  "item",
-];
-
-export default IconSearchStatus as IconComponent;
+export default IconSearchStatus;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSortVertical: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconSortVertical: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSortVertical as IconComponent).keywords = [
-  "sort",
-  "vertical",
-  "classify",
-  "assort",
-  "class",
-  "form",
-  "kind",
-  "sort out",
-  "variety",
-  "separate",
-  "screen",
-  "perpendicular",
-  "plumb",
-  "upright",
-  "stand-up",
-  "standing",
-  "straight",
-  "rearing",
-  "erect",
-  "erectile",
-];
-
-export default IconSortVertical as IconComponent;
+export default IconSortVertical;

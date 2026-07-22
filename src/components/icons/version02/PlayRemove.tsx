@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPlayRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,28 +113,4 @@ const IconPlayRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPlayRemove as IconComponent).keywords = [
-  "play",
-  "remove",
-  "frolic",
-  "fun",
-  "gambol",
-  "caper",
-  "romp",
-  "toy",
-  "make-believe",
-  "pretend",
-  "dally",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconPlayRemove as IconComponent;
+export default IconPlayRemove;

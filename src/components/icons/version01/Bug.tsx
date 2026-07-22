@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBug: FC<IconProps> = ({
   className,
   fill = false,
@@ -175,18 +182,4 @@ const IconBug: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBug as IconComponent).keywords = [
-  "bug",
-  "hemipteran",
-  "hemipteron",
-  "badger",
-  "germ",
-  "microbe",
-  "tap",
-  "tease",
-  "beleaguer",
-  "harass",
-];
-
-export default IconBug as IconComponent;
+export default IconBug;

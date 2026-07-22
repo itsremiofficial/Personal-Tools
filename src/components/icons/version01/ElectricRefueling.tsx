@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconElectricRefueling: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,28 +99,4 @@ const IconElectricRefueling: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconElectricRefueling as IconComponent).keywords = [
-  "electric",
-  "refueling",
-  "electrical",
-  "galvanic",
-  "electric car",
-  "tense",
-  "exciting",
-  "electric automobile",
-  "galvanizing",
-  "electronics",
-  "electrified",
-  "fueling",
-  "refuelling",
-  "fuelling",
-  "tanker",
-  "inflight",
-  "sealift",
-  "fuel",
-  "victualling",
-  "catering",
-];
-
-export default IconElectricRefueling as IconComponent;
+export default IconElectricRefueling;

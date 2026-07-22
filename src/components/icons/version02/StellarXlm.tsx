@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStellarXlm: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,19 +102,4 @@ const IconStellarXlm: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStellarXlm as IconComponent).keywords = [
-  "stellar",
-  "xlm",
-  "star",
-  "astral",
-  "leading",
-  "starring",
-  "prima",
-  "major",
-  "stellate",
-  "shiny",
-  "bright",
-];
-
-export default IconStellarXlm as IconComponent;
+export default IconStellarXlm;

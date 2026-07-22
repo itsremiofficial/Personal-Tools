@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUSBCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -103,18 +110,4 @@ const IconUSBCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUSBCircle as IconComponent).keywords = [
-  "circle",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconUSBCircle as IconComponent;
+export default IconUSBCircle;

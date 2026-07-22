@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMentionCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -76,28 +83,4 @@ const IconMentionCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMentionCircle as IconComponent).keywords = [
-  "mention",
-  "circle",
-  "remark",
-  "refer",
-  "observe",
-  "reference",
-  "name",
-  "note",
-  "quotation",
-  "cite",
-  "acknowledge",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconMentionCircle as IconComponent;
+export default IconMentionCircle;

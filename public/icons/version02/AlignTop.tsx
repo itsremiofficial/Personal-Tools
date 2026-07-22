@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAlignTop: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconAlignTop: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAlignTop as IconComponent).keywords = [
-  "align",
-  "top",
-  "line up",
-  "adjust",
-  "coordinate",
-  "aline",
-  "array",
-  "alignment",
-  "link",
-  "combine",
-  "integrate",
-  "upper side",
-  "upside",
-  "elevation",
-  "uppermost",
-  "height",
-  "pinnacle",
-  "peak",
-  "upper",
-  "topmost",
-];
-
-export default IconAlignTop as IconComponent;
+export default IconAlignTop;

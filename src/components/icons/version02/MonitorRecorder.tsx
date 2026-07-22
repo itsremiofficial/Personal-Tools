@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMonitorRecorder: FC<IconProps> = ({
   className,
   fill = false,
@@ -108,28 +115,4 @@ const IconMonitorRecorder: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMonitorRecorder as IconComponent).keywords = [
-  "monitor",
-  "recorder",
-  "ride herd on",
-  "supervise",
-  "proctor",
-  "reminder",
-  "admonisher",
-  "varan",
-  "monitor lizard",
-  "supervised",
-  "manage",
-  "registrar",
-  "vertical flute",
-  "fipple flute",
-  "fipple pipe",
-  "record-keeper",
-  "recording equipment",
-  "recording machine",
-  "recording",
-  "camcorder",
-];
-
-export default IconMonitorRecorder as IconComponent;
+export default IconMonitorRecorder;

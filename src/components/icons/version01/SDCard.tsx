@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSDCard: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,18 +98,4 @@ const IconSDCard: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSDCard as IconComponent).keywords = [
-  "card",
-  "scorecard",
-  "batting order",
-  "identity card",
-  "visiting card",
-  "calling card",
-  "lineup",
-  "poster",
-  "placard",
-  "tease",
-];
-
-export default IconSDCard as IconComponent;
+export default IconSDCard;

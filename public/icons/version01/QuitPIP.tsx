@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconQuitPIP: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,18 +91,4 @@ const IconQuitPIP: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconQuitPIP as IconComponent).keywords = [
-  "quit",
-  "rid",
-  "leave",
-  "relinquish",
-  "give up",
-  "step down",
-  "discontinue",
-  "throw in the towel",
-  "chuck up the sponge",
-  "lay off",
-];
-
-export default IconQuitPIP as IconComponent;
+export default IconQuitPIP;

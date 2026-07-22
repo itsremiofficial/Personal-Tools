@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMenuDotsSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,38 +91,4 @@ const IconMenuDotsSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMenuDotsSquare as IconComponent).keywords = [
-  "menu",
-  "dots",
-  "square",
-  "bill of fare",
-  "carte",
-  "fare",
-  "card",
-  "carte du jour",
-  "computer menu",
-  "dinner",
-  "meal",
-  "list",
-  "sprinkle",
-  "scatter",
-  "disperse",
-  "dust",
-  "dit",
-  "stud",
-  "point",
-  "constellate",
-  "pts",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconMenuDotsSquare as IconComponent;
+export default IconMenuDotsSquare;

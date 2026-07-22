@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPharagraphspacing: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,7 +113,4 @@ const IconPharagraphspacing: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPharagraphspacing as IconComponent).keywords = ["pharagraphspacing"];
-
-export default IconPharagraphspacing as IconComponent;
+export default IconPharagraphspacing;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVideoRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -132,28 +139,4 @@ const IconVideoRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVideoRemove as IconComponent).keywords = [
-  "video",
-  "remove",
-  "tv",
-  "television",
-  "picture",
-  "telecasting",
-  "televised",
-  "videotaping",
-  "videotaped",
-  "taping",
-  "videotape",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconVideoRemove as IconComponent;
+export default IconVideoRemove;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDocumentLike: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconDocumentLike: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDocumentLike as IconComponent).keywords = [
-  "document",
-  "like",
-  "papers",
-  "text file",
-  "written document",
-  "documentation",
-  "backgrounder",
-  "workbook",
-  "dossier",
-  "handbook",
-  "listing",
-  "wish",
-  "ish",
-  "like-minded",
-  "suchlike",
-  "corresponding",
-  "similar",
-  "alike",
-  "equal",
-  "comparable",
-];
-
-export default IconDocumentLike as IconComponent;
+export default IconDocumentLike;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSkateboardingRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -144,28 +151,4 @@ const IconSkateboardingRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSkateboardingRound as IconComponent).keywords = [
-  "skateboarding",
-  "round",
-  "skateboarders",
-  "snowboarding",
-  "skatepark",
-  "skating",
-  "skate",
-  "snowboard",
-  "rollerskating",
-  "breakdancing",
-  "wakeboarding",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconSkateboardingRound as IconComponent;
+export default IconSkateboardingRound;

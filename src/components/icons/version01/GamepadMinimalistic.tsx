@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGamepadMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,28 +106,4 @@ const IconGamepadMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGamepadMinimalistic as IconComponent).keywords = [
-  "gamepad",
-  "minimalistic",
-  "joypad",
-  "thumbstick",
-  "d-pad",
-  "tv game",
-  "fighting stick",
-  "button masher",
-  "fire button",
-  "hat switch",
-  "gameboard",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconGamepadMinimalistic as IconComponent;
+export default IconGamepadMinimalistic;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCd: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,18 +78,4 @@ const IconCd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCd as IconComponent).keywords = [
-  "cd",
-  "compact disc",
-  "compact disk",
-  "candela",
-  "standard candle",
-  "certificate of deposit",
-  "candle",
-  "cadmium",
-  "atomic number 48",
-  "cd-rom",
-];
-
-export default IconCd as IconComponent;
+export default IconCd;

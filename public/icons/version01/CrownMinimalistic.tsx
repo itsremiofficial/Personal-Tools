@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCrownMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -63,28 +70,4 @@ const IconCrownMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCrownMinimalistic as IconComponent).keywords = [
-  "crown",
-  "minimalistic",
-  "diadem",
-  "coronate",
-  "pate",
-  "tip",
-  "crest",
-  "summit",
-  "top",
-  "peak",
-  "treetop",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconCrownMinimalistic as IconComponent;
+export default IconCrownMinimalistic;

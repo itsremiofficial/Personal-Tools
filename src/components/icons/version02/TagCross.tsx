@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTagCross: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,27 +84,4 @@ const IconTagCross: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTagCross as IconComponent).keywords = [
-  "tag",
-  "cross",
-  "label",
-  "mark",
-  "trail",
-  "chase",
-  "go after",
-  "tag end",
-  "dog",
-  "shred",
-  "chase after",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "cut across",
-  "hybridization",
-];
-
-export default IconTagCross as IconComponent;
+export default IconTagCross;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHistory: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,18 +79,4 @@ const IconHistory: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHistory as IconComponent).keywords = [
-  "history",
-  "chronicle",
-  "story",
-  "account",
-  "historiography",
-  "historical",
-  "historically",
-  "historian",
-  "annals",
-  "chronology",
-];
-
-export default IconHistory as IconComponent;
+export default IconHistory;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSubtitle: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,18 +114,4 @@ const IconSubtitle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSubtitle as IconComponent).keywords = [
-  "subtitle",
-  "caption",
-  "subhead",
-  "captioning",
-  "subheading",
-  "heading",
-  "transcript",
-  "header",
-  "tag",
-  "subsection",
-];
-
-export default IconSubtitle as IconComponent;
+export default IconSubtitle;

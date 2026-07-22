@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMonitorMobbile: FC<IconProps> = ({
   className,
   fill = false,
@@ -109,19 +116,4 @@ const IconMonitorMobbile: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMonitorMobbile as IconComponent).keywords = [
-  "monitor",
-  "mobbile",
-  "ride herd on",
-  "supervise",
-  "proctor",
-  "reminder",
-  "admonisher",
-  "varan",
-  "monitor lizard",
-  "supervised",
-  "manage",
-];
-
-export default IconMonitorMobbile as IconComponent;
+export default IconMonitorMobbile;

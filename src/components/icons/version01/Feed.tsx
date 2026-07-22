@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFeed: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,18 +87,4 @@ const IconFeed: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFeed as IconComponent).keywords = [
-  "feed",
-  "provender",
-  "feast",
-  "eat",
-  "fertilize",
-  "prey",
-  "grub",
-  "give",
-  "feed in",
-  "feeder",
-];
-
-export default IconFeed as IconComponent;
+export default IconFeed;

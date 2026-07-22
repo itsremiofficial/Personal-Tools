@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBoxTick: FC<IconProps> = ({
   className,
   fill = false,
@@ -116,28 +123,4 @@ const IconBoxTick: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBoxTick as IconComponent).keywords = [
-  "box",
-  "tick",
-  "package",
-  "loge",
-  "corner",
-  "box seat",
-  "boxwood",
-  "bin",
-  "chest",
-  "toolbox",
-  "shoebox",
-  "click",
-  "ticktock",
-  "beat",
-  "ticktack",
-  "retick",
-  "ixodid",
-  "acarid",
-  "spinose",
-  "gene",
-];
-
-export default IconBoxTick as IconComponent;
+export default IconBoxTick;

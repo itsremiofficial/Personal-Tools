@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVuesax: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,7 +105,4 @@ const IconVuesax: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVuesax as IconComponent).keywords = ["vuesax"];
-
-export default IconVuesax as IconComponent;
+export default IconVuesax;

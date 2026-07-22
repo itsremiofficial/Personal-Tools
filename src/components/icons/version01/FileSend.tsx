@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFileSend: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,27 +93,4 @@ const IconFileSend: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFileSend as IconComponent).keywords = [
-  "file",
-  "send",
-  "register",
-  "single file",
-  "indian file",
-  "charge",
-  "file away",
-  "lodge",
-  "file cabinet",
-  "filing cabinet",
-  "data file",
-  "transmit",
-  "transport",
-  "mail",
-  "base",
-  "institutionalize",
-  "place",
-  "broadcast",
-  "commit",
-];
-
-export default IconFileSend as IconComponent;
+export default IconFileSend;

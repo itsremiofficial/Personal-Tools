@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTickSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconTickSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTickSquare as IconComponent).keywords = [
-  "tick",
-  "square",
-  "click",
-  "ticktock",
-  "beat",
-  "ticktack",
-  "retick",
-  "ixodid",
-  "acarid",
-  "spinose",
-  "gene",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconTickSquare as IconComponent;
+export default IconTickSquare;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMapPointHospital: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,38 +100,4 @@ const IconMapPointHospital: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMapPointHospital as IconComponent).keywords = [
-  "map",
-  "point",
-  "hospital",
-  "map out",
-  "correspondence",
-  "represent",
-  "chart",
-  "cartography",
-  "cartographic",
-  "topography",
-  "plan",
-  "charting",
-  "item",
-  "betoken",
-  "indicate",
-  "bespeak",
-  "period",
-  "point in time",
-  "show",
-  "stage",
-  "detail",
-  "infirmary",
-  "clinical",
-  "clinic",
-  "hospitalization",
-  "inpatient",
-  "doctor",
-  "hospitalized",
-  "physician",
-  "medical",
-];
-
-export default IconMapPointHospital as IconComponent;
+export default IconMapPointHospital;

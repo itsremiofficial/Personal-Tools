@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconQuoteDownCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,38 +104,4 @@ const IconQuoteDownCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconQuoteDownCircle as IconComponent).keywords = [
-  "quote",
-  "down",
-  "circle",
-  "quotation",
-  "cite",
-  "quotation mark",
-  "inverted comma",
-  "cited",
-  "phrase",
-  "naming",
-  "recite",
-  "read",
-  "downwards",
-  "downward",
-  "downbound",
-  "falling",
-  "fallen",
-  "pull down",
-  "downwardly",
-  "declining",
-  "descending",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconQuoteDownCircle as IconComponent;
+export default IconQuoteDownCircle;

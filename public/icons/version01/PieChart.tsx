@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPieChart: FC<IconProps> = ({
   className,
   fill = false,
@@ -76,28 +83,4 @@ const IconPieChart: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPieChart as IconComponent).keywords = [
-  "pie",
-  "chart",
-  "proto-indo european",
-  "cookie",
-  "pastry",
-  "biscuit",
-  "twinkie",
-  "cheesecake",
-  "cake",
-  "cupcake",
-  "pudding",
-  "map",
-  "cartography",
-  "mapping",
-  "cartographic",
-  "plan",
-  "diagram",
-  "graphical",
-  "diagrammatic",
-  "blueprint",
-];
-
-export default IconPieChart as IconComponent;
+export default IconPieChart;

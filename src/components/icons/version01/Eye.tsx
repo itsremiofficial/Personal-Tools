@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEye: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,18 +82,4 @@ const IconEye: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEye as IconComponent).keywords = [
-  "eye",
-  "optic",
-  "heart",
-  "eyeball",
-  "oculus",
-  "peeper",
-  "middle",
-  "center",
-  "centre",
-  "ocular",
-];
-
-export default IconEye as IconComponent;
+export default IconEye;

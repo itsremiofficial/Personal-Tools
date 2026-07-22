@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconScale: FC<IconProps> = ({
   className,
   fill = false,
@@ -76,18 +83,4 @@ const IconScale: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconScale as IconComponent).keywords = [
-  "scale",
-  "weighing machine",
-  "descale",
-  "plate",
-  "surmount",
-  "scale leaf",
-  "scurf",
-  "musical scale",
-  "shell",
-  "graduated table",
-];
-
-export default IconScale as IconComponent;
+export default IconScale;

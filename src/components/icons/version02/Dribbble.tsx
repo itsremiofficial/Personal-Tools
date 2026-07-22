@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDribbble: FC<IconProps> = ({
   className,
   fill = false,
@@ -156,18 +163,4 @@ const IconDribbble: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDribbble as IconComponent).keywords = [
-  "dribbble",
-  "behance",
-  "openweb",
-  "sketchfab",
-  "ning",
-  "thingiverse",
-  "facebook",
-  "instagram",
-  "fotki",
-  "ryze",
-];
-
-export default IconDribbble as IconComponent;
+export default IconDribbble;

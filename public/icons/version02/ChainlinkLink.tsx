@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChainlinkLink: FC<IconProps> = ({
   className,
   fill = false,
@@ -60,28 +67,4 @@ const IconChainlinkLink: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChainlinkLink as IconComponent).keywords = [
-  "chainlink",
-  "link",
-  "chainwork",
-  "linkwork",
-  "chain mail",
-  "wire",
-  "wire cloth",
-  "concertina",
-  "mosquito wire",
-  "concertina wire",
-  "slackwire",
-  "linkup",
-  "connection",
-  "nexus",
-  "connexion",
-  "connectedness",
-  "connect",
-  "tie-in",
-  "unite",
-  "associate",
-];
-
-export default IconChainlinkLink as IconComponent;
+export default IconChainlinkLink;

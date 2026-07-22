@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEraserCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconEraserCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEraserCircle as IconComponent).keywords = [
-  "eraser",
-  "circle",
-  "clearance",
-  "cleanup",
-  "cleaning",
-  "clean-up",
-  "rough",
-  "scratch",
-  "cleansing",
-  "cleanliness",
-  "draft",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconEraserCircle as IconComponent;
+export default IconEraserCircle;

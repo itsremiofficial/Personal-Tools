@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMicrophone: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,18 +98,4 @@ const IconMicrophone: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMicrophone as IconComponent).keywords = [
-  "microphone",
-  "mike",
-  "loudspeaker",
-  "mic",
-  "wire",
-  "speaker",
-  "floor",
-  "lavalier",
-  "lavaliere",
-  "boom",
-];
-
-export default IconMicrophone as IconComponent;
+export default IconMicrophone;

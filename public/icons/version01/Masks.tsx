@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMasks: FC<IconProps> = ({
   className,
   fill = false,
@@ -115,18 +122,4 @@ const IconMasks: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMasks as IconComponent).keywords = [
-  "masks",
-  "cloak",
-  "masquerade",
-  "masque",
-  "block out",
-  "dissemble",
-  "belies",
-  "cloaks",
-  "conceals",
-  "disguises",
-];
-
-export default IconMasks as IconComponent;
+export default IconMasks;

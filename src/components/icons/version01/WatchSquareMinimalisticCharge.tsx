@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWatchSquareMinimalisticCharge: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,48 +102,4 @@ const IconWatchSquareMinimalisticCharge: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWatchSquareMinimalisticCharge as IconComponent).keywords = [
-  "watch",
-  "square",
-  "minimalistic",
-  "charge",
-  "picket",
-  "ticker",
-  "sentry",
-  "lookout man",
-  "lookout",
-  "sentinel",
-  "determine",
-  "scout",
-  "catch",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-  "consign",
-  "commission",
-  "mission",
-  "appoint",
-  "billing",
-  "guardianship",
-  "tutelage",
-  "institutionalize",
-  "send",
-];
-
-export default IconWatchSquareMinimalisticCharge as IconComponent;
+export default IconWatchSquareMinimalisticCharge;

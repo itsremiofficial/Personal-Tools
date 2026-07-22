@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMedicalKit: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,28 +104,4 @@ const IconMedicalKit: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMedicalKit as IconComponent).keywords = [
-  "medical",
-  "kit",
-  "checkup",
-  "aesculapian",
-  "health check",
-  "medical checkup",
-  "medical exam",
-  "medical examination",
-  "iatric",
-  "physician",
-  "physical",
-  "kit out",
-  "outfit",
-  "kit up",
-  "matchbook",
-  "stake",
-  "bag",
-  "desk",
-  "toolbox",
-  "box",
-];
-
-export default IconMedicalKit as IconComponent;
+export default IconMedicalKit;

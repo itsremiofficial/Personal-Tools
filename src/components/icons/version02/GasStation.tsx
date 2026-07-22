@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGasStation: FC<IconProps> = ({
   className,
   fill = false,
@@ -105,28 +112,4 @@ const IconGasStation: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGasStation as IconComponent).keywords = [
-  "gas",
-  "station",
-  "natural gas",
-  "gasoline",
-  "petrol",
-  "gasolene",
-  "swash",
-  "throttle",
-  "gun",
-  "gas pedal",
-  "blow",
-  "place",
-  "send",
-  "post",
-  "base",
-  "railroad",
-  "railway",
-  "points",
-  "subway",
-  "parking",
-];
-
-export default IconGasStation as IconComponent;
+export default IconGasStation;

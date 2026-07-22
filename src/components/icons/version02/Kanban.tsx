@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconKanban: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,18 +82,4 @@ const IconKanban: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconKanban as IconComponent).keywords = [
-  "kanban",
-  "kanbans",
-  "kaizen",
-  "swimlanes",
-  "gantt",
-  "scrum",
-  "timebox",
-  "flowcharting",
-  "cmmi",
-  "sdlc",
-];
-
-export default IconKanban as IconComponent;
+export default IconKanban;

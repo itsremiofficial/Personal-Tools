@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNotebookMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,28 +96,4 @@ const IconNotebookMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNotebookMinimalistic as IconComponent).keywords = [
-  "notebook",
-  "minimalistic",
-  "notebook computer",
-  "scrapbook",
-  "booklet",
-  "binder",
-  "book",
-  "notepad",
-  "journal",
-  "diary",
-  "scratchpad",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconNotebookMinimalistic as IconComponent;
+export default IconNotebookMinimalistic;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMoneyRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -118,28 +125,4 @@ const IconMoneyRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMoneyRemove as IconComponent).keywords = [
-  "money",
-  "remove",
-  "rich",
-  "monied",
-  "wealthy",
-  "affluent",
-  "loaded",
-  "flush",
-  "muni",
-  "finance",
-  "financing",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconMoneyRemove as IconComponent;
+export default IconMoneyRemove;

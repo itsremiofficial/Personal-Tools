@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTenxPay: FC<IconProps> = ({
   className,
   fill = false,
@@ -76,19 +83,4 @@ const IconTenxPay: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTenxPay as IconComponent).keywords = [
-  "tenx",
-  "pay",
-  "remuneration",
-  "ante up",
-  "pay up",
-  "earnings",
-  "salary",
-  "pay off",
-  "wage",
-  "compensate",
-  "give",
-];
-
-export default IconTenxPay as IconComponent;
+export default IconTenxPay;

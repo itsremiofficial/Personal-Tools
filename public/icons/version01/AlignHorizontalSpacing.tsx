@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAlignHorizontalSpacing: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,38 +90,4 @@ const IconAlignHorizontalSpacing: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAlignHorizontalSpacing as IconComponent).keywords = [
-  "align",
-  "horizonta",
-  "spacing",
-  "line up",
-  "adjust",
-  "coordinate",
-  "aline",
-  "array",
-  "alignment",
-  "link",
-  "combine",
-  "integrate",
-  "horizontality",
-  "horizontal",
-  "horizontally",
-  "horizonte",
-  "vertical",
-  "vertically",
-  "verticality",
-  "verticals",
-  "horizon",
-  "spatial arrangement",
-  "separator",
-  "partition",
-  "interval",
-  "layout",
-  "separation",
-  "separate",
-  "distance",
-  "disengagement",
-];
-
-export default IconAlignHorizontalSpacing as IconComponent;
+export default IconAlignHorizontalSpacing;

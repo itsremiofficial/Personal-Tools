@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDaiDai: FC<IconProps> = ({
   className,
   fill = false,
@@ -111,18 +118,4 @@ const IconDaiDai: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDaiDai as IconComponent).keywords = [
-  "dai",
-  "podium",
-  "rostrum",
-  "pulpit",
-  "ambo",
-  "soapbox",
-  "stump",
-  "major",
-  "large",
-  "big",
-];
-
-export default IconDaiDai as IconComponent;
+export default IconDaiDai;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShieldCheck: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconShieldCheck: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShieldCheck as IconComponent).keywords = [
-  "shield",
-  "check",
-  "buckler",
-  "screen",
-  "harbor",
-  "harbour",
-  "armoured",
-  "armor",
-  "breastplate",
-  "ribbon",
-  "visor",
-  "match",
-  "hitch",
-  "check out",
-  "curb",
-  "check into",
-  "checkout",
-  "turn back",
-  "arrest",
-  "hold",
-];
-
-export default IconShieldCheck as IconComponent;
+export default IconShieldCheck;

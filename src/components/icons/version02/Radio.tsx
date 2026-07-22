@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRadio: FC<IconProps> = ({
   className,
   fill = false,
@@ -122,18 +129,4 @@ const IconRadio: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRadio as IconComponent).keywords = [
-  "radio",
-  "radiocommunication",
-  "tuner",
-  "wireless",
-  "radio receiver",
-  "radio set",
-  "receiving set",
-  "radiotelegraph",
-  "radiotelephone",
-  "walkie-talkie",
-];
-
-export default IconRadio as IconComponent;
+export default IconRadio;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconOmegaCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,27 +78,4 @@ const IconOmegaCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconOmegaCircle as IconComponent).keywords = [
-  "omega",
-  "circle",
-  "lambda",
-  "3s",
-  "word",
-  "mentor",
-  "alfa",
-  "ending",
-  "end-all",
-  "omega-3",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconOmegaCircle as IconComponent;
+export default IconOmegaCircle;

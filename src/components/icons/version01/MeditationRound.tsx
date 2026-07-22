@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMeditationRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,28 +96,4 @@ const IconMeditationRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMeditationRound as IconComponent).keywords = [
-  "meditation",
-  "round",
-  "contemplation",
-  "musing",
-  "thoughtfulness",
-  "reflexion",
-  "reflection",
-  "rumination",
-  "mediation",
-  "sit-in",
-  "laughter",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconMeditationRound as IconComponent;
+export default IconMeditationRound;

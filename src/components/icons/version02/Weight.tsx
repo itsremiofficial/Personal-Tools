@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWeight: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,18 +78,4 @@ const IconWeight: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWeight as IconComponent).keywords = [
-  "weight",
-  "angle",
-  "burthen",
-  "slant",
-  "weight down",
-  "burden",
-  "exercising weight",
-  "system of weights",
-  "weight unit",
-  "solid",
-];
-
-export default IconWeight as IconComponent;
+export default IconWeight;

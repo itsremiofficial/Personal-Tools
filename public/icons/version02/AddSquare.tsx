@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAddSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,28 +86,4 @@ const IconAddSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAddSquare as IconComponent).keywords = [
-  "add",
-  "square",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconAddSquare as IconComponent;
+export default IconAddSquare;

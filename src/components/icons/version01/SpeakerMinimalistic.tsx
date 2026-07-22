@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSpeakerMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconSpeakerMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSpeakerMinimalistic as IconComponent).keywords = [
-  "speaker",
-  "minimalistic",
-  "talker",
-  "loudspeaker",
-  "loudspeaker system",
-  "speaker system",
-  "speaker unit",
-  "speaking",
-  "orator",
-  "speak",
-  "speech",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconSpeakerMinimalistic as IconComponent;
+export default IconSpeakerMinimalistic;

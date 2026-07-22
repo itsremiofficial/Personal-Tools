@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLayersMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,28 +93,4 @@ const IconLayersMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLayersMinimalistic as IconComponent).keywords = [
-  "layers",
-  "minimalistic",
-  "superimposed",
-  "stratified",
-  "bedded",
-  "backgrounds",
-  "beds",
-  "blades",
-  "capas",
-  "capes",
-  "castes",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconLayersMinimalistic as IconComponent;
+export default IconLayersMinimalistic;

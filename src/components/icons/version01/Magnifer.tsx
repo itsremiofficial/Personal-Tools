@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMagnifer: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,7 +79,4 @@ const IconMagnifer: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMagnifer as IconComponent).keywords = ["magnifer"];
-
-export default IconMagnifer as IconComponent;
+export default IconMagnifer;

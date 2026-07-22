@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSkateboard: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,18 +101,4 @@ const IconSkateboard: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSkateboard as IconComponent).keywords = [
-  "skateboard",
-  "skate",
-  "surfboard",
-  "plank",
-  "board",
-  "self-defence",
-  "self-defense",
-  "plate",
-  "vigilante",
-  "longboard",
-];
-
-export default IconSkateboard as IconComponent;
+export default IconSkateboard;

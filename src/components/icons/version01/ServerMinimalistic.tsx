@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconServerMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -117,28 +124,4 @@ const IconServerMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconServerMinimalistic as IconComponent).keywords = [
-  "server",
-  "minimalistic",
-  "host",
-  "waiter",
-  "server-side",
-  "servlet",
-  "mainframe",
-  "tftp",
-  "browser",
-  "listserv",
-  "serv",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconServerMinimalistic as IconComponent;
+export default IconServerMinimalistic;

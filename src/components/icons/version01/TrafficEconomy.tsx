@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTrafficEconomy: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconTrafficEconomy: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTrafficEconomy as IconComponent).keywords = [
-  "traffic",
-  "economy",
-  "dealings",
-  "transportation",
-  "road",
-  "crossing",
-  "carriageway",
-  "driving",
-  "vehicle",
-  "highway",
-  "vehicular",
-  "saving",
-  "thriftiness",
-  "economic system",
-  "economics",
-  "management",
-  "affordability",
-  "exchequer",
-  "business",
-  "economic",
-];
-
-export default IconTrafficEconomy as IconComponent;
+export default IconTrafficEconomy;

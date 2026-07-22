@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDirectInbox: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,28 +106,4 @@ const IconDirectInbox: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDirectInbox as IconComponent).keywords = [
-  "direct",
-  "inbox",
-  "straightforward",
-  "directly",
-  "forthright",
-  "plainspoken",
-  "man-to-man",
-  "straight",
-  "frank",
-  "free-spoken",
-  "outspoken",
-  "mailbox",
-  "letterbox",
-  "email",
-  "binder",
-  "workbook",
-  "cassette",
-  "compartment",
-  "rack",
-  "lockbox",
-];
-
-export default IconDirectInbox as IconComponent;
+export default IconDirectInbox;

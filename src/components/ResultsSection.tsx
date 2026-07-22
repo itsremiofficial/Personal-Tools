@@ -43,12 +43,7 @@ const MissingFilesSection = ({
   if (totalMissing === 0) return null;
 
   return (
-    <div
-      className={cn(
-        "p-6 border rounded-4xl flex flex-col",
-        "border-border bg-muted"
-      )}
-    >
+    <div className={cn("p-4 bg-muted/20 rounded-3xl flex flex-col")}>
       <div className="flex items-center gap-2 mb-8">
         <h3 className="text-lg font-medium">Missing Files</h3>
         <span className="text-muted-foreground">({totalMissing})</span>
@@ -95,7 +90,7 @@ export const ResultsSection = React.memo(
           },
           (percent) => {
             setDownloadState({ status: "downloading", progress: percent });
-          }
+          },
         );
 
         setDownloadState({ status: "complete", progress: 100 });
@@ -140,8 +135,9 @@ export const ResultsSection = React.memo(
             <>
               Download All{" "}
               <IconDownloadMinimalistic
-                className="size-5 !stroke-2"
+                className="size-4.5"
                 duotone={false}
+                width={2}
               />
             </>
           );
@@ -171,12 +167,16 @@ export const ResultsSection = React.memo(
       }
     };
 
-    const getTypeLabel = (type: LogEntry['type']): string => {
+    const getTypeLabel = (type: LogEntry["type"]): string => {
       switch (type) {
-        case 'lineDuotone': return "Line Duotone";
-        case 'boldDuotone': return "Bold Duotone";
-        case 'bold': return "Bold";
-        default: return "";
+        case "lineDuotone":
+          return "Line Duotone";
+        case "boldDuotone":
+          return "Bold Duotone";
+        case "bold":
+          return "Bold";
+        default:
+          return "";
       }
     };
 
@@ -186,7 +186,7 @@ export const ResultsSection = React.memo(
         <span
           className={cn(
             "flex justify-center rounded-full uppercase px-2 py-1 text-[11px] tracking-wider leading-none w-[5rem]",
-            styles.badge
+            styles.badge,
           )}
         >
           <div className="inline-flex items-center gap-1">
@@ -204,12 +204,11 @@ export const ResultsSection = React.memo(
       <>
         <div
           className={cn(
-            "p-6 border rounded-4xl flex flex-col gap-2",
-            "border-border bg-muted",
-            disabled && "opacity-50 pointer-events-none"
+            "p-4 bg-muted/20 rounded-3xl flex flex-col gap-4",
+            disabled && "opacity-50 pointer-events-none",
           )}
         >
-          <div className="flex items-end justify-between">
+          <div className="flex items-center justify-between">
             <h2 className="pl-3 flex items-center gap-2 font-medium text-muted-foreground">
               Generated Components
             </h2>
@@ -217,16 +216,17 @@ export const ResultsSection = React.memo(
               <Button
                 onClick={onClear}
                 variant="danger"
-                className="h-fit py-4 gap-2 whitespace-nowrap"
+                className="py-4 px-6 gap-2 whitespace-nowrap rounded-full"
                 disabled={disabled}
               >
-                Clear Generated <IconTrashBinMinimalistic className="size-5" />
+                Clear Generated{" "}
+                <IconTrashBinMinimalistic className="size-5" duotone={false} />
               </Button>
               <Button
                 onClick={handleDownloadAll}
                 className={cn(
-                  "gap-2 !w-54 whitespace-nowrap !relative",
-                  downloadState.status !== "idle" && "!px-4 !py-4"
+                  "gap-2 !w-54 whitespace-nowrap !relative rounded-full flex",
+                  downloadState.status !== "idle" && "!px-4 !py-4",
                 )}
                 disabled={disabled || downloadState.status !== "idle"}
               >
@@ -239,7 +239,7 @@ export const ResultsSection = React.memo(
             <div
               className={cn(
                 "grow border border-dashed flex py-4 px-4 rounded-2xl gap-6 overflow-auto",
-                "border-border/70"
+                "border-border/70",
               )}
             >
               {outputs.map((output, index) => (
@@ -247,11 +247,14 @@ export const ResultsSection = React.memo(
                   key={index}
                   onClick={() => handleDownload(output, names[index])}
                   variant="default"
-                  className="gap-2 whitespace-nowrap"
+                  className="gap-2 whitespace-nowrap rounded-full"
                   disabled={disabled}
                 >
                   {names[index]}.tsx
-                  <IconDownloadMinimalistic className="size-5" />
+                  <IconDownloadMinimalistic
+                    className="size-5"
+                    duotone={false}
+                  />
                 </Button>
               ))}
             </div>
@@ -260,16 +263,11 @@ export const ResultsSection = React.memo(
 
         <MissingFilesSection missingFiles={missingFiles} />
 
-        <div
-          className={cn(
-            "p-6 border rounded-4xl flex flex-col gap-4",
-            "border-border bg-muted"
-          )}
-        >
+        <div className={cn("p-4 bg-muted/20 rounded-3xl flex flex-col gap-4")}>
           <label
             className={cn(
               "pl-4 rounded-full uppercase text-sm tracking-widest font-bold text-center w-max leading-none",
-              "text-foreground border-border"
+              "text-foreground border-border",
             )}
           >
             Logs
@@ -277,12 +275,7 @@ export const ResultsSection = React.memo(
               {logs.length}
             </kbd>
           </label>
-          <div
-            className={cn(
-              "flex flex-col gap-2 p-4 rounded-3xl",
-              "bg-muted"
-            )}
-          >
+          <div className="flex flex-col gap-2 p-4 rounded-3xl bg-background">
             <div className="max-h-72 overflow-y-auto">
               {logs.map((log, index) => {
                 const styles = getLogStyles(log.status);
@@ -311,7 +304,7 @@ export const ResultsSection = React.memo(
         </div>
       </>
     );
-  }
+  },
 );
 
 ResultsSection.displayName = "ResultsSection";

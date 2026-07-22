@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloudNotif: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconCloudNotif: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloudNotif as IconComponent).keywords = [
-  "cloud",
-  "notif",
-  "fog",
-  "mist",
-  "befog",
-  "haze over",
-  "becloud",
-  "dapple",
-  "mottle",
-  "sully",
-  "defile",
-  "buzzer",
-  "sharpie",
-  "freq",
-  "snout",
-  "deets",
-  "sticky note",
-  "goss",
-  "nooz",
-  "bullfuck",
-];
-
-export default IconCloudNotif as IconComponent;
+export default IconCloudNotif;

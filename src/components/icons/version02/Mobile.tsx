@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMobile: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,18 +90,4 @@ const IconMobile: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMobile as IconComponent).keywords = [
-  "mobile",
-  "transportable",
-  "movable",
-  "moveable",
-  "moving",
-  "raiseable",
-  "maneuverable",
-  "manoeuvrable",
-  "raisable",
-  "rotatable",
-];
-
-export default IconMobile as IconComponent;
+export default IconMobile;

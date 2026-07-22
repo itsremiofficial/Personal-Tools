@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWadOfMoney: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,38 +104,4 @@ const IconWadOfMoney: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWadOfMoney as IconComponent).keywords = [
-  "wad",
-  "of",
-  "money",
-  "cram",
-  "heap",
-  "cud",
-  "chew",
-  "slew",
-  "mess",
-  "bundle",
-  "muckle",
-  "mickle",
-  "bsf",
-  "fos",
-  "fso",
-  "office",
-  "osb",
-  "tso",
-  "tsos",
-  "cup of tea",
-  "flight of fancy",
-  "rich",
-  "monied",
-  "wealthy",
-  "affluent",
-  "loaded",
-  "flush",
-  "muni",
-  "finance",
-  "financing",
-];
-
-export default IconWadOfMoney as IconComponent;
+export default IconWadOfMoney;

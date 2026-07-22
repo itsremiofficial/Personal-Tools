@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGlobus: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,18 +114,4 @@ const IconGlobus: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGlobus as IconComponent).keywords = [
-  "globus",
-  "pallidum",
-  "pallidus",
-  "nervi",
-  "nervus",
-  "internus",
-  "tractus",
-  "canalis",
-  "nerv",
-  "externus",
-];
-
-export default IconGlobus as IconComponent;
+export default IconGlobus;

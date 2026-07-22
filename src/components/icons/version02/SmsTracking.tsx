@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSmsTracking: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,28 +106,4 @@ const IconSmsTracking: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSmsTracking as IconComponent).keywords = [
-  "sms",
-  "tracking",
-  "ms",
-  "master of science",
-  "samarium",
-  "atomic number 62",
-  "mms",
-  "isa",
-  "scm",
-  "hsd",
-  "cms",
-  "trailing",
-  "trace",
-  "traces",
-  "trail",
-  "locator",
-  "tailing",
-  "positioning",
-  "followup",
-  "locate",
-];
-
-export default IconSmsTracking as IconComponent;
+export default IconSmsTracking;

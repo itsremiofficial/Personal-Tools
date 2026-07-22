@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSmileSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,28 +87,4 @@ const IconSmileSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSmileSquare as IconComponent).keywords = [
-  "smile",
-  "square",
-  "grin",
-  "grinning",
-  "smirk",
-  "laughter",
-  "laugh",
-  "laughing",
-  "cheer",
-  "kidding",
-  "happiness",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconSmileSquare as IconComponent;
+export default IconSmileSquare;

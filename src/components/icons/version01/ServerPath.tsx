@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconServerPath: FC<IconProps> = ({
   className,
   fill = false,
@@ -119,28 +126,4 @@ const IconServerPath: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconServerPath as IconComponent).keywords = [
-  "server",
-  "path",
-  "host",
-  "waiter",
-  "server-side",
-  "servlet",
-  "mainframe",
-  "tftp",
-  "browser",
-  "listserv",
-  "serv",
-  "way",
-  "route",
-  "track",
-  "way of life",
-  "course",
-  "pathway",
-  "footway",
-  "footpath",
-  "trailhead",
-];
-
-export default IconServerPath as IconComponent;
+export default IconServerPath;

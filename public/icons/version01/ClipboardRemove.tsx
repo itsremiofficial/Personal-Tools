@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconClipboardRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconClipboardRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconClipboardRemove as IconComponent).keywords = [
-  "clipboard",
-  "remove",
-  "flipchart",
-  "notebook",
-  "pad",
-  "notepad",
-  "whiteboard",
-  "pasteboard",
-  "chalkboard",
-  "sketchpad",
-  "copy",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconClipboardRemove as IconComponent;
+export default IconClipboardRemove;

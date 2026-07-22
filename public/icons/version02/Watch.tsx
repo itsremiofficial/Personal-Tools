@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWatch: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,18 +114,4 @@ const IconWatch: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWatch as IconComponent).keywords = [
-  "watch",
-  "picket",
-  "ticker",
-  "sentry",
-  "lookout man",
-  "lookout",
-  "sentinel",
-  "determine",
-  "scout",
-  "catch",
-];
-
-export default IconWatch as IconComponent;
+export default IconWatch;

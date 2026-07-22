@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBodyShapeMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,38 +91,4 @@ const IconBodyShapeMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBodyShapeMinimalistic as IconComponent).keywords = [
-  "body",
-  "shape",
-  "minimalistic",
-  "consistence",
-  "personify",
-  "consistency",
-  "torso",
-  "trunk",
-  "dead body",
-  "organic structure",
-  "physical structure",
-  "bodily",
-  "form",
-  "determine",
-  "pattern",
-  "embodiment",
-  "influence",
-  "frame",
-  "configuration",
-  "build",
-  "regulate",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconBodyShapeMinimalistic as IconComponent;
+export default IconBodyShapeMinimalistic;

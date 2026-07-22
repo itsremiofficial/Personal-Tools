@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBitcoinCard: FC<IconProps> = ({
   className,
   fill = false,
@@ -151,28 +158,4 @@ const IconBitcoinCard: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBitcoinCard as IconComponent).keywords = [
-  "bitcoin",
-  "card",
-  "coin",
-  "cryptocurrency",
-  "cryptocoin",
-  "crypto-currency",
-  "dogecoin",
-  "ether",
-  "millibitcoin",
-  "bitcoin faucet",
-  "bitcent",
-  "scorecard",
-  "batting order",
-  "identity card",
-  "visiting card",
-  "calling card",
-  "lineup",
-  "poster",
-  "placard",
-  "tease",
-];
-
-export default IconBitcoinCard as IconComponent;
+export default IconBitcoinCard;

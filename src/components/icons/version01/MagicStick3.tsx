@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMagicStick3: FC<IconProps> = ({
   className,
   fill = false,
@@ -113,38 +120,4 @@ const IconMagicStick3: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMagicStick3 as IconComponent).keywords = [
-  "magic",
-  "stick",
-  "3",
-  "sorcerous",
-  "wizardly",
-  "wizard",
-  "supernatural",
-  "magic trick",
-  "legerdemain",
-  "witching",
-  "charming",
-  "illusion",
-  "cling",
-  "billy",
-  "deposit",
-  "pin",
-  "wedge",
-  "peg",
-  "adhere",
-  "truncheon",
-  "nightstick",
-  "omega",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-];
-
-export default IconMagicStick3 as IconComponent;
+export default IconMagicStick3;

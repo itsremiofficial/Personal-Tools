@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTruck: FC<IconProps> = ({
   className,
   fill = false,
@@ -120,18 +127,4 @@ const IconTruck: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTruck as IconComponent).keywords = [
-  "truck",
-  "hand truck",
-  "motortruck",
-  "tractor-trailer",
-  "lorry",
-  "semi-trailer",
-  "flatbed",
-  "van",
-  "truckload",
-  "cartage",
-];
-
-export default IconTruck as IconComponent;
+export default IconTruck;

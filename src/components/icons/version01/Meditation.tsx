@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMeditation: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,18 +96,4 @@ const IconMeditation: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMeditation as IconComponent).keywords = [
-  "meditation",
-  "contemplation",
-  "musing",
-  "thoughtfulness",
-  "reflexion",
-  "reflection",
-  "rumination",
-  "mediation",
-  "sit-in",
-  "laughter",
-];
-
-export default IconMeditation as IconComponent;
+export default IconMeditation;

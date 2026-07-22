@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPrinterSlash: FC<IconProps> = ({
   className,
   fill = false,
@@ -154,28 +161,4 @@ const IconPrinterSlash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPrinterSlash as IconComponent).keywords = [
-  "printer",
-  "slash",
-  "pressman",
-  "printing machine",
-  "printout",
-  "copier",
-  "printing",
-  "impression",
-  "print",
-  "ink",
-  "typesetting",
-  "flog",
-  "gash",
-  "lash",
-  "cut",
-  "slice",
-  "whip",
-  "thrash",
-  "trounce",
-  "thrash about",
-];
-
-export default IconPrinterSlash as IconComponent;
+export default IconPrinterSlash;

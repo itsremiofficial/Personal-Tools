@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDocumentMedicine: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,28 +91,4 @@ const IconDocumentMedicine: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDocumentMedicine as IconComponent).keywords = [
-  "document",
-  "medicine",
-  "papers",
-  "text file",
-  "written document",
-  "documentation",
-  "backgrounder",
-  "workbook",
-  "dossier",
-  "handbook",
-  "listing",
-  "medication",
-  "medicate",
-  "medicament",
-  "music",
-  "medicinal drug",
-  "practice of medicine",
-  "prescription",
-  "pharmaceutical",
-  "drug",
-];
-
-export default IconDocumentMedicine as IconComponent;
+export default IconDocumentMedicine;

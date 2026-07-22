@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSolanaSol: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,28 +95,4 @@ const IconSolanaSol: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSolanaSol as IconComponent).keywords = [
-  "solana",
-  "sol",
-  "solano",
-  "saarc",
-  "representative",
-  "santamaria",
-  "sabatini",
-  "luana",
-  "robina",
-  "arana",
-  "bermudez",
-  "so",
-  "soh",
-  "colloidal solution",
-  "colloidal suspension",
-  "fa",
-  "solenoid",
-  "surface",
-  "swirl",
-  "sell",
-];
-
-export default IconSolanaSol as IconComponent;
+export default IconSolanaSol;

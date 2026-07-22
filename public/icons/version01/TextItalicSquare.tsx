@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTextItalicSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,38 +78,4 @@ const IconTextItalicSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTextItalicSquare as IconComponent).keywords = [
-  "text",
-  "italic",
-  "square",
-  "schoolbook",
-  "textbook",
-  "school text",
-  "text edition",
-  "textual matter",
-  "writing",
-  "letter",
-  "paragraph",
-  "manuscript",
-  "italic language",
-  "emphasis",
-  "slanted",
-  "italicized",
-  "italicised",
-  "serif",
-  "italicize",
-  "monospaced",
-  "boldface",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconTextItalicSquare as IconComponent;
+export default IconTextItalicSquare;

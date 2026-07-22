@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChatRoundVideo: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,38 +77,4 @@ const IconChatRoundVideo: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChatRoundVideo as IconComponent).keywords = [
-  "chat",
-  "round",
-  "video",
-  "confabulate",
-  "confab",
-  "confabulation",
-  "chitchat",
-  "natter",
-  "gossip",
-  "visit",
-  "chatter",
-  "claver",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-  "tv",
-  "television",
-  "picture",
-  "telecasting",
-  "televised",
-  "videotaping",
-  "videotaped",
-  "taping",
-  "videotape",
-];
-
-export default IconChatRoundVideo as IconComponent;
+export default IconChatRoundVideo;

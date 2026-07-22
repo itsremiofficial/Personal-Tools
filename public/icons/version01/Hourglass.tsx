@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHourglass: FC<IconProps> = ({
   className,
   fill = false,
@@ -69,18 +76,4 @@ const IconHourglass: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHourglass as IconComponent).keywords = [
-  "hourglass",
-  "sandglass",
-  "glass",
-  "silhouette",
-  "sands",
-  "sand",
-  "crescent",
-  "beachball",
-  "rectangle",
-  "shape",
-];
-
-export default IconHourglass as IconComponent;
+export default IconHourglass;

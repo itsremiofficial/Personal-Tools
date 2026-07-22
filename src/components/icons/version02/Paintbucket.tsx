@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPaintbucket: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,7 +106,4 @@ const IconPaintbucket: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPaintbucket as IconComponent).keywords = ["paintbucket"];
-
-export default IconPaintbucket as IconComponent;
+export default IconPaintbucket;

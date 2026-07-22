@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDirectNotification: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconDirectNotification: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDirectNotification as IconComponent).keywords = [
-  "direct",
-  "notification",
-  "straightforward",
-  "directly",
-  "forthright",
-  "plainspoken",
-  "man-to-man",
-  "straight",
-  "frank",
-  "free-spoken",
-  "outspoken",
-  "apprisal",
-  "notice",
-  "telling",
-  "presentment",
-  "notifying",
-  "notifier",
-  "notify",
-  "denunciation",
-  "announcement",
-];
-
-export default IconDirectNotification as IconComponent;
+export default IconDirectNotification;

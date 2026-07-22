@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTree: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,18 +97,4 @@ const IconTree: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTree as IconComponent).keywords = [
-  "tree",
-  "tree diagram",
-  "foliage",
-  "shrub",
-  "bole",
-  "treeline",
-  "plant",
-  "trunk",
-  "woody",
-  "orchard",
-];
-
-export default IconTree as IconComponent;
+export default IconTree;

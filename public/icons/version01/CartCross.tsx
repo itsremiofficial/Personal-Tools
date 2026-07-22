@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCartCross: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,28 +104,4 @@ const IconCartCross: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCartCross as IconComponent).keywords = [
-  "cart",
-  "cross",
-  "handcart",
-  "pushcart",
-  "go-cart",
-  "haul",
-  "drag",
-  "dray",
-  "wheelbarrow",
-  "wagon",
-  "bandwagon",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-];
-
-export default IconCartCross as IconComponent;
+export default IconCartCross;

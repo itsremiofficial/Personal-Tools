@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCodeCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconCodeCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCodeCircle as IconComponent).keywords = [
-  "code",
-  "circle",
-  "encode",
-  "cypher",
-  "encipher",
-  "cipher",
-  "encrypt",
-  "computer code",
-  "codification",
-  "inscribe",
-  "write in code",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconCodeCircle as IconComponent;
+export default IconCodeCircle;

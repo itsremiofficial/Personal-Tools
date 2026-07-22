@@ -39,7 +39,7 @@ export async function loadAllIcons(): Promise<IconMetadata[]> {
     return {
       name: getIconName(path),
       Icon,
-      keywords: Icon.keywords || [],
+      keywords: [],
       version: getIconVersion(path),
     };
   });

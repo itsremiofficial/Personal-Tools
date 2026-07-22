@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSafeSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -113,28 +120,4 @@ const IconSafeSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSafeSquare as IconComponent).keywords = [
-  "safe",
-  "square",
-  "secure",
-  "safe and sound",
-  "safety",
-  "risk-free",
-  "dependable",
-  "harmless",
-  "innocuous",
-  "off the hook",
-  "sound",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconSafeSquare as IconComponent;
+export default IconSafeSquare;

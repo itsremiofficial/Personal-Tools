@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconServerSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -130,28 +137,4 @@ const IconServerSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconServerSquare as IconComponent).keywords = [
-  "server",
-  "square",
-  "host",
-  "waiter",
-  "server-side",
-  "servlet",
-  "mainframe",
-  "tftp",
-  "browser",
-  "listserv",
-  "serv",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconServerSquare as IconComponent;
+export default IconServerSquare;

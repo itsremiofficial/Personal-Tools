@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWashingMachine: FC<IconProps> = ({
   className,
   fill = false,
@@ -135,28 +142,4 @@ const IconWashingMachine: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWashingMachine as IconComponent).keywords = [
-  "washing",
-  "machine",
-  "lavation",
-  "rinsing",
-  "washout",
-  "lavage",
-  "handwashing",
-  "bathing",
-  "bath",
-  "scrubbing",
-  "mopping",
-  "simple machine",
-  "auto",
-  "automobile",
-  "motorcar",
-  "car",
-  "political machine",
-  "mechanism",
-  "device",
-  "engineer",
-];
-
-export default IconWashingMachine as IconComponent;
+export default IconWashingMachine;

@@ -12,13 +12,12 @@ export const buttonVariants = cva(
           "bg-muted/60 text-primary/70 hover:text-primary hover:bg-muted active:bg-muted",
         outline:
           "bg-transparent border border-gray-200 text-gray-700 hover:bg-gray-100 hover:text-gray-900 active:bg-gray-200",
-        ghost:
-          "bg-transparent hover:bg-gray-100 text-gray-700 hover:text-gray-900 active:bg-gray-200",
+        ghost: "bg-transparent hover:bg-muted text-foreground",
         subtle:
           "bg-muted text-muted-foreground/80 hover:bg-muted hover:text-primary active:bg-muted/60",
         link: "bg-transparent underline-offset-4 hover:underline text-gray-700 hover:text-gray-900",
         danger:
-          "bg-red-100 text-red-600 hover:bg-red-200 hover:text-red-700 active:bg-red-300",
+          "bg-red-950/30 text-red-400 hover:bg-red-950/50 hover:text-red-300 active:bg-red-950/50",
       },
       size: {
         default: "h-10 px-4 py-2 rounded-lg",

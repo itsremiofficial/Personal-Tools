@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChartSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconChartSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChartSquare as IconComponent).keywords = [
-  "chart",
-  "square",
-  "map",
-  "cartography",
-  "mapping",
-  "cartographic",
-  "plan",
-  "diagram",
-  "graphical",
-  "diagrammatic",
-  "blueprint",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconChartSquare as IconComponent;
+export default IconChartSquare;

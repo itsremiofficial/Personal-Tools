@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChecklistMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,28 +109,4 @@ const IconChecklistMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChecklistMinimalistic as IconComponent).keywords = [
-  "checklist",
-  "minimalistic",
-  "listed",
-  "listing",
-  "aide-mémoire",
-  "inventory",
-  "schedule",
-  "audit",
-  "reference",
-  "summary",
-  "directory",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconChecklistMinimalistic as IconComponent;
+export default IconChecklistMinimalistic;

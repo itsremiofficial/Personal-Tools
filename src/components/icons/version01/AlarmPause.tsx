@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAlarmPause: FC<IconProps> = ({
   className,
   fill = false,
@@ -112,28 +119,4 @@ const IconAlarmPause: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAlarmPause as IconComponent).keywords = [
-  "alarm",
-  "pause",
-  "alarum",
-  "alarm system",
-  "alert",
-  "consternation",
-  "alarm clock",
-  "horrify",
-  "appall",
-  "dismay",
-  "appal",
-  "suspension",
-  "intermit",
-  "interruption",
-  "hesitate",
-  "break",
-  "intermission",
-  "respite",
-  "hiatus",
-  "stoppage",
-];
-
-export default IconAlarmPause as IconComponent;
+export default IconAlarmPause;

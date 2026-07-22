@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSlider: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,18 +114,4 @@ const IconSlider: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSlider as IconComponent).keywords = [
-  "slider",
-  "luger",
-  "pseudemys scripta",
-  "yellow-bellied terrapin",
-  "bushing",
-  "skid",
-  "glider",
-  "scroll",
-  "scrollbar",
-  "track",
-];
-
-export default IconSlider as IconComponent;
+export default IconSlider;

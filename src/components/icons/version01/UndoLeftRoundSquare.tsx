@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUndoLeftRoundSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -73,48 +80,4 @@ const IconUndoLeftRoundSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUndoLeftRoundSquare as IconComponent).keywords = [
-  "undo",
-  "left",
-  "round",
-  "square",
-  "unmake",
-  "dispose",
-  "rescind",
-  "disconnect",
-  "vacate",
-  "revoke",
-  "rid",
-  "annul",
-  "repeal",
-  "left-hand",
-  "left-handed",
-  "left over",
-  "near",
-  "leftover",
-  "nigh",
-  "remaining",
-  "leftfield",
-  "odd",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconUndoLeftRoundSquare as IconComponent;
+export default IconUndoLeftRoundSquare;

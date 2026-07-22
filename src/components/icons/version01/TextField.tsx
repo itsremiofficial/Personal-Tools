@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTextField: FC<IconProps> = ({
   className,
   fill = false,
@@ -68,28 +75,4 @@ const IconTextField: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTextField as IconComponent).keywords = [
-  "text",
-  "field",
-  "schoolbook",
-  "textbook",
-  "school text",
-  "text edition",
-  "textual matter",
-  "writing",
-  "letter",
-  "paragraph",
-  "manuscript",
-  "champaign",
-  "plain",
-  "field of force",
-  "force field",
-  "battlefield",
-  "field of view",
-  "landing field",
-  "airfield",
-  "battleground",
-];
-
-export default IconTextField as IconComponent;
+export default IconTextField;

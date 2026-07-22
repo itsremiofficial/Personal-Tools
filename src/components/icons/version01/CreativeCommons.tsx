@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCreativeCommons: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,28 +87,4 @@ const IconCreativeCommons: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCreativeCommons as IconComponent).keywords = [
-  "creative",
-  "commons",
-  "imaginative",
-  "inventive",
-  "ingenious",
-  "originative",
-  "notional",
-  "fictive",
-  "generative",
-  "fanciful",
-  "constructive",
-  "commonalty",
-  "commonality",
-  "park",
-  "common land",
-  "green",
-  "commune",
-  "joint",
-  "cooperative",
-  "collective",
-];
-
-export default IconCreativeCommons as IconComponent;
+export default IconCreativeCommons;

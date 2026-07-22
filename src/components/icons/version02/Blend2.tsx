@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBlend2: FC<IconProps> = ({
   className,
   fill = false,
@@ -111,28 +118,4 @@ const IconBlend2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBlend2 as IconComponent).keywords = [
-  "blend",
-  "2",
-  "intermingle",
-  "immix",
-  "intermix",
-  "mix",
-  "commingle",
-  "immingle",
-  "blend in",
-  "conflate",
-  "meld",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconBlend2 as IconComponent;
+export default IconBlend2;

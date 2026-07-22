@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSmsNotification: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,28 +105,4 @@ const IconSmsNotification: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSmsNotification as IconComponent).keywords = [
-  "sms",
-  "notification",
-  "ms",
-  "master of science",
-  "samarium",
-  "atomic number 62",
-  "mms",
-  "isa",
-  "scm",
-  "hsd",
-  "cms",
-  "apprisal",
-  "notice",
-  "telling",
-  "presentment",
-  "notifying",
-  "notifier",
-  "notify",
-  "denunciation",
-  "announcement",
-];
-
-export default IconSmsNotification as IconComponent;
+export default IconSmsNotification;

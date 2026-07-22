@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRuler: FC<IconProps> = ({
   className,
   fill = false,
@@ -114,18 +121,4 @@ const IconRuler: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRuler as IconComponent).keywords = [
-  "ruler",
-  "rule",
-  "ndp",
-  "head",
-  "roi",
-  "officer",
-  "leadership",
-  "boss",
-  "leader",
-  "administrator",
-];
-
-export default IconRuler as IconComponent;
+export default IconRuler;

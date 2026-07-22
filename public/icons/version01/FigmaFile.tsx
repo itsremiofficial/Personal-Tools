@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFigmaFile: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconFigmaFile: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFigmaFile as IconComponent).keywords = [
-  "figma",
-  "file",
-  "nendoroid",
-  "kubrick",
-  "marvel legends",
-  "marvel universe",
-  "shinkansen henkei robo shinkalion",
-  "dinozaurs",
-  "dc universe classics",
-  "batman unlimited",
-  "hikarian",
-  "register",
-  "single file",
-  "indian file",
-  "charge",
-  "file away",
-  "lodge",
-  "file cabinet",
-  "filing cabinet",
-  "data file",
-];
-
-export default IconFigmaFile as IconComponent;
+export default IconFigmaFile;

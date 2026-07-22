@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCloundCross: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,19 +85,4 @@ const IconCloundCross: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCloundCross as IconComponent).keywords = [
-  "clound",
-  "cross",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-];
-
-export default IconCloundCross as IconComponent;
+export default IconCloundCross;

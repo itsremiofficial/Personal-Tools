@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSkipPrevious: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,28 +84,4 @@ const IconSkipPrevious: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSkipPrevious as IconComponent).keywords = [
-  "skip",
-  "previous",
-  "hop",
-  "jump",
-  "skim",
-  "skitter",
-  "pass over",
-  "vamoose",
-  "decamp",
-  "cut",
-  "omission",
-  "preceding",
-  "early",
-  "premature",
-  "former",
-  "past",
-  "old",
-  "late",
-  "foregoing",
-  "antecedent",
-];
-
-export default IconSkipPrevious as IconComponent;
+export default IconSkipPrevious;

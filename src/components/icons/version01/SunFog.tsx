@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSunFog: FC<IconProps> = ({
   className,
   fill = false,
@@ -160,28 +167,4 @@ const IconSunFog: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSunFog as IconComponent).keywords = [
-  "sun",
-  "fog",
-  "sunlight",
-  "sunshine",
-  "sunbathe",
-  "sunday",
-  "earth",
-  "stars",
-  "sky",
-  "eclipse",
-  "star",
-  "mist",
-  "haze",
-  "cloud",
-  "haze over",
-  "befog",
-  "becloud",
-  "fogginess",
-  "murkiness",
-  "murk",
-];
-
-export default IconSunFog as IconComponent;
+export default IconSunFog;

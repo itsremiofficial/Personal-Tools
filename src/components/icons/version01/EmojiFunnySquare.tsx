@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEmojiFunnySquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,38 +106,4 @@ const IconEmojiFunnySquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEmojiFunnySquare as IconComponent).keywords = [
-  "emoji",
-  "funny",
-  "square",
-  "emoticon",
-  "reaction",
-  "react",
-  "emote",
-  "smiley",
-  "sticker",
-  "emojipasta",
-  "reaction gif",
-  "hashflag",
-  "humorous",
-  "comical",
-  "amusing",
-  "humourous",
-  "comically",
-  "risible",
-  "laughable",
-  "mirthful",
-  "comic",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconEmojiFunnySquare as IconComponent;
+export default IconEmojiFunnySquare;

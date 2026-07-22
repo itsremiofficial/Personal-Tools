@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStrongbox: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,18 +94,4 @@ const IconStrongbox: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStrongbox as IconComponent).keywords = [
-  "strongbox",
-  "deedbox",
-  "safe",
-  "cashbox",
-  "strongroom",
-  "coffer",
-  "valise",
-  "chiffonier",
-  "storeroom",
-  "vault",
-];
-
-export default IconStrongbox as IconComponent;
+export default IconStrongbox;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHealth: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,18 +78,4 @@ const IconHealth: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHealth as IconComponent).keywords = [
-  "health",
-  "wellness",
-  "sound",
-  "healthy",
-  "healthful",
-  "wholesome",
-  "well-being",
-  "wholesomeness",
-  "welfare",
-  "fitness",
-];
-
-export default IconHealth as IconComponent;
+export default IconHealth;

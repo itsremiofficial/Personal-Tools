@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLoading: FC<IconProps> = ({
   className,
   fill = false,
@@ -195,18 +202,4 @@ const IconLoading: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLoading as IconComponent).keywords = [
-  "loading",
-  "lading",
-  "shipment",
-  "payload",
-  "freight",
-  "cargo",
-  "consignment",
-  "burden",
-  "borne",
-  "stowage",
-];
-
-export default IconLoading as IconComponent;
+export default IconLoading;

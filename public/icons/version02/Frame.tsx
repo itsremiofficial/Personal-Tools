@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFrame: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,18 +97,4 @@ const IconFrame: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFrame as IconComponent).keywords = [
-  "frame",
-  "build",
-  "put",
-  "compose",
-  "form",
-  "draw up",
-  "set up",
-  "shape",
-  "border",
-  "outline",
-];
-
-export default IconFrame as IconComponent;
+export default IconFrame;

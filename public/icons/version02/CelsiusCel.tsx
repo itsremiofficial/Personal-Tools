@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCelsiusCel: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,27 +94,4 @@ const IconCelsiusCel: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCelsiusCel as IconComponent).keywords = [
-  "celsius",
-  "cel",
-  "centigrade",
-  "fahrenheit",
-  "temperature",
-  "percentage",
-  "apr",
-  "zero",
-  "centenary",
-  "centigrades",
-  "objective",
-  "olc",
-  "aim",
-  "sill",
-  "target",
-  "goal",
-  "deluge",
-  "seale",
-  "celle",
-];
-
-export default IconCelsiusCel as IconComponent;
+export default IconCelsiusCel;

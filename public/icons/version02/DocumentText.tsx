@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDocumentText: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,28 +105,4 @@ const IconDocumentText: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDocumentText as IconComponent).keywords = [
-  "document",
-  "text",
-  "papers",
-  "text file",
-  "written document",
-  "documentation",
-  "backgrounder",
-  "workbook",
-  "dossier",
-  "handbook",
-  "listing",
-  "schoolbook",
-  "textbook",
-  "school text",
-  "text edition",
-  "textual matter",
-  "writing",
-  "letter",
-  "paragraph",
-  "manuscript",
-];
-
-export default IconDocumentText as IconComponent;
+export default IconDocumentText;

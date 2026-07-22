@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const Icon3dSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -92,28 +99,4 @@ const Icon3dSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(Icon3dSquare as IconComponent).keywords = [
-  "3d",
-  "square",
-  "3-d",
-  "three-d",
-  "postage",
-  "qsar",
-  "abit",
-  "abstinent",
-  "amityville",
-  "arist",
-  "barque",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default Icon3dSquare as IconComponent;
+export default Icon3dSquare;

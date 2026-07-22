@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVideoVertical: FC<IconProps> = ({
   className,
   fill = false,
@@ -164,28 +171,4 @@ const IconVideoVertical: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVideoVertical as IconComponent).keywords = [
-  "video",
-  "vertical",
-  "tv",
-  "television",
-  "picture",
-  "telecasting",
-  "televised",
-  "videotaping",
-  "videotaped",
-  "taping",
-  "videotape",
-  "perpendicular",
-  "plumb",
-  "upright",
-  "stand-up",
-  "standing",
-  "straight",
-  "rearing",
-  "erect",
-  "erectile",
-];
-
-export default IconVideoVertical as IconComponent;
+export default IconVideoVertical;

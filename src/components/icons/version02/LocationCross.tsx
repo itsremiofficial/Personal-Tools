@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLocationCross: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconLocationCross: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLocationCross as IconComponent).keywords = [
-  "location",
-  "cross",
-  "position",
-  "placement",
-  "positioning",
-  "localization",
-  "localisation",
-  "emplacement",
-  "fix",
-  "locating",
-  "situating",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-];
-
-export default IconLocationCross as IconComponent;
+export default IconLocationCross;

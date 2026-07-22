@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMessageEdit: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconMessageEdit: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMessageEdit as IconComponent).keywords = [
-  "message",
-  "edit",
-  "subject matter",
-  "substance",
-  "content",
-  "file",
-  "communiqué",
-  "transmission",
-  "communication",
-  "news",
-  "advertisement",
-  "redact",
-  "edit out",
-  "cut",
-  "editor",
-  "edition",
-  "publication",
-  "publish",
-  "publishing",
-  "authoring",
-];
-
-export default IconMessageEdit as IconComponent;
+export default IconMessageEdit;

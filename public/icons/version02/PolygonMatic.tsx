@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPolygonMatic: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,28 +94,4 @@ const IconPolygonMatic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPolygonMatic as IconComponent).keywords = [
-  "polygon",
-  "matic",
-  "polygonal shape",
-  "circle",
-  "pentagon",
-  "ground",
-  "range",
-  "overlay",
-  "closure",
-  "park",
-  "firing",
-  "veg",
-  "hydra",
-  "strat",
-  "matics",
-  "thetic",
-  "tical",
-  "tating",
-  "tated",
-  "netic",
-];
-
-export default IconPolygonMatic as IconComponent;
+export default IconPolygonMatic;

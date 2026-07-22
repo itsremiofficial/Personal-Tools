@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLogin: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,18 +91,4 @@ const IconLogin: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLogin as IconComponent).keywords = [
-  "login",
-  "log in",
-  "log on",
-  "logon",
-  "username",
-  "sign-on",
-  "bootable",
-  "pluggable",
-  "uplink",
-  "log-in",
-];
-
-export default IconLogin as IconComponent;
+export default IconLogin;

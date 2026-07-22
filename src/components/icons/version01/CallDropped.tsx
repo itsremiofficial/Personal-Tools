@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCallDropped: FC<IconProps> = ({
   className,
   fill = false,
@@ -76,28 +83,4 @@ const IconCallDropped: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCallDropped as IconComponent).keywords = [
-  "call",
-  "dropped",
-  "phone call",
-  "telephone call",
-  "call in",
-  "telephone",
-  "phone",
-  "call up",
-  "send for",
-  "call option",
-  "margin call",
-  "born",
-  "downing",
-  "fall",
-  "down",
-  "downed",
-  "fallen",
-  "toppling",
-  "shrank",
-  "shrunk",
-];
-
-export default IconCallDropped as IconComponent;
+export default IconCallDropped;

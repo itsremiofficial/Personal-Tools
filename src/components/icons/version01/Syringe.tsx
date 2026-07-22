@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSyringe: FC<IconProps> = ({
   className,
   fill = false,
@@ -110,18 +117,4 @@ const IconSyringe: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSyringe as IconComponent).keywords = [
-  "syringe",
-  "tube",
-  "nail",
-  "squirt",
-  "needle",
-  "gun",
-  "syring",
-  "hypodermic",
-  "pipette",
-  "hypodermics",
-];
-
-export default IconSyringe as IconComponent;
+export default IconSyringe;

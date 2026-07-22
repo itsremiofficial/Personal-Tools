@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStarAngle: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,28 +95,4 @@ const IconStarAngle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStarAngle as IconComponent).keywords = [
-  "star",
-  "angle",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-  "weight",
-  "slant",
-  "tilt",
-  "lean",
-  "tip",
-  "fish",
-  "side",
-  "prism",
-  "dimension",
-];
-
-export default IconStarAngle as IconComponent;
+export default IconStarAngle;

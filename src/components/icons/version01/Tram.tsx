@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTram: FC<IconProps> = ({
   className,
   fill = false,
@@ -114,18 +121,4 @@ const IconTram: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTram as IconComponent).keywords = [
-  "tram",
-  "streetcar",
-  "tramway",
-  "trolley car",
-  "tramcar",
-  "trolley",
-  "ropeway",
-  "aerial tramway",
-  "cable tramway",
-  "bus",
-];
-
-export default IconTram as IconComponent;
+export default IconTram;

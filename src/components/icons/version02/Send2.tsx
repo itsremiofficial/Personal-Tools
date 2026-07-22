@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSend2: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,28 +79,4 @@ const IconSend2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSend2 as IconComponent).keywords = [
-  "send",
-  "2",
-  "transmit",
-  "charge",
-  "transport",
-  "mail",
-  "base",
-  "institutionalize",
-  "place",
-  "broadcast",
-  "commit",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconSend2 as IconComponent;
+export default IconSend2;

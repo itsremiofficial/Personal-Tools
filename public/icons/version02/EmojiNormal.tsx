@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEmojiNormal: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,28 +105,4 @@ const IconEmojiNormal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEmojiNormal as IconComponent).keywords = [
-  "emoji",
-  "normal",
-  "emoticon",
-  "reaction",
-  "react",
-  "emote",
-  "smiley",
-  "sticker",
-  "emojipasta",
-  "reaction gif",
-  "hashflag",
-  "typical",
-  "natural",
-  "mean",
-  "rule",
-  "modal",
-  "pattern",
-  "convention",
-  "regular",
-  "average",
-];
-
-export default IconEmojiNormal as IconComponent;
+export default IconEmojiNormal;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCassette: FC<IconProps> = ({
   className,
   fill = false,
@@ -114,18 +121,4 @@ const IconCassette: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCassette as IconComponent).keywords = [
-  "cassette",
-  "audiotape",
-  "videotape",
-  "video",
-  "wiretap",
-  "inbox",
-  "ink",
-  "audio",
-  "rack",
-  "tape",
-];
-
-export default IconCassette as IconComponent;
+export default IconCassette;

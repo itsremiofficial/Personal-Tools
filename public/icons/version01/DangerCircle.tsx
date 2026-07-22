@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDangerCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,28 +84,4 @@ const IconDangerCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDangerCircle as IconComponent).keywords = [
-  "danger",
-  "circle",
-  "peril",
-  "risk",
-  "jeopardize",
-  "hazardous",
-  "dangerous",
-  "dangerously",
-  "dangerousness",
-  "endangering",
-  "hazard",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconDangerCircle as IconComponent;
+export default IconDangerCircle;

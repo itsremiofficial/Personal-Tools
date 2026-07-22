@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBoombox: FC<IconProps> = ({
   className,
   fill = false,
@@ -126,18 +133,4 @@ const IconBoombox: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBoombox as IconComponent).keywords = [
-  "boombox",
-  "boom box",
-  "boom",
-  "junkbox",
-  "callbox",
-  "sound system",
-  "personal stereo",
-  "mini hi-fi system",
-  "radio",
-  "walkie talkie",
-];
-
-export default IconBoombox as IconComponent;
+export default IconBoombox;

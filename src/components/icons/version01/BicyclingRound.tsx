@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBicyclingRound: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,28 +113,4 @@ const IconBicyclingRound: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBicyclingRound as IconComponent).keywords = [
-  "bicycling",
-  "round",
-  "bike",
-  "cycle",
-  "pedal",
-  "wheel",
-  "biking",
-  "cycling",
-  "motorcycling",
-  "bicyclists",
-  "cyclist",
-  "orbicular",
-  "rotund",
-  "orbiculate",
-  "discoidal",
-  "disklike",
-  "discoid",
-  "ringlike",
-  "globular",
-  "globose",
-];
-
-export default IconBicyclingRound as IconComponent;
+export default IconBicyclingRound;

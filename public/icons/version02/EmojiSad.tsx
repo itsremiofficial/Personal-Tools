@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEmojiSad: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,28 +105,4 @@ const IconEmojiSad: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEmojiSad as IconComponent).keywords = [
-  "emoji",
-  "sad",
-  "emoticon",
-  "reaction",
-  "react",
-  "emote",
-  "smiley",
-  "sticker",
-  "emojipasta",
-  "reaction gif",
-  "hashflag",
-  "sadden",
-  "doleful",
-  "sorrowful",
-  "tragic",
-  "saddening",
-  "mournful",
-  "lamentable",
-  "melancholic",
-  "depressing",
-];
-
-export default IconEmojiSad as IconComponent;
+export default IconEmojiSad;

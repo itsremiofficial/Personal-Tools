@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGalleryFavorite: FC<IconProps> = ({
   className,
   fill = false,
@@ -103,28 +110,4 @@ const IconGalleryFavorite: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGalleryFavorite as IconComponent).keywords = [
-  "gallery",
-  "favorite",
-  "art gallery",
-  "heading",
-  "verandah",
-  "veranda",
-  "drift",
-  "picture gallery",
-  "museum",
-  "beaux-arts",
-  "art",
-  "favored",
-  "favourite",
-  "preferred",
-  "popular",
-  "loved",
-  "deary",
-  "darling",
-  "dearie",
-  "front-runner",
-];
-
-export default IconGalleryFavorite as IconComponent;
+export default IconGalleryFavorite;

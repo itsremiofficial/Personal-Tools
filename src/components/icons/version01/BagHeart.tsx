@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBagHeart: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,28 +86,4 @@ const IconBagHeart: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBagHeart as IconComponent).keywords = [
-  "bag",
-  "heart",
-  "purse",
-  "pocketbook",
-  "handbag",
-  "pocket",
-  "bagful",
-  "suitcase",
-  "dish",
-  "grip",
-  "cup of tea",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-];
-
-export default IconBagHeart as IconComponent;
+export default IconBagHeart;

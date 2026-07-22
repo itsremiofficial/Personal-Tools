@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPaperclipRounded: FC<IconProps> = ({
   className,
   fill = false,
@@ -64,28 +71,4 @@ const IconPaperclipRounded: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPaperclipRounded as IconComponent).keywords = [
-  "paperclip",
-  "rounded",
-  "gem clip",
-  "clip",
-  "crisis",
-  "video",
-  "trombone",
-  "thumbtack",
-  "clothespin",
-  "screwdriver",
-  "ribbon",
-  "ringed",
-  "ring-shaped",
-  "annulate",
-  "annular",
-  "circular",
-  "rotund",
-  "bowfront",
-  "prolate",
-  "domed",
-];
-
-export default IconPaperclipRounded as IconComponent;
+export default IconPaperclipRounded;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPaperclip2: FC<IconProps> = ({
   className,
   fill = false,
@@ -63,28 +70,4 @@ const IconPaperclip2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPaperclip2 as IconComponent).keywords = [
-  "paperclip",
-  "2",
-  "gem clip",
-  "clip",
-  "crisis",
-  "video",
-  "trombone",
-  "thumbtack",
-  "clothespin",
-  "screwdriver",
-  "ribbon",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconPaperclip2 as IconComponent;
+export default IconPaperclip2;

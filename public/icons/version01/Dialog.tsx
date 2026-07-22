@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDialog: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,18 +96,4 @@ const IconDialog: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDialog as IconComponent).keywords = [
-  "dialog",
-  "dialogue",
-  "duologue",
-  "trialogue",
-  "conversation",
-  "discourse",
-  "discussion",
-  "talk",
-  "consultation",
-  "engagement",
-];
-
-export default IconDialog as IconComponent;
+export default IconDialog;

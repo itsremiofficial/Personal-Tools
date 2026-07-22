@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShieldStar: FC<IconProps> = ({
   className,
   fill = false,
@@ -69,28 +76,4 @@ const IconShieldStar: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShieldStar as IconComponent).keywords = [
-  "shield",
-  "star",
-  "buckler",
-  "screen",
-  "harbor",
-  "harbour",
-  "armoured",
-  "armor",
-  "breastplate",
-  "ribbon",
-  "visor",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-];
-
-export default IconShieldStar as IconComponent;
+export default IconShieldStar;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRedo: FC<IconProps> = ({
   className,
   fill = false,
@@ -72,18 +79,4 @@ const IconRedo: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRedo as IconComponent).keywords = [
-  "redo",
-  "remake",
-  "refashion",
-  "reconstruct",
-  "remodel",
-  "make over",
-  "retake",
-  "restart",
-  "rebuild",
-  "reinstitution",
-];
-
-export default IconRedo as IconComponent;
+export default IconRedo;

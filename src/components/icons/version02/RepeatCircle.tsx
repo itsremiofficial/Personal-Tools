@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRepeatCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,28 +109,4 @@ const IconRepeatCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRepeatCircle as IconComponent).keywords = [
-  "repeat",
-  "circle",
-  "restate",
-  "reiterate",
-  "ingeminate",
-  "reprise",
-  "repetition",
-  "retell",
-  "recur",
-  "recapitulate",
-  "duplicate",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconRepeatCircle as IconComponent;
+export default IconRepeatCircle;

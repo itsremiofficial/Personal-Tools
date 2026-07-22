@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMedal: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,18 +82,4 @@ const IconMedal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMedal as IconComponent).keywords = [
-  "medal",
-  "medallion",
-  "decoration",
-  "laurel wreath",
-  "ribbon",
-  "palm",
-  "medalist",
-  "decorating",
-  "décor",
-  "plaque",
-];
-
-export default IconMedal as IconComponent;
+export default IconMedal;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBoxSearch: FC<IconProps> = ({
   className,
   fill = false,
@@ -115,28 +122,4 @@ const IconBoxSearch: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBoxSearch as IconComponent).keywords = [
-  "box",
-  "search",
-  "package",
-  "loge",
-  "corner",
-  "box seat",
-  "boxwood",
-  "bin",
-  "chest",
-  "toolbox",
-  "shoebox",
-  "seek",
-  "look for",
-  "explore",
-  "lookup",
-  "research",
-  "look",
-  "hunting",
-  "hunt",
-  "seeking",
-];
-
-export default IconBoxSearch as IconComponent;
+export default IconBoxSearch;

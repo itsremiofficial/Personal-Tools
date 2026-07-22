@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStarCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconStarCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStarCircle as IconComponent).keywords = [
-  "star",
-  "circle",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconStarCircle as IconComponent;
+export default IconStarCircle;

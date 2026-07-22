@@ -28,7 +28,7 @@ const toggleVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
 const ToggleSwitch = React.forwardRef<
@@ -64,12 +64,12 @@ export const Toggle = React.memo(
         "border cursor-pointer rounded-xl !leading-relaxed flex gap-2 select-none",
         "bg-transparent text-muted-foreground border-border hover:bg-muted",
         "data-[state=on]:bg-accent data-[state=on]:border-border data-[state=on]:text-foreground",
-        className
+        className,
       )}
     >
       {label} {icon && icon}
     </ToggleSwitch>
-  )
+  ),
 );
 
 Toggle.displayName = "Toggle";

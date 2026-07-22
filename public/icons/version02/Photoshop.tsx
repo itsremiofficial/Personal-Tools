@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPhotoshop: FC<IconProps> = ({
   className,
   fill = false,
@@ -94,18 +101,4 @@ const IconPhotoshop: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPhotoshop as IconComponent).keywords = [
-  "photoshop",
-  "digital",
-  "lightroom",
-  "dreamweaver",
-  "corel",
-  "paintshop",
-  "coreldraw",
-  "retouching",
-  "imageready",
-  "retouch",
-];
-
-export default IconPhotoshop as IconComponent;
+export default IconPhotoshop;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDangerTriangle: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconDangerTriangle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDangerTriangle as IconComponent).keywords = [
-  "danger",
-  "triangle",
-  "peril",
-  "risk",
-  "jeopardize",
-  "hazardous",
-  "dangerous",
-  "dangerously",
-  "dangerousness",
-  "endangering",
-  "hazard",
-  "trigon",
-  "trilateral",
-  "triangular",
-  "direction",
-  "tripartite",
-  "trio",
-  "triptych",
-  "delta",
-  "wye",
-];
-
-export default IconDangerTriangle as IconComponent;
+export default IconDangerTriangle;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStopwatchPause: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,28 +103,4 @@ const IconStopwatchPause: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStopwatchPause as IconComponent).keywords = [
-  "stopwatch",
-  "pause",
-  "stopo watch",
-  "clock",
-  "watch",
-  "timekeeping",
-  "timer",
-  "time",
-  "timing",
-  "wristwatch",
-  "chronometer",
-  "suspension",
-  "intermit",
-  "interruption",
-  "hesitate",
-  "break",
-  "intermission",
-  "respite",
-  "hiatus",
-  "stoppage",
-];
-
-export default IconStopwatchPause as IconComponent;
+export default IconStopwatchPause;

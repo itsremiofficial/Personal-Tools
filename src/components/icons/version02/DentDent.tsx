@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDentDent: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,18 +94,4 @@ const IconDentDent: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDentDent as IconComponent).keywords = [
-  "dent",
-  "incision",
-  "prick",
-  "scratch",
-  "slit",
-  "notch",
-  "indent",
-  "gouge",
-  "nick",
-  "molar",
-];
-
-export default IconDentDent as IconComponent;
+export default IconDentDent;

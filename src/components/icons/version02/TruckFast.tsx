@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTruckFast: FC<IconProps> = ({
   className,
   fill = false,
@@ -165,28 +172,4 @@ const IconTruckFast: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTruckFast as IconComponent).keywords = [
-  "truck",
-  "fast",
-  "hand truck",
-  "motortruck",
-  "tractor-trailer",
-  "lorry",
-  "semi-trailer",
-  "flatbed",
-  "van",
-  "truckload",
-  "cartage",
-  "tight",
-  "instantaneous",
-  "immediate",
-  "instant",
-  "true",
-  "profligate",
-  "constant",
-  "faithful",
-  "loyal",
-];
-
-export default IconTruckFast as IconComponent;
+export default IconTruckFast;

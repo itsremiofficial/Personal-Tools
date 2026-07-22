@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTextCrossCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -76,38 +83,4 @@ const IconTextCrossCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTextCrossCircle as IconComponent).keywords = [
-  "text",
-  "cross",
-  "circle",
-  "schoolbook",
-  "textbook",
-  "school text",
-  "text edition",
-  "textual matter",
-  "writing",
-  "letter",
-  "paragraph",
-  "manuscript",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconTextCrossCircle as IconComponent;
+export default IconTextCrossCircle;

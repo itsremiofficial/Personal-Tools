@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMakerMkr: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,28 +94,4 @@ const IconMakerMkr: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMakerMkr as IconComponent).keywords = [
-  "maker",
-  "mkr",
-  "manufacturer",
-  "shaper",
-  "manufacturing business",
-  "fabricator",
-  "making",
-  "designer",
-  "factory",
-  "manufacture",
-  "manufacturing",
-  "piano",
-  "semitism",
-  "hellenism",
-  "the devil",
-  "backwater",
-  "mexican american",
-  "mainland china",
-  "native soil",
-  "promised land",
-];
-
-export default IconMakerMkr as IconComponent;
+export default IconMakerMkr;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSmartphoneVibration: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,28 +105,4 @@ const IconSmartphoneVibration: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSmartphoneVibration as IconComponent).keywords = [
-  "smartphone",
-  "vibration",
-  "intelligent",
-  "smart",
-  "screenphone",
-  "featurephone",
-  "superphone",
-  "touchphone",
-  "mobile device",
-  "cellular phone",
-  "smartwatch",
-  "oscillation",
-  "shaking",
-  "shakiness",
-  "tremor",
-  "quivering",
-  "trembling",
-  "quiver",
-  "palpitation",
-  "concussion",
-];
-
-export default IconSmartphoneVibration as IconComponent;
+export default IconSmartphoneVibration;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPlusMinus: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconPlusMinus: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPlusMinus as IconComponent).keywords = [
-  "plus",
-  "minus",
-  "addition",
-  "summation",
-  "advantageous",
-  "positive",
-  "asset",
-  "nonnegative",
-  "additional",
-  "add",
-  "along",
-  "subtraction",
-  "negative",
-  "disadvantageous",
-  "harmful",
-  "sans",
-  "min",
-  "least",
-  "unary",
-  "nec",
-];
-
-export default IconPlusMinus as IconComponent;
+export default IconPlusMinus;

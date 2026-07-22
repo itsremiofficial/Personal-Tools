@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUserCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,28 +91,4 @@ const IconUserCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUserCircle as IconComponent).keywords = [
-  "user",
-  "circle",
-  "exploiter",
-  "enjoyer",
-  "drug user",
-  "substance abuser",
-  "customer",
-  "client",
-  "employer",
-  "consumer",
-  "employee",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconUserCircle as IconComponent;
+export default IconUserCircle;

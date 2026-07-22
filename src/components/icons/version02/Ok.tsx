@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconOk: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,18 +102,4 @@ const IconOk: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconOk as IconComponent).keywords = [
-  "ok",
-  "approve",
-  "sanction",
-  "satisfactory",
-  "alright",
-  "all right",
-  "fine",
-  "very well",
-  "okey",
-  "okay",
-];
-
-export default IconOk as IconComponent;
+export default IconOk;

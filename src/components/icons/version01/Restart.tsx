@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRestart: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,18 +87,4 @@ const IconRestart: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRestart as IconComponent).keywords = [
-  "restart",
-  "resume",
-  "reopen",
-  "recommence",
-  "reactivate",
-  "relaunch",
-  "resumption",
-  "reignite",
-  "re-establish",
-  "re-engage",
-];
-
-export default IconRestart as IconComponent;
+export default IconRestart;

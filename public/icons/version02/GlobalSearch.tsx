@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGlobalSearch: FC<IconProps> = ({
   className,
   fill = false,
@@ -186,28 +193,4 @@ const IconGlobalSearch: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGlobalSearch as IconComponent).keywords = [
-  "global",
-  "search",
-  "worldwide",
-  "international",
-  "world",
-  "circular",
-  "round",
-  "spherical",
-  "orbicular",
-  "globular",
-  "spheric",
-  "seek",
-  "look for",
-  "explore",
-  "lookup",
-  "research",
-  "look",
-  "hunting",
-  "hunt",
-  "seeking",
-];
-
-export default IconGlobalSearch as IconComponent;
+export default IconGlobalSearch;

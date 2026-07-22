@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMessageFavorite: FC<IconProps> = ({
   className,
   fill = false,
@@ -112,28 +119,4 @@ const IconMessageFavorite: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMessageFavorite as IconComponent).keywords = [
-  "message",
-  "favorite",
-  "subject matter",
-  "substance",
-  "content",
-  "file",
-  "communiqué",
-  "transmission",
-  "communication",
-  "news",
-  "advertisement",
-  "favored",
-  "favourite",
-  "preferred",
-  "popular",
-  "loved",
-  "deary",
-  "darling",
-  "dearie",
-  "front-runner",
-];
-
-export default IconMessageFavorite as IconComponent;
+export default IconMessageFavorite;

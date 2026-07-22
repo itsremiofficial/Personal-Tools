@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconArrowToTopRight: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,48 +86,4 @@ const IconArrowToTopRight: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconArrowToTopRight as IconComponent).keywords = [
-  "arrow",
-  "to",
-  "top",
-  "right",
-  "pointer",
-  "archer",
-  "archery",
-  "dart",
-  "arrowhead",
-  "bolt",
-  "spike",
-  "rope",
-  "roof",
-  "square-toed",
-  "pointed-toe",
-  "pointy-toed",
-  "squared-toe",
-  "eap",
-  "pae",
-  "efp",
-  "css",
-  "tcs",
-  "upper side",
-  "upside",
-  "elevation",
-  "uppermost",
-  "height",
-  "pinnacle",
-  "peak",
-  "upper",
-  "topmost",
-  "straight",
-  "precise",
-  "right on",
-  "accurate",
-  "decently",
-  "satisfactory",
-  "exact",
-  "powerful",
-  "opportune",
-];
-
-export default IconArrowToTopRight as IconComponent;
+export default IconArrowToTopRight;

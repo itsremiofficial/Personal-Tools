@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSmartphoneRotateOrientation: FC<IconProps> = ({
   className,
   fill = false,
@@ -129,38 +136,4 @@ const IconSmartphoneRotateOrientation: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSmartphoneRotateOrientation as IconComponent).keywords = [
-  "smartphone",
-  "rotate",
-  "orientation",
-  "intelligent",
-  "smart",
-  "screenphone",
-  "featurephone",
-  "superphone",
-  "touchphone",
-  "mobile device",
-  "cellular phone",
-  "smartwatch",
-  "go around",
-  "revolve",
-  "rotation",
-  "rotational",
-  "slue",
-  "turn",
-  "tilt",
-  "spinning",
-  "counterclockwise",
-  "orientation course",
-  "oriented",
-  "reorientation",
-  "directional",
-  "alignment",
-  "positioning",
-  "position",
-  "pathfinder",
-  "trajectory",
-];
-
-export default IconSmartphoneRotateOrientation as IconComponent;
+export default IconSmartphoneRotateOrientation;

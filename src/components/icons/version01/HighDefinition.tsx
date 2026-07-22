@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHighDefinition: FC<IconProps> = ({
   className,
   fill = false,
@@ -74,28 +81,4 @@ const IconHighDefinition: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHighDefinition as IconComponent).keywords = [
-  "high",
-  "definition",
-  "towering",
-  "high-level",
-  "altitudinous",
-  "upper",
-  "lofty",
-  "full",
-  "rising",
-  "overflowing",
-  "peak",
-  "meaning",
-  "wording",
-  "interpretation",
-  "expression",
-  "formulation",
-  "concept",
-  "characterization",
-  "designation",
-  "identification",
-];
-
-export default IconHighDefinition as IconComponent;
+export default IconHighDefinition;

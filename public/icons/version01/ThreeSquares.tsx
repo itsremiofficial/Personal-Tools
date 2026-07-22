@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconThreeSquares: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,28 +96,4 @@ const IconThreeSquares: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconThreeSquares as IconComponent).keywords = [
-  "three",
-  "squares",
-  "ternary",
-  "trinity",
-  "trio",
-  "ternion",
-  "tierce",
-  "triad",
-  "trine",
-  "threesome",
-  "tercet",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconThreeSquares as IconComponent;
+export default IconThreeSquares;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSmallcaps: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,7 +111,4 @@ const IconSmallcaps: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSmallcaps as IconComponent).keywords = ["smallcaps"];
-
-export default IconSmallcaps as IconComponent;
+export default IconSmallcaps;

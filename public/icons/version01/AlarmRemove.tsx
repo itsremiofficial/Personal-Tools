@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAlarmRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,28 +111,4 @@ const IconAlarmRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAlarmRemove as IconComponent).keywords = [
-  "alarm",
-  "remove",
-  "alarum",
-  "alarm system",
-  "alert",
-  "consternation",
-  "alarm clock",
-  "horrify",
-  "appall",
-  "dismay",
-  "appal",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconAlarmRemove as IconComponent;
+export default IconAlarmRemove;

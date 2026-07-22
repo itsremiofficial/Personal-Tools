@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVoiceCricle: FC<IconProps> = ({
   className,
   fill = false,
@@ -119,19 +126,4 @@ const IconVoiceCricle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVoiceCricle as IconComponent).keywords = [
-  "voice",
-  "cricle",
-  "vocalization",
-  "interpreter",
-  "vocalize",
-  "representative",
-  "part",
-  "spokesperson",
-  "sound",
-  "articulation",
-  "vocal",
-];
-
-export default IconVoiceCricle as IconComponent;
+export default IconVoiceCricle;

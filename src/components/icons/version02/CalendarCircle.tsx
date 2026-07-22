@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCalendarCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,28 +109,4 @@ const IconCalendarCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCalendarCircle as IconComponent).keywords = [
-  "calendar",
-  "circle",
-  "timeline",
-  "chronology",
-  "rota",
-  "scheduling",
-  "timetable",
-  "program",
-  "time-scale",
-  "timeframe",
-  "timescale",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconCalendarCircle as IconComponent;
+export default IconCalendarCircle;

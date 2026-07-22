@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconProjector: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,18 +113,4 @@ const IconProjector: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconProjector as IconComponent).keywords = [
-  "projector",
-  "projecting",
-  "performer",
-  "outreach",
-  "projection",
-  "protrusion",
-  "overhead",
-  "device",
-  "unit",
-  "spotlight",
-];
-
-export default IconProjector as IconComponent;
+export default IconProjector;

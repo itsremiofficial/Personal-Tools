@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAirbudsRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -132,19 +139,4 @@ const IconAirbudsRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAirbudsRemove as IconComponent).keywords = [
-  "airbuds",
-  "remove",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconAirbudsRemove as IconComponent;
+export default IconAirbudsRemove;

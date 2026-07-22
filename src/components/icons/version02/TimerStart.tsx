@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTimerStart: FC<IconProps> = ({
   className,
   fill = false,
@@ -105,28 +112,4 @@ const IconTimerStart: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTimerStart as IconComponent).keywords = [
-  "timer",
-  "start",
-  "clocking",
-  "timekeeping",
-  "timekeeper",
-  "clock",
-  "stopwatch",
-  "scheduler",
-  "timing",
-  "developer",
-  "bomb",
-  "begin",
-  "commence",
-  "beginning",
-  "outset",
-  "commencement",
-  "set about",
-  "head start",
-  "get",
-  "originate",
-];
-
-export default IconTimerStart as IconComponent;
+export default IconTimerStart;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRemoveFolder: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,28 +77,4 @@ const IconRemoveFolder: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRemoveFolder as IconComponent).keywords = [
-  "remove",
-  "folder",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-  "booklet",
-  "pamphlet",
-  "brochure",
-  "leaflet",
-  "toolkit",
-  "pack",
-  "package",
-  "kit",
-  "shirt",
-];
-
-export default IconRemoveFolder as IconComponent;
+export default IconRemoveFolder;

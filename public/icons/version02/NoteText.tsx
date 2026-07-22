@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNoteText: FC<IconProps> = ({
   className,
   fill = false,
@@ -118,28 +125,4 @@ const IconNoteText: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNoteText as IconComponent).keywords = [
-  "note",
-  "text",
-  "annotation",
-  "notation",
-  "mention",
-  "remark",
-  "notice",
-  "observe",
-  "take note",
-  "distinction",
-  "bank note",
-  "schoolbook",
-  "textbook",
-  "school text",
-  "text edition",
-  "textual matter",
-  "writing",
-  "letter",
-  "paragraph",
-  "manuscript",
-];
-
-export default IconNoteText as IconComponent;
+export default IconNoteText;

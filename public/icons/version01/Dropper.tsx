@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDropper: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,18 +104,4 @@ const IconDropper: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDropper as IconComponent).keywords = [
-  "dropper",
-  "eye dropper",
-  "strainer",
-  "sieve",
-  "colander",
-  "eyedropper",
-  "dropperful",
-  "dripper",
-  "syringe",
-  "drops",
-];
-
-export default IconDropper as IconComponent;
+export default IconDropper;

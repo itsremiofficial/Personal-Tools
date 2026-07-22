@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNexoNexo: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,18 +85,4 @@ const IconNexoNexo: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNexoNexo as IconComponent).keywords = [
-  "nexo",
-  "audient",
-  "grapo",
-  "vadis",
-  "edifier",
-  "usee",
-  "playbox",
-  "credito",
-  "fibra",
-  "blackmagic",
-];
-
-export default IconNexoNexo as IconComponent;
+export default IconNexoNexo;

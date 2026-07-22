@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPresentionChart: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,28 +114,4 @@ const IconPresentionChart: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPresentionChart as IconComponent).keywords = [
-  "presention",
-  "chart",
-  "presension",
-  "presensation",
-  "præterition",
-  "præsumption",
-  "prævision",
-  "præsentation",
-  "prejudice",
-  "preexistency",
-  "predjudice",
-  "map",
-  "cartography",
-  "mapping",
-  "cartographic",
-  "plan",
-  "diagram",
-  "graphical",
-  "diagrammatic",
-  "blueprint",
-];
-
-export default IconPresentionChart as IconComponent;
+export default IconPresentionChart;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconExpressionlessSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,28 +87,4 @@ const IconExpressionlessSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconExpressionlessSquare as IconComponent).keywords = [
-  "expressionless",
-  "square",
-  "impassive",
-  "unexpressive",
-  "incommunicative",
-  "uncommunicative",
-  "deadpan",
-  "poker-faced",
-  "stony",
-  "inexpressive",
-  "emotionless",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconExpressionlessSquare as IconComponent;
+export default IconExpressionlessSquare;

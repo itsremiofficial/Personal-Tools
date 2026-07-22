@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCompassSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -69,28 +76,4 @@ const IconCompassSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCompassSquare as IconComponent).keywords = [
-  "compass",
-  "square",
-  "orbit",
-  "range",
-  "dig",
-  "circumnavigate",
-  "ambit",
-  "scope",
-  "comprehend",
-  "reach",
-  "grasp",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconCompassSquare as IconComponent;
+export default IconCompassSquare;

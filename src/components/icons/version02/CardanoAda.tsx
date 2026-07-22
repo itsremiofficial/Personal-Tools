@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCardanoAda: FC<IconProps> = ({
   className,
   fill = false,
@@ -532,28 +539,4 @@ const IconCardanoAda: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCardanoAda as IconComponent).keywords = [
-  "cardano",
-  "ada",
-  "solana",
-  "ethereum",
-  "algorand",
-  "eos.io",
-  "dash",
-  "monero",
-  "augur",
-  "nano",
-  "ethereum classic",
-  "paa",
-  "rcc",
-  "acls",
-  "acl",
-  "pcd",
-  "water",
-  "aal",
-  "aia",
-  "ama",
-];
-
-export default IconCardanoAda as IconComponent;
+export default IconCardanoAda;

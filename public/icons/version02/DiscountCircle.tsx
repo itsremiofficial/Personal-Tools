@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDiscountCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconDiscountCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDiscountCircle as IconComponent).keywords = [
-  "discount",
-  "circle",
-  "bank discount",
-  "discount rate",
-  "rebate",
-  "deduction",
-  "dismiss",
-  "brush aside",
-  "brush off",
-  "ignore",
-  "disregard",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconDiscountCircle as IconComponent;
+export default IconDiscountCircle;

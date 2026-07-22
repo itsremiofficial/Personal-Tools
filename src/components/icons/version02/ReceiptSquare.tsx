@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconReceiptSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconReceiptSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconReceiptSquare as IconComponent).keywords = [
-  "receipt",
-  "square",
-  "receiving",
-  "reception",
-  "acknowledge",
-  "recipient",
-  "receptor",
-  "granting",
-  "receive",
-  "grant",
-  "remitting",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconReceiptSquare as IconComponent;
+export default IconReceiptSquare;

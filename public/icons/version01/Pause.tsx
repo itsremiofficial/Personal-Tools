@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPause: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,18 +78,4 @@ const IconPause: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPause as IconComponent).keywords = [
-  "pause",
-  "suspension",
-  "intermit",
-  "interruption",
-  "hesitate",
-  "break",
-  "intermission",
-  "respite",
-  "hiatus",
-  "stoppage",
-];
-
-export default IconPause as IconComponent;
+export default IconPause;

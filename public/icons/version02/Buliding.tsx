@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBuliding: FC<IconProps> = ({
   className,
   fill = false,
@@ -154,7 +161,4 @@ const IconBuliding: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBuliding as IconComponent).keywords = ["buliding"];
-
-export default IconBuliding as IconComponent;
+export default IconBuliding;

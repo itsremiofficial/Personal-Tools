@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDropperMinimalistic2: FC<IconProps> = ({
   className,
   fill = false,
@@ -119,38 +126,4 @@ const IconDropperMinimalistic2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDropperMinimalistic2 as IconComponent).keywords = [
-  "dropper",
-  "minimalistic",
-  "2",
-  "eye dropper",
-  "strainer",
-  "sieve",
-  "colander",
-  "eyedropper",
-  "dropperful",
-  "dripper",
-  "syringe",
-  "drops",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconDropperMinimalistic2 as IconComponent;
+export default IconDropperMinimalistic2;

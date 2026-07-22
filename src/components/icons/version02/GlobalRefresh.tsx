@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGlobalRefresh: FC<IconProps> = ({
   className,
   fill = false,
@@ -193,28 +200,4 @@ const IconGlobalRefresh: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGlobalRefresh as IconComponent).keywords = [
-  "global",
-  "refresh",
-  "worldwide",
-  "international",
-  "world",
-  "circular",
-  "round",
-  "spherical",
-  "orbicular",
-  "globular",
-  "spheric",
-  "refreshen",
-  "freshen",
-  "review",
-  "freshen up",
-  "brush up",
-  "refresher",
-  "refreshment",
-  "rejuvenate",
-  "revive",
-];
-
-export default IconGlobalRefresh as IconComponent;
+export default IconGlobalRefresh;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMenuBoard: FC<IconProps> = ({
   className,
   fill = false,
@@ -133,28 +140,4 @@ const IconMenuBoard: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMenuBoard as IconComponent).keywords = [
-  "menu",
-  "board",
-  "bill of fare",
-  "carte",
-  "fare",
-  "card",
-  "carte du jour",
-  "computer menu",
-  "dinner",
-  "meal",
-  "list",
-  "panel",
-  "plank",
-  "table",
-  "control panel",
-  "instrument panel",
-  "get on",
-  "dining table",
-  "room",
-  "circuit board",
-];
-
-export default IconMenuBoard as IconComponent;
+export default IconMenuBoard;

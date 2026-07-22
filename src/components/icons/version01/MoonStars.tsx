@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMoonStars: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,28 +87,4 @@ const IconMoonStars: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMoonStars as IconComponent).keywords = [
-  "moon",
-  "stars",
-  "lunar month",
-  "moonlight",
-  "synodic month",
-  "lunation",
-  "daydream",
-  "moonshine",
-  "moon around",
-  "moon on",
-  "satellite",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-];
-
-export default IconMoonStars as IconComponent;
+export default IconMoonStars;

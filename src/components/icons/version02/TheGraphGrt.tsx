@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTheGraphGrt: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,38 +104,4 @@ const IconTheGraphGrt: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTheGraphGrt as IconComponent).keywords = [
-  "the",
-  "graph",
-  "grt",
-  "gazette",
-  "preface",
-  "jews",
-  "same",
-  "americas",
-  "sky",
-  "netherlands",
-  "internet",
-  "president",
-  "graphical record",
-  "diagram",
-  "flowchart",
-  "figure",
-  "graphical",
-  "chart",
-  "map",
-  "design",
-  "graphically",
-  "rtg",
-  "tso",
-  "dre",
-  "erd",
-  "dir",
-  "srt",
-  "trb",
-  "prb",
-  "mda",
-];
-
-export default IconTheGraphGrt as IconComponent;
+export default IconTheGraphGrt;

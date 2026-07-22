@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSortFromTopToBottom: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,58 +103,4 @@ const IconSortFromTopToBottom: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSortFromTopToBottom as IconComponent).keywords = [
-  "sort",
-  "from",
-  "top",
-  "to",
-  "bottom",
-  "classify",
-  "assort",
-  "class",
-  "form",
-  "kind",
-  "sort out",
-  "variety",
-  "separate",
-  "screen",
-  "according",
-  "across",
-  "addressed",
-  "after",
-  "against",
-  "aged",
-  "ago",
-  "alleging",
-  "along",
-  "upper side",
-  "upside",
-  "elevation",
-  "uppermost",
-  "height",
-  "pinnacle",
-  "peak",
-  "upper",
-  "topmost",
-  "square-toed",
-  "pointed-toe",
-  "pointy-toed",
-  "squared-toe",
-  "eap",
-  "pae",
-  "efp",
-  "css",
-  "tcs",
-  "ass",
-  "bed",
-  "backside",
-  "underside",
-  "undersurface",
-  "penetrate",
-  "derriere",
-  "fathom",
-  "seat",
-];
-
-export default IconSortFromTopToBottom as IconComponent;
+export default IconSortFromTopToBottom;

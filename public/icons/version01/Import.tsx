@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconImport: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,18 +85,4 @@ const IconImport: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconImport as IconComponent).keywords = [
-  "import",
-  "consequence",
-  "signification",
-  "significance",
-  "implication",
-  "meaning",
-  "moment",
-  "spell",
-  "export",
-  "exportation",
-];
-
-export default IconImport as IconComponent;
+export default IconImport;

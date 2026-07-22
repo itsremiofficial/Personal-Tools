@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTextBoldCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,38 +91,4 @@ const IconTextBoldCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTextBoldCircle as IconComponent).keywords = [
-  "text",
-  "bold",
-  "circle",
-  "schoolbook",
-  "textbook",
-  "school text",
-  "text edition",
-  "textual matter",
-  "writing",
-  "letter",
-  "paragraph",
-  "manuscript",
-  "vaulting",
-  "heroic",
-  "heroical",
-  "steep",
-  "overreaching",
-  "enterprising",
-  "bluff",
-  "daredevil",
-  "positive",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconTextBoldCircle as IconComponent;
+export default IconTextBoldCircle;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconIncognito: FC<IconProps> = ({
   className,
   fill = false,
@@ -103,18 +110,4 @@ const IconIncognito: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconIncognito as IconComponent).keywords = [
-  "incognito",
-  "concealed",
-  "invisible",
-  "undercover",
-  "underground",
-  "incog",
-  "masqueraded",
-  "inconspicuously",
-  "masquerade",
-  "hiding",
-];
-
-export default IconIncognito as IconComponent;
+export default IconIncognito;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconScreencast: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,18 +109,4 @@ const IconScreencast: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconScreencast as IconComponent).keywords = [
-  "screencast",
-  "screencasting",
-  "screengrab",
-  "viewscreen",
-  "screenie",
-  "screenland",
-  "screen",
-  "speedpaint",
-  "webcast",
-  "cybercast",
-];
-
-export default IconScreencast as IconComponent;
+export default IconScreencast;

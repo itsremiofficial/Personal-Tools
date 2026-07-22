@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShieldNetwork: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,28 +113,4 @@ const IconShieldNetwork: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShieldNetwork as IconComponent).keywords = [
-  "shield",
-  "network",
-  "buckler",
-  "screen",
-  "harbor",
-  "harbour",
-  "armoured",
-  "armor",
-  "breastplate",
-  "ribbon",
-  "visor",
-  "meshwork",
-  "net",
-  "mesh",
-  "reticulation",
-  "web",
-  "communications network",
-  "lacis",
-  "ring",
-  "array",
-];
-
-export default IconShieldNetwork as IconComponent;
+export default IconShieldNetwork;

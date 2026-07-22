@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSpedometerMax: FC<IconProps> = ({
   className,
   fill = false,
@@ -145,19 +152,4 @@ const IconSpedometerMax: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSpedometerMax as IconComponent).keywords = [
-  "spedometer",
-  "max",
-  "maximize",
-  "tops",
-  "maximum",
-  "maximal",
-  "most",
-  "lot",
-  "best",
-  "paramount",
-  "utmost",
-];
-
-export default IconSpedometerMax as IconComponent;
+export default IconSpedometerMax;

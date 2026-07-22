@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconArrangeSquare2: FC<IconProps> = ({
   className,
   fill = false,
@@ -101,38 +108,4 @@ const IconArrangeSquare2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconArrangeSquare2 as IconComponent).keywords = [
-  "arrange",
-  "square",
-  "2",
-  "order",
-  "put",
-  "set up",
-  "fix up",
-  "stage",
-  "bring about",
-  "format",
-  "do",
-  "set",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconArrangeSquare2 as IconComponent;
+export default IconArrangeSquare2;

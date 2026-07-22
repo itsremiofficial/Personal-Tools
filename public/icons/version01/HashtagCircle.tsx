@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHashtagCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -98,28 +105,4 @@ const IconHashtagCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHashtagCircle as IconComponent).keywords = [
-  "hashtag",
-  "circle",
-  "slashtag",
-  "bashtag",
-  "hashtagger",
-  "hashflag",
-  "tag cloud",
-  "tweet",
-  "label cloud",
-  "entity tag",
-  "fragment",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconHashtagCircle as IconComponent;
+export default IconHashtagCircle;

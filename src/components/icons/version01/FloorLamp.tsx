@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFloorLamp: FC<IconProps> = ({
   className,
   fill = false,
@@ -138,28 +145,4 @@ const IconFloorLamp: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFloorLamp as IconComponent).keywords = [
-  "floor",
-  "lamp",
-  "deck",
-  "storey",
-  "dump",
-  "level",
-  "coldcock",
-  "knock down",
-  "base",
-  "story",
-  "shock",
-  "bulb",
-  "flashlight",
-  "lamppost",
-  "lantern",
-  "lighting",
-  "dimmer",
-  "searchlight",
-  "wick",
-  "lighter",
-];
-
-export default IconFloorLamp as IconComponent;
+export default IconFloorLamp;

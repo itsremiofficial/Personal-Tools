@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGalleryImport: FC<IconProps> = ({
   className,
   fill = false,
@@ -111,28 +118,4 @@ const IconGalleryImport: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGalleryImport as IconComponent).keywords = [
-  "gallery",
-  "import",
-  "art gallery",
-  "heading",
-  "verandah",
-  "veranda",
-  "drift",
-  "picture gallery",
-  "museum",
-  "beaux-arts",
-  "art",
-  "consequence",
-  "signification",
-  "significance",
-  "implication",
-  "meaning",
-  "moment",
-  "spell",
-  "export",
-  "exportation",
-];
-
-export default IconGalleryImport as IconComponent;
+export default IconGalleryImport;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSiren: FC<IconProps> = ({
   className,
   fill = false,
@@ -138,18 +145,4 @@ const IconSiren: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSiren as IconComponent).keywords = [
-  "siren",
-  "delilah",
-  "enchantress",
-  "femme fatale",
-  "temptress",
-  "hell",
-  "allure",
-  "enticer",
-  "lure",
-  "sort",
-];
-
-export default IconSiren as IconComponent;
+export default IconSiren;

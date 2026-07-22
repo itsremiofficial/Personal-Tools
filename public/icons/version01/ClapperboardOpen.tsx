@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconClapperboardOpen: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,28 +107,4 @@ const IconClapperboardOpen: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconClapperboardOpen as IconComponent).keywords = [
-  "clapperboard",
-  "open",
-  "synchronizer",
-  "photoboard",
-  "film horse",
-  "movie camera",
-  "kinetoscope",
-  "cinematoscope",
-  "projectoscope",
-  "gate",
-  "moviola",
-  "open up",
-  "available",
-  "visible",
-  "afford",
-  "public",
-  "ajar",
-  "give",
-  "spread",
-  "wide",
-];
-
-export default IconClapperboardOpen as IconComponent;
+export default IconClapperboardOpen;

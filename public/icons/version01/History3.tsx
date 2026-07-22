@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHistory3: FC<IconProps> = ({
   className,
   fill = false,
@@ -101,28 +108,4 @@ const IconHistory3: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHistory3 as IconComponent).keywords = [
-  "history",
-  "3",
-  "chronicle",
-  "story",
-  "account",
-  "historiography",
-  "historical",
-  "historically",
-  "historian",
-  "annals",
-  "chronology",
-  "omega",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-];
-
-export default IconHistory3 as IconComponent;
+export default IconHistory3;

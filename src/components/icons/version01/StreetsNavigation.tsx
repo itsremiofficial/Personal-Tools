@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStreetsNavigation: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconStreetsNavigation: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStreetsNavigation as IconComponent).keywords = [
-  "streets",
-  "navigation",
-  "alleys",
-  "alleyways",
-  "arteries",
-  "avenues",
-  "benches",
-  "blocks",
-  "corners",
-  "crowds",
-  "demonstrations",
-  "piloting",
-  "pilotage",
-  "seafaring",
-  "sailing",
-  "navigate",
-  "maritime",
-  "nautical",
-  "ship",
-  "vessel",
-];
-
-export default IconStreetsNavigation as IconComponent;
+export default IconStreetsNavigation;

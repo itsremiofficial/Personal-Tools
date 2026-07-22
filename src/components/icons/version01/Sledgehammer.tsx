@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSledgehammer: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,18 +97,4 @@ const IconSledgehammer: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSledgehammer as IconComponent).keywords = [
-  "sledgehammer",
-  "sledge",
-  "maul",
-  "hammer",
-  "mallet",
-  "harness",
-  "weight",
-  "mass",
-  "gavel",
-  "estate",
-];
-
-export default IconSledgehammer as IconComponent;
+export default IconSledgehammer;

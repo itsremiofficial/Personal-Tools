@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSadSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,28 +87,4 @@ const IconSadSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSadSquare as IconComponent).keywords = [
-  "sad",
-  "square",
-  "sadden",
-  "doleful",
-  "sorrowful",
-  "tragic",
-  "saddening",
-  "mournful",
-  "lamentable",
-  "melancholic",
-  "depressing",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconSadSquare as IconComponent;
+export default IconSadSquare;

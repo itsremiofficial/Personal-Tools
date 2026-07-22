@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHarmonyOne: FC<IconProps> = ({
   className,
   fill = false,
@@ -105,27 +112,4 @@ const IconHarmonyOne: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHarmonyOne as IconComponent).keywords = [
-  "harmony",
-  "one",
-  "concord",
-  "concordance",
-  "harmoniousness",
-  "musical harmony",
-  "accordance",
-  "accord",
-  "congruity",
-  "congruence",
-  "consistency",
-  "combined",
-  "united",
-  "same",
-  "unity",
-  "unitary",
-  "cardinal",
-  "one and only",
-  "extraordinary",
-];
-
-export default IconHarmonyOne as IconComponent;
+export default IconHarmonyOne;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStarRainbow: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconStarRainbow: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStarRainbow as IconComponent).keywords = [
-  "star",
-  "rainbow",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-  "arc",
-  "window",
-  "indigo",
-  "fry",
-  "cra",
-  "the",
-  "iris",
-  "steelhead",
-  "trout",
-];
-
-export default IconStarRainbow as IconComponent;
+export default IconStarRainbow;

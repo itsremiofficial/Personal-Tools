@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPlanet3: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,28 +102,4 @@ const IconPlanet3: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPlanet3 as IconComponent).keywords = [
-  "planet",
-  "3",
-  "satellite",
-  "planetary",
-  "star",
-  "orb",
-  "mars",
-  "hemisphere",
-  "homeworld",
-  "earth",
-  "universe",
-  "omega",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-];
-
-export default IconPlanet3 as IconComponent;
+export default IconPlanet3;

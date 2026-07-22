@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMiniMusicSqaure: FC<IconProps> = ({
   className,
   fill = false,
@@ -107,29 +114,4 @@ const IconMiniMusicSqaure: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMiniMusicSqaure as IconComponent).keywords = [
-  "mini",
-  "music",
-  "sqaure",
-  "tiny",
-  "little",
-  "small-scale",
-  "micro",
-  "small",
-  "minimum",
-  "minimalist",
-  "partial",
-  "minor",
-  "sheet music",
-  "euphony",
-  "medicine",
-  "melody",
-  "symphony",
-  "orchestra",
-  "musician",
-  "song",
-  "singing",
-];
-
-export default IconMiniMusicSqaure as IconComponent;
+export default IconMiniMusicSqaure;

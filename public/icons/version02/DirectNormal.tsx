@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDirectNormal: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,28 +82,4 @@ const IconDirectNormal: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDirectNormal as IconComponent).keywords = [
-  "direct",
-  "normal",
-  "straightforward",
-  "directly",
-  "forthright",
-  "plainspoken",
-  "man-to-man",
-  "straight",
-  "frank",
-  "free-spoken",
-  "outspoken",
-  "typical",
-  "natural",
-  "mean",
-  "rule",
-  "modal",
-  "pattern",
-  "convention",
-  "regular",
-  "average",
-];
-
-export default IconDirectNormal as IconComponent;
+export default IconDirectNormal;

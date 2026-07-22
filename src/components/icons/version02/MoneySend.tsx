@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMoneySend: FC<IconProps> = ({
   className,
   fill = false,
@@ -109,28 +116,4 @@ const IconMoneySend: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMoneySend as IconComponent).keywords = [
-  "money",
-  "send",
-  "rich",
-  "monied",
-  "wealthy",
-  "affluent",
-  "loaded",
-  "flush",
-  "muni",
-  "finance",
-  "financing",
-  "transmit",
-  "charge",
-  "transport",
-  "mail",
-  "base",
-  "institutionalize",
-  "place",
-  "broadcast",
-  "commit",
-];
-
-export default IconMoneySend as IconComponent;
+export default IconMoneySend;

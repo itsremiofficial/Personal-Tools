@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBluetoothCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,28 +90,4 @@ const IconBluetoothCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBluetoothCircle as IconComponent).keywords = [
-  "bluetooth",
-  "circle",
-  "teeth",
-  "tooth",
-  "handsfree",
-  "wireless",
-  "ipod",
-  "wifi",
-  "stereo",
-  "speakerphone",
-  "headset",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconBluetoothCircle as IconComponent;
+export default IconBluetoothCircle;

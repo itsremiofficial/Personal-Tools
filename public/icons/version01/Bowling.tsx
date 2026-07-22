@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBowling: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,18 +104,4 @@ const IconBowling: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBowling as IconComponent).keywords = [
-  "bowling",
-  "basin",
-  "trough",
-  "arena",
-  "stadium",
-  "pipe bowl",
-  "tenpin",
-  "bowler",
-  "billiard",
-  "bingo",
-];
-
-export default IconBowling as IconComponent;
+export default IconBowling;

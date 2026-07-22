@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRefresh: FC<IconProps> = ({
   className,
   fill = false,
@@ -68,18 +75,4 @@ const IconRefresh: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRefresh as IconComponent).keywords = [
-  "refresh",
-  "refreshen",
-  "freshen",
-  "review",
-  "freshen up",
-  "brush up",
-  "refresher",
-  "refreshment",
-  "rejuvenate",
-  "revive",
-];
-
-export default IconRefresh as IconComponent;
+export default IconRefresh;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCardAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -115,28 +122,4 @@ const IconCardAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCardAdd as IconComponent).keywords = [
-  "card",
-  "add",
-  "scorecard",
-  "batting order",
-  "identity card",
-  "visiting card",
-  "calling card",
-  "lineup",
-  "poster",
-  "placard",
-  "tease",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconCardAdd as IconComponent;
+export default IconCardAdd;

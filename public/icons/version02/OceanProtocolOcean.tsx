@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconOceanProtocolOcean: FC<IconProps> = ({
   className,
   fill = false,
@@ -483,28 +490,4 @@ const IconOceanProtocolOcean: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconOceanProtocolOcean as IconComponent).keywords = [
-  "ocean",
-  "protocol",
-  "sea",
-  "expanse",
-  "oceanic",
-  "seabed",
-  "seafloor",
-  "oceanographic",
-  "pelagic",
-  "oceanography",
-  "marine",
-  "communications protocol",
-  "agreement",
-  "convention",
-  "register",
-  "procedure",
-  "minutes",
-  "etiquette",
-  "design",
-  "memorandum",
-];
-
-export default IconOceanProtocolOcean as IconComponent;
+export default IconOceanProtocolOcean;

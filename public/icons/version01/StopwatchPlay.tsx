@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStopwatchPlay: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,28 +97,4 @@ const IconStopwatchPlay: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStopwatchPlay as IconComponent).keywords = [
-  "stopwatch",
-  "play",
-  "stopo watch",
-  "clock",
-  "watch",
-  "timekeeping",
-  "timer",
-  "time",
-  "timing",
-  "wristwatch",
-  "chronometer",
-  "frolic",
-  "fun",
-  "gambol",
-  "caper",
-  "romp",
-  "toy",
-  "make-believe",
-  "pretend",
-  "dally",
-];
-
-export default IconStopwatchPlay as IconComponent;
+export default IconStopwatchPlay;

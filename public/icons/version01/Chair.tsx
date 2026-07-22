@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChair: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,18 +85,4 @@ const IconChair: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChair as IconComponent).keywords = [
-  "chair",
-  "electric chair",
-  "hot seat",
-  "chairwoman",
-  "chairman",
-  "preside",
-  "professorship",
-  "chairperson",
-  "president",
-  "moderate",
-];
-
-export default IconChair as IconComponent;
+export default IconChair;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEosEos: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,18 +94,4 @@ const IconEosEos: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEosEos as IconComponent).keywords = [
-  "eos",
-  "canon",
-  "dawn",
-  "soe",
-  "ecco",
-  "carta",
-  "deutsch",
-  "cesar",
-  "lys",
-  "grote",
-];
-
-export default IconEosEos as IconComponent;
+export default IconEosEos;

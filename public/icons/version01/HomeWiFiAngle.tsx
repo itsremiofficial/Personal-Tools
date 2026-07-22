@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHomeWiFiAngle: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,45 +85,4 @@ const IconHomeWiFiAngle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHomeWiFiAngle as IconComponent).keywords = [
-  "home",
-  "wi",
-  "fi",
-  "angle",
-  "domicile",
-  "habitation",
-  "domestic",
-  "dwelling",
-  "nursing home",
-  "rest home",
-  "house",
-  "dwelling house",
-  "household",
-  "tl",
-  "t2",
-  "jon",
-  "chak",
-  "claire",
-  "crosse",
-  "dsl",
-  "ethernet",
-  "sci",
-  "semper",
-  "initiative",
-  "audio",
-  "abyss",
-  "agent",
-  "alien",
-  "weight",
-  "slant",
-  "tilt",
-  "lean",
-  "tip",
-  "fish",
-  "side",
-  "prism",
-  "dimension",
-];
-
-export default IconHomeWiFiAngle as IconComponent;
+export default IconHomeWiFiAngle;

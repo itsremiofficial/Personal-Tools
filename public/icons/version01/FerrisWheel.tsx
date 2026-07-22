@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFerrisWheel: FC<IconProps> = ({
   className,
   fill = false,
@@ -152,28 +159,4 @@ const IconFerrisWheel: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFerrisWheel as IconComponent).keywords = [
-  "ferris",
-  "wheel",
-  "farris",
-  "grande",
-  "big",
-  "browning",
-  "grand",
-  "vast",
-  "large",
-  "great",
-  "major",
-  "steering wheel",
-  "wheel around",
-  "pedal",
-  "bicycle",
-  "cycle",
-  "rack",
-  "bike",
-  "roll",
-  "roulette wheel",
-];
-
-export default IconFerrisWheel as IconComponent;
+export default IconFerrisWheel;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAlarmPlay: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,28 +111,4 @@ const IconAlarmPlay: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAlarmPlay as IconComponent).keywords = [
-  "alarm",
-  "play",
-  "alarum",
-  "alarm system",
-  "alert",
-  "consternation",
-  "alarm clock",
-  "horrify",
-  "appall",
-  "dismay",
-  "appal",
-  "frolic",
-  "fun",
-  "gambol",
-  "caper",
-  "romp",
-  "toy",
-  "make-believe",
-  "pretend",
-  "dally",
-];
-
-export default IconAlarmPlay as IconComponent;
+export default IconAlarmPlay;

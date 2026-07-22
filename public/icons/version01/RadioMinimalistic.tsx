@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRadioMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -124,28 +131,4 @@ const IconRadioMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRadioMinimalistic as IconComponent).keywords = [
-  "radio",
-  "minimalistic",
-  "radiocommunication",
-  "tuner",
-  "wireless",
-  "radio receiver",
-  "radio set",
-  "receiving set",
-  "radiotelegraph",
-  "radiotelephone",
-  "walkie-talkie",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconRadioMinimalistic as IconComponent;
+export default IconRadioMinimalistic;

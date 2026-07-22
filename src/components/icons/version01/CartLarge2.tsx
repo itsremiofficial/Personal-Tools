@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCartLarge2: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,38 +104,4 @@ const IconCartLarge2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCartLarge2 as IconComponent).keywords = [
-  "cart",
-  "large",
-  "2",
-  "handcart",
-  "pushcart",
-  "go-cart",
-  "haul",
-  "drag",
-  "dray",
-  "wheelbarrow",
-  "wagon",
-  "bandwagon",
-  "great",
-  "large-scale",
-  "vast",
-  "larger-than-life",
-  "colossal",
-  "huge",
-  "prodigious",
-  "humongous",
-  "massive",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconCartLarge2 as IconComponent;
+export default IconCartLarge2;

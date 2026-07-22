@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDrop: FC<IconProps> = ({
   className,
   fill = false,
@@ -66,18 +73,4 @@ const IconDrop: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDrop as IconComponent).keywords = [
-  "drop",
-  "shed",
-  "fell",
-  "flatten",
-  "sink",
-  "drop cloth",
-  "knock off",
-  "dangle",
-  "swing",
-  "driblet",
-];
-
-export default IconDrop as IconComponent;
+export default IconDrop;

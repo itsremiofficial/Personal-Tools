@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUserCrossRounded: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,38 +93,4 @@ const IconUserCrossRounded: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUserCrossRounded as IconComponent).keywords = [
-  "user",
-  "cross",
-  "rounded",
-  "exploiter",
-  "enjoyer",
-  "drug user",
-  "substance abuser",
-  "customer",
-  "client",
-  "employer",
-  "consumer",
-  "employee",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-  "ringed",
-  "ring-shaped",
-  "annulate",
-  "annular",
-  "circular",
-  "rotund",
-  "bowfront",
-  "prolate",
-  "domed",
-];
-
-export default IconUserCrossRounded as IconComponent;
+export default IconUserCrossRounded;

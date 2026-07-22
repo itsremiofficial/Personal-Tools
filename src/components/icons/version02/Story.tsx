@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStory: FC<IconProps> = ({
   className,
   fill = false,
@@ -109,18 +116,4 @@ const IconStory: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStory as IconComponent).keywords = [
-  "story",
-  "narrative",
-  "narration",
-  "recital",
-  "write up",
-  "history",
-  "report",
-  "chronicle",
-  "tale",
-  "news report",
-];
-
-export default IconStory as IconComponent;
+export default IconStory;

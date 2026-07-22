@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMobileProgramming: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,28 +109,4 @@ const IconMobileProgramming: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMobileProgramming as IconComponent).keywords = [
-  "mobile",
-  "programming",
-  "transportable",
-  "movable",
-  "moveable",
-  "moving",
-  "raiseable",
-  "maneuverable",
-  "manoeuvrable",
-  "raisable",
-  "rotatable",
-  "computer programming",
-  "scheduling",
-  "airtime",
-  "television",
-  "broadcasting",
-  "plan",
-  "software",
-  "programmer",
-  "programmatic",
-];
-
-export default IconMobileProgramming as IconComponent;
+export default IconMobileProgramming;

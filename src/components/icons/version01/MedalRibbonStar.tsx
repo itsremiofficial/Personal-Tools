@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMedalRibbonStar: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,32 +89,4 @@ const IconMedalRibbonStar: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMedalRibbonStar as IconComponent).keywords = [
-  "medal",
-  "ribbon",
-  "star",
-  "medallion",
-  "decoration",
-  "laurel wreath",
-  "palm",
-  "medalist",
-  "decorating",
-  "décor",
-  "plaque",
-  "thread",
-  "typewriter ribbon",
-  "webbing",
-  "shield",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-];
-
-export default IconMedalRibbonStar as IconComponent;
+export default IconMedalRibbonStar;

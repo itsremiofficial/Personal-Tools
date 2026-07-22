@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRouting2: FC<IconProps> = ({
   className,
   fill = false,
@@ -122,28 +129,4 @@ const IconRouting2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRouting2 as IconComponent).keywords = [
-  "routing",
-  "2",
-  "mob",
-  "expel",
-  "spread-eagle",
-  "rabble",
-  "discomfiture",
-  "discomfit",
-  "groove",
-  "rootle",
-  "gouge",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconRouting2 as IconComponent;
+export default IconRouting2;

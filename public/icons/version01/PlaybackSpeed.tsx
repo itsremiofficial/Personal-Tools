@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPlaybackSpeed: FC<IconProps> = ({
   className,
   fill = false,
@@ -104,28 +111,4 @@ const IconPlaybackSpeed: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPlaybackSpeed as IconComponent).keywords = [
-  "playback",
-  "speed",
-  "replaying",
-  "reprinting",
-  "replay",
-  "resubmission",
-  "read",
-  "replicate",
-  "replication",
-  "playable",
-  "copy",
-  "hastening",
-  "quicken",
-  "swiftness",
-  "accelerate",
-  "speed up",
-  "hasten",
-  "hie",
-  "hurry",
-  "hurrying",
-];
-
-export default IconPlaybackSpeed as IconComponent;
+export default IconPlaybackSpeed;

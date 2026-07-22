@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAirplaneSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconAirplaneSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAirplaneSquare as IconComponent).keywords = [
-  "airplane",
-  "square",
-  "aeroplane",
-  "plane",
-  "jetliner",
-  "warplane",
-  "helicopter",
-  "aviation",
-  "airport",
-  "airliner",
-  "aircraft",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconAirplaneSquare as IconComponent;
+export default IconAirplaneSquare;

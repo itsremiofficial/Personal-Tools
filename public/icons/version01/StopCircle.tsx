@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconStopCircle: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,28 +86,4 @@ const IconStopCircle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconStopCircle as IconComponent).keywords = [
-  "stop",
-  "circle",
-  "stoppage",
-  "cease",
-  "kibosh",
-  "discontinue",
-  "terminate",
-  "quit",
-  "break off",
-  "intercept",
-  "hold back",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-];
-
-export default IconStopCircle as IconComponent;
+export default IconStopCircle;

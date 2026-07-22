@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTrushSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,19 +97,4 @@ const IconTrushSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTrushSquare as IconComponent).keywords = [
-  "trush",
-  "square",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconTrushSquare as IconComponent;
+export default IconTrushSquare;

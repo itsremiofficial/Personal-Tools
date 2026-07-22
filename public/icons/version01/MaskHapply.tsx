@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMaskHapply: FC<IconProps> = ({
   className,
   fill = false,
@@ -90,19 +97,4 @@ const IconMaskHapply: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMaskHapply as IconComponent).keywords = [
-  "mask",
-  "happly",
-  "cloak",
-  "masquerade",
-  "masque",
-  "block out",
-  "dissemble",
-  "vizard",
-  "hood",
-  "shield",
-  "sock",
-];
-
-export default IconMaskHapply as IconComponent;
+export default IconMaskHapply;

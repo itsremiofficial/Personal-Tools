@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLockPasswordUnlocked: FC<IconProps> = ({
   className,
   fill = false,
@@ -96,38 +103,4 @@ const IconLockPasswordUnlocked: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLockPasswordUnlocked as IconComponent).keywords = [
-  "lock",
-  "password",
-  "unlocked",
-  "interlock",
-  "lock in",
-  "mesh",
-  "interlace",
-  "whorl",
-  "lock away",
-  "curl",
-  "ringlet",
-  "put away",
-  "countersign",
-  "watchword",
-  "word",
-  "parole",
-  "passcode",
-  "username",
-  "passphrase",
-  "codeword",
-  "cleartext",
-  "unsecured",
-  "unbarred",
-  "unbolted",
-  "unfastened",
-  "unlatched",
-  "unobstructed",
-  "undone",
-  "unblocked",
-  "untied",
-];
-
-export default IconLockPasswordUnlocked as IconComponent;
+export default IconLockPasswordUnlocked;

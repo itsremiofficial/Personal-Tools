@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHamburgerMenu: FC<IconProps> = ({
   className,
   fill = false,
@@ -85,28 +92,4 @@ const IconHamburgerMenu: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHamburgerMenu as IconComponent).keywords = [
-  "hamburger",
-  "menu",
-  "beefburger",
-  "ground beef",
-  "mincemeat",
-  "burger",
-  "meat",
-  "whopper",
-  "burgers",
-  "joes",
-  "cheeseburger",
-  "bill of fare",
-  "carte",
-  "fare",
-  "card",
-  "carte du jour",
-  "computer menu",
-  "dinner",
-  "meal",
-  "list",
-];
-
-export default IconHamburgerMenu as IconComponent;
+export default IconHamburgerMenu;

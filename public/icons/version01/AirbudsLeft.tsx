@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAirbudsLeft: FC<IconProps> = ({
   className,
   fill = false,
@@ -128,19 +135,4 @@ const IconAirbudsLeft: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAirbudsLeft as IconComponent).keywords = [
-  "airbuds",
-  "left",
-  "left-hand",
-  "left-handed",
-  "left over",
-  "near",
-  "leftover",
-  "nigh",
-  "remaining",
-  "leftfield",
-  "odd",
-];
-
-export default IconAirbudsLeft as IconComponent;
+export default IconAirbudsLeft;

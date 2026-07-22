@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBlend: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,18 +82,4 @@ const IconBlend: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBlend as IconComponent).keywords = [
-  "blend",
-  "intermingle",
-  "immix",
-  "intermix",
-  "mix",
-  "commingle",
-  "immingle",
-  "blend in",
-  "conflate",
-  "meld",
-];
-
-export default IconBlend as IconComponent;
+export default IconBlend;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGroup: FC<IconProps> = ({
   className,
   fill = false,
@@ -112,18 +119,4 @@ const IconGroup: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGroup as IconComponent).keywords = [
-  "group",
-  "aggroup",
-  "common",
-  "communal",
-  "radical",
-  "mathematical group",
-  "cohort",
-  "type",
-  "class",
-  "collective",
-];
-
-export default IconGroup as IconComponent;
+export default IconGroup;

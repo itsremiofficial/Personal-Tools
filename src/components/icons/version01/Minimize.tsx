@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMinimize: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,18 +86,4 @@ const IconMinimize: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMinimize as IconComponent).keywords = [
-  "minimize",
-  "derogate",
-  "belittle",
-  "denigrate",
-  "understate",
-  "lessen",
-  "reduced",
-  "diminish",
-  "lessening",
-  "reduce",
-];
-
-export default IconMinimize as IconComponent;
+export default IconMinimize;

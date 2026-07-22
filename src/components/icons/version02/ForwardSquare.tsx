@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconForwardSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,28 +87,4 @@ const IconForwardSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconForwardSquare as IconComponent).keywords = [
-  "forward",
-  "square",
-  "frontwards",
-  "ahead",
-  "frontward",
-  "forrader",
-  "front",
-  "forth",
-  "onwards",
-  "onward",
-  "advancing",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconForwardSquare as IconComponent;
+export default IconForwardSquare;

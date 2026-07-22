@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconColourTuneing: FC<IconProps> = ({
   className,
   fill = false,
@@ -79,28 +86,4 @@ const IconColourTuneing: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconColourTuneing as IconComponent).keywords = [
-  "colour",
-  "tuneing",
-  "semblance",
-  "color in",
-  "colour in",
-  "panchromatic",
-  "color",
-  "discolour",
-  "coloring",
-  "discolor",
-  "vividness",
-  "melody",
-  "tune up",
-  "line",
-  "strain",
-  "air",
-  "melodic line",
-  "melodic phrase",
-  "singing",
-  "song",
-];
-
-export default IconColourTuneing as IconComponent;
+export default IconColourTuneing;

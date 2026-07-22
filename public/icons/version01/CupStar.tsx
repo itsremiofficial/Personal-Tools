@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCupStar: FC<IconProps> = ({
   className,
   fill = false,
@@ -132,28 +139,4 @@ const IconCupStar: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCupStar as IconComponent).keywords = [
-  "cup",
-  "star",
-  "loving cup",
-  "cupful",
-  "transfuse",
-  "chalice",
-  "goblet",
-  "bottle",
-  "jar",
-  "pot",
-  "bowl",
-  "stellar",
-  "asterisk",
-  "lead",
-  "leading",
-  "maven",
-  "sensation",
-  "principal",
-  "whizz",
-  "headliner",
-];
-
-export default IconCupStar as IconComponent;
+export default IconCupStar;

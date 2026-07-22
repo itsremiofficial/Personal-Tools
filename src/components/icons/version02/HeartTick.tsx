@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHeartTick: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,28 +90,4 @@ const IconHeartTick: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHeartTick as IconComponent).keywords = [
-  "heart",
-  "tick",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-  "click",
-  "ticktock",
-  "beat",
-  "ticktack",
-  "retick",
-  "ixodid",
-  "acarid",
-  "spinose",
-  "gene",
-];
-
-export default IconHeartTick as IconComponent;
+export default IconHeartTick;

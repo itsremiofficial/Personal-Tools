@@ -20,6 +20,7 @@ interface IconCardProps {
   version: string;
   className?: string;
   variant?: "default" | "compact" | "minimal";
+  iconSize?: number;
 }
 
 const actionBtn =
@@ -34,6 +35,7 @@ export const IconCard = memo(
     onDownload,
     version,
     className,
+    iconSize = 48,
   }: IconCardProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -66,41 +68,28 @@ export const IconCard = memo(
                     transition={{ duration: 0.18, ease: "easeInOut" }}
                     className="absolute inset-0 flex items-center justify-center"
                   >
-                    <Icon
-                      className="w-10 h-10 sm:w-12 sm:h-12 text-foreground"
-                      fill={currentStyle === "bulk" || currentStyle === "bold"}
-                      duotone={
-                        currentStyle !== "bold" && currentStyle !== "line-solid"
-                      }
-                      width={1.2}
-                    />
+                    <div
+                      style={{ width: iconSize, height: iconSize }}
+                      className="flex items-center justify-center"
+                    >
+                      <Icon
+                        className="text-foreground w-full h-full"
+                        fill={currentStyle === "bulk" || currentStyle === "bold"}
+                        duotone={
+                          currentStyle !== "bold" && currentStyle !== "line-solid"
+                        }
+                        width={1.2}
+                      />
+                    </div>
                   </motion.div>
                 </AnimatePresence>
               </div>
             }
             content={
               <div className="max-w-xs">
-                <p className="text-sm mb-4">
-                  {formatIconName(name)}{" "}
-                  <span className="text-foreground/30">- Keywords</span>
+                <p className="text-sm font-mono">
+                  {name}
                 </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {((Icon as IconComponent).keywords || []).map(
-                    (keyword: string, index: number) => (
-                      <span
-                        key={index}
-                        className="px-2 py-1 text-[10px] bg-muted/60 rounded-full leading-none capitalize text-foreground/70"
-                      >
-                        {keyword}
-                      </span>
-                    ),
-                  )}
-                  {(!Icon.keywords || Icon.keywords.length === 0) && (
-                    <span className="text-xs text-muted-foreground">
-                      No keywords
-                    </span>
-                  )}
-                </div>
               </div>
             }
           />

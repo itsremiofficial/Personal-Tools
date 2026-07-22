@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFacemaskSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -140,28 +147,4 @@ const IconFacemaskSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFacemaskSquare as IconComponent).keywords = [
-  "facemask",
-  "square",
-  "diving mask",
-  "scuba diving",
-  "snorkel",
-  "swimcap",
-  "scuba",
-  "backplate",
-  "aqualung",
-  "scaphander",
-  "bailout",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconFacemaskSquare as IconComponent;
+export default IconFacemaskSquare;

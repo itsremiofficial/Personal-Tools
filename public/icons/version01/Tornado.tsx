@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTornado: FC<IconProps> = ({
   className,
   fill = false,
@@ -131,18 +138,4 @@ const IconTornado: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTornado as IconComponent).keywords = [
-  "tornado",
-  "twister",
-  "whirlwind",
-  "cyclone",
-  "hurricane",
-  "typhoon",
-  "storm",
-  "twist",
-  "alert",
-  "torpedo",
-];
-
-export default IconTornado as IconComponent;
+export default IconTornado;

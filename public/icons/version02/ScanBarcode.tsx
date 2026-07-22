@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconScanBarcode: FC<IconProps> = ({
   className,
   fill = false,
@@ -171,27 +178,4 @@ const IconScanBarcode: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconScanBarcode as IconComponent).keywords = [
-  "scan",
-  "barcode",
-  "read",
-  "run down",
-  "glance over",
-  "skim",
-  "rake",
-  "examine",
-  "inspect",
-  "finding",
-  "scrutinize",
-  "bar",
-  "barcoding",
-  "barcoded",
-  "scanner",
-  "scannable",
-  "scanning",
-  "scanners",
-  "microprint",
-];
-
-export default IconScanBarcode as IconComponent;
+export default IconScanBarcode;

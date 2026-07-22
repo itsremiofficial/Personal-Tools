@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFridge: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,18 +107,4 @@ const IconFridge: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFridge as IconComponent).keywords = [
-  "fridge",
-  "electric refrigerator",
-  "refrigerator",
-  "freezer",
-  "refrigeration",
-  "icebox",
-  "cooler",
-  "ice",
-  "freeze",
-  "coke",
-];
-
-export default IconFridge as IconComponent;
+export default IconFridge;

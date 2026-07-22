@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMessageTime: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,28 +104,4 @@ const IconMessageTime: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMessageTime as IconComponent).keywords = [
-  "message",
-  "time",
-  "subject matter",
-  "substance",
-  "content",
-  "file",
-  "communiqué",
-  "transmission",
-  "communication",
-  "news",
-  "advertisement",
-  "fourth dimension",
-  "clock",
-  "meter",
-  "clip",
-  "sentence",
-  "clock time",
-  "prison term",
-  "space-time",
-  "momentum",
-];
-
-export default IconMessageTime as IconComponent;
+export default IconMessageTime;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconPlanet: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,18 +78,4 @@ const IconPlanet: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconPlanet as IconComponent).keywords = [
-  "planet",
-  "satellite",
-  "planetary",
-  "star",
-  "orb",
-  "mars",
-  "hemisphere",
-  "homeworld",
-  "earth",
-  "universe",
-];
-
-export default IconPlanet as IconComponent;
+export default IconPlanet;

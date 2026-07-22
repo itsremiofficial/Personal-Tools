@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShare: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,18 +91,4 @@ const IconShare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShare as IconComponent).keywords = [
-  "share",
-  "portion out",
-  "portion",
-  "deal",
-  "divvy up",
-  "apportion",
-  "contribution",
-  "partake",
-  "part",
-  "parcel",
-];
-
-export default IconShare as IconComponent;
+export default IconShare;

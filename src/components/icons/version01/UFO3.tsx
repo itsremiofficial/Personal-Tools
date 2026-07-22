@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUFO3: FC<IconProps> = ({
   className,
   fill = false,
@@ -143,18 +150,4 @@ const IconUFO3: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUFO3 as IconComponent).keywords = [
-  "3",
-  "omega",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-];
-
-export default IconUFO3 as IconComponent;
+export default IconUFO3;

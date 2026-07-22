@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVideoLibrary: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,28 +96,4 @@ const IconVideoLibrary: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVideoLibrary as IconComponent).keywords = [
-  "video",
-  "library",
-  "tv",
-  "television",
-  "picture",
-  "telecasting",
-  "televised",
-  "videotaping",
-  "videotaped",
-  "taping",
-  "videotape",
-  "depository library",
-  "program library",
-  "librarianship",
-  "librarian",
-  "bookstore",
-  "catalogue",
-  "bookselling",
-  "bookshop",
-  "bibliotheca",
-];
-
-export default IconVideoLibrary as IconComponent;
+export default IconVideoLibrary;

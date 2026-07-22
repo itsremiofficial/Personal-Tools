@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDocumentForward: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,28 +93,4 @@ const IconDocumentForward: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDocumentForward as IconComponent).keywords = [
-  "document",
-  "forward",
-  "papers",
-  "text file",
-  "written document",
-  "documentation",
-  "backgrounder",
-  "workbook",
-  "dossier",
-  "handbook",
-  "listing",
-  "frontwards",
-  "ahead",
-  "frontward",
-  "forrader",
-  "front",
-  "forth",
-  "onwards",
-  "onward",
-  "advancing",
-];
-
-export default IconDocumentForward as IconComponent;
+export default IconDocumentForward;

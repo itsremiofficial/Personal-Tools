@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBackspace: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,18 +77,4 @@ const IconBackspace: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBackspace as IconComponent).keywords = [
-  "backspace",
-  "ctrl",
-  "recession",
-  "rewind",
-  "retrocession",
-  "return",
-  "rollback",
-  "reversal",
-  "reverse",
-  "backward",
-];
-
-export default IconBackspace as IconComponent;
+export default IconBackspace;

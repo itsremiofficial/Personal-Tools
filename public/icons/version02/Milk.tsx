@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMilk: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,18 +107,4 @@ const IconMilk: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMilk as IconComponent).keywords = [
-  "milk",
-  "milky",
-  "milklike",
-  "whitish",
-  "opaque",
-  "milk river",
-  "lactate",
-  "cream",
-  "soup",
-  "breastmilk",
-];
-
-export default IconMilk as IconComponent;
+export default IconMilk;

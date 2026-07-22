@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBacteria: FC<IconProps> = ({
   className,
   fill = false,
@@ -147,18 +154,4 @@ const IconBacteria: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBacteria as IconComponent).keywords = [
-  "bacteria",
-  "microbe",
-  "bacterial",
-  "bacteriological",
-  "listeriosis",
-  "blight",
-  "organism",
-  "germ",
-  "bug",
-  "lactic",
-];
-
-export default IconBacteria as IconComponent;
+export default IconBacteria;

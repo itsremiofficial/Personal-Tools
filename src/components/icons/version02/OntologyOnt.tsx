@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconOntologyOnt: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,28 +89,4 @@ const IconOntologyOnt: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconOntologyOnt as IconComponent).keywords = [
-  "ontology",
-  "ont",
-  "driven",
-  "ontologies",
-  "ontological",
-  "ontologic",
-  "epistemology",
-  "metaphysics",
-  "ontologists",
-  "mereology",
-  "metaphysic",
-  "bce",
-  "ltd",
-  "are",
-  "alb",
-  "alta",
-  "ils",
-  "nta",
-  "div",
-  "had",
-];
-
-export default IconOntologyOnt as IconComponent;
+export default IconOntologyOnt;

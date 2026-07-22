@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCardTick: FC<IconProps> = ({
   className,
   fill = false,
@@ -109,28 +116,4 @@ const IconCardTick: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCardTick as IconComponent).keywords = [
-  "card",
-  "tick",
-  "scorecard",
-  "batting order",
-  "identity card",
-  "visiting card",
-  "calling card",
-  "lineup",
-  "poster",
-  "placard",
-  "tease",
-  "click",
-  "ticktock",
-  "beat",
-  "ticktack",
-  "retick",
-  "ixodid",
-  "acarid",
-  "spinose",
-  "gene",
-];
-
-export default IconCardTick as IconComponent;
+export default IconCardTick;

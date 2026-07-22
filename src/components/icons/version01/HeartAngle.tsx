@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconHeartAngle: FC<IconProps> = ({
   className,
   fill = false,
@@ -69,28 +76,4 @@ const IconHeartAngle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconHeartAngle as IconComponent).keywords = [
-  "heart",
-  "angle",
-  "nerve",
-  "marrow",
-  "eye",
-  "nub",
-  "pith",
-  "bosom",
-  "spunk",
-  "core",
-  "meat",
-  "weight",
-  "slant",
-  "tilt",
-  "lean",
-  "tip",
-  "fish",
-  "side",
-  "prism",
-  "dimension",
-];
-
-export default IconHeartAngle as IconComponent;
+export default IconHeartAngle;

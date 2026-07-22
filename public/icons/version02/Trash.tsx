@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconTrash: FC<IconProps> = ({
   className,
   fill = false,
@@ -110,18 +117,4 @@ const IconTrash: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconTrash as IconComponent).keywords = [
-  "trash",
-  "junk",
-  "rubbish",
-  "scum",
-  "trumpery",
-  "folderol",
-  "scrap",
-  "tear apart",
-  "wish-wash",
-  "tripe",
-];
-
-export default IconTrash as IconComponent;
+export default IconTrash;

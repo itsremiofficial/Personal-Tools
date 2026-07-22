@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVideoTick: FC<IconProps> = ({
   className,
   fill = false,
@@ -122,28 +129,4 @@ const IconVideoTick: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVideoTick as IconComponent).keywords = [
-  "video",
-  "tick",
-  "tv",
-  "television",
-  "picture",
-  "telecasting",
-  "televised",
-  "videotaping",
-  "videotaped",
-  "taping",
-  "videotape",
-  "click",
-  "ticktock",
-  "beat",
-  "ticktack",
-  "retick",
-  "ixodid",
-  "acarid",
-  "spinose",
-  "gene",
-];
-
-export default IconVideoTick as IconComponent;
+export default IconVideoTick;

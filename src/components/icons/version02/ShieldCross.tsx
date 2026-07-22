@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconShieldCross: FC<IconProps> = ({
   className,
   fill = false,
@@ -81,28 +88,4 @@ const IconShieldCross: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconShieldCross as IconComponent).keywords = [
-  "shield",
-  "cross",
-  "buckler",
-  "screen",
-  "harbor",
-  "harbour",
-  "armoured",
-  "armor",
-  "breastplate",
-  "ribbon",
-  "visor",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-];
-
-export default IconShieldCross as IconComponent;
+export default IconShieldCross;

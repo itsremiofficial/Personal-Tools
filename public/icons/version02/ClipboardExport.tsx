@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconClipboardExport: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,28 +113,4 @@ const IconClipboardExport: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconClipboardExport as IconComponent).keywords = [
-  "clipboard",
-  "export",
-  "flipchart",
-  "notebook",
-  "pad",
-  "notepad",
-  "whiteboard",
-  "pasteboard",
-  "chalkboard",
-  "sketchpad",
-  "copy",
-  "exportation",
-  "import",
-  "importation",
-  "trade",
-  "sell",
-  "exporter",
-  "output",
-  "outsource",
-  "market",
-];
-
-export default IconClipboardExport as IconComponent;
+export default IconClipboardExport;

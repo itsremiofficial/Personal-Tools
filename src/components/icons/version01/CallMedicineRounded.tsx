@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCallMedicineRounded: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,38 +89,4 @@ const IconCallMedicineRounded: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCallMedicineRounded as IconComponent).keywords = [
-  "call",
-  "medicine",
-  "rounded",
-  "phone call",
-  "telephone call",
-  "call in",
-  "telephone",
-  "phone",
-  "call up",
-  "send for",
-  "call option",
-  "margin call",
-  "medication",
-  "medicate",
-  "medicament",
-  "music",
-  "medicinal drug",
-  "practice of medicine",
-  "prescription",
-  "pharmaceutical",
-  "drug",
-  "ringed",
-  "ring-shaped",
-  "annulate",
-  "annular",
-  "circular",
-  "rotund",
-  "bowfront",
-  "prolate",
-  "domed",
-];
-
-export default IconCallMedicineRounded as IconComponent;
+export default IconCallMedicineRounded;

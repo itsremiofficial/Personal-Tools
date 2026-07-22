@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBuyCrypto: FC<IconProps> = ({
   className,
   fill = false,
@@ -87,28 +94,4 @@ const IconBuyCrypto: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBuyCrypto as IconComponent).keywords = [
-  "buy",
-  "crypto",
-  "purchase",
-  "bargain",
-  "bribe",
-  "corrupt",
-  "steal",
-  "pay",
-  "paid",
-  "sell",
-  "sale",
-  "cypher",
-  "cipher",
-  "encrypted",
-  "cryptographic",
-  "cryptology",
-  "encrypt",
-  "cryptography",
-  "encryption",
-  "encode",
-];
-
-export default IconBuyCrypto as IconComponent;
+export default IconBuyCrypto;

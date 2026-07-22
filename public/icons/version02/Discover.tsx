@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDiscover: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,18 +90,4 @@ const IconDiscover: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDiscover as IconComponent).keywords = [
-  "discover",
-  "bring out",
-  "get wind",
-  "divulge",
-  "detect",
-  "declare",
-  "find out",
-  "come upon",
-  "find",
-  "observe",
-];
-
-export default IconDiscover as IconComponent;
+export default IconDiscover;

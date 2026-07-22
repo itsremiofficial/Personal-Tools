@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCallChat: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,28 +77,4 @@ const IconCallChat: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCallChat as IconComponent).keywords = [
-  "call",
-  "chat",
-  "phone call",
-  "telephone call",
-  "call in",
-  "telephone",
-  "phone",
-  "call up",
-  "send for",
-  "call option",
-  "margin call",
-  "confabulate",
-  "confab",
-  "confabulation",
-  "chitchat",
-  "natter",
-  "gossip",
-  "visit",
-  "chatter",
-  "claver",
-];
-
-export default IconCallChat as IconComponent;
+export default IconCallChat;

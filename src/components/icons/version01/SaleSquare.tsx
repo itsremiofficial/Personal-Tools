@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSaleSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,28 +93,4 @@ const IconSaleSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSaleSquare as IconComponent).keywords = [
-  "sale",
-  "square",
-  "cut-rate sale",
-  "sales agreement",
-  "sales event",
-  "sell",
-  "transaction",
-  "buying",
-  "resale",
-  "buy",
-  "purchasing",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconSaleSquare as IconComponent;
+export default IconSaleSquare;

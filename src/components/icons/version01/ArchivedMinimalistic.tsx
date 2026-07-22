@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconArchivedMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,28 +89,4 @@ const IconArchivedMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconArchivedMinimalistic as IconComponent).keywords = [
-  "archived",
-  "minimalistic",
-  "archival",
-  "file",
-  "classified",
-  "organized",
-  "recorded",
-  "maintained",
-  "redo",
-  "conserved",
-  "saved",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconArchivedMinimalistic as IconComponent;
+export default IconArchivedMinimalistic;

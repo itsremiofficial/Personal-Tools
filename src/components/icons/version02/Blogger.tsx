@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBlogger: FC<IconProps> = ({
   className,
   fill = false,
@@ -101,18 +108,4 @@ const IconBlogger: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBlogger as IconComponent).keywords = [
-  "blogger",
-  "blog",
-  "filer",
-  "writer",
-  "journalist",
-  "blogging",
-  "podcaster",
-  "blogs",
-  "columnist",
-  "photographer",
-];
-
-export default IconBlogger as IconComponent;
+export default IconBlogger;

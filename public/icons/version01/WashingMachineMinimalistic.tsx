@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWashingMachineMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,38 +98,4 @@ const IconWashingMachineMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWashingMachineMinimalistic as IconComponent).keywords = [
-  "washing",
-  "machine",
-  "minimalistic",
-  "lavation",
-  "rinsing",
-  "washout",
-  "lavage",
-  "handwashing",
-  "bathing",
-  "bath",
-  "scrubbing",
-  "mopping",
-  "simple machine",
-  "auto",
-  "automobile",
-  "motorcar",
-  "car",
-  "political machine",
-  "mechanism",
-  "device",
-  "engineer",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconWashingMachineMinimalistic as IconComponent;
+export default IconWashingMachineMinimalistic;

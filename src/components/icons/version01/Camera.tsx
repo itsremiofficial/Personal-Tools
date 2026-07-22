@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCamera: FC<IconProps> = ({
   className,
   fill = false,
@@ -83,18 +90,4 @@ const IconCamera: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCamera as IconComponent).keywords = [
-  "camera",
-  "photographic camera",
-  "television camera",
-  "photography",
-  "photographer",
-  "photographing",
-  "photograph",
-  "photo",
-  "imaging",
-  "photographic",
-];
-
-export default IconCamera as IconComponent;
+export default IconCamera;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBoxRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -125,28 +132,4 @@ const IconBoxRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBoxRemove as IconComponent).keywords = [
-  "box",
-  "remove",
-  "package",
-  "loge",
-  "corner",
-  "box seat",
-  "boxwood",
-  "bin",
-  "chest",
-  "toolbox",
-  "shoebox",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconBoxRemove as IconComponent;
+export default IconBoxRemove;

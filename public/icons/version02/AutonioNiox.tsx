@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAutonioNiox: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,7 +109,4 @@ const IconAutonioNiox: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAutonioNiox as IconComponent).keywords = ["autonio", "niox"];
-
-export default IconAutonioNiox as IconComponent;
+export default IconAutonioNiox;

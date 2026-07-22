@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBank: FC<IconProps> = ({
   className,
   fill = false,
@@ -177,18 +184,4 @@ const IconBank: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBank as IconComponent).keywords = [
-  "bank",
-  "savings bank",
-  "money box",
-  "swear",
-  "rely",
-  "trust",
-  "cant",
-  "camber",
-  "deposit",
-  "bank building",
-];
-
-export default IconBank as IconComponent;
+export default IconBank;

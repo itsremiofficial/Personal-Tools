@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconElectricity: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,18 +102,4 @@ const IconElectricity: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconElectricity as IconComponent).keywords = [
-  "electricity",
-  "electrical energy",
-  "voltage",
-  "light",
-  "conductivity",
-  "electrically",
-  "electric",
-  "electrical",
-  "electrification",
-  "lightning",
-];
-
-export default IconElectricity as IconComponent;
+export default IconElectricity;

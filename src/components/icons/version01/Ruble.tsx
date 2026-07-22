@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRuble: FC<IconProps> = ({
   className,
   fill = false,
@@ -86,18 +93,4 @@ const IconRuble: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRuble as IconComponent).keywords = [
-  "ruble",
-  "rouble",
-  "zloty",
-  "rupee",
-  "kopeks",
-  "manat",
-  "tenge",
-  "roubles",
-  "dollar",
-  "grivna",
-];
-
-export default IconRuble as IconComponent;
+export default IconRuble;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBe: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,18 +104,4 @@ const IconBe: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBe as IconComponent).keywords = [
-  "be",
-  "living thing",
-  "existence",
-  "beingness",
-  "life form",
-  "organism",
-  "hib",
-  "cgs",
-  "osi",
-  "ocs",
-];
-
-export default IconBe as IconComponent;
+export default IconBe;

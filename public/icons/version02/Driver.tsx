@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDriver: FC<IconProps> = ({
   className,
   fill = false,
@@ -146,18 +153,4 @@ const IconDriver: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDriver as IconComponent).keywords = [
-  "driver",
-  "device driver",
-  "number one wood",
-  "motorist",
-  "passenger",
-  "motorman",
-  "vehicle",
-  "car",
-  "driving",
-  "chauffeur",
-];
-
-export default IconDriver as IconComponent;
+export default IconDriver;

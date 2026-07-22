@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAirbudsCaseOpen: FC<IconProps> = ({
   className,
   fill = false,
@@ -105,29 +112,4 @@ const IconAirbudsCaseOpen: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAirbudsCaseOpen as IconComponent).keywords = [
-  "airbuds",
-  "case",
-  "open",
-  "event",
-  "cause",
-  "subject",
-  "example",
-  "eccentric",
-  "showcase",
-  "type",
-  "instance",
-  "character",
-  "open up",
-  "available",
-  "visible",
-  "afford",
-  "public",
-  "ajar",
-  "give",
-  "spread",
-  "wide",
-];
-
-export default IconAirbudsCaseOpen as IconComponent;
+export default IconAirbudsCaseOpen;

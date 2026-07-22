@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBagCross: FC<IconProps> = ({
   className,
   fill = false,
@@ -113,28 +120,4 @@ const IconBagCross: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBagCross as IconComponent).keywords = [
-  "bag",
-  "cross",
-  "purse",
-  "pocketbook",
-  "handbag",
-  "pocket",
-  "bagful",
-  "suitcase",
-  "dish",
-  "grip",
-  "cup of tea",
-  "foil",
-  "crisscross",
-  "intersect",
-  "transverse",
-  "transversal",
-  "crosswise",
-  "mark",
-  "cut across",
-  "hybridization",
-];
-
-export default IconBagCross as IconComponent;
+export default IconBagCross;

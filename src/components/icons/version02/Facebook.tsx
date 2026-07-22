@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconFacebook: FC<IconProps> = ({
   className,
   fill = false,
@@ -76,18 +83,4 @@ const IconFacebook: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconFacebook as IconComponent).keywords = [
-  "facebook",
-  "album",
-  "joke",
-  "site",
-  "twitter",
-  "myspace",
-  "youtube",
-  "newsfeed",
-  "google",
-  "friendster",
-];
-
-export default IconFacebook as IconComponent;
+export default IconFacebook;

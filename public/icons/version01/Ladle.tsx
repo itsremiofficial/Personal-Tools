@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLadle: FC<IconProps> = ({
   className,
   fill = false,
@@ -80,18 +87,4 @@ const IconLadle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLadle as IconComponent).keywords = [
-  "ladle",
-  "lade",
-  "laden",
-  "spoon",
-  "busboy",
-  "waiter",
-  "dipper",
-  "bag",
-  "pouch",
-  "pocket",
-];
-
-export default IconLadle as IconComponent;
+export default IconLadle;

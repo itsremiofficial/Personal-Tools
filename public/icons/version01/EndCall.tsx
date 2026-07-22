@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEndCall: FC<IconProps> = ({
   className,
   fill = false,
@@ -68,28 +75,4 @@ const IconEndCall: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEndCall as IconComponent).keywords = [
-  "end",
-  "call",
-  "finish",
-  "conclusion",
-  "close",
-  "remainder",
-  "remnant",
-  "closing",
-  "cease",
-  "oddment",
-  "terminate",
-  "phone call",
-  "telephone call",
-  "call in",
-  "telephone",
-  "phone",
-  "call up",
-  "send for",
-  "call option",
-  "margin call",
-];
-
-export default IconEndCall as IconComponent;
+export default IconEndCall;

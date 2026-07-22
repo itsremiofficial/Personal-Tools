@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMonitorSmartphone: FC<IconProps> = ({
   className,
   fill = false,
@@ -102,28 +109,4 @@ const IconMonitorSmartphone: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMonitorSmartphone as IconComponent).keywords = [
-  "monitor",
-  "smartphone",
-  "ride herd on",
-  "supervise",
-  "proctor",
-  "reminder",
-  "admonisher",
-  "varan",
-  "monitor lizard",
-  "supervised",
-  "manage",
-  "intelligent",
-  "smart",
-  "screenphone",
-  "featurephone",
-  "superphone",
-  "touchphone",
-  "mobile device",
-  "cellular phone",
-  "smartwatch",
-];
-
-export default IconMonitorSmartphone as IconComponent;
+export default IconMonitorSmartphone;

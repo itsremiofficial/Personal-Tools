@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCalendarAdd: FC<IconProps> = ({
   className,
   fill = false,
@@ -100,28 +107,4 @@ const IconCalendarAdd: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCalendarAdd as IconComponent).keywords = [
-  "calendar",
-  "add",
-  "timeline",
-  "chronology",
-  "rota",
-  "scheduling",
-  "timetable",
-  "program",
-  "time-scale",
-  "timeframe",
-  "timescale",
-  "total",
-  "sum up",
-  "tot up",
-  "add up",
-  "sum",
-  "summate",
-  "impart",
-  "contribute",
-  "supply",
-];
-
-export default IconCalendarAdd as IconComponent;
+export default IconCalendarAdd;

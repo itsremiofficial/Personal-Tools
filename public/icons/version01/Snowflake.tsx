@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSnowflake: FC<IconProps> = ({
   className,
   fill = false,
@@ -75,18 +82,4 @@ const IconSnowflake: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSnowflake as IconComponent).keywords = [
-  "snowflake",
-  "flake",
-  "snowbird",
-  "snow bunting",
-  "plectrophenax nivalis",
-  "ball",
-  "pumpkin",
-  "sweetie",
-  "snowman",
-  "icicle",
-];
-
-export default IconSnowflake as IconComponent;
+export default IconSnowflake;

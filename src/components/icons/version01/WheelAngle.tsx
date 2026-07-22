@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconWheelAngle: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,28 +98,4 @@ const IconWheelAngle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconWheelAngle as IconComponent).keywords = [
-  "wheel",
-  "angle",
-  "steering wheel",
-  "wheel around",
-  "pedal",
-  "bicycle",
-  "cycle",
-  "rack",
-  "bike",
-  "roll",
-  "roulette wheel",
-  "weight",
-  "slant",
-  "tilt",
-  "lean",
-  "tip",
-  "fish",
-  "side",
-  "prism",
-  "dimension",
-];
-
-export default IconWheelAngle as IconComponent;
+export default IconWheelAngle;

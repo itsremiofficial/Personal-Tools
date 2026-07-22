@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSpedometerMiddle: FC<IconProps> = ({
   className,
   fill = false,
@@ -145,19 +152,4 @@ const IconSpedometerMiddle: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSpedometerMiddle as IconComponent).keywords = [
-  "spedometer",
-  "middle",
-  "midway",
-  "mid",
-  "halfway",
-  "intermediate",
-  "in-between",
-  "central",
-  "centre",
-  "center",
-  "intervening",
-];
-
-export default IconSpedometerMiddle as IconComponent;
+export default IconSpedometerMiddle;

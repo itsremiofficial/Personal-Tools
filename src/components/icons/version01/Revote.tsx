@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRevote: FC<IconProps> = ({
   className,
   fill = false,
@@ -76,18 +83,4 @@ const IconRevote: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRevote as IconComponent).keywords = [
-  "revote",
-  "reballot",
-  "retaking",
-  "recount",
-  "repeater",
-  "revisit",
-  "reappointment",
-  "rewatch",
-  "reelection",
-  "resurvey",
-];
-
-export default IconRevote as IconComponent;
+export default IconRevote;

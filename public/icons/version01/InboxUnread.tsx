@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconInboxUnread: FC<IconProps> = ({
   className,
   fill = false,
@@ -88,28 +95,4 @@ const IconInboxUnread: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconInboxUnread as IconComponent).keywords = [
-  "inbox",
-  "unread",
-  "mailbox",
-  "letterbox",
-  "email",
-  "binder",
-  "workbook",
-  "cassette",
-  "compartment",
-  "rack",
-  "lockbox",
-  "uninformed",
-  "unused",
-  "unutilized",
-  "unspent",
-  "unencumbered",
-  "unwatched",
-  "unplayed",
-  "unsent",
-  "unreviewed",
-];
-
-export default IconInboxUnread as IconComponent;
+export default IconInboxUnread;

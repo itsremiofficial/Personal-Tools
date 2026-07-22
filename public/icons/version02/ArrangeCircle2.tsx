@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconArrangeCircle2: FC<IconProps> = ({
   className,
   fill = false,
@@ -101,38 +108,4 @@ const IconArrangeCircle2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconArrangeCircle2 as IconComponent).keywords = [
-  "arrange",
-  "circle",
-  "2",
-  "order",
-  "put",
-  "set up",
-  "fix up",
-  "stage",
-  "bring about",
-  "format",
-  "do",
-  "set",
-  "round",
-  "rotary",
-  "environ",
-  "roundabout",
-  "circulate",
-  "circuit",
-  "encircle",
-  "surround",
-  "dress circle",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconArrangeCircle2 as IconComponent;
+export default IconArrangeCircle2;

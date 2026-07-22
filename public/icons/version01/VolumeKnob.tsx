@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVolumeKnob: FC<IconProps> = ({
   className,
   fill = false,
@@ -161,28 +168,4 @@ const IconVolumeKnob: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVolumeKnob as IconComponent).keywords = [
-  "volume",
-  "knob",
-  "loudness",
-  "book",
-  "mass",
-  "bulk",
-  "intensity",
-  "quantum",
-  "weight",
-  "density",
-  "potentiometer",
-  "node",
-  "pommel",
-  "handful",
-  "button",
-  "fistful",
-  "handhold",
-  "wrench",
-  "handle",
-  "hilt",
-];
-
-export default IconVolumeKnob as IconComponent;
+export default IconVolumeKnob;

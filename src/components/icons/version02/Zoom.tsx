@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconZoom: FC<IconProps> = ({
   className,
   fill = false,
@@ -95,18 +102,4 @@ const IconZoom: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconZoom as IconComponent).keywords = [
-  "zoom",
-  "whizz",
-  "surge",
-  "soar",
-  "rapid climb",
-  "rapid growth",
-  "soar up",
-  "soar upwards",
-  "whizz along",
-  "zoom along",
-];
-
-export default IconZoom as IconComponent;
+export default IconZoom;

@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconChefHatMinimalistic: FC<IconProps> = ({
   className,
   fill = false,
@@ -70,38 +77,4 @@ const IconChefHatMinimalistic: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconChefHatMinimalistic as IconComponent).keywords = [
-  "chef",
-  "hat",
-  "minimalistic",
-  "kitchen",
-  "cuisine",
-  "cooking",
-  "cook",
-  "baker",
-  "kitchener",
-  "cookie",
-  "enchilada",
-  "stove",
-  "chapeau",
-  "lid",
-  "fedora",
-  "beret",
-  "sombrero",
-  "beanie",
-  "headdress",
-  "bonnet",
-  "cap",
-  "modularistic",
-  "brutalistic",
-  "localistic",
-  "reductionist",
-  "exhibitional",
-  "monogynous",
-  "simplificational",
-  "reductionistic",
-  "automatistic",
-];
-
-export default IconChefHatMinimalistic as IconComponent;
+export default IconChefHatMinimalistic;

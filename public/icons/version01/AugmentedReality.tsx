@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconAugmentedReality: FC<IconProps> = ({
   className,
   fill = false,
@@ -76,28 +83,4 @@ const IconAugmentedReality: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconAugmentedReality as IconComponent).keywords = [
-  "augmented",
-  "reality",
-  "increased",
-  "increasing",
-  "increase",
-  "amplified",
-  "magnified",
-  "heightened",
-  "enhanced",
-  "strengthen",
-  "upgraded",
-  "realness",
-  "realism",
-  "world",
-  "fact",
-  "actuality",
-  "realistic",
-  "true",
-  "actual",
-  "concrete",
-];
-
-export default IconAugmentedReality as IconComponent;
+export default IconAugmentedReality;

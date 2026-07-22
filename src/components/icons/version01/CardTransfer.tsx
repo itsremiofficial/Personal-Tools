@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCardTransfer: FC<IconProps> = ({
   className,
   fill = false,
@@ -118,28 +125,4 @@ const IconCardTransfer: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCardTransfer as IconComponent).keywords = [
-  "card",
-  "transfer",
-  "scorecard",
-  "batting order",
-  "identity card",
-  "visiting card",
-  "calling card",
-  "lineup",
-  "poster",
-  "placard",
-  "tease",
-  "transference",
-  "transport",
-  "transpose",
-  "change",
-  "transferral",
-  "reassign",
-  "remove",
-  "transmit",
-  "conveyance",
-];
-
-export default IconCardTransfer as IconComponent;
+export default IconCardTransfer;

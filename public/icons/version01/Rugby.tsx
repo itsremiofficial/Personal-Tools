@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconRugby: FC<IconProps> = ({
   className,
   fill = false,
@@ -89,18 +96,4 @@ const IconRugby: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconRugby as IconComponent).keywords = [
-  "rugby",
-  "rugby football",
-  "rugger",
-  "football",
-  "lam",
-  "ball",
-  "federation",
-  "netball",
-  "soccer",
-  "cricket",
-];
-
-export default IconRugby as IconComponent;
+export default IconRugby;

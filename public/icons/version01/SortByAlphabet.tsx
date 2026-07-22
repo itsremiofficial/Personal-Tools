@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSortByAlphabet: FC<IconProps> = ({
   className,
   fill = false,
@@ -97,38 +104,4 @@ const IconSortByAlphabet: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSortByAlphabet as IconComponent).keywords = [
-  "sort",
-  "by",
-  "alphabet",
-  "classify",
-  "assort",
-  "class",
-  "form",
-  "kind",
-  "sort out",
-  "variety",
-  "separate",
-  "screen",
-  "win by a nose",
-  "saved by the bell",
-  "lead by the nose",
-  "pull oneself up by one's bootstraps",
-  "by a landslide",
-  "set by the ears",
-  "have someone by the short and curlies",
-  "trial by fire",
-  "by the way",
-  "alphabetical",
-  "orthography",
-  "spelling",
-  "alphabetic",
-  "language",
-  "letter",
-  "script",
-  "alpha",
-  "books",
-];
-
-export default IconSortByAlphabet as IconComponent;
+export default IconSortByAlphabet;

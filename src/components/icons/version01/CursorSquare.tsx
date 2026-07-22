@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconCursorSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -71,28 +78,4 @@ const IconCursorSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconCursorSquare as IconComponent).keywords = [
-  "cursor",
-  "square",
-  "pointer",
-  "updatable",
-  "poise",
-  "declare",
-  "traveller",
-  "precursor",
-  "pointing",
-  "hover",
-  "arrow",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconCursorSquare as IconComponent;
+export default IconCursorSquare;

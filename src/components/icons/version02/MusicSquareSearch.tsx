@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMusicSquareSearch: FC<IconProps> = ({
   className,
   fill = false,
@@ -123,38 +130,4 @@ const IconMusicSquareSearch: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMusicSquareSearch as IconComponent).keywords = [
-  "music",
-  "square",
-  "search",
-  "sheet music",
-  "euphony",
-  "medicine",
-  "melody",
-  "symphony",
-  "orchestra",
-  "musician",
-  "song",
-  "singing",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-  "seek",
-  "look for",
-  "explore",
-  "lookup",
-  "research",
-  "look",
-  "hunting",
-  "hunt",
-  "seeking",
-];
-
-export default IconMusicSquareSearch as IconComponent;
+export default IconMusicSquareSearch;

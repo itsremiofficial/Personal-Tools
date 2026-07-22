@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEmptyWalletRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -134,38 +141,4 @@ const IconEmptyWalletRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEmptyWalletRemove as IconComponent).keywords = [
-  "empty",
-  "wallet",
-  "remove",
-  "lifeless",
-  "void",
-  "vacuous",
-  "vacant",
-  "empty-handed",
-  "meaningless",
-  "unfilled",
-  "bare",
-  "clean",
-  "billfold",
-  "notecase",
-  "portfolio",
-  "paper",
-  "book",
-  "paperwork",
-  "briefcase",
-  "suitcase",
-  "cash",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconEmptyWalletRemove as IconComponent;
+export default IconEmptyWalletRemove;

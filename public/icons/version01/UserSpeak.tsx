@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconUserSpeak: FC<IconProps> = ({
   className,
   fill = false,
@@ -101,28 +108,4 @@ const IconUserSpeak: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconUserSpeak as IconComponent).keywords = [
-  "user",
-  "speak",
-  "exploiter",
-  "enjoyer",
-  "drug user",
-  "substance abuser",
-  "customer",
-  "client",
-  "employer",
-  "consumer",
-  "employee",
-  "verbalize",
-  "talk",
-  "address",
-  "utter",
-  "mouth",
-  "articulate",
-  "speaker",
-  "say",
-  "conversation",
-];
-
-export default IconUserSpeak as IconComponent;
+export default IconUserSpeak;

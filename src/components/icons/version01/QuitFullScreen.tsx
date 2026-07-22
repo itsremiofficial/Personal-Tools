@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconQuitFullScreen: FC<IconProps> = ({
   className,
   fill = false,
@@ -91,38 +98,4 @@ const IconQuitFullScreen: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconQuitFullScreen as IconComponent).keywords = [
-  "quit",
-  "full",
-  "screen",
-  "rid",
-  "leave",
-  "relinquish",
-  "give up",
-  "step down",
-  "discontinue",
-  "throw in the towel",
-  "chuck up the sponge",
-  "lay off",
-  "filled",
-  "brimming",
-  "brimful",
-  "overfull",
-  "high",
-  "brimfull",
-  "overflowing",
-  "replete",
-  "overladen",
-  "screen door",
-  "cover",
-  "screen out",
-  "sieve",
-  "shield",
-  "silver screen",
-  "sort",
-  "test",
-  "block out",
-];
-
-export default IconQuitFullScreen as IconComponent;
+export default IconQuitFullScreen;

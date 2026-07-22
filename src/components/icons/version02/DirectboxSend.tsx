@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconDirectboxSend: FC<IconProps> = ({
   className,
   fill = false,
@@ -115,19 +122,4 @@ const IconDirectboxSend: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconDirectboxSend as IconComponent).keywords = [
-  "directbox",
-  "send",
-  "transmit",
-  "charge",
-  "transport",
-  "mail",
-  "base",
-  "institutionalize",
-  "place",
-  "broadcast",
-  "commit",
-];
-
-export default IconDirectboxSend as IconComponent;
+export default IconDirectboxSend;

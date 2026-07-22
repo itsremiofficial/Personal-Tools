@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconLogout3: FC<IconProps> = ({
   className,
   fill = false,
@@ -78,28 +85,4 @@ const IconLogout3: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconLogout3 as IconComponent).keywords = [
-  "logout",
-  "3",
-  "logoff",
-  "output",
-  "closure",
-  "off",
-  "unplug",
-  "disconnect",
-  "teardown",
-  "disconnection",
-  "disengagement",
-  "omega",
-  "wash out",
-  "cut up",
-  "pull out",
-  "pull up",
-  "pull over",
-  "pull in",
-  "work out",
-  "ride down",
-];
-
-export default IconLogout3 as IconComponent;
+export default IconLogout3;

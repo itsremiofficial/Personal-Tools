@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBonfire: FC<IconProps> = ({
   className,
   fill = false,
@@ -93,18 +100,4 @@ const IconBonfire: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBonfire as IconComponent).keywords = [
-  "bonfire",
-  "balefire",
-  "blaze",
-  "pyre",
-  "torch",
-  "burning",
-  "fire",
-  "fireplace",
-  "campfire",
-  "furnace",
-];
-
-export default IconBonfire as IconComponent;
+export default IconBonfire;

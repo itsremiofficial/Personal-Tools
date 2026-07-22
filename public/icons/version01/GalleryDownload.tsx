@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconGalleryDownload: FC<IconProps> = ({
   className,
   fill = false,
@@ -84,28 +91,4 @@ const IconGalleryDownload: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconGalleryDownload as IconComponent).keywords = [
-  "gallery",
-  "download",
-  "art gallery",
-  "heading",
-  "verandah",
-  "veranda",
-  "drift",
-  "picture gallery",
-  "museum",
-  "beaux-arts",
-  "art",
-  "uploaded",
-  "uploading",
-  "upload",
-  "downlink",
-  "softcopy",
-  "printable",
-  "refresh",
-  "transfer",
-  "discovery",
-];
-
-export default IconGalleryDownload as IconComponent;
+export default IconGalleryDownload;

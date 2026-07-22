@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconNotificationLinesRemove: FC<IconProps> = ({
   className,
   fill = false,
@@ -99,38 +106,4 @@ const IconNotificationLinesRemove: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconNotificationLinesRemove as IconComponent).keywords = [
-  "notification",
-  "lines",
-  "remove",
-  "apprisal",
-  "notice",
-  "telling",
-  "presentment",
-  "notifying",
-  "notifier",
-  "notify",
-  "denunciation",
-  "announcement",
-  "outline",
-  "dividing line",
-  "agate line",
-  "delineate",
-  "telephone line",
-  "draw",
-  "transmission line",
-  "credit line",
-  "phone line",
-  "take out",
-  "get rid of",
-  "take away",
-  "move out",
-  "bump off",
-  "slay",
-  "murder",
-  "take",
-  "transfer",
-];
-
-export default IconNotificationLinesRemove as IconComponent;
+export default IconNotificationLinesRemove;

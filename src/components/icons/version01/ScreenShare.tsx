@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconScreenShare: FC<IconProps> = ({
   className,
   fill = false,
@@ -82,28 +89,4 @@ const IconScreenShare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconScreenShare as IconComponent).keywords = [
-  "screen",
-  "share",
-  "screen door",
-  "cover",
-  "screen out",
-  "sieve",
-  "shield",
-  "silver screen",
-  "sort",
-  "test",
-  "block out",
-  "portion out",
-  "portion",
-  "deal",
-  "divvy up",
-  "apportion",
-  "contribution",
-  "partake",
-  "part",
-  "parcel",
-];
-
-export default IconScreenShare as IconComponent;
+export default IconScreenShare;

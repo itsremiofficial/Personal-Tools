@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconColorSwatch: FC<IconProps> = ({
   className,
   fill = false,
@@ -106,28 +113,4 @@ const IconColorSwatch: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconColorSwatch as IconComponent).keywords = [
-  "color",
-  "swatch",
-  "panchromatic",
-  "colouring",
-  "colour in",
-  "color in",
-  "gloss",
-  "semblance",
-  "colour",
-  "vividness",
-  "emblazon",
-  "sampler",
-  "sample",
-  "shows",
-  "swatches",
-  "skein",
-  "yarn",
-  "palette",
-  "eyeshadow",
-  "shade",
-];
-
-export default IconColorSwatch as IconComponent;
+export default IconColorSwatch;

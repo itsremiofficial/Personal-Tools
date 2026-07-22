@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconVoiceSquare: FC<IconProps> = ({
   className,
   fill = false,
@@ -119,28 +126,4 @@ const IconVoiceSquare: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconVoiceSquare as IconComponent).keywords = [
-  "voice",
-  "square",
-  "vocalization",
-  "interpreter",
-  "vocalize",
-  "representative",
-  "part",
-  "spokesperson",
-  "sound",
-  "articulation",
-  "vocal",
-  "quadrate",
-  "right-angled",
-  "squarely",
-  "foursquare",
-  "squarish",
-  "conventional",
-  "paid",
-  "honorable",
-  "honest",
-];
-
-export default IconVoiceSquare as IconComponent;
+export default IconVoiceSquare;

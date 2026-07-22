@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconBody: FC<IconProps> = ({
   className,
   fill = false,
@@ -64,18 +71,4 @@ const IconBody: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconBody as IconComponent).keywords = [
-  "body",
-  "consistence",
-  "personify",
-  "consistency",
-  "torso",
-  "trunk",
-  "dead body",
-  "organic structure",
-  "physical structure",
-  "bodily",
-];
-
-export default IconBody as IconComponent;
+export default IconBody;

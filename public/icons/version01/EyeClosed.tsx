@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconEyeClosed: FC<IconProps> = ({
   className,
   fill = false,
@@ -68,28 +75,4 @@ const IconEyeClosed: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconEyeClosed as IconComponent).keywords = [
-  "eye",
-  "closed",
-  "optic",
-  "heart",
-  "eyeball",
-  "oculus",
-  "peeper",
-  "middle",
-  "center",
-  "centre",
-  "ocular",
-  "blocked",
-  "shut",
-  "restricted",
-  "inactive",
-  "tight",
-  "compressed",
-  "blind",
-  "drawn",
-  "unsympathetic",
-];
-
-export default IconEyeClosed as IconComponent;
+export default IconEyeClosed;

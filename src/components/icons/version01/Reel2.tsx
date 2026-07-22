@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconReel2: FC<IconProps> = ({
   className,
   fill = false,
@@ -116,28 +123,4 @@ const IconReel2: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconReel2 as IconComponent).keywords = [
-  "reel",
-  "2",
-  "lurch",
-  "stagger",
-  "waggle",
-  "swag",
-  "wamble",
-  "whirl",
-  "gyrate",
-  "bobbin",
-  "spool",
-  "wireless network",
-  "sign on",
-  "sign off",
-  "put through",
-  "back up",
-  "ring up",
-  "call up",
-  "hang up",
-  "read out",
-];
-
-export default IconReel2 as IconComponent;
+export default IconReel2;

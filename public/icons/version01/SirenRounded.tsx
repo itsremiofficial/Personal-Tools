@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconSirenRounded: FC<IconProps> = ({
   className,
   fill = false,
@@ -138,28 +145,4 @@ const IconSirenRounded: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconSirenRounded as IconComponent).keywords = [
-  "siren",
-  "rounded",
-  "delilah",
-  "enchantress",
-  "femme fatale",
-  "temptress",
-  "hell",
-  "allure",
-  "enticer",
-  "lure",
-  "sort",
-  "ringed",
-  "ring-shaped",
-  "annulate",
-  "annular",
-  "circular",
-  "rotund",
-  "bowfront",
-  "prolate",
-  "domed",
-];
-
-export default IconSirenRounded as IconComponent;
+export default IconSirenRounded;

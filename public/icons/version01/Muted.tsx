@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+interface IconProps {
+  className?: string;
+  fill?: boolean;
+  duotone?: boolean;
+  width?: string | number;
+}
+
 const IconMuted: FC<IconProps> = ({
   className,
   fill = false,
@@ -77,18 +84,4 @@ const IconMuted: FC<IconProps> = ({
   );
 };
 
-// Keywords for search and categorization
-(IconMuted as IconComponent).keywords = [
-  "muted",
-  "quiet",
-  "hushed",
-  "dull",
-  "muffled",
-  "softened",
-  "soft",
-  "subdued",
-  "silent",
-  "reserved",
-];
-
-export default IconMuted as IconComponent;
+export default IconMuted;
