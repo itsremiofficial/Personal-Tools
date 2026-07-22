@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 export { NavItem } from "./NavItem";
 export { ResultsSection } from "./ResultsSection";
 export { Logo } from "./Logo";

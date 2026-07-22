@@ -74,4 +74,5 @@ export const Toggle = React.memo(
 
 Toggle.displayName = "Toggle";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export { toggleVariants };
