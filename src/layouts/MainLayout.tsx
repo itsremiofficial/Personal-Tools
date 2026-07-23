@@ -28,7 +28,7 @@ const MainLayout = () => {
       <PageHeaderProvider>
         <div className="h-screen md:grid md:grid-cols-[auto_1fr] overflow-hidden">
           <Sidebar />
-          <div className="flex flex-col min-w-0 overflow-hidden">
+          <div className="flex flex-col min-w-0 overflow-hidden max-md:h-full">
             <Header />
             <main className="flex-1 overflow-auto">
               <Suspense fallback={<PageSkeleton />}>

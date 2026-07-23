@@ -177,7 +177,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-muted! hover:bg-red-500! cursor-grab;
+    @apply rounded-full bg-muted! hover:bg-ring! cursor-grab;
   }
 
   .mockup-code {

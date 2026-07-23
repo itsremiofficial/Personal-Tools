@@ -349,35 +349,37 @@ const IconsList = () => {
       <Suspense fallback={<LoadingFallback />}>
         <div className="flex flex-col min-h-full">
           {/* Toolbar - sticky below header */}
-          <div className="sticky top-0 z-10 bg-background/70 backdrop-blur-lg px-2 py-2 border-b border-border flex items-center gap-2 shrink-0">
-            <div className="flex-1 min-w-0">
-              <SearchBar
-                searchQuery={inputValue}
-                onSearch={handleSearch}
-                isVisible={isSearchVisible}
-                onToggleVisibility={setIsSearchVisible}
-                isLoading={isSearching}
-                resultCount={filteredIcons.length}
-                variant={isMobile ? "minimal" : "embedded"}
-              />
+          <div className="sticky top-0 z-10 bg-background/70 backdrop-blur-lg px-4 md:px-2 py-2 border-b border-border flex items-center gap-2 shrink-0">
+            <div className="flex-1 min-w-0 relative">
+              <div className="relative">
+                <SearchBar
+                  searchQuery={inputValue}
+                  onSearch={handleSearch}
+                  isVisible={isSearchVisible}
+                  onToggleVisibility={setIsSearchVisible}
+                  isLoading={isSearching}
+                  resultCount={filteredIcons.length}
+                  variant={isMobile ? "minimal" : "embedded"}
+                />
+                <span className="absolute right-2 md:right-0 top-1/2 -translate-y-1/2 inline-flex h-5 lg:h-6 leading-none shrink-0 justify-center items-center rounded-full border border-border px-2 lg:px-2.5 text-[10px] lg:text-xs font-medium text-muted-foreground">
+                  {filteredIcons.length}/{totalIcons}
+                </span>
+              </div>
             </div>
-
-            <span className="inline-flex h-5 lg:h-6 leading-none shrink-0 justify-center items-center rounded-full border border-border px-2 lg:px-2.5 text-[10px] lg:text-xs font-medium text-muted-foreground">
-              {filteredIcons.length}/{totalIcons}
-            </span>
 
             <div ref={settingsRef} className="relative flex items-center gap-2">
               <Button
                 onClick={() => setIsSettingsOpen((prev) => !prev)}
                 className={cn(
-                  "rounded-full h-11",
+                  "rounded-full h-11 p-3!",
                   isSettingsOpen
                     ? "bg-muted text-foreground"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
                 )}
                 aria-label="Settings"
               >
-                Config <IconSettings duotone={false} className="size-5" />
+                <div className="hidden md:block">Config</div>{" "}
+                <IconSettings duotone={false} className="size-5" />
               </Button>
 
               <AnimatePresence>
@@ -387,57 +389,61 @@ const IconsList = () => {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: -4 }}
                     transition={{ duration: 0.12 }}
-                    className="absolute right-0 top-full mt-2 z-50 w-64 origin-top-right rounded-2xl border border-border bg-background/70 backdrop-blur-lg shadow-lg"
+                    className="absolute right-0 top-full mt-2 z-50 w-64 origin-top-right"
                   >
-                    <div className="p-4 px-3 space-y-4">
-                      <div>
-                        <p className="text-xs font-medium text-muted-foreground mb-2 px-1">
-                          Icon Style
-                        </p>
-                        <Tabs
-                          value={globalStyle}
-                          onValueChange={(v) => setGlobalStyle(v as IconStyle)}
-                          variant="pill"
-                        >
-                          <TabsList className="w-full rounded-2xl!">
-                            {styleItems.map(({ value, label }) => (
-                              <TabsTrigger
-                                key={value}
-                                value={value}
-                                indicatorClassName="bg-foreground/15 rounded-xl!"
-                                className="max-w-12 w-full py-2 aria-selected:text-foreground aria-selected:opacity-100 text-muted-foreground opacity-40 hover:opacity-100 transition-opacity duration-300"
-                              >
-                                <Tooltip
-                                  side="top"
-                                  sideOffset={4}
-                                  content={label}
+                    <div className="rounded-2xl bg-card border border-border shadow-lg">
+                      <div className="p-4 px-3 space-y-4">
+                        <div>
+                          <p className="text-xs font-medium text-muted-foreground mb-2 px-1">
+                            Icon Style
+                          </p>
+                          <Tabs
+                            value={globalStyle}
+                            onValueChange={(v) =>
+                              setGlobalStyle(v as IconStyle)
+                            }
+                            variant="pill"
+                          >
+                            <TabsList className="w-full rounded-2xl! flex justify-between p-0">
+                              {styleItems.map(({ value, label }) => (
+                                <TabsTrigger
+                                  key={value}
+                                  value={value}
+                                  indicatorClassName="bg-foreground/15 rounded-xl!"
+                                  className="max-w-12 w-full px-3! py-2 aria-selected:text-foreground aria-selected:opacity-100 text-muted-foreground opacity-40 hover:opacity-100 transition-opacity duration-300"
                                 >
-                                  <span className="flex items-center justify-center">
-                                    {renderIcon(value as IconStyle)}
-                                  </span>
-                                </Tooltip>
-                              </TabsTrigger>
-                            ))}
-                          </TabsList>
-                        </Tabs>
-                      </div>
+                                  <Tooltip
+                                    side="top"
+                                    sideOffset={4}
+                                    content={label}
+                                  >
+                                    <span className="flex items-center justify-center">
+                                      {renderIcon(value as IconStyle)}
+                                    </span>
+                                  </Tooltip>
+                                </TabsTrigger>
+                              ))}
+                            </TabsList>
+                          </Tabs>
+                        </div>
 
-                      <div>
-                        <p className="text-xs font-medium text-muted-foreground mb-2 px-1">
-                          Icon Size
-                        </p>
-                        <div className="flex items-center gap-3 px-1 relative">
-                          <RangeSlider
-                            value={iconSize}
-                            onValueChange={setIconSize}
-                            values={SNAP_SIZES}
-                            min={20}
-                            showTicks
-                            aria-label="Icon size"
-                          />
-                          <span className="absolute right-4 text-xs tabular-nums text-muted-foreground min-w-[3ch] text-right select-none pointer-events-none">
-                            {iconSize}px
-                          </span>
+                        <div>
+                          <p className="text-xs font-medium text-muted-foreground mb-2 px-1">
+                            Icon Size
+                          </p>
+                          <div className="flex items-center gap-3 px-1 relative">
+                            <RangeSlider
+                              value={iconSize}
+                              onValueChange={setIconSize}
+                              values={SNAP_SIZES}
+                              min={20}
+                              showTicks
+                              aria-label="Icon size"
+                            />
+                            <span className="absolute right-4 text-xs tabular-nums text-muted-foreground min-w-[3ch] text-right select-none pointer-events-none">
+                              {iconSize}px
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
