@@ -165,15 +165,6 @@
     @apply bg-background font-inter;
   }
 
-  .main-content {
-    width: calc(100% - 240px);
-    @apply transition-[width] duration-700 ease-fluid;
-  }
-  .sidebar.sidebar_opened + .main-content {
-    width: calc(100% - 80px);
-    @apply transition-[width] duration-700 ease-fluid;
-  }
-
   [title].icon_tooltip {
     @apply bg-red-500;
   }
@@ -253,7 +244,7 @@
   }
 
   .tray__content--wrapper {
-    width: 480px;
+    width: min(480px, calc(100vw - 2rem));
 
     margin-inline: auto;
     border-radius: 2.25rem;

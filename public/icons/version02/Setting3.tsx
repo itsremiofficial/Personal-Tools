@@ -30,8 +30,9 @@ const IconSetting3: FC<IconProps> = ({
             strokeWidth={width}
             strokeLinecap="round"
             strokeLinejoin="round"
+            opacity={duotone ? "0.4" : "1"}
           />
-          <g opacity={duotone ? "0.4" : "1"}>
+          <g>
             <path
               d="M16.2402 18.4996V14.5996"
               stroke="currentColor"

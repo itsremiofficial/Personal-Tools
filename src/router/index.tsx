@@ -1,17 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { routes } from "./routes";
-import MainLayout from "@/layouts/MainLayout";
 
-const finalRoutes = routes.map((route) => {
-  const { errorElement: ee, ...rest } = route;
-  return {
-    ...rest,
-    element: <MainLayout>{route.element}</MainLayout>,
-    ...(ee ? { errorElement: <MainLayout>{ee}</MainLayout> } : {}),
-  };
-});
-
-const router = createBrowserRouter(finalRoutes, {
+const router = createBrowserRouter(routes, {
   basename: import.meta.env.VITE_BASE_URL || "/Personal-Tools/",
   future: {
     v7_skipActionErrorRevalidation: true,

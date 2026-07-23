@@ -40,8 +40,13 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   const suggestionTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const announcementRef = useRef<HTMLDivElement>(null);
 
+  const isDesktop = useRef(
+    typeof window !== "undefined" &&
+      window.matchMedia("(min-width: 768px)").matches,
+  );
+
   useEffect(() => {
-    if (isVisible && inputRef.current) {
+    if (isVisible && inputRef.current && isDesktop.current) {
       inputRef.current.focus();
     }
   }, [isVisible]);
@@ -176,14 +181,14 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       "focus-visible:outline-none focus-visible:ring focus-visible:ring-ring focus-visible:border-ring",
     ),
     minimal: cn(
-      "w-full h-9 pl-9 pr-9 rounded-lg text-sm transition-colors",
-      "bg-muted border-none",
+      "w-full h-11 pl-10 rounded-full text-sm transition-colors duration-300",
+      "border border-border",
       "placeholder:text-muted-foreground",
       "text-foreground",
-      "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
+      "focus-visible:bg-background focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring/30",
     ),
     embedded: cn(
-      "w-full h-18 pl-12 pr-10 text-base transition-colors",
+      "w-full h-12 lg:h-14 pl-10 lg:pl-12 pr-8 lg:pr-10 text-sm lg:text-base transition-colors",
       "bg-transparent",
       "placeholder:text-muted-foreground",
       "text-foreground",
@@ -213,7 +218,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             ref={inputRef}
             type="text"
             className={variantClasses[variant]}
-            autoFocus={isVisible}
+            autoFocus={isVisible && isDesktop.current}
             placeholder={placeholder}
             aria-label={placeholder}
             aria-autocomplete="list"
@@ -232,7 +237,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             }}
             onBlur={() => setIsFocused(false)}
           />
-          <div className="absolute left-2 top-0 bottom-0 flex items-center pointer-events-none">
+          <div className="absolute left-3.5 top-0 bottom-0 flex items-center pointer-events-none">
             {isLoading ? (
               <LoadingSpinner className="size-6 text-muted-foreground" />
             ) : (

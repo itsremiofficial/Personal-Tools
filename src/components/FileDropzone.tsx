@@ -65,7 +65,7 @@ export const FileDropzone = React.memo(
         <div
           {...getRootProps()}
           className={cn(
-            "border-2 border-dashed p-6 pb-10 rounded-3xl cursor-pointer transition-colors duration-300 group/input",
+            "border-2 border-dashed p-4 sm:p-6 pb-6 sm:pb-10 rounded-3xl cursor-pointer transition-colors duration-300 group/input",
             "border-border/70 hover:border-muted-foreground/50",
             "hover:bg-muted/70",
             isDragActive &&
@@ -96,9 +96,9 @@ export const FileDropzone = React.memo(
               isDragActive && "text-foreground",
             )}
           >
-            <IconCloudUpload className="size-14" />
-            <p>Drag and drop files here, or click to select files</p>
-            <p className="text-sm text-muted-foreground">
+            <IconCloudUpload className="size-10 sm:size-14" />
+            <p className="text-xs sm:text-sm">Drag and drop files here, or click to select files</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">
               Supports SVG files only
             </p>
           </div>

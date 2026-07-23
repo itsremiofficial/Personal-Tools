@@ -1,9 +1,10 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 import { cn } from "@/lib";
 import * as iv01 from "@/components/icons/version01";
 import { Tooltip } from "./Tooltip";
 import { AnimatePresence, motion } from "motion/react";
 import { StatefulButton } from "./StatefulButton";
+import { useIsMobile } from "@/hooks/useMobile";
 
 const formatIconName = (name: string): string => {
   const nameWithoutIcon = name.replace(/^Icon/, "");
@@ -37,24 +38,22 @@ export const IconCard = memo(
     className,
     iconSize = 48,
   }: IconCardProps) => {
-    const [isHovered, setIsHovered] = useState(false);
-
+    const isMobile = useIsMobile();
     return (
       <div
         className={cn(
-          "bg-muted/20 p-2 flex flex-col h-full rounded-3xl flex-[1_1_232px] min-w-[232px] transition-all duration-200 overflow-hidden",
+          "bg-muted/20 p-2 flex flex-col h-full rounded-3xl flex-[1_1_160px] sm:flex-[1_1_200px] md:flex-[1_1_232px] min-w-[160px] sm:min-w-[200px] md:min-w-[232px] transition-all duration-200 overflow-hidden",
           className,
         )}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="p-3 sm:p-4 flex items-center justify-center rounded-t-xl">
+        <div className="p-2 sm:p-3 md:p-4 flex items-center justify-center rounded-t-xl">
           <Tooltip
             side="top"
             sideOffset={5}
-            className="p-4"
+            className="px-4 rounded-xl border-border/60 shadow-lg"
+            delayDuration={500}
             trigger={
-              <div className="w-full h-full min-h-24 relative flex items-center justify-center">
+              <div className="w-full h-full min-h-16 sm:min-h-24 relative flex items-center justify-center">
                 <AnimatePresence>
                   <motion.div
                     key={currentStyle}
@@ -74,9 +73,12 @@ export const IconCard = memo(
                     >
                       <Icon
                         className="text-foreground w-full h-full"
-                        fill={currentStyle === "bulk" || currentStyle === "bold"}
+                        fill={
+                          currentStyle === "bulk" || currentStyle === "bold"
+                        }
                         duotone={
-                          currentStyle !== "bold" && currentStyle !== "line-solid"
+                          currentStyle !== "bold" &&
+                          currentStyle !== "line-solid"
                         }
                         width={1.2}
                       />
@@ -87,9 +89,7 @@ export const IconCard = memo(
             }
             content={
               <div className="max-w-xs">
-                <p className="text-sm font-mono">
-                  {name}
-                </p>
+                <p className="text-sm font-mono">{name}</p>
               </div>
             }
           />
@@ -112,10 +112,12 @@ export const IconCard = memo(
               doneLabel="Copied"
               doneClassName="text-green-400"
               onAction={() => onCopy(currentStyle)}
-              minWidth="7ch"
               aria-label={`Copy ${formatIconName(name)}`}
+              labelClassName="hidden md:inline"
+              minWidth={isMobile ? "4ch" : "7ch"}
               className={cn(actionBtn, "flex-1")}
             />
+
             <StatefulButton
               variant="default"
               idleIcon={
@@ -127,10 +129,11 @@ export const IconCard = memo(
               idleLabel="Download"
               loadingLabel="Downloading"
               doneLabel="Downloaded"
+              minWidth={isMobile ? "4ch" : "10ch"}
               doneClassName="text-green-400"
               onAction={() => onDownload(name, version)}
-              minWidth="10ch"
               aria-label={`Download ${formatIconName(name)}`}
+              labelClassName="hidden md:inline"
               className={cn(actionBtn, "flex-1")}
             />
           </div>

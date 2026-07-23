@@ -1,25 +1,15 @@
-import { IconConverter, IconsList } from "./lazyComponents";
+import MainLayout from "@/layouts/MainLayout";
 import ErrorPage from "@/Pages/ErrorPage";
-
-const errorElement = <ErrorPage />;
+import { IconConverter, IconsList } from "./lazyComponents";
 
 const routes = [
   {
-    path: "/",
-    element: <IconsList />,
-    errorElement,
-    layout: "dash",
-  },
-  {
-    path: "/icon-converter",
-    element: <IconConverter />,
-    errorElement,
-    layout: "dash",
-  },
-  {
-    path: "*",
-    element: <ErrorPage />,
-    layout: "dash",
+    element: <MainLayout />,
+    children: [
+      { index: true, element: <IconsList /> },
+      { path: "icon-converter", element: <IconConverter /> },
+      { path: "*", element: <ErrorPage /> },
+    ],
   },
 ];
 

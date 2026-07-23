@@ -18,6 +18,7 @@ interface StatefulButtonProps
   doneDuration?: number;
   doneClassName?: string;
   minWidth?: string;
+  labelClassName?: string;
 }
 
 const defaultLoadingIcon = (
@@ -66,6 +67,7 @@ export const StatefulButton = ({
   doneClassName,
   minWidth = "10ch",
   className,
+  labelClassName,
   ...buttonProps
 }: StatefulButtonProps) => {
   const [state, setState] = useState<ButtonState>("idle");
@@ -98,13 +100,15 @@ export const StatefulButton = ({
           {state === "done" ? (
             <span className={cn("flex items-center gap-1.5", doneClassName)}>
               {doneIcon ?? defaultDoneIcon}
-              {doneLabel}
+              <span className={labelClassName}>{doneLabel}</span>
             </span>
           ) : (
             <>
               {state === "idle" && idleIcon}
               {state === "loading" && (loadingIcon ?? defaultLoadingIcon)}
-              <span>{state === "idle" ? idleLabel : loadingLabel}</span>
+              <span className={labelClassName}>
+                {state === "idle" ? idleLabel : loadingLabel}
+              </span>
             </>
           )}
         </motion.span>

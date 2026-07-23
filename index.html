@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,73 +24,68 @@
     />
 
     <!-- Primary SEO -->
-    <title>Remi - Visual Designer & Web Developer</title>
+    <title>Remi — Visual Designer & Web Developer</title>
     <meta
       name="description"
-      content="Portfolio of Remi — Visual Designer & Web Developer. Motion, interactions, and performant web experiences."
+      content="Portfolio of Remi — crafting motion-driven, performant web experiences. Visual design meets front-end engineering."
     />
     <meta
       name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
-    <link
-      rel="canonical"
-      href="https://tools.remidevigner.pro/"
-    />
+    <link rel="canonical" href="https://tools.remidevigner.pro/" />
 
     <!-- Open Graph -->
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="Remi - Visual Designer & Web Developer"
+      content="Remi — Visual Designer &amp; Web Developer"
     />
     <meta
       property="og:description"
-      content="Creative developer portfolio. Motion, interactions, and performant web experiences."
+      content="Motion-driven design and performant front-end engineering. Explore the portfolio of Remi."
     />
-    <meta
-      property="og:url"
-      content="https://tools.remidevigner.pro/"
-    />
+    <meta property="og:url" content="https://tools.remidevigner.pro/" />
     <meta
       property="og:site_name"
-      content="Remi - Visual Designer & Web Developer"
+      content="Remi — Visual Designer & Web Developer"
     />
     <meta
       property="og:image"
-      content="https://tools.remidevigner.pro/profile.png"
+      content="https://tools.remidevigner.pro/meta/og-image.jpg"
     />
     <meta
       property="og:image:secure_url"
-      content="https://tools.remidevigner.pro/profile.png"
+      content="https://tools.remidevigner.pro/meta/og-image.jpg"
     />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Preview of Remi - Visual Designer & Web Developer"
+      content="Remi — Visual Designer & Web Developer portfolio preview"
     />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@your_twitter" />
-    <meta name="twitter:creator" content="@your_twitter" />
+    <meta name="twitter:site" content="@imremirecords" />
+    <meta name="twitter:creator" content="@imremirecords" />
     <meta
       name="twitter:title"
-      content="Remi - Visual Designer & Web Developer"
+      content="Remi — Visual Designer & Web Developer"
     />
     <meta
       name="twitter:description"
-      content="Portfolio of Remi — Visual Designer & Web Developer. Motion, interactions, and performant web experiences."
+      content="Motion-driven design and performant front-end engineering. Explore the portfolio of Remi."
     />
     <meta
       name="twitter:image"
-      content="https://tools.remidevigner.pro/profile.png"
+      content="https://tools.remidevigner.pro/meta/og-image.jpg"
     />
     <meta
       name="twitter:image:alt"
-      content="Preview of Remi - Visual Designer & Web Developer"
+      content="Remi — Visual Designer & Web Developer portfolio preview"
     />
 
     <!-- Platform integration -->
@@ -102,7 +97,7 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-TileColor" content="#1c222f" />
 
-    <!-- Favicons (updated to /meta) -->
+    <!-- Favicons -->
     <link rel="shortcut icon" href="/meta/favicon.ico" />
     <link rel="icon" href="/meta/favicon.ico" sizes="any" />
     <link
@@ -115,27 +110,26 @@
       rel="icon"
       type="image/png"
       sizes="192x192"
-      href="/meta/android-chrome-192x192.png"
+      href="/meta/web-app-manifest-192x192.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="512x512"
-      href="/meta/android-chrome-512x512.png"
+      href="/meta/web-app-manifest-512x512.png"
     />
     <link
       rel="apple-touch-icon"
       href="/meta/apple-touch-icon.png"
       sizes="180x180"
     />
-    <link
-      rel="mask-icon"
-      href="/meta/favicon.svg"
-      color="#1c222f"
-    />
+    <link rel="mask-icon" href="/meta/favicon.svg" color="#1c222f" />
 
-    <!-- Keep manifest as-is -->
+    <!-- Manifest -->
     <link rel="manifest" href="/meta/site.webmanifest" />
+
+    <!-- Preload OG image for instant social share render -->
+    <link rel="preload" as="image" href="/meta/og-image.jpg" />
 
     <!-- JSON-LD: WebSite -->
     <script type="application/ld+json">
@@ -145,6 +139,7 @@
         "name": "Remi - Visual Designer & Web Developer",
         "url": "https://tools.remidevigner.pro/",
         "inLanguage": "en-US",
+        "description": "Portfolio of Remi — crafting motion-driven, performant web experiences.",
         "publisher": {
           "@type": "Person",
           "name": "Remi"
@@ -152,20 +147,36 @@
       }
     </script>
 
-    <!-- JSON-LD: Person (optional, update sameAs links) -->
+    <!-- JSON-LD: Person -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Remi",
         "url": "https://tools.remidevigner.pro/",
-        "image": "https://tools.remidevigner.pro/profile.png",
+        "image": "https://tools.remidevigner.pro/meta/og-image.jpg",
         "sameAs": [
           "https://github.com/itsremiofficial",
           "https://www.linkedin.com/in/itsremiofficial/",
-          "https://twitter.com/imremirecords"
+          "https://x.com/imremirecords"
         ],
         "jobTitle": "Visual Designer & Web Developer"
+      }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tools.remidevigner.pro/"
+          }
+        ]
       }
     </script>
   </head>

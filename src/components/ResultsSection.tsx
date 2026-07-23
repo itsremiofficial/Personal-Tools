@@ -208,25 +208,25 @@ export const ResultsSection = React.memo(
             disabled && "opacity-50 pointer-events-none",
           )}
         >
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <h2 className="pl-3 flex items-center gap-2 font-medium text-muted-foreground">
               Generated Components
             </h2>
-            <div className="flex gap-4">
+            <div className="flex gap-3 w-full sm:w-auto">
               <Button
                 onClick={onClear}
                 variant="danger"
-                className="py-4 px-6 gap-2 whitespace-nowrap rounded-full"
+                className="py-2 sm:py-4 px-4 sm:px-6 gap-2 whitespace-nowrap rounded-full text-xs sm:text-sm flex-1 sm:flex-initial"
                 disabled={disabled}
               >
                 Clear Generated{" "}
-                <IconTrashBinMinimalistic className="size-5" duotone={false} />
+                <IconTrashBinMinimalistic className="size-4 sm:size-5" duotone={false} />
               </Button>
               <Button
                 onClick={handleDownloadAll}
                 className={cn(
-                  "gap-2 !w-54 whitespace-nowrap !relative rounded-full flex",
-                  downloadState.status !== "idle" && "!px-4 !py-4",
+                  "gap-2 !w-auto sm:!w-54 whitespace-nowrap !relative rounded-full flex text-xs sm:text-sm flex-1 sm:flex-initial",
+                  downloadState.status !== "idle" && "!px-2 sm:!px-4 !py-2 sm:!py-4",
                 )}
                 disabled={disabled || downloadState.status !== "idle"}
               >

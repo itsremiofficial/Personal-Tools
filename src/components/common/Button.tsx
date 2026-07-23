@@ -5,14 +5,14 @@ import { cn } from "@/lib";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const buttonVariants = cva(
-  "inline-flex relative items-center justify-center text-sm font-medium gap-2 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
+  "inline-flex relative items-center justify-center text-sm font-medium gap-2 transition-colors duration-300 active:scale-[0.97] active:transition-transform active:duration-[120ms] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
   {
     variants: {
       variant: {
         default:
           "bg-muted/60 text-primary/70 hover:text-primary hover:bg-muted active:bg-muted",
         outline:
-          "bg-transparent border border-gray-200 text-gray-700 hover:bg-gray-100 hover:text-gray-900 active:bg-gray-200",
+          "bg-transparent border border-border text-foreground hover:bg-muted hover:text-gray-900 active:bg-gray-200",
         ghost: "bg-transparent hover:bg-muted text-foreground",
         subtle:
           "bg-muted text-muted-foreground/80 hover:bg-muted hover:text-primary active:bg-muted/60",

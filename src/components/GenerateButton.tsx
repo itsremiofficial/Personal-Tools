@@ -17,7 +17,7 @@ export const GenerateButton = React.memo(
         disabled={disabled || loading}
         size="lg"
         className={cn(
-          "self-center rounded-full relative w-54 gap-1.5 px-4",
+          "self-center rounded-full relative w-full sm:w-54 gap-1.5 px-4",
           loading && "px-4 py-6",
         )}
       >

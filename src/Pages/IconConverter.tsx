@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React, { useState, useCallback, useMemo, useContext } from "react";
-import { motion } from "motion/react";
+import React, { useState, useCallback, useMemo, useContext, useEffect, useLayoutEffect } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { toast } from "sonner";
 import { useFileHandler } from "@/hooks/useFileHandler";
+import { usePageHeader } from "@/hooks/usePageHeader";
 import { generateComponentCode, replaceAttributes, validateFiles } from "@/lib";
+import { EASE_OUT } from "@/lib/ease";
 import { TrayProviderProps } from "@/components/context/TrayProvider";
 import { ErrorBoundary } from "react-error-boundary";
 import {
@@ -26,9 +28,19 @@ import {
 } from "@/components/icons/version01";
 import { IconPenTool } from "@/components/icons/version02";
 import { TrayContext } from "@/components/context/TrayContext";
-import PageHeader from "@/components/PageHeader";
+
 
 const IconConverter: React.FC = () => {
+  const { setProps } = usePageHeader();
+
+  useLayoutEffect(() => {
+    setProps({
+      title: "Icon Converter",
+      headerIcon: <IconPenTool className="size-10 lg:size-14 shrink-0" fill />,
+      description: "Convert SVG icons to React components",
+    });
+  }, [setProps]);
+
   const [state, setState] = useState<IconConverterState>({
     outputs: [],
     logs: [],
@@ -382,12 +394,6 @@ const IconConverter: React.FC = () => {
       )}
     >
       <div className="p-2">
-        <PageHeader
-          title="Svg to React Icon Converter"
-          description="This tool is to create react component (.tsx) from 3 types of svg
-              icons twotone, bulk and bold."
-          icon={IconPenTool}
-        />
         <div className="relative flex flex-col justify-center gap-6 mt-2">
           <Card className="p-5 md:p-6 bg-muted/20 rounded-3xl overflow-hidden">
             <div className="flex items-center gap-2 mb-3 text-[11px] font-semibold text-muted-foreground tracking-[0.15em] uppercase">
@@ -505,19 +511,21 @@ const IconConverter: React.FC = () => {
           </div>
 
           <Card
-            className={cn("p-6 bg-muted/20 rounded-3xl flex flex-col gap-6")}
+            className={cn(
+              "p-4 sm:p-6 bg-muted/20 rounded-3xl flex flex-col gap-6",
+            )}
           >
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <label
                 htmlFor="iconPropsPath"
-                className="flex items-center gap-2 font-medium text-foreground"
+                className="flex items-center gap-2 font-medium text-foreground shrink-0"
               >
                 Path for{" "}
                 <kbd className="px-2 rounded-lg py-1 dark:bg-muted dark:text-muted-foreground">
                   &#60;IconProps&#62;
                 </kbd>
                 <Button
-                  className="!p-1 rounded-xl"
+                  className="p-1! rounded-xl"
                   variant={"subtle"}
                   size={"icon"}
                   onClick={() => {
@@ -528,7 +536,7 @@ const IconConverter: React.FC = () => {
                 </Button>
               </label>
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 w-full sm:w-auto justify-end">
                 <GenerateButton
                   onClick={generateComponents}
                   disabled={!isReady || isProcessing}
@@ -637,14 +645,23 @@ const IconConverter: React.FC = () => {
             )}
           </Card>
 
-          {state.logs.length > 0 && (
-            <ResultsSection
-              {...state}
-              names={lineDuotoneHandler.names}
-              onClear={clearGenerated}
-              disabled={isProcessing}
-            />
-          )}
+          <AnimatePresence>
+            {state.logs.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.2, ease: EASE_OUT }}
+              >
+                <ResultsSection
+                  {...state}
+                  names={lineDuotoneHandler.names}
+                  onClear={clearGenerated}
+                  disabled={isProcessing}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         <Tray />

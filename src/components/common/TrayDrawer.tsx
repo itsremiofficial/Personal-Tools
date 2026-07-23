@@ -281,7 +281,7 @@ const Tray = () => {
                 exit="exit"
               >
                 <motion.div ref={contentRef} className="tray__content">
-                  <div className="bg-card p-4 rounded-4xl relative">
+                  <div className="bg-card p-3 sm:p-4 rounded-4xl relative max-w-[90vw] sm:max-w-none">
                     <button
                       className={cn(
                         "absolute h-2 w-14 rounded-full left-1/2 transform -translate-x-1/2 top-2",

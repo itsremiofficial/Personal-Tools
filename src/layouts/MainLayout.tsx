@@ -1,12 +1,9 @@
+import { Suspense } from "react";
+import { Outlet } from "react-router-dom";
+import { SidebarProvider } from "@/hooks/useSidebar";
+import { PageHeaderProvider } from "@/hooks/usePageHeader";
+import { Header } from "@/components/common/Header";
 import Sidebar from "./Sidebar";
-import {
-  Suspense,
-  useEffect,
-  useState,
-  useCallback,
-  PropsWithChildren,
-} from "react";
-import PreLoader from "@/components/PreLoader";
 
 const PageSkeleton = () => (
   <div className="p-4 sm:p-6 space-y-6">
@@ -25,39 +22,23 @@ const PageSkeleton = () => (
   </div>
 );
 
-const MainLayout = ({ children }: PropsWithChildren) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isSidebarReady, setIsSidebarReady] = useState(false);
-
-  useEffect(() => {
-    if (document.readyState === "complete") {
-      setIsLoading(false);
-    } else {
-      const handleLoad = () => {
-        setTimeout(() => setIsLoading(false), 300);
-      };
-
-      window.addEventListener("load", handleLoad);
-      return () => window.removeEventListener("load", handleLoad);
-    }
-  }, []);
-
-  const sidebarRef = useCallback((node: HTMLElement | null) => {
-    if (node) {
-      setIsSidebarReady(true);
-    }
-  }, []);
-
+const MainLayout = () => {
   return (
-    <div className="flex relative">
-      {isLoading && <PreLoader />}
-      <Sidebar ref={sidebarRef} />
-      {isSidebarReady && (
-        <main className="main-content bg-card/50 rounded-3xl flex flex-col min-h-screen ml-auto">
-          <Suspense fallback={<PageSkeleton />}>{children}</Suspense>
-        </main>
-      )}
-    </div>
+    <SidebarProvider>
+      <PageHeaderProvider>
+        <div className="h-screen md:grid md:grid-cols-[auto_1fr] overflow-hidden">
+          <Sidebar />
+          <div className="flex flex-col min-w-0 overflow-hidden">
+            <Header />
+            <main className="flex-1 overflow-auto">
+              <Suspense fallback={<PageSkeleton />}>
+                <Outlet />
+              </Suspense>
+            </main>
+          </div>
+        </div>
+      </PageHeaderProvider>
+    </SidebarProvider>
   );
 };
 
